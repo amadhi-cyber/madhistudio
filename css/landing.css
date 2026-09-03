@@ -1,0 +1,2339 @@
+/* Main landing page integration. Source CSS remains unchanged. */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 105px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #efd1d5;
+  pointer-events: none;
+}
+
+/* Header: preserve source nav sizing and behavior. */
+.logo img {
+  width: 250px;
+  max-width: none;
+  height: auto;
+  transform: translate(-32px, 0);
+}
+
+.nav-links {
+  margin-left: auto;
+}
+
+.cart-link {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.cart-link svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+/* Every major area occupies a viewport below the fixed header. */
+.hero,
+.services-viewport,
+.work-section,
+.cta {
+  min-height: calc(100vh - 105px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.hero {
+  min-height: calc(100vh - 105px);
+}
+
+/* Services overview copied visually from the source design page. */
+.services-viewport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+
+.services-viewport .page-section {
+  padding: 36px 0 24px;
+}
+
+.services-viewport .page-title {
+  color: var(--accent);
+  font-size: clamp(42px, 4vw, 58px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin: 0;
+}
+
+.services-viewport .section-divider {
+  display: none;
+}
+
+.services-viewport .sitemap-section {
+  padding: 56px 0 34px;
+}
+
+.sitemap-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 50px;
+}
+
+.sitemap-card {
+  position: relative;
+  min-height: 308px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,0.02);
+  border-radius: 26px;
+  background: #eef3f9;
+  overflow: hidden;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.sitemap-card:hover {
+  border-color: var(--border);
+  box-shadow: 0 18px 40px rgba(0,0,0,.04);
+}
+
+.sitemap-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sitemap-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sitemap-card h2 {
+  flex: 0 1 78%;
+  max-width: 78%;
+  color: #111;
+  font-size: clamp(25px, 2.25vw, 35px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.02;
+}
+
+.sitemap-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.sitemap-number {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: #aaa;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sitemap-main-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: auto;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.sitemap-main-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Each featured-work section matches the source 1-large + 2-small layout. */
+.work-section {
+  display: flex;
+  align-items: center;
+  padding: 24px 0 22px;
+  background: #fff;
+}
+
+.work-section > .container {
+  width: 100%;
+}
+
+.work-section .section-title {
+  color: #111;
+  font-size: 41.4px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: 30px;
+}
+
+.work-section .feature-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.08fr) minmax(300px, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 14px;
+}
+
+.work-section .feature-card,
+.work-section .mini-card {
+  position: relative;
+  display: block;
+  background: var(--card);
+  border: 1px solid #d8d8d8;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .25s ease;
+}
+
+.work-section .feature-card {
+  height: min(59vh, 630px);
+}
+
+.work-section .side-stack {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.work-section .mini-card {
+  min-height: 0;
+}
+
+.work-section .feature-card img,
+.work-section .mini-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 44px 28px 82px;
+  transform: none;
+}
+
+.work-section .mini-card img {
+  padding: 46px 20px 68px;
+}
+
+.work-section .card-caption {
+  min-height: 66px;
+}
+
+.work-section .section-action {
+  display: block;
+  width: fit-content;
+  margin: 22px auto 0;
+}
+
+/* CTA matches source. */
+.cta {
+  margin: 0;
+  min-height: calc(100vh - 105px);
+}
+
+/* Footer from the source shell screenshot. */
+footer {
+  scroll-snap-align: end;
+  background: #fff;
+}
+
+.footer-inner {
+  gap: 10px;
+}
+
+@media (max-width: 1200px) {
+  .nav-links { gap: 10px; }
+  nav a { font-size: 13px; padding: 4px 6px; }
+  .sitemap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .services-viewport { min-height: auto; padding: 55px 0; }
+  .work-section .feature-layout { grid-template-columns: 1.65fr .9fr; }
+}
+
+@media (max-width: 760px) {
+  html { scroll-snap-type: y proximity; }
+  .logo img { width: 190px; transform: translate(-24px, 0); }
+  .sitemap-grid { grid-template-columns: 1fr; }
+  .work-section { min-height: auto; padding: 70px 0; }
+  .work-section .feature-layout { grid-template-columns: 1fr; }
+  .work-section .feature-card { height: 440px; }
+  .work-section .side-stack { grid-template-columns: 1fr; grid-template-rows: repeat(2, 330px); }
+}
+
+/* =========================================================
+   SEPT 1 HERO + CTA REVISION
+   Reference hero only; all service/work sections remain intact.
+========================================================= */
+
+/* Header must stay white — no green panel/background behind it. */
+nav {
+  background: #ffffff !important;
+}
+
+/* Replace the old photographic hero with the reference typewriter hero. */
+.hero.typing-hero-panel {
+  height: calc(100vh - 105px);
+  min-height: calc(100vh - 105px);
+  padding: 40px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero.typing-hero-panel::after {
+  display: none !important;
+  content: none !important;
+}
+
+.typing-hero-inner {
+  width: min(1120px, 100%);
+  max-width: none;
+  margin: 0 auto;
+  transform: none;
+  z-index: 1;
+}
+
+.hero .hero-title.typing-hero {
+  max-width: 900px;
+  min-height: calc(0.98em * 3);
+  margin: 0 auto;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(27.5px, 3.94vw, 57.5px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 400;
+  color: #111111;
+  white-space: normal;
+}
+
+.type-line {
+  display: block;
+  min-height: 0.98em;
+}
+
+.typed-accent {
+  color: #111111;
+  transition: color 0.75s ease;
+}
+
+.accent-char {
+  display: inline-block;
+  transition: color 0.35s ease, background-color 0.18s ease;
+}
+
+.accent-char.is-selected {
+  background: rgba(10, 201, 43, 0.18);
+}
+
+.typed-accent.is-green .accent-char,
+.typed-accent.is-green {
+  color: var(--accent);
+  background: transparent;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 0.026em;
+  height: 0.82em;
+  margin-left: 0.055em;
+  background: #111111;
+  transform: translateY(0.08em);
+  animation: landingCursorBlink 0.78s steps(1, end) infinite;
+  vertical-align: baseline;
+}
+
+@keyframes landingCursorBlink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  gap: 7px;
+  color: #aaaaaa;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.scroll-cue.is-visible { opacity: 1; }
+body.user-has-scrolled .scroll-cue { opacity: 0; }
+
+.scroll-cue-arrow {
+  font-size: 22px;
+  line-height: 1;
+  animation: landingArrowBounce 1.15s ease-in-out infinite;
+}
+
+@keyframes landingArrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* CTA text from the supplied reference image. */
+.cta .cta-message {
+  max-width: 860px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.cta .btn {
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .hero.typing-hero-panel {
+    height: calc(100vh - 105px);
+    min-height: calc(100vh - 105px);
+    padding: 30px 18px 70px;
+  }
+
+  .typing-hero-inner {
+    transform: none;
+  }
+
+  .hero .hero-title.typing-hero {
+    font-size: clamp(33.75px, 10vw, 52.5px);
+  }
+
+  .cta .cta-message {
+    font-size: 16px;
+    padding: 0 18px;
+  }
+
+  .cta-break { display: none; }
+}
+
+/* =========================================================
+   SEPT 1 FINAL LANDING REVISION
+========================================================= */
+
+/* Header stays entirely white. Active page/section uses green fill with white type. */
+nav,
+nav .nav-inner {
+  background: #ffffff !important;
+}
+
+nav a.active,
+nav a.active:hover {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 4px 10px rgba(10, 201, 43, 0.14) !important;
+}
+
+/* Five service cards across on wide screens. */
+.sitemap-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.sitemap-card {
+  min-height: 310px;
+}
+
+.sitemap-card h2 {
+  font-size: clamp(20.7px, 1.62vw, 28.8px);
+}
+
+/* Preserve viewport-to-viewport rhythm for the new fifth work section. */
+#scrollytelling {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.scrolly-feature-card img {
+  object-fit: contain !important;
+  background: #ffffff;
+  padding: 34px 34px 82px !important;
+}
+
+/* Keep the CTA as the final full viewport before the footer. */
+#contact-cta {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 1380px) {
+  .nav-links { gap: 10px; }
+  nav a { font-size: 12.5px; padding-left: 5px; padding-right: 5px; }
+  .sitemap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+}
+
+@media (max-width: 900px) {
+  .sitemap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .sitemap-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   SCROLLYTELLING LIVE FEATURE PANEL
+   One full-width panel; user can focus/click the iframe and scroll the
+   actual scrollytelling page inside it.
+========================================================= */
+.scrolly-work-section {
+  align-items: flex-start;
+  padding-top: 44px;
+  padding-bottom: 44px;
+  min-height: calc(100vh - 105px);
+}
+
+.scrolly-section-container {
+  width: 100%;
+}
+
+.scrolly-work-section .section-title {
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+.scrolly-embedded-panel {
+  position: relative;
+  width: 100%;
+  height: min(76vh, 820px);
+  min-height: 660px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 18px;
+}
+
+.scrolly-live-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ffffff;
+  display: block;
+}
+
+/* Keep the source-card labels visible without blocking iframe interaction. */
+.scrolly-panel-pill,
+.scrolly-panel-featured,
+.scrolly-panel-caption {
+  pointer-events: none;
+}
+
+.scrolly-panel-pill,
+.scrolly-panel-featured {
+  z-index: 4;
+}
+
+.scrolly-panel-caption {
+  z-index: 4;
+  min-height: 70px;
+  background: rgba(255,255,255,0.88);
+}
+
+@media (max-width: 900px) {
+  .scrolly-embedded-panel {
+    height: 72vh;
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 620px) {
+  .scrolly-work-section {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .scrolly-embedded-panel {
+    height: 70vh;
+    min-height: 500px;
+  }
+}
+
+
+/* =========================================================
+   SEPT 1 VISUAL POLISH
+========================================================= */
+
+/* Never let section-active styling paint a green background behind the logo. */
+.logo a,
+.logo a:hover,
+.logo a.active,
+.logo a.active:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+/* Darker navigation separators and a clearer divider beneath the fixed header. */
+.nav-divider {
+  background: rgba(0,0,0,0.24) !important;
+}
+
+nav {
+  border-bottom: 1px solid rgba(0,0,0,0.18) !important;
+}
+
+/* Black footer with Madhi Studio green typography and separators. */
+footer {
+  background: #000000 !important;
+  color: var(--accent) !important;
+  border-top-color: #000000 !important;
+}
+
+footer .footer-inner,
+footer .footer-main,
+footer .footer-site-links,
+footer a,
+footer .footer-site-link {
+  color: var(--accent) !important;
+}
+
+footer a:hover,
+footer .footer-site-link:hover {
+  color: var(--accent) !important;
+  opacity: 0.82;
+}
+
+footer .footer-divider {
+  background: var(--accent) !important;
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   SEPT 1 HERO / NAV / SERVICE CARD REFINEMENT
+========================================================= */
+
+/* Text-based MADHI treatment within the existing logo frame. */
+.logo a {
+  position: relative;
+  overflow: visible;
+}
+
+.logo-wordmark {
+  position: absolute;
+  left: 44px;
+  top: 34px;
+  z-index: 5;
+  width: 152px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2px;
+  background: #ffffff;
+  color: #000000;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.015em;
+  pointer-events: none;
+}
+
+/* Giant, quiet MADHI layer behind the hero message. */
+.hero-watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: 100vw;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  color: #f0f0f0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: min(25vw, 460px);
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: 0.025em;
+  user-select: none;
+  pointer-events: none;
+}
+
+.typing-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1540px, calc(100vw - 80px));
+}
+
+/* Keep the exact existing type size, but widen the measure and make it two lines. */
+.hero .hero-title.typing-hero {
+  max-width: 1520px;
+  min-height: calc(1.47em * 2);
+  line-height: 1.47;
+}
+
+.type-line {
+  min-height: 1.47em;
+  white-space: nowrap;
+}
+
+/* Scroll cue sits clearly below the second line, in light grey. */
+.scroll-cue {
+  bottom: 34px;
+  gap: 9px;
+  color: #c3c3c3;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.scroll-cue-arrow {
+  color: #c3c3c3;
+  font-size: 34px;
+}
+
+/* Larger nav type while preserving each breakpoint's existing gap. */
+nav a,
+nav a.active {
+  font-size: 17.5px;
+}
+
+@media (max-width: 1380px) {
+  .nav-links { gap: 10px; }
+  nav a,
+  nav a.active {
+    font-size: 15.625px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+/* Let service headings use more of the first line before the number badge. */
+.sitemap-card-top {
+  gap: 6px;
+}
+
+.sitemap-card h2 {
+  flex: 1 1 auto;
+  width: auto;
+  max-width: calc(100% - 46px);
+}
+
+/* Footer remains exactly black with Madhi green text. */
+footer {
+  background: #000000 !important;
+  color: var(--accent) !important;
+}
+
+footer .footer-inner,
+footer .footer-main,
+footer .footer-site-links,
+footer a,
+footer .footer-site-link {
+  color: var(--accent) !important;
+}
+
+@media (max-width: 760px) {
+  .hero-watermark {
+    font-size: 31vw;
+  }
+
+  .typing-hero-inner {
+    width: calc(100vw - 36px);
+  }
+
+  .hero .hero-title.typing-hero {
+    max-width: 100%;
+    min-height: auto;
+    line-height: 1.25;
+  }
+
+  .type-line {
+    min-height: 1.25em;
+    white-space: normal;
+  }
+
+  .logo-wordmark {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   SEPT 2 — 3-line hero, plain logo, simplified navigation
+========================================================= */
+
+/* Header now uses the dedicated plain SVG logo; no HTML wordmark overlay. */
+.logo-wordmark { display: none !important; }
+
+/* Revert hero copy to three lines while preserving the existing type size.
+   1.47 × 0.80 = 1.176 line-height. */
+.hero .hero-title.typing-hero {
+  max-width: 1520px;
+  min-height: calc(1.176em * 3);
+  line-height: 1.176;
+}
+
+.type-line {
+  min-height: 1.176em;
+  white-space: nowrap;
+}
+
+/* Lower the cue farther beneath the final hero line. */
+.scroll-cue {
+  bottom: 8px;
+  color: #c7c7c7;
+}
+
+.scroll-cue-arrow {
+  color: #c7c7c7;
+}
+
+/* Use the same requested + terminology throughout service headings. */
+.sitemap-card h2 {
+  max-width: calc(100% - 46px);
+}
+
+@media (max-width: 760px) {
+  .hero .hero-title.typing-hero {
+    min-height: auto;
+    line-height: 1.12;
+  }
+
+  .type-line {
+    min-height: 1.12em;
+    white-space: normal;
+  }
+}
+
+/* =========================================================
+   SEPT 2 — FULL-WIDTH FEATURED WORK + MADHI HERO BACKGROUND
+========================================================= */
+:root {
+  --landing-header-height: 132px;
+  --landing-feature-card-height: min(66vh, 700px);
+}
+
+html {
+  scroll-padding-top: var(--landing-header-height);
+}
+
+body {
+  padding-top: var(--landing-header-height);
+}
+
+nav {
+  height: var(--landing-header-height) !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.logo,
+.logo a {
+  width: 260px !important;
+  height: var(--landing-header-height) !important;
+}
+
+.logo a {
+  justify-content: flex-start !important;
+}
+
+.logo img {
+  width: 250px !important;
+  height: auto !important;
+  max-height: 112px;
+  transform: none !important;
+}
+
+.hero,
+.services-viewport,
+.work-section,
+.cta {
+  min-height: calc(100vh - var(--landing-header-height));
+}
+
+.hero.typing-hero-panel,
+.cta {
+  height: calc(100vh - var(--landing-header-height));
+  min-height: calc(100vh - var(--landing-header-height));
+}
+
+/* Use the uploaded lined MADHI SVG as the quiet hero backdrop. */
+.hero-watermark {
+  display: none !important;
+}
+
+.hero-madhi-background {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: min(1400px, calc(100vw - 48px));
+  height: auto;
+  max-height: 68%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.typing-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Put the cue directly beneath the completed three-line hero message. */
+.scroll-cue {
+  position: static;
+  left: auto;
+  bottom: auto;
+  transform: none;
+  margin: 58px auto 0;
+  color: #c7c7c7;
+}
+
+.scroll-cue-arrow {
+  color: #c7c7c7;
+  font-size: 34px;
+}
+
+/* Services begins at the same top/title axis as every featured-work viewport. */
+.services-viewport {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 24px 0 22px;
+}
+
+.services-container {
+  width: 100%;
+}
+
+.services-title {
+  color: var(--accent) !important;
+  font-size: 41.4px !important;
+  font-weight: 600 !important;
+  letter-spacing: -1px !important;
+  line-height: 1.05 !important;
+  margin-bottom: 30px !important;
+}
+
+.sitemap-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 26px;
+}
+
+/* One wide featured-work panel per service; no small side cards. */
+.work-section .feature-layout {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.work-section .feature-card {
+  width: 100%;
+  height: var(--landing-feature-card-height);
+  max-width: none;
+}
+
+.work-section .feature-card img {
+  padding: 48px 38px 84px;
+}
+
+.work-section .side-stack,
+.work-section .mini-card {
+  display: none !important;
+}
+
+/* Scrollytelling has been removed from Services and from the featured-work sequence. */
+#scrollytelling {
+  display: none !important;
+}
+
+/* Keep the header divider visually in front of the hero/section backgrounds. */
+nav {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.20);
+}
+
+nav::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: rgba(0,0,0,0.20);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Match Services card height to the unchanged wide Featured Work card height. */
+.sitemap-card {
+  height: var(--landing-feature-card-height);
+  min-height: 0;
+}
+
+/* Move every section-level Explore button to the requested lower-right position. */
+.work-section .section-action {
+  margin: 22px 10% 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .sitemap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding-top: 0;
+  }
+
+  nav {
+    height: auto !important;
+    min-height: 96px;
+  }
+
+  .logo,
+  .logo a {
+    height: 96px !important;
+    width: 210px !important;
+  }
+
+  .logo img {
+    width: 205px !important;
+    max-height: 88px;
+  }
+
+  .hero.typing-hero-panel {
+    height: auto;
+    min-height: 72vh;
+  }
+
+  .hero-madhi-background {
+    width: calc(100vw - 24px);
+    max-height: 60%;
+  }
+
+  .scroll-cue {
+    margin-top: 42px;
+  }
+
+  .services-viewport,
+  .work-section {
+    min-height: auto;
+    padding: 64px 0;
+  }
+
+  .sitemap-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sitemap-card {
+    height: auto;
+    min-height: 308px;
+  }
+
+  .work-section .feature-card {
+    height: 440px;
+  }
+
+  .work-section .section-action {
+    margin-right: 0;
+  }
+}
+
+
+/* =========================================================
+   SEPT 2 — DETAIL POLISH / USER-REQUESTED FINAL OVERRIDES
+========================================================= */
+:root {
+  --landing-header-divider: rgba(0,0,0,0.24);
+  --landing-page-edge: 20px;
+}
+
+/* Header divider: thinner, exactly the same color as the vertical nav dividers. */
+nav {
+  border-bottom: 0.5px solid var(--landing-header-divider) !important;
+  box-shadow: none !important;
+}
+
+nav::after {
+  bottom: 0 !important;
+  height: 0.5px !important;
+  background: var(--landing-header-divider) !important;
+}
+
+/* Vertical dividers match the visual height of the active navigation pill. */
+.nav-divider {
+  height: 34px !important;
+  background: var(--landing-header-divider) !important;
+}
+
+/* MADHI runs almost edge-to-edge, using the same 20px page inset as the header. */
+.hero-madhi-background {
+  left: var(--landing-page-edge) !important;
+  right: var(--landing-page-edge) !important;
+  top: 50% !important;
+  width: calc(100vw - (var(--landing-page-edge) * 2)) !important;
+  max-width: none !important;
+  max-height: 76% !important;
+  transform: translateY(-50%) !important;
+  opacity: 1;
+}
+
+/* The hero message itself—not the cue—is centered against the MADHI artwork. */
+.typing-hero-inner {
+  width: min(1540px, calc(100vw - 80px)) !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.hero .hero-title.typing-hero {
+  margin: 0 auto !important;
+}
+
+/* Finer, slightly longer typing caret. */
+.typing-cursor {
+  width: 0.016em !important;
+  height: 0.94em !important;
+  margin-left: 0.045em !important;
+  transform: translateY(0.10em) !important;
+}
+
+/* Keep the cue below the centered hero message without affecting title centering. */
+.scroll-cue {
+  position: absolute !important;
+  left: 50% !important;
+  top: calc(100% + 34px) !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Larger Services headings + numbers; align each heading vertically to its number bubble. */
+.sitemap-card {
+  padding: 14px 14px 28px !important; /* 100% more bottom padding than the original 14px */
+}
+
+.sitemap-card-top {
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.sitemap-card h2 {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  max-width: calc(100% - 45px) !important;
+  font-size: 37.26px !important;
+  line-height: 1 !important;
+}
+
+.sitemap-number {
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 22.5px !important;
+  line-height: 1 !important;
+}
+
+/* Service-card action buttons sit higher because of the doubled bottom padding. */
+.sitemap-main-link {
+  margin-bottom: 0 !important;
+}
+
+/* Featured Work: action button shares the caption band, right-aligned across from the caption copy. */
+.work-section .container {
+  position: relative;
+}
+
+.work-section .feature-layout {
+  margin-bottom: 0 !important;
+}
+
+.work-section .feature-card {
+  display: block !important;
+}
+
+.work-section .card-caption {
+  min-height: 94px;
+  padding: 12px 18px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.work-section .card-caption-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.work-section .card-caption-copy h3,
+.work-section .card-caption-copy p {
+  margin-right: 0;
+}
+
+.work-section .section-action {
+  position: static !important;
+  flex: 0 0 auto;
+  margin: 0 !important;
+  white-space: nowrap;
+}
+
+/* The caption now owns 94px at the bottom, so keep artwork clear of it. */
+.work-section .feature-card img {
+  padding-bottom: 106px !important;
+}
+
+/* Footer: black fill, first row white, related-sites row grey. */
+footer {
+  background: #000 !important;
+  color: #fff !important;
+  border-top-color: #000 !important;
+}
+
+footer .footer-main,
+footer .footer-main a {
+  color: #fff !important;
+}
+
+footer .footer-site-links,
+footer .footer-site-link,
+footer .footer-site-links a {
+  color: #9b9b9b !important;
+}
+
+footer .footer-divider {
+  background: #777 !important;
+  opacity: 0.8 !important;
+}
+
+footer .footer-main a:hover {
+  color: #fff !important;
+  opacity: 0.82;
+}
+
+footer .footer-site-link:hover,
+footer .footer-site-links a:hover {
+  color: #c2c2c2 !important;
+  opacity: 1;
+}
+
+@media (max-width: 980px) {
+  .sitemap-card h2 {
+    font-size: clamp(30px, 4.8vw, 40px) !important;
+  }
+
+  .work-section .card-caption {
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 128px;
+  }
+
+  .work-section .feature-card img {
+    padding-bottom: 140px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-madhi-background {
+    left: 12px !important;
+    right: 12px !important;
+    width: calc(100vw - 24px) !important;
+  }
+
+  .scroll-cue {
+    top: calc(100% + 26px) !important;
+  }
+
+  .sitemap-card {
+    padding-bottom: 28px !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 2 — HEADER DIVIDER + SERVICE TITLE UNIFORMITY
+========================================================= */
+:root {
+  --landing-header-divider: rgba(17,17,17,0.10);
+}
+
+/* One single, quiet divider treatment—no darker doubled edge. */
+nav {
+  border-bottom: 1px solid var(--landing-header-divider) !important;
+  box-shadow: none !important;
+}
+
+nav::before,
+nav::after {
+  content: none !important;
+  display: none !important;
+}
+
+.nav-divider {
+  width: 1px !important;
+  background: var(--landing-header-divider) !important;
+}
+
+/* Scroll cue intentionally removed. */
+.scroll-cue,
+.scroll-cue-arrow {
+  display: none !important;
+}
+
+/* Four service titles use the same two-line rhythm for an even visual block. */
+.sitemap-card-top {
+  align-items: flex-start !important;
+}
+
+.sitemap-card h2 {
+  display: grid !important;
+  grid-template-rows: repeat(2, minmax(0, auto));
+  align-content: start;
+  min-height: 2em;
+  line-height: 1 !important;
+}
+
+.sitemap-card h2 > span {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Keep number badges aligned consistently with the top title line. */
+.sitemap-number {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .sitemap-card h2 > span {
+    white-space: normal;
+  }
+}
+
+/* =========================================================
+   SEPT 2 — HEADER / SECTION ALIGNMENT + FEATURE PANEL FILL
+   User-requested changes only.
+========================================================= */
+:root {
+  --landing-header-height: 119px;
+  --landing-header-divider: rgba(17,17,17,0.10);
+}
+
+/* Reduce header height by 10% while keeping the logo vertically contained. */
+body {
+  padding-top: var(--landing-header-height) !important;
+}
+
+html {
+  scroll-padding-top: var(--landing-header-height) !important;
+}
+
+nav {
+  height: var(--landing-header-height) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.logo,
+.logo a {
+  height: var(--landing-header-height) !important;
+}
+
+.logo img {
+  max-height: 105px !important;
+}
+
+/* One continuous divider beneath the header, matching the nav separators. */
+nav::before {
+  content: none !important;
+  display: none !important;
+}
+
+nav::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: var(--landing-header-divider) !important;
+  z-index: 10001 !important;
+  pointer-events: none !important;
+}
+
+.nav-divider {
+  width: 1px !important;
+  background: var(--landing-header-divider) !important;
+}
+
+/* Reduce navigation title type by 10%; spacing between items is unchanged. */
+nav a,
+nav a.active {
+  font-size: 15.75px !important;
+}
+
+/* Each featured-work viewport now starts on the same title axis as Services. */
+.work-section {
+  align-items: flex-start !important;
+  padding-top: 24px !important;
+  padding-bottom: 22px !important;
+  min-height: calc(100vh - var(--landing-header-height)) !important;
+}
+
+.work-section .section-title {
+  margin-top: 0 !important;
+}
+
+/* Featured panels: artwork field white; lower title/action band matches Services cards. */
+.work-section .feature-card {
+  background: #ffffff !important;
+}
+
+.work-section .feature-card img {
+  background: #ffffff !important;
+}
+
+.work-section .card-caption {
+  background: #eef3f9 !important;
+  backdrop-filter: none !important;
+}
+
+/* Keep viewport sizing synchronized with the reduced header. */
+.hero,
+.services-viewport,
+.work-section,
+.cta {
+  min-height: calc(100vh - var(--landing-header-height)) !important;
+}
+
+.hero.typing-hero-panel,
+.cta {
+  height: calc(100vh - var(--landing-header-height)) !important;
+  min-height: calc(100vh - var(--landing-header-height)) !important;
+}
+
+@media (max-width: 1380px) {
+  nav a,
+  nav a.active {
+    font-size: 14.0625px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding-top: 0 !important;
+  }
+
+  nav {
+    height: auto !important;
+    min-height: 86px !important;
+  }
+
+  .logo,
+  .logo a {
+    height: 86px !important;
+  }
+
+  .logo img {
+    max-height: 78px !important;
+  }
+
+  .hero.typing-hero-panel,
+  .cta {
+    height: auto !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 2 — SERVICE PAGE LINK STATE + SHARED PANEL COLOR
+========================================================= */
+:root {
+  --madhi-light-panel: #DDF4FF;
+}
+
+/* Keep the landing page identified as Home while showing the current service viewport. */
+nav a[data-section-target] {
+  overflow: visible;
+}
+
+nav a[data-section-target].section-current::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 8px !important;
+  right: 8px !important;
+  bottom: -7px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: var(--accent) !important;
+}
+
+/* Exact same light blue-grey used by the Motion Graphics control/info panels. */
+.sitemap-card,
+.work-section .card-caption {
+  background: var(--madhi-light-panel) !important;
+}
+
+
+/* =========================================================
+   SEPT 2 — LIGHTER LINEWORK / CURRENT-VIEW UNDERLINE POLISH
+   Requested visual-only refinement; no layout changes.
+========================================================= */
+:root {
+  --madhi-light-panel: #DDF4FF;
+  --madhi-light-line: rgba(0,0,0,0.05);
+}
+
+/* Current service underline sits immediately below the nav label. */
+nav a[data-section-target].section-current::after {
+  bottom: -2px !important;
+  height: 2px !important;
+}
+
+/* Lighter featured-work outlines and separators. */
+.work-section .feature-card {
+  border-color: var(--madhi-light-line) !important;
+}
+
+.work-section .card-caption {
+  background: var(--madhi-light-panel) !important;
+  border-top-color: var(--madhi-light-line) !important;
+}
+
+/* Use one substantially lighter blue-grey across landing service surfaces. */
+.sitemap-card {
+  background: var(--madhi-light-panel) !important;
+  border-color: var(--madhi-light-line) !important;
+}
+
+/* =========================================================
+   SEPT 2 — CTA FOOTER + MATCHED DIVIDER LINEWORK
+   Keep only the copyright row; no footer fill or divider.
+========================================================= */
+:root {
+  --madhi-shared-divider: var(--landing-header-divider);
+}
+
+/* Match the featured-work outline and caption separator to the line under the header. */
+.work-section .feature-card {
+  border-color: var(--madhi-shared-divider) !important;
+}
+
+.work-section .card-caption {
+  border-top: 1px solid var(--madhi-shared-divider) !important;
+}
+
+/* Footer lives inside the CTA viewport at its bottom edge. */
+#contact-cta {
+  position: relative !important;
+}
+
+#contact-cta .cta-footer {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+footer,
+.cta-footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 0 !important;
+  padding: 16px 24px 18px !important;
+}
+
+footer .footer-inner,
+.cta-footer .footer-inner {
+  gap: 0 !important;
+}
+
+footer .footer-main,
+footer .footer-main a,
+.cta-footer .footer-main,
+.cta-footer .footer-main a {
+  color: rgba(17,17,17,0.68) !important;
+}
+
+footer .footer-site-links,
+footer .footer-divider,
+.cta-footer .footer-site-links,
+.cta-footer .footer-divider {
+  display: none !important;
+}
+
+footer .footer-main a:hover,
+.cta-footer .footer-main a:hover {
+  color: #111 !important;
+  opacity: 1 !important;
+}
+
+
+
+/* =========================================================
+   INTERACTIVE TURNTABLE — LANDING FEATURE
+   Uses the same inline SVG and service-interactions.js controller as
+   design/motion-graphics.html while preserving the landing card geometry.
+========================================================= */
+#motion-graphics .landing-turntable-artwork {
+  position: absolute;
+  inset: 0 0 94px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 28px 16px;
+  background: #fff;
+  overflow: hidden;
+}
+#motion-graphics .landing-turntable-inline {
+  width: min(96%, 940px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#motion-graphics .landing-turntable-inline > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#motion-graphics .landing-turntable-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+#motion-graphics #turntableStartButton {
+  margin: 0 !important;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  #motion-graphics .landing-turntable-actions { gap: 6px; }
+  #motion-graphics .landing-turntable-actions .btn { padding-left: 12px; padding-right: 12px; }
+}
+
+
+/* =========================================================
+   BRANDING + WEB DESIGN FEATURED WORK
+========================================================= */
+#branding-logos .branding-feature-art {
+  object-fit: contain !important;
+  padding: 46px 46px 112px !important;
+}
+#web-design .landing-web-preview-wrap {
+  position: absolute;
+  inset: 0 0 94px 0;
+  overflow: hidden;
+  background: #8dcef9;
+}
+#web-design .landing-web-preview {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #8dcef9;
+}
+#web-design .landing-preview-popout {
+  position: absolute;
+  z-index: 8;
+  top: 14px;
+  left: 14px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 999px;
+  background: rgba(255,255,255,.95);
+  color: #111;
+  font-size: 22px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: transform .18s ease, border-color .18s ease;
+}
+#web-design .landing-preview-popout:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+
+/* =========================================================
+   INTERACTIVE AIRPORT NETWORK + FITTED WEB PREVIEW
+========================================================= */
+#ui-icons .landing-airport-network-wrap {
+  position: absolute;
+  inset: 0 0 94px 0;
+  overflow: hidden;
+  background: #DDF4FF;
+}
+#ui-icons .landing-airport-network-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  overflow: hidden;
+  background: #DDF4FF;
+}
+#ui-icons .landing-airport-network-card > img { display: none !important; }
+
+#web-design .landing-web-preview-wrap,
+#web-design .landing-web-preview {
+  overflow: hidden !important;
+}
+
+
+/* Sept 3 — service order/content + shared sky panel + branding collage */
+.sitemap-card { min-height: 596px !important; background: #DDF4FF !important; }
+.work-section .card-caption,
+.sitemap-card,
+.vector-info-card,
+.city-demo,
+.evacuation-demo { background: #DDF4FF !important; }
+.sitemap-service-copy { display: flex; flex-direction: column; gap: 6px; }
+.sitemap-subtitle { margin-bottom: 0 !important; color: rgba(17,17,17,.82) !important; font-size: 12.5px !important; line-height: 1.45 !important; }
+.sitemap-summary { margin-bottom: 2px !important; color: var(--muted) !important; font-size: 12.5px !important; line-height: 1.48 !important; }
+.sitemap-includes-title { margin: 2px 0 0 !important; font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: .04em; text-transform: uppercase; color: rgba(17,17,17,.70); }
+.sitemap-bullet-list { margin: 0; padding-left: 16px; display: grid; gap: 4px; color: rgba(17,17,17,.73); font-size: 11.5px; line-height: 1.34; }
+.sitemap-bullet-list li { margin: 0; }
+.sitemap-main-link { margin-top: 18px !important; }
+
+.branding-system-feature-card .branding-system-collage {
+  position: absolute;
+  inset: 0 0 94px 0;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 1fr;
+  grid-template-rows: 1.1fr 1fr .95fr;
+  gap: 12px;
+  background: #1b1f27;
+}
+.branding-system-feature-card .branding-system-item {
+  position: relative;
+  padding: 30px 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.branding-system-feature-card .branding-system-label {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.82);
+}
+.branding-system-feature-card .branding-system-item img {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  transform: none !important;
+  object-fit: contain !important;
+}
+.branding-system-feature-card .layout-primary { grid-column: 1 / 3; grid-row: 1; }
+.branding-system-feature-card .layout-stacked { grid-column: 3; grid-row: 1 / 3; background: #171c24; }
+.branding-system-feature-card .layout-wordmark { grid-column: 1 / 3; grid-row: 2; }
+.branding-system-feature-card .layout-icon { grid-column: 1; grid-row: 3; background: #20242c; }
+.branding-system-feature-card .layout-inverse { grid-column: 2; grid-row: 3; background: #1d2430; }
+.branding-system-feature-card .layout-extra { grid-column: 3; grid-row: 3; background: #202633; }
+.branding-system-feature-card .layout-mono { grid-column: 3; grid-row: 2; background: #23262e; }
+
+#web-design .landing-web-preview-wrap {
+  position: absolute;
+  inset: 0 0 94px 0;
+  overflow: hidden;
+  background: #8dcef9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#web-design .landing-web-preview-shell {
+  width: min(calc(100% - 44px), 1120px);
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(0,0,0,.12);
+  background: #8dcef9;
+}
+#web-design .landing-web-preview { width: 100%; height: 100%; display:block; border:0; background:#8dcef9; }
+#web-design .card-caption-has-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+#web-design .landing-web-actions { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+#web-design .section-action { margin: 0 !important; }
+.popout-action { display:inline-flex; align-items:center; gap:10px; white-space:nowrap; }
+.popout-action .btn-arrow { display:inline-flex; width:18px; height:18px; }
+.popout-action .btn-arrow svg { width:100%; height:100%; }
+
+#motion-graphics .landing-turntable-actions { justify-content: flex-end; width: auto; margin-left: auto; }
+#motion-graphics #turntableStartButton { display:none !important; }
+
+@media (max-width: 1100px) {
+  .sitemap-card { min-height: 630px !important; }
+  #web-design .card-caption-has-actions { align-items: flex-start; flex-direction: column; }
+  #web-design .landing-web-actions { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
+}
+@media (max-width: 950px) {
+  .branding-system-feature-card .branding-system-collage { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, minmax(80px, 1fr)); }
+  .branding-system-feature-card .layout-primary { grid-column: 1 / -1; grid-row: 1; }
+  .branding-system-feature-card .layout-wordmark { grid-column: 1 / -1; grid-row: 2; }
+  .branding-system-feature-card .layout-stacked { grid-column: 1; grid-row: 3 / 5; }
+  .branding-system-feature-card .layout-icon { grid-column: 2; grid-row: 3; }
+  .branding-system-feature-card .layout-inverse { grid-column: 2; grid-row: 4; }
+  .branding-system-feature-card .layout-extra { grid-column: 1; grid-row: 5; }
+  .branding-system-feature-card .layout-mono { grid-column: 2; grid-row: 5; }
+  #web-design .landing-web-preview-shell { width: min(calc(100% - 28px), 1020px); }
+}
+
+
+/* Sept 3 follow-up fixes */
+.sitemap-card {
+  padding: 16px 16px 12px !important;
+}
+.sitemap-card-content {
+  gap: 0;
+}
+.sitemap-subtitle {
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+}
+.sitemap-summary {
+  font-size: 14.5px !important;
+  line-height: 1.52 !important;
+}
+.sitemap-includes-title {
+  margin-top: 14px !important;
+  margin-bottom: 8px !important;
+  font-size: 13.25px !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+.sitemap-bullet-list {
+  font-size: 13.25px !important;
+  line-height: 1.42 !important;
+  gap: 5px !important;
+}
+.sitemap-main-link {
+  margin-top: auto !important;
+  margin-bottom: 6px !important;
+  align-self: center !important;
+}
+#web-design .landing-web-preview-wrap {
+  padding: 0 10px 0 !important;
+}
+#web-design .landing-web-preview-shell {
+  width: calc(100% - 20px) !important;
+  max-width: none !important;
+  height: auto !important;
+}
+#web-design .landing-web-actions {
+  gap: 12px;
+}
+#web-design .card-caption-copy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#web-design .card-caption-copy > div {
+  min-width: 0;
+}
+#web-design .card-caption-copy h3,
+#web-design .card-caption-copy p {
+  margin: 0;
+}
+.popout-action {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  font-size: 0 !important;
+}
+.popout-action .btn-arrow {
+  width: 18px !important;
+  height: 18px !important;
+}
+.popout-action .btn-arrow svg {
+  display: block;
+}
+.branding-system-feature-card .branding-system-item img,
+.branding-system-collage .branding-system-item img {
+  background: transparent !important;
+}
+
+
+/* Sept 3 map/logo/preview refinement */
+.sitemap-card:nth-child(2) .sitemap-includes-title,
+.sitemap-card:nth-child(3) .sitemap-includes-title {
+  margin-top: 37px !important;
+}
+.branding-system-feature-card .branding-system-item img,
+.branding-system-collage .branding-system-item img {
+  width: 82% !important;
+  height: 82% !important;
+  max-width: 82% !important;
+  max-height: 82% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+.branding-system-feature-card .layout-stacked img,
+.branding-system-collage .layout-stacked img,
+.branding-system-feature-card .layout-icon img,
+.branding-system-collage .layout-icon img {
+  width: 72% !important;
+  height: 72% !important;
+  max-width: 72% !important;
+  max-height: 72% !important;
+}
+.branding-system-feature-card .layout-mono img,
+.branding-system-collage .layout-mono img {
+  width: 78% !important;
+  height: 78% !important;
+  max-width: 78% !important;
+  max-height: 78% !important;
+}
+#web-design .landing-web-preview-wrap {
+  padding: 10px !important;
+}
+#web-design .landing-web-preview-shell {
+  height: calc(100% - 20px) !important;
+  width: auto !important;
+  max-width: calc(100% - 20px) !important;
+  aspect-ratio: 16 / 9 !important;
+  flex: 0 1 auto !important;
+}
+
+
+/* Sept 3 final fit refinements */
+.sitemap-summary {
+  font-size: 13.25px !important;
+  line-height: 1.42 !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* Seven non-overlapping logo tiles; every SVG remains fully visible. */
+.branding-system-feature-card .branding-system-collage {
+  grid-template-columns: 1.4fr 1.4fr 1fr !important;
+  grid-template-rows: 1.08fr .92fr 1fr !important;
+}
+.branding-system-feature-card .layout-primary { grid-column: 1 / 3 !important; grid-row: 1 !important; }
+.branding-system-feature-card .layout-stacked { grid-column: 3 !important; grid-row: 1 !important; }
+.branding-system-feature-card .layout-wordmark { grid-column: 1 / 3 !important; grid-row: 2 !important; }
+.branding-system-feature-card .layout-mono { grid-column: 3 !important; grid-row: 2 !important; display: flex !important; }
+.branding-system-feature-card .layout-icon { grid-column: 1 !important; grid-row: 3 !important; }
+.branding-system-feature-card .layout-inverse { grid-column: 2 !important; grid-row: 3 !important; }
+.branding-system-feature-card .layout-extra { grid-column: 3 !important; grid-row: 3 !important; }
+
+.branding-system-feature-card .layout-primary img { width: 70% !important; height: 72% !important; max-width: 70% !important; max-height: 72% !important; }
+.branding-system-feature-card .layout-wordmark img { width: 64% !important; height: 62% !important; max-width: 64% !important; max-height: 62% !important; }
+.branding-system-feature-card .layout-stacked img { width: 68% !important; height: 70% !important; max-width: 68% !important; max-height: 70% !important; }
+.branding-system-feature-card .layout-mono img { width: 74% !important; height: 66% !important; max-width: 74% !important; max-height: 66% !important; }
+.branding-system-feature-card .layout-icon img { width: 48% !important; height: 58% !important; max-width: 48% !important; max-height: 58% !important; }
+.branding-system-feature-card .layout-inverse img,
+.branding-system-feature-card .layout-extra img { width: 72% !important; height: 64% !important; max-width: 72% !important; max-height: 64% !important; }
+
+/* Fit the full Airport Photo Hub landing page inside the feature tile while keeping a 16:9 frame. */
+#web-design .landing-web-preview-wrap {
+  padding: 8px 14px !important;
+}
+#web-design .landing-web-preview-shell {
+  height: calc(100% - 16px) !important;
+  width: auto !important;
+  max-width: calc(100% - 28px) !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  margin: auto !important;
+}
+#web-design .landing-web-preview {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+/* Sept 3 requested tile/layout revisions */
+#branding-logos .feature-card {
+  width:70% !important;
+  margin-inline:auto !important;
+}
+#branding-logos .branding-system-collage {
+  background:#20242c !important;
+  grid-template-columns:1.4fr 1.4fr 1fr !important;
+  grid-template-rows:1.08fr .92fr 1fr !important;
+}
+#branding-logos .branding-system-item {
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+#branding-logos .layout-primary { grid-column:1 / 3 !important; grid-row:1 !important; }
+#branding-logos .layout-wordmark { grid-column:1 / 3 !important; grid-row:2 !important; }
+#branding-logos .layout-icon { grid-column:1 !important; grid-row:3 !important; }
+#branding-logos .layout-stacked { grid-column:2 !important; grid-row:3 !important; }
+#branding-logos .layout-mono { grid-column:3 !important; grid-row:1 !important; }
+#branding-logos .layout-extra { grid-column:3 !important; grid-row:2 !important; }
+#branding-logos .layout-inverse { grid-column:3 !important; grid-row:3 !important; }
+#branding-logos .branding-system-item img {
+  width:70% !important;height:70% !important;max-width:70% !important;max-height:70% !important;
+}
+#branding-logos .layout-wordmark img { width:64% !important;height:58% !important;max-width:64% !important;max-height:58% !important; }
+#branding-logos .layout-icon img { width:42% !important;height:54% !important;max-width:42% !important;max-height:54% !important; }
+#branding-logos .layout-stacked img { width:58% !important;height:64% !important;max-width:58% !important;max-height:64% !important; }
+#branding-logos .layout-mono img,
+#branding-logos .layout-extra img,
+#branding-logos .layout-inverse img { width:72% !important;height:68% !important;max-width:72% !important;max-height:68% !important; }
+
+#web-design .feature-card {
+  width:80% !important;
+  margin-inline:auto !important;
+}
+#web-design .landing-web-preview-wrap { padding:8px 12px !important; }
+#web-design .landing-web-preview-shell {
+  height:calc(100% - 16px) !important;
+  width:auto !important;
+  max-width:calc(100% - 24px) !important;
+  aspect-ratio:16/9 !important;
+  margin:auto !important;
+}
+@media(max-width:950px){
+  #branding-logos .feature-card,#web-design .feature-card{width:100% !important}
+}
+
+
+/* Sept 3 — final requested featured-tile fit */
+/* WEB DESIGN: remove the secondary/outer preview tile and let the actual page fill the artwork area. */
+#web-design .landing-web-preview-wrap {
+  padding: 0 !important;
+  background: transparent !important;
+  display: block !important;
+}
+#web-design .landing-web-preview-shell {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+/* Render the iframe at a desktop-sized viewport, then scale it down so the tile matches the pop-out page. */
+#web-design .landing-web-preview {
+  width: 161.2903226% !important;
+  height: 161.2903226% !important;
+  max-width: none !important;
+  max-height: none !important;
+  transform: scale(.62) !important;
+  transform-origin: top left !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/* MOTION GRAPHICS: fit the Turntable tile much closer to its 594×500 artwork viewBox. */
+#motion-graphics .feature-card {
+  width: 62% !important;
+  margin-inline: auto !important;
+}
+#motion-graphics .landing-turntable-artwork {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+#motion-graphics .landing-turntable-inline {
+  width: 100% !important;
+  max-width: 650px !important;
+}
+
+/* BRANDING: narrower overall system with fuller lower/vertical marks. */
+#branding-logos .feature-card {
+  width: 62% !important;
+  margin-inline: auto !important;
+}
+#branding-logos .branding-system-collage {
+  grid-template-columns: 1.15fr 1.15fr 1fr !important;
+}
+#branding-logos .layout-primary img {
+  width: 74% !important; height: 74% !important; max-width: 74% !important; max-height: 74% !important;
+}
+#branding-logos .layout-wordmark img {
+  width: 70% !important; height: 64% !important; max-width: 70% !important; max-height: 64% !important;
+}
+#branding-logos .layout-icon img {
+  width: 70% !important; height: 76% !important; max-width: 70% !important; max-height: 76% !important;
+}
+#branding-logos .layout-stacked img {
+  width: 80% !important; height: 82% !important; max-width: 80% !important; max-height: 82% !important;
+}
+#branding-logos .layout-mono img,
+#branding-logos .layout-extra img,
+#branding-logos .layout-inverse img {
+  width: 88% !important; height: 84% !important; max-width: 88% !important; max-height: 84% !important;
+}
+
+@media (max-width: 950px) {
+  #motion-graphics .feature-card,
+  #branding-logos .feature-card,
+  #web-design .feature-card { width: 100% !important; }
+}
+
+
+/* Sept 3 — synchronized featured geometry + left alignment */
+/* The same 980×550 visual stage is now used by each landing featured work and
+   its matching service-page project. Landing captions keep their existing 94px band. */
+#branding-logos .feature-card,
+#ui-icons .feature-card,
+#motion-graphics .feature-card,
+#web-design .feature-card {
+  width: min(980px, 100%) !important;
+  height: 644px !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+#branding-logos .branding-system-collage,
+#ui-icons .landing-airport-network-wrap,
+#motion-graphics .landing-turntable-artwork,
+#web-design .landing-web-preview-wrap {
+  height: 550px !important;
+  inset: 0 0 auto 0 !important;
+}
+
+/* Keep the actual demo centered inside its fixed visual stage, without centering the tile itself. */
+#motion-graphics .landing-turntable-artwork {
+  padding: 0 8px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#motion-graphics .landing-turntable-inline {
+  width: 100% !important;
+  max-width: 650px !important;
+  height: 100% !important;
+}
+
+#web-design .landing-web-preview-wrap,
+#web-design .landing-web-preview-shell {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Branding system: slightly lighter graphite and balanced visual scale. */
+#branding-logos .branding-system-collage {
+  background: #2a3039 !important;
+  grid-template-columns: 1.15fr 1.15fr 1fr !important;
+  grid-template-rows: 1.08fr .92fr 1fr !important;
+}
+#branding-logos .branding-system-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#branding-logos .layout-primary img {
+  width: 80% !important; height: 80% !important; max-width: 80% !important; max-height: 80% !important;
+}
+#branding-logos .layout-wordmark img {
+  width: 76% !important; height: 70% !important; max-width: 76% !important; max-height: 70% !important;
+}
+#branding-logos .layout-icon img {
+  width: 82% !important; height: 88% !important; max-width: 82% !important; max-height: 88% !important;
+}
+#branding-logos .layout-stacked img {
+  width: 90% !important; height: 92% !important; max-width: 90% !important; max-height: 92% !important;
+}
+#branding-logos .layout-mono img,
+#branding-logos .layout-inverse img,
+#branding-logos .layout-extra img {
+  width: 94% !important; height: 88% !important; max-width: 94% !important; max-height: 88% !important;
+}
+
+@media (max-width: 1030px) {
+  #branding-logos .feature-card,
+  #ui-icons .feature-card,
+  #motion-graphics .feature-card,
+  #web-design .feature-card {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 560px !important;
+  }
+  #branding-logos .branding-system-collage,
+  #ui-icons .landing-airport-network-wrap,
+  #motion-graphics .landing-turntable-artwork,
+  #web-design .landing-web-preview-wrap {
+    height: calc(100% - 94px) !important;
+  }
+}
+
+
+/* Sept 3 — requested branding contrast/scale only */
+#branding-logos .branding-system-collage {
+  background: #3b424c !important;
+}
+#branding-logos .layout-primary img {
+  width: 96% !important; height: 92% !important; max-width: 96% !important; max-height: 92% !important;
+}
+#branding-logos .layout-wordmark img {
+  width: 94% !important; height: 86% !important; max-width: 94% !important; max-height: 86% !important;
+}
+#branding-logos .layout-icon img {
+  width: 96% !important; height: 96% !important; max-width: 96% !important; max-height: 96% !important;
+}
+#branding-logos .layout-stacked img {
+  width: 112% !important; height: 112% !important; max-width: 112% !important; max-height: 112% !important;
+}
+#branding-logos .layout-mono img,
+#branding-logos .layout-inverse img,
+#branding-logos .layout-extra img {
+  width: 106% !important; height: 100% !important; max-width: 106% !important; max-height: 100% !important;
+}
+
+
+/* Sept 3 — requested button-fill refinement only */
+.sitemap-main-link,
+.work-section .section-action {
+  background: #fff !important;
+}
+.sitemap-main-link:hover,
+.work-section .section-action:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+
+/* Sept 3 — requested tile-button + stacked-logo refinement only */
+.sitemap-main-link,
+.work-section .section-action {
+  border-width: 1px !important;
+}
+
+#branding-logos .layout-stacked img {
+  width: 145% !important;
+  height: 145% !important;
+  max-width: 145% !important;
+  max-height: 145% !important;
+  transform: translateY(8%) !important;
+}
+
+
+/* Sept 3 — final requested CTA + service-card alignment refinements */
+.sitemap-main-link,
+.work-section .section-action {
+  border-width: 2px !important;
+}
+
+/* Keep the Includes heading and its bullet list aligned across all four service cards. */
+.sitemap-service-copy {
+  display: grid !important;
+  grid-template-rows: 44px 42px auto 1fr !important;
+  align-content: start !important;
+}
+.sitemap-subtitle,
+.sitemap-summary {
+  min-height: 0 !important;
+  margin-bottom: 0 !important;
+}
+.sitemap-includes-title,
+.sitemap-card:nth-child(2) .sitemap-includes-title,
+.sitemap-card:nth-child(3) .sitemap-includes-title {
+  margin-top: 14px !important;
+  margin-bottom: 8px !important;
+}
+
+
+/* Sept 3 — requested service-copy spacing only */
+.sitemap-service-copy {
+  grid-template-rows: auto 42px auto 1fr !important;
+  row-gap: 0 !important;
+}
+.sitemap-subtitle,
+.sitemap-summary {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  align-self: start !important;
+}
+
+/* Sept 3 — keep landing-page pop-out control white at rest. */
+#web-design .landing-preview-popout,
+#web-design .popout-action {
+  background: #ffffff !important;
+}
+
+/* Match the adjacent pill CTA on hover. */
+#web-design .landing-preview-popout:hover,
+#web-design .popout-action:hover {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}

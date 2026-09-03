@@ -1,0 +1,121 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" class="splitFlapSvg">
+  <defs>
+    <style>
+      .bg { fill:#111; }
+      .board { fill:#1d1d1f; }
+      .rail { stroke:#c8a96a; stroke-width:3; opacity:.8; }
+      .header { fill:#f2f2f2; font-family:Arial, sans-serif; font-size:38px; font-weight:700; }
+      .flap { fill:#0b0c0e; stroke:#333; stroke-width:2; }
+      .split { stroke:#555; stroke-width:2; opacity:.75; }
+      .text { fill:#f5f5f5; font-family:'Arial Narrow', Arial, sans-serif; font-size:48px; letter-spacing:3px; }
+      .yellow { fill:#ffd21f; }
+      .small { font-size:42px; }
+      .dot { fill:#d89b17; stroke:#f5c64b; stroke-width:4; }
+
+      .flip-animate {
+        animation: flipClack .55s ease-in-out;
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+
+      @keyframes flipClack {
+        0% { transform: rotateX(0deg); opacity: 1; }
+        45% { transform: rotateX(85deg); opacity: .35; }
+        55% { transform: rotateX(-85deg); opacity: .35; }
+        100% { transform: rotateX(0deg); opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="760"/>
+  <rect class="board" x="35" y="35" width="1130" height="690" rx="8"/>
+
+  <text class="header" x="70" y="95">FROM</text>
+  <text class="header" x="545" y="95">STATUS</text>
+  <text class="header" x="930" y="95">STAIRWAY</text>
+
+  <line class="rail" x1="520" y1="35" x2="520" y2="725"/>
+  <line class="rail" x1="900" y1="35" x2="900" y2="725"/>
+
+  <line class="rail" x1="35" y1="120" x2="1165" y2="120"/>
+  <line class="rail" x1="35" y1="215" x2="1165" y2="215"/>
+  <line class="rail" x1="35" y1="310" x2="1165" y2="310"/>
+  <line class="rail" x1="35" y1="405" x2="1165" y2="405"/>
+  <line class="rail" x1="35" y1="500" x2="1165" y2="500"/>
+  <line class="rail" x1="35" y1="595" x2="1165" y2="595"/>
+  <line class="rail" x1="35" y1="690" x2="1165" y2="690"/>
+
+  <!-- row 1 editable -->
+  <rect class="flap" x="60" y="138" width="430" height="58"/>
+  <line class="split" x1="60" y1="167" x2="490" y2="167"/>
+  <text id="cityText" class="text" x="72" y="183">PHILADELPHIA</text>
+
+  <rect class="flap" x="545" y="138" width="320" height="58"/>
+  <line class="split" x1="545" y1="167" x2="865" y2="167"/>
+  <text id="statusText" class="text yellow" x="560" y="183">BOARDING</text>
+
+  <rect class="flap" x="935" y="138" width="145" height="58"/>
+  <line class="split" x1="935" y1="167" x2="1080" y2="167"/>
+  <text id="stairText" class="text" x="1015" y="183">5</text>
+  <circle class="dot" cx="1125" cy="167" r="13"/>
+
+  <!-- row 2 -->
+  <rect class="flap" x="60" y="233" width="430" height="58"/>
+  <rect class="flap" x="545" y="233" width="320" height="58"/>
+  <rect class="flap" x="935" y="233" width="145" height="58"/>
+  <line class="split" x1="60" y1="262" x2="490" y2="262"/>
+  <line class="split" x1="545" y1="262" x2="865" y2="262"/>
+  <line class="split" x1="935" y1="262" x2="1080" y2="262"/>
+  <text class="text" x="72" y="278">NEW YORK</text>
+  <text class="text small" x="560" y="278">5 MINS LATE</text>
+  <text class="text" x="1015" y="278">7</text>
+  <circle class="dot" cx="1125" cy="262" r="13"/>
+
+  <!-- row 3 -->
+  <rect class="flap" x="60" y="328" width="430" height="58"/>
+  <rect class="flap" x="545" y="328" width="320" height="58"/>
+  <rect class="flap" x="935" y="328" width="145" height="58"/>
+  <line class="split" x1="60" y1="357" x2="490" y2="357"/>
+  <line class="split" x1="545" y1="357" x2="865" y2="357"/>
+  <line class="split" x1="935" y1="357" x2="1080" y2="357"/>
+  <text class="text" x="72" y="373">BOSTON</text>
+  <text class="text" x="560" y="373">ON TIME</text>
+  <text class="text" x="1015" y="373">3</text>
+  <circle class="dot" cx="1125" cy="357" r="13"/>
+
+  <!-- row 4 -->
+  <rect class="flap" x="60" y="423" width="430" height="58"/>
+  <rect class="flap" x="545" y="423" width="320" height="58"/>
+  <rect class="flap" x="935" y="423" width="145" height="58"/>
+  <line class="split" x1="60" y1="452" x2="490" y2="452"/>
+  <line class="split" x1="545" y1="452" x2="865" y2="452"/>
+  <line class="split" x1="935" y1="452" x2="1080" y2="452"/>
+  <text class="text" x="72" y="468">WASHINGTON</text>
+  <text class="text yellow" x="560" y="468">BOARDING</text>
+  <text class="text" x="1015" y="468">2</text>
+  <circle class="dot" cx="1125" cy="452" r="13"/>
+
+  <!-- row 5 -->
+  <rect class="flap" x="60" y="518" width="430" height="58"/>
+  <rect class="flap" x="545" y="518" width="320" height="58"/>
+  <rect class="flap" x="935" y="518" width="145" height="58"/>
+  <line class="split" x1="60" y1="547" x2="490" y2="547"/>
+  <line class="split" x1="545" y1="547" x2="865" y2="547"/>
+  <line class="split" x1="935" y1="547" x2="1080" y2="547"/>
+  <text class="text" x="72" y="563">CHICAGO</text>
+  <text class="text small" x="560" y="563">10 MINS LATE</text>
+  <text class="text" x="1015" y="563">9</text>
+  <circle class="dot" cx="1125" cy="547" r="13"/>
+
+  <!-- row 6 -->
+  <rect class="flap" x="60" y="613" width="430" height="58"/>
+  <rect class="flap" x="545" y="613" width="320" height="58"/>
+  <rect class="flap" x="935" y="613" width="145" height="58"/>
+  <line class="split" x1="60" y1="642" x2="490" y2="642"/>
+  <line class="split" x1="545" y1="642" x2="865" y2="642"/>
+  <line class="split" x1="935" y1="642" x2="1080" y2="642"/>
+  <text class="text" x="72" y="658">NEWPORT NEWS</text>
+  <text class="text" x="560" y="658">ON TIME</text>
+  <text class="text" x="1015" y="658">4</text>
+  <circle class="dot" cx="1125" cy="642" r="13"/>
+</svg>

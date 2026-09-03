@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f5f6f8"/>
+  <rect x="105" y="120" width="990" height="460" rx="18" fill="#111"/>
+  <g font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <g fill="#f7f7f7" font-size="100">
+      <rect x="155" y="220" width="135" height="150" rx="6" fill="#252525"/><text x="222" y="325">N</text>
+      <rect x="305" y="220" width="135" height="150" rx="6" fill="#252525"/><text x="372" y="325">E</text>
+      <rect x="455" y="220" width="135" height="150" rx="6" fill="#252525"/><text x="522" y="325">W</text>
+      <rect x="605" y="220" width="135" height="150" rx="6" fill="#252525"/><text x="672" y="325">Y</text>
+      <rect x="755" y="220" width="135" height="150" rx="6" fill="#252525"/><text x="822" y="325">O</text>
+      <rect x="905" y="220" width="135" height="150" rx="6" fill="#252525"/><text x="972" y="325">R</text>
+    </g>
+    <text x="600" y="465" font-size="58" fill="#0AC92B">DESTINATION UPDATE</text>
+  </g>
+  <g stroke="#666" stroke-width="3">
+    <line x1="155" y1="295" x2="290" y2="295"/><line x1="305" y1="295" x2="440" y2="295"/>
+    <line x1="455" y1="295" x2="590" y2="295"/><line x1="605" y1="295" x2="740" y2="295"/>
+    <line x1="755" y1="295" x2="890" y2="295"/><line x1="905" y1="295" x2="1040" y2="295"/>
+  </g>
+</svg>

@@ -1,0 +1,204 @@
+/* Current Madhi Studio landing-page header/footer applied to individual service pages only. */
+:root {
+  --service-header-height: 119px;
+  --service-header-divider: rgba(17,17,17,0.10);
+}
+
+body {
+  padding-top: var(--service-header-height) !important;
+}
+
+html {
+  scroll-padding-top: var(--service-header-height) !important;
+}
+
+nav {
+  height: var(--service-header-height) !important;
+  padding: 0 20px !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+}
+
+nav::before {
+  content: none !important;
+  display: none !important;
+}
+
+nav::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 1px !important;
+  background: var(--service-header-divider) !important;
+  z-index: 10001 !important;
+  pointer-events: none !important;
+}
+
+.logo,
+.logo a {
+  width: 260px !important;
+  height: var(--service-header-height) !important;
+}
+
+.logo a {
+  justify-content: flex-start !important;
+}
+
+.logo img {
+  width: 250px !important;
+  max-height: 105px !important;
+  height: auto !important;
+  transform: none !important;
+}
+
+.nav-links {
+  gap: 22px !important;
+}
+
+nav a,
+nav a.active {
+  font-size: 15.75px !important;
+}
+
+.nav-divider {
+  width: 1px !important;
+  height: 16px !important;
+  background: var(--service-header-divider) !important;
+}
+
+.logo a.active,
+.logo a.active:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+footer {
+  background: #000 !important;
+  color: #fff !important;
+  border-top-color: #000 !important;
+}
+
+footer .footer-main,
+footer .footer-main a {
+  color: #fff !important;
+}
+
+footer .footer-site-links,
+footer .footer-site-link,
+footer .footer-site-links a {
+  color: #9b9b9b !important;
+}
+
+footer .footer-divider {
+  background: #777 !important;
+  opacity: 0.8 !important;
+}
+
+footer .footer-main a:hover {
+  color: #fff !important;
+  opacity: 0.82;
+}
+
+footer .footer-site-link:hover,
+footer .footer-site-links a:hover {
+  color: #c2c2c2 !important;
+}
+
+@media (max-width: 760px) {
+  body { padding-top: 0 !important; }
+  nav { height: auto !important; min-height: 86px !important; }
+  .logo, .logo a { height: auto !important; min-height: 62px !important; }
+  .logo img { width: min(250px, 42vw) !important; }
+}
+
+
+/* =========================================================
+   SEPT 2 — SHARED LIGHT PANEL + LIGHTER SERVICE-PAGE LINES
+========================================================= */
+:root {
+  --madhi-light-panel: #DDF4FF;
+  --madhi-light-line: rgba(0,0,0,0.05);
+}
+
+/* Match the landing page's lighter panel system. */
+.vector-info-card,
+.city-demo,
+.evacuation-demo {
+  background: var(--madhi-light-panel) !important;
+}
+
+/* Lighten neutral card/divider linework without changing geometry. */
+.image-card,
+.section-divider,
+.city-controls input,
+.meta-list li {
+  border-color: var(--madhi-light-line) !important;
+}
+
+.section-divider {
+  background: var(--madhi-light-line) !important;
+}
+
+/* =========================================================
+   SEPT 2 — SERVICE-PAGE DIVIDERS + SIMPLE FOOTER
+========================================================= */
+:root {
+  --madhi-light-line: var(--service-header-divider);
+}
+
+/* Match service-page card/divider linework to the header divider. */
+.image-card,
+.section-divider,
+.city-controls input,
+.meta-list li {
+  border-color: var(--service-header-divider) !important;
+}
+
+.section-divider {
+  background: var(--service-header-divider) !important;
+}
+
+/* One-line footer only: transparent, no divider/fill. */
+#site-footer footer,
+footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: rgba(17,17,17,0.68) !important;
+  min-height: 0 !important;
+  padding: 16px 24px 18px !important;
+}
+
+#site-footer .footer-inner,
+footer .footer-inner {
+  gap: 0 !important;
+}
+
+#site-footer .footer-main,
+#site-footer .footer-main a,
+footer .footer-main,
+footer .footer-main a {
+  color: rgba(17,17,17,0.68) !important;
+}
+
+#site-footer .footer-site-links,
+#site-footer .footer-divider,
+footer .footer-site-links,
+footer .footer-divider {
+  display: none !important;
+}
+
+#site-footer .footer-main a:hover,
+footer .footer-main a:hover {
+  color: #111 !important;
+  opacity: 1 !important;
+}
+

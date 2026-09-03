@@ -1,0 +1,461 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1800 700"
+     width="100%"
+     height="100%"
+     role="img"
+     aria-labelledby="logo-title logo-desc">
+
+  <title id="logo-title">WanderPorts logo</title>
+  <desc id="logo-desc">
+    WanderPorts logo with a grayscale skyline, cyan curved line,
+    landing airplane on the left, departing airplane on the right,
+    and Discover the World / Between Flights tagline.
+  </desc>
+
+  <defs>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Questrial&amp;family=Source+Sans+3:ital,wght@0,300;0,400;1,300;1,400&amp;display=swap');
+
+      .wander {
+        font-family: "Questrial", "Trebuchet MS", sans-serif;
+        font-size: 250px;
+        font-weight: 400;
+        fill: #3B3FD1;
+        letter-spacing: -3px;
+      }
+
+      .ports {
+        font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
+        font-size: 250px;
+        font-style: italic;
+        font-weight: 400;
+        fill: #14A8F1;
+        letter-spacing: -3px;
+      }
+
+      .tag-main {
+        font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        fill: #30328F;
+        letter-spacing: 19px;
+      }
+
+      .tag-sub {
+        font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
+        font-size: 46px;
+        font-style: italic;
+        font-weight: 300;
+        fill: #A7ADB6;
+        letter-spacing: 7px;
+      }
+    </style>
+
+    <clipPath id="skyline-clip">
+      <rect x="180"
+            y="0"
+            width="1440"
+            height="700"/>
+    </clipPath>
+
+    <pattern id="win-horiz"
+             x="0"
+             y="0"
+             width="10"
+             height="8"
+             patternUnits="userSpaceOnUse">
+      <rect x="0"
+            y="2"
+            width="10"
+            height="4"
+            fill="#d4d4d4"/>
+    </pattern>
+
+    <pattern id="win-vert"
+             x="0"
+             y="0"
+             width="8"
+             height="10"
+             patternUnits="userSpaceOnUse">
+      <rect x="2"
+            y="0"
+            width="4"
+            height="10"
+            fill="#e0e0e0"/>
+    </pattern>
+
+    <pattern id="win-grid-light"
+             x="0"
+             y="0"
+             width="12"
+             height="12"
+             patternUnits="userSpaceOnUse">
+
+      <rect x="2" y="2" width="3" height="3" fill="#f0f0f0"/>
+      <rect x="7" y="2" width="3" height="3" fill="#f0f0f0"/>
+      <rect x="2" y="7" width="3" height="3" fill="#f0f0f0"/>
+      <rect x="7" y="7" width="3" height="3" fill="#f0f0f0"/>
+
+    </pattern>
+
+    <pattern id="win-grid-dark"
+             x="0"
+             y="0"
+             width="10"
+             height="10"
+             patternUnits="userSpaceOnUse">
+
+      <rect x="1" y="1" width="3" height="3" fill="#7a7a7a"/>
+      <rect x="6" y="1" width="3" height="3" fill="#7a7a7a"/>
+      <rect x="1" y="6" width="3" height="3" fill="#7a7a7a"/>
+      <rect x="6" y="6" width="3" height="3" fill="#7a7a7a"/>
+
+    </pattern>
+
+    <pattern id="win-sparse"
+             x="0"
+             y="0"
+             width="15"
+             height="15"
+             patternUnits="userSpaceOnUse">
+
+      <rect x="3"
+            y="3"
+            width="4"
+            height="7"
+            fill="#ffffff"/>
+
+    </pattern>
+
+    <symbol id="hero-plane"
+            viewBox="0 0 180 120">
+
+      <g transform="rotate(-148 90 60)">
+
+        <g transform="translate(180 0) scale(-1 1)">
+
+          <g transform="translate(75 60) rotate(-166) scale(.38) translate(-130 -55)">
+
+            <path
+              d="M224.49219,159.5
+                 254.42187,124
+                 239.95312,116.39063
+                 211.55469,128.57813
+                 180.5,116.48437
+                 251.4375,52.4375
+                 232,44
+                 124.875,99.0625
+                 57.9375,77.3125
+                 c-3.109731,-1.010445
+                 -9.54123,0.302443
+                 -12,8.1875
+                 -2.441014,7.828116
+                 2.157629,12.817628
+                 4.125,13.5
+                 z"
+              transform="translate(-42.432631,-42.6875)"
+              fill="#B8BDC2"
+              fill-rule="evenodd"/>
+
+          </g>
+
+        </g>
+
+      </g>
+
+    </symbol>
+
+
+    <!-- Stories / wandering traveler icon inserted from the supplied SVG -->
+    <symbol id="wander-stories-icon" viewBox="0 0 512 512">
+      <g fill="#3B3FD1" transform="translate(188 10) scale(0.956421 0.958980) translate(-169.77 -382.33) translate(-256.58 42.426)">
+        <path
+          d="m315.67 347.53c0 20.503-16.621 37.123-37.123 37.123-20.503 0-37.123-16.621-37.123-37.123 0-20.503 16.621-37.123 37.123-37.123 20.503 0 37.123 16.621 37.123 37.123z"
+          transform="translate(294.11 29.495)"/>
+        <path
+          d="m516.35 490.41s-30.339 157.53-36.871 168.19c-5.5865 9.1154-49.18 80.642-49.18 80.642-9.3065 15.26-0.48739 26.17 9.3724 31.862 8.3938 4.8456 26.437 3.6458 32.403-6.5301 0 0 48.366-75.267 53.643-91.5 3.6534-11.238 12.143-57.857 12.143-57.857s46.996 48.47 52.143 57.143c6.4876 10.933 18.571 87.143 18.571 87.143 2.8898 13.56 15.822 17.982 29.286 15.714 10.633-1.7908 21.753-8.9851 19.286-22.143 0 0-10.746-88.36-19.286-102.86-10.191-17.302-65-76.429-65-76.429l15.714-70s10.086 20.446 17.143 29.286c8.0255 10.053 58.571 39.286 58.571 39.286 4.6363 3.1097 15.133 1.3962 19.286-6.4286 3.3332-6.2806 3.1763-16.454-4.2857-21.429 0 0-41.655-26.151-51.429-34.286-10.87-9.03-32.86-69.27-32.86-69.27-6.8208-9.3864-16.151-19.742-32.143-20-16.119-0.26028-24.187 8.6196-31.429 13.571 0 0-61.747 45.105-67.857 54.286-6.1469 9.236-17.143 78.571-17.143 78.571-1.7236 7.9 1.3621 14.253 10.714 16.429 11.443 2.662 19.645-4.4634 20.714-10 0 0 7.0508-54.765 12.143-62.857 5.9288-9.4214 26.346-20.521 26.346-20.521z"/>
+      </g>
+      <path
+        d="M 246 265 L 157 330"
+        transform="rotate(-17 138 307)"
+        fill="none"
+        stroke="#000000"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+      <g transform="translate(104 338) rotate(38)" shape-rendering="geometricPrecision">
+        <path
+          d="M -44 -60 H 40 Q 44 -60 44 -56 V 38 A 22 22 0 0 0 22 60 H -40 Q -44 60 -44 56 V -56 Q -44 -60 -40 -60 Z"
+          fill="#000000"/>
+        <circle cx="43" cy="58" r="16" fill="#6f2cff" stroke="none"/>
+      </g>
+    </symbol>
+
+  </defs>
+
+  <rect width="1800"
+        height="700"
+        fill="#FFFFFF"/>
+
+  <!-- Skyline -->
+  <g clip-path="url(#skyline-clip)"
+     opacity="0.28">
+
+    <g transform="translate(180 495)
+                  scale(1.44 1.35)
+                  translate(0 -300)">
+
+      <g fill="#333333">
+
+        <rect x="85" y="110" width="2" height="30"/>
+        <rect x="180" y="100" width="2" height="30"/>
+        <rect x="245" y="80" width="3" height="40"/>
+        <rect x="415" y="40" width="2" height="30"/>
+        <rect x="585" y="70" width="3" height="40"/>
+        <rect x="635" y="130" width="2" height="30"/>
+        <rect x="860" y="130" width="2" height="30"/>
+
+        <rect x="-10" y="130" width="40" height="170"/>
+        <rect x="40" y="150" width="30" height="150"/>
+        <rect x="160" y="110" width="55" height="190"/>
+        <rect x="250" y="130" width="40" height="170"/>
+        <rect x="290" y="100" width="35" height="200"/>
+        <rect x="360" y="150" width="30" height="150"/>
+        <rect x="480" y="110" width="45" height="190"/>
+        <rect x="610" y="160" width="30" height="140"/>
+        <rect x="670" y="170" width="20" height="130"/>
+        <rect x="730" y="140" width="40" height="160"/>
+        <rect x="800" y="125" width="50" height="175"/>
+        <rect x="870" y="180" width="25" height="120"/>
+        <rect x="960" y="170" width="30" height="130"/>
+        <rect x="980" y="180" width="30" height="120"/>
+
+      </g>
+
+      <g fill="#4f4f4f">
+
+        <rect x="10" y="120" width="45" height="180"/>
+        <rect x="95" y="70" width="50" height="230"/>
+        <rect x="200" y="95" width="45" height="205"/>
+        <rect x="315" y="85" width="40" height="215"/>
+        <rect x="430" y="45" width="55" height="255"/>
+        <rect x="560" y="95" width="45" height="205"/>
+        <rect x="625" y="150" width="35" height="150"/>
+        <rect x="785" y="135" width="40" height="165"/>
+        <rect x="840" y="165" width="40" height="135"/>
+        <rect x="900" y="135" width="35" height="165"/>
+
+      </g>
+
+      <g fill="#757575">
+
+        <rect x="60" y="140" width="40" height="160"/>
+        <rect x="120" y="170" width="40" height="130"/>
+        <rect x="280" y="150" width="30" height="150"/>
+        <rect x="490" y="120" width="55" height="180"/>
+        <rect x="640" y="170" width="45" height="130"/>
+        <rect x="740" y="125" width="40" height="175"/>
+        <rect x="925" y="185" width="35" height="115"/>
+
+      </g>
+
+      <g fill="#9c9c9c">
+
+        <rect x="220" y="180" width="45" height="120"/>
+        <rect x="390" y="220" width="55" height="80"/>
+        <rect x="815" y="220" width="45" height="80"/>
+
+      </g>
+
+      <g fill="#b8b8b8">
+
+        <rect x="115" y="210" width="45" height="90"/>
+        <rect x="300" y="140" width="40" height="160"/>
+        <rect x="540" y="180" width="50" height="120"/>
+
+        <path d="M695 40
+                 L720 35
+                 L725 40
+                 L725 300
+                 L695 300 Z"/>
+
+      </g>
+
+      <g>
+
+        <rect x="100"
+              y="80"
+              width="40"
+              height="220"
+              fill="url(#win-horiz)"/>
+
+        <rect x="120"
+              y="215"
+              width="35"
+              height="85"
+              fill="url(#win-grid-light)"/>
+
+        <rect x="65"
+              y="150"
+              width="30"
+              height="150"
+              fill="url(#win-grid-dark)"/>
+
+        <rect x="305"
+              y="150"
+              width="30"
+              height="150"
+              fill="url(#win-sparse)"/>
+
+        <rect x="320"
+              y="95"
+              width="30"
+              height="205"
+              fill="url(#win-horiz)"/>
+
+        <rect x="435"
+              y="120"
+              width="45"
+              height="180"
+              fill="url(#win-grid-light)"/>
+
+        <rect x="395"
+              y="225"
+              width="45"
+              height="75"
+              fill="url(#win-grid-dark)"/>
+
+        <rect x="495"
+              y="130"
+              width="45"
+              height="170"
+              fill="url(#win-grid-dark)"/>
+
+        <rect x="545"
+              y="185"
+              width="40"
+              height="115"
+              fill="url(#win-vert)"/>
+
+        <path d="M697 45
+                 L718 40
+                 L723 45
+                 L723 300
+                 L697 300 Z"
+              fill="url(#win-vert)"/>
+
+        <rect x="745"
+              y="135"
+              width="30"
+              height="165"
+              fill="url(#win-horiz)"/>
+
+        <rect x="820"
+              y="230"
+              width="35"
+              height="70"
+              fill="url(#win-vert)"/>
+
+        <rect x="905"
+              y="145"
+              width="25"
+              height="155"
+              fill="url(#win-horiz)"/>
+
+        <rect x="930"
+              y="195"
+              width="25"
+              height="105"
+              fill="url(#win-grid-light)"/>
+
+      </g>
+
+    </g>
+
+  </g>
+
+  <!-- WanderPorts wordmark lowered slightly -->
+  <g text-anchor="middle">
+
+    <text x="900"
+          y="336"
+          aria-label="WanderPorts">
+
+      <tspan class="wander">Wander</tspan><tspan class="ports">Ports</tspan>
+
+    </text>
+
+  </g>
+
+  <!-- White foreground beneath curve -->
+  <path d="M180 335
+           C250 405 390 480 530 490
+           C680 505 770 418 900 415
+           C1030 418 1120 505 1270 490
+           C1410 480 1550 405 1620 335
+           L1620 700
+           L180 700
+           Z"
+        fill="#FFFFFF"/>
+
+  <!-- Cyan curve -->
+  <path d="M180 335
+           C250 405 390 480 530 490
+           C680 505 770 418 900 415
+           C1030 418 1120 505 1270 490
+           C1410 480 1550 405 1620 335"
+        fill="none"
+        stroke="#14A8F1"
+        stroke-width="7"
+        stroke-linecap="round"/>
+
+  <!-- Landing plane -->
+  <use href="#hero-plane"
+       x="56"
+       y="237"
+       width="150"
+       height="99"
+       transform="rotate(44 131 286.5)"/>
+
+  <!-- Departing plane -->
+  <use href="#hero-plane"
+       x="1594"
+       y="229"
+       width="150"
+       height="99"
+       transform="rotate(-44 1669 278.5)"/>
+
+
+
+  <!-- Wandering traveler icon centered above DISCOVER THE WORLD -->
+  <use href="#wander-stories-icon"
+       x="840"
+       y="425"
+       width="100"
+       height="100"/>
+
+  <!-- Tagline -->
+  <g text-anchor="middle">
+
+    <text x="900"
+          y="555"
+          class="tag-main"
+          textLength="830"
+          lengthAdjust="spacing">
+      DISCOVER THE WORLD
+    </text>
+
+    <text x="900"
+          y="620"
+          class="tag-sub"
+          textLength="430"
+          lengthAdjust="spacing">
+      Between Flights
+    </text>
+
+  </g>
+
+</svg>

@@ -1,0 +1,321 @@
+<svg
+  id="turntableScene"
+  class="turntableSvg"
+  viewBox="0 0 594 500"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="Animated SVG record player"
+>
+  <defs>
+    <style>
+      .turntableSvg {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: transparent;
+      }
+
+      .turntable-bg {
+        fill: #fff;
+      }
+
+      .outline {
+        fill: none;
+        stroke: #111;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .thin {
+        stroke-width: 1;
+      }
+
+      .medium {
+        stroke-width: 1.3;
+      }
+
+      .strong {
+        stroke-width: 1.5;
+      }
+
+      .heavy {
+        stroke-width: 2;
+      }
+
+      .record {
+        fill: #050505;
+      }
+
+      .label-fill {
+        fill: #f7f7f7;
+        stroke: #111;
+        stroke-width: 1;
+      }
+
+      .white-fill {
+        fill: #fff;
+      }
+
+      .dark-fill {
+        fill: #111;
+      }
+
+      .groove-1 {
+        fill: none;
+        stroke: #333;
+        stroke-width: 1;
+      }
+
+      .groove-2 {
+        fill: none;
+        stroke: #2a2a2a;
+        stroke-width: 1;
+      }
+
+      .spin-mark {
+        stroke: #777;
+        stroke-width: 2;
+      }
+
+      .button-face {
+        fill: #fff;
+      }
+
+      .button-face:active,
+      #startStopPhysical:active .button-face {
+        fill: #e8e8e8;
+      }
+
+      .turntable-text {
+        font-family: Arial, Helvetica, sans-serif;
+        fill: #111;
+      }
+
+      .label-text {
+        font-size: 8px;
+        font-weight: 600;
+      }
+
+      .button-text {
+        font-size: 7px;
+        font-weight: 700;
+        text-anchor: middle;
+      }
+
+      .tiny-text {
+        font-size: 5px;
+      }
+
+      .micro-text {
+        font-size: 4px;
+      }
+
+      #platterSpin {
+        transform-origin: 248px 258px;
+        transform-box: view-box;
+      }
+
+      /*
+        Your external JS can add .is-playing to the SVG,
+        or directly to #platterSpin.
+      */
+      .is-playing #platterSpin,
+      #platterSpin.is-playing {
+        animation: recordSpin 2.4s linear infinite;
+      }
+
+      @keyframes recordSpin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #tonearm {
+        transform-origin: 465px 163px;
+        transform-box: view-box;
+        transition: transform 0.8s ease-in-out;
+      }
+
+      /*
+        Optional: your JS can add .needle-on to the SVG
+        to move the tonearm slightly inward.
+      */
+      .needle-on #tonearm,
+      #tonearm.needle-on {
+        transform: rotate(-8deg);
+      }
+
+      #startStopPhysical {
+        cursor: pointer;
+      }
+    </style>
+  </defs>             
+
+  <rect class="turntable-bg" width="594" height="500"/>
+
+  <!-- OUTER BODY -->
+  <rect x="45" y="48" width="504" height="420" class="outline heavy"/>
+
+  <!-- TOP HINGES -->
+  <path d="M78 48 L82 30 L112 30 L116 48" class="outline medium"/>
+  <path d="M88 44 L90 35 L105 35 L107 44" class="outline thin"/>
+
+  <path d="M476 48 L480 30 L510 30 L514 48" class="outline medium"/>
+  <path d="M486 44 L488 35 L503 35 L505 44" class="outline thin"/>
+
+  <!-- SMALL TOP KNOBS -->
+  <rect x="321" y="40" width="8" height="8" rx="1" class="outline thin"/>
+  <rect x="340" y="43" width="9" height="5" rx="1" class="outline thin"/>
+  <rect x="359" y="44" width="8" height="4" rx="1" class="outline thin"/>
+
+  <!-- RECORD / PLATTER -->
+  <g id="platterSpin">
+    <circle cx="248" cy="258" r="181" class="outline strong"/>
+    <circle cx="248" cy="258" r="177" class="outline thin"/>
+
+    <!-- BLACK RECORD -->
+    <circle cx="248" cy="258" r="160" class="record"/>
+
+    <!-- RECORD GROOVES -->
+    <circle cx="248" cy="258" r="145" class="groove-1"/>
+    <circle cx="248" cy="258" r="132" class="groove-2"/>
+    <circle cx="248" cy="258" r="119" class="groove-1"/>
+    <circle cx="248" cy="258" r="106" class="groove-2"/>
+    <circle cx="248" cy="258" r="93" class="groove-1"/>
+    <circle cx="248" cy="258" r="80" class="groove-2"/>
+
+    <!-- CENTER LABEL -->
+    <circle cx="248" cy="258" r="72" class="label-fill"/>
+    <circle cx="248" cy="258" r="13" class="outline thin"/>
+    <circle cx="248" cy="258" r="4" class="white-fill" stroke="#111" stroke-width="1"/>
+
+    <!-- SMALL MARKS SO SPIN IS VISIBLE -->
+    <line x1="248" y1="100" x2="248" y2="122" class="spin-mark"/>
+    <line x1="248" y1="394" x2="248" y2="416" class="spin-mark"/>
+    <line x1="90" y1="258" x2="112" y2="258" class="spin-mark"/>
+    <line x1="384" y1="258" x2="406" y2="258" class="spin-mark"/>
+  </g>
+
+  <!-- LEFT TOP DIAL -->
+  <circle cx="94" cy="98" r="24" class="outline strong"/>
+  <circle cx="94" cy="98" r="18" class="outline thin"/>
+  <circle cx="94" cy="98" r="10" class="outline thin"/>
+  <line x1="94" y1="84" x2="94" y2="112" class="outline thin"/>
+  <line x1="89" y1="90" x2="89" y2="106" class="outline thin"/>
+  <line x1="99" y1="90" x2="99" y2="106" class="outline thin"/>
+
+  <!-- START / STOP BUTTON -->
+  <g id="startStopPhysical">
+    <circle class="button-face" cx="91" cy="399" r="16" stroke="#111" stroke-width="2"/>
+    <circle cx="91" cy="399" r="10" class="outline thin"/>
+    <text id="buttonMessage" x="91" y="424" class="turntable-text button-text">START</text>
+  </g>
+
+  <rect x="63" y="434" width="46" height="22" class="outline strong"/>
+
+  <!-- LABEL -->
+  <text x="125" y="455" class="turntable-text label-text">
+    Belt Drive Manual Turntable
+  </text>
+
+  <!-- RIGHT BASE STATIC -->
+  <circle cx="465" cy="163" r="66" class="outline strong"/>
+  <circle cx="465" cy="163" r="58" class="outline thin"/>
+  <circle cx="465" cy="163" r="42" class="outline thin"/>
+  <circle cx="465" cy="163" r="21" class="outline thin"/>
+
+  <!-- TONEARM GROUP -->
+  <g id="tonearm">
+    <rect x="451" y="104" width="32" height="27" transform="rotate(5 467 117)" class="outline thin"/>
+    <rect x="457" y="82" width="31" height="24" transform="rotate(5 472 94)" class="outline thin"/>
+    <path d="M455 80 L484 82 L486 89 L453 87 Z" class="outline thin"/>
+    <rect x="462" y="75" width="15" height="5" class="outline thin"/>
+
+    <rect x="452" y="132" width="30" height="34" class="outline medium"/>
+    <rect x="459" y="136" width="16" height="27" class="outline thin"/>
+    <path d="M467 166 L464 195" class="outline" stroke-width="3"/>
+    <path d="M458 166 L455 195" class="outline" stroke-width="1.2"/>
+
+    <path
+      d="M464 188
+         C466 222, 486 255, 489 282
+         C492 314, 478 340, 463 360"
+      fill="none"
+      stroke="#111"
+      stroke-width="8"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M464 188
+         C466 222, 486 255, 489 282
+         C492 314, 478 340, 463 360"
+      fill="none"
+      stroke="#fff"
+      stroke-width="5"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M464 188
+         C466 222, 486 255, 489 282
+         C492 314, 478 340, 463 360"
+      fill="none"
+      stroke="#111"
+      stroke-width="1.2"
+      stroke-linecap="round"
+    />
+
+    <rect x="454" y="334" width="24" height="19" transform="rotate(20 466 344)" class="outline thin"/>
+    <rect x="447" y="351" width="28" height="47" rx="4" transform="rotate(20 461 375)" class="outline medium"/>
+    <circle cx="452" cy="381" r="4" class="outline thin"/>
+    <circle cx="456" cy="364" r="4" class="outline thin"/>
+    <path d="M468 389 L489 405" class="outline heavy"/>
+    <path d="M443 392 L438 403" class="outline strong"/>
+    <path d="M453 397 L448 409" class="outline strong"/>
+  </g>
+
+  <!-- SPEED DIAL -->
+  <circle cx="500" cy="388" r="18" class="outline heavy"/>
+  <circle cx="500" cy="388" r="14" class="outline thin"/>
+  <text x="492" y="390" class="turntable-text tiny-text">SPEED</text>
+
+  <!-- RIGHT TOP SMALL BLOCKS -->
+  <rect x="369" y="72" width="30" height="44" class="outline thin"/>
+  <rect x="523" y="64" width="19" height="20" class="outline thin"/>
+  <circle cx="533" cy="74" r="5" class="outline thin"/>
+  <circle cx="523" cy="84" r="1.4" class="dark-fill"/>
+
+  <!-- SMALL RIGHT DETAILS -->
+  <circle cx="497" cy="151" r="13" class="outline thin"/>
+  <path d="M492 151 C497 146, 502 146, 506 151" class="outline thin"/>
+  <text x="491" y="154" class="turntable-text tiny-text">ANTI</text>
+
+  <line x1="497" y1="212" x2="497" y2="232" class="outline" stroke-width="1.2"/>
+  <circle cx="497" cy="210" r="3" class="outline thin"/>
+  <rect x="494" y="221" width="6" height="12" class="outline thin"/>
+
+  <rect x="505" y="235" width="31" height="20" class="outline thin"/>
+  <line x1="509" y1="244" x2="532" y2="244" class="outline thin"/>
+  <line x1="509" y1="250" x2="532" y2="250" class="outline thin"/>
+  <text x="512" y="241" class="turntable-text micro-text">PITCH</text>
+  <circle cx="530" cy="251" r="1.5" class="dark-fill"/>
+
+  <!-- BOTTOM CONTROL PANEL -->
+  <rect x="356" y="427" width="178" height="30" class="outline" stroke-width="1.2"/>
+  <rect x="362" y="433" width="166" height="7" class="outline thin"/>
+  <line x1="372" y1="433" x2="372" y2="440" class="outline thin"/>
+  <line x1="382" y1="433" x2="382" y2="440" class="outline thin"/>
+  <line x1="392" y1="433" x2="392" y2="440" class="outline thin"/>
+  <line x1="402" y1="433" x2="402" y2="440" class="outline thin"/>
+  <line x1="492" y1="433" x2="492" y2="440" class="outline thin"/>
+  <line x1="502" y1="433" x2="502" y2="440" class="outline thin"/>
+  <line x1="512" y1="433" x2="512" y2="440" class="outline thin"/>
+
+  <rect x="362" y="446" width="58" height="7" class="outline thin"/>
+  <rect x="432" y="446" width="30" height="7" class="outline thin"/>
+  <rect x="472" y="446" width="55" height="7" class="outline thin"/>
+</svg>

@@ -1,0 +1,1223 @@
+/* Individual service page viewport behavior.
+   Loaded AFTER each page's original inline template CSS so the main content remains intact
+   while matching the landing page's viewport-to-viewport movement. */
+:root {
+  --service-page-header: 119px;
+  --service-page-viewport: calc(100vh - var(--service-page-header));
+  --madhi-light-panel: #DDF4FF;
+  --service-title-top: 54px;
+  --service-first-row-top-space: 158px;
+}
+
+html {
+  scroll-snap-type: y mandatory !important;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--service-page-header) !important;
+}
+
+body {
+  background: #ffffff !important;
+}
+
+main {
+  position: relative;
+}
+
+/* Put the page heading on the same top axis as Services. on the landing page. */
+.page-section {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 20 !important;
+  padding: var(--service-title-top) 0 0 !important;
+  pointer-events: none !important;
+}
+
+.page-section .page-title {
+  margin: 0 0 18px !important;
+}
+
+.page-section .section-divider {
+  margin: 0 !important;
+}
+
+.collection {
+  padding: 0 !important;
+}
+
+.print-list {
+  gap: 0 !important;
+}
+
+/* Each project becomes one clean service-page viewport. */
+.print-row {
+  min-height: var(--service-page-viewport) !important;
+  scroll-snap-align: start !important;
+  scroll-snap-stop: always !important;
+  padding: 34px 0 !important;
+  box-sizing: border-box !important;
+  align-content: center !important;
+}
+
+/* The first project leaves room for the heading that sits above it. */
+.print-row:first-child {
+  padding-top: var(--service-first-row-top-space) !important;
+}
+
+/* Keep the light panels identical to the landing page service-card color. */
+.vector-info-card,
+.city-demo,
+.evacuation-demo {
+  background: var(--madhi-light-panel) !important;
+}
+
+#site-footer {
+  scroll-snap-align: end;
+}
+
+@media (max-width: 950px) {
+  html { scroll-snap-type: y proximity !important; }
+  .page-section {
+    position: relative !important;
+    padding: 28px 0 18px !important;
+  }
+  .print-row,
+  .print-row:first-child {
+    min-height: auto !important;
+    padding: 36px 0 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  :root { --service-page-header: 0px; }
+  .page-section { padding-top: 34px !important; }
+}
+
+
+/* Offline-safe inline SVG project interactions */
+.motion-inline-svg,
+.soccer-pitch-inline { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+.motion-inline-svg > svg,
+.soccer-pitch-inline > svg { width:100%; height:100%; display:block; }
+.turntable-row .motion-inline-svg { width:90%; height:90%; margin:auto; }
+.splitflap-row .motion-inline-svg { width:100%; height:70%; margin:auto; }
+.evacuation-row .motion-inline-svg { width:100%; height:100%; margin:0; }
+.evacuation-row .image-card { background:#fbfbfb; }
+.evacuation-button-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.evacuation-room-btn::before { width:5px; background:var(--accent); }
+
+
+/* =========================================================
+   SEPT 2 — WIDER FEATURE DEMOS
+   Keeps the established viewport heights while giving the
+   interactive/animated artwork more horizontal room.
+========================================================= */
+@media (min-width: 951px) {
+  .wanderports-ui-row,
+  .soccer-pitch-row,
+  .wanderports-row,
+  .turntable-row,
+  .splitflap-row {
+    grid-template-columns: minmax(0, 2.55fr) minmax(250px, 0.52fr) !important;
+    gap: 28px !important;
+  }
+}
+
+.turntable-row .motion-inline-svg {
+  width: 98% !important;
+  height: 94% !important;
+}
+
+.splitflap-row .motion-inline-svg {
+  width: 100% !important;
+  height: 84% !important;
+}
+
+.soccer-pitch-row .soccer-pitch-inline {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+/* =========================================================
+   SEPT 2 — UI CARD RHYTHM + SOCCER PITCH FIT
+========================================================= */
+/* Keep the football demo card fitted to the pitch itself, with no extra white
+   space below the SVG while retaining the same viewport snap height. */
+.soccer-pitch-row .image-card {
+  aspect-ratio: 493 / 277 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  align-self: center !important;
+}
+.soccer-pitch-row .soccer-pitch-inline,
+.soccer-pitch-row .soccer-pitch-inline > svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* On multi-card information panels, place Format first and full width,
+   followed by the two supporting cards side-by-side. */
+.vector-card-stack.stack-format-first {
+  width: fit-content !important;
+  max-width: 100% !important;
+  grid-template-columns: repeat(2, minmax(190px, 236px)) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+  justify-content: start !important;
+}
+.vector-card-stack.stack-format-first > .format-card {
+  grid-column: 1 / -1;
+  min-height: 104px !important;
+  max-width: 484px !important;
+}
+
+/* Let the A380 drawing sit closer to its information column. */
+.a380-row .svg-artwork img {
+  width: 98% !important;
+  margin-left: auto !important;
+  margin-right: -1.5% !important;
+  object-position: right center !important;
+}
+
+/* Interactive demo control spans the full information-panel width. */
+.soccer-pitch-row .soccer-demo {
+  width: 100% !important;
+  margin-top: 14px !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+@media (max-width: 950px) {
+  .vector-card-stack.stack-format-first {
+    grid-template-columns: 1fr !important;
+  }
+  .vector-card-stack.stack-format-first > .format-card {
+    grid-column: auto;
+  }
+}
+
+
+/* Final shared portfolio refinements */
+.print-row.has-tight-info { grid-template-columns: minmax(0, 2.68fr) max-content !important; gap: 24px !important; }
+.print-row.has-tight-info .info-panel { max-width: 500px !important; }
+.print-row.has-tight-info .image-card { width: 100% !important; }
+
+@media (max-width: 950px) {
+  .print-row.has-tight-info { grid-template-columns: 1fr !important; }
+  .print-row.has-tight-info .info-panel { max-width: 100% !important; }
+}
+
+/* =========================================================
+   CURRENT3 — RESTORE FEATURE SCALE + COMPACT INFO PANELS
+   Keeps the established styling/interactions while restoring
+   the earlier demo heights and giving artwork more width.
+========================================================= */
+@media (min-width: 951px) {
+  /* The A380, soccer, turntable and split-flap use a deliberately compact
+     information column. The remaining width belongs to the artwork tile. */
+  .a380-row.has-tight-info,
+  .soccer-pitch-row.has-tight-info,
+  .turntable-row.has-tight-info,
+  .splitflap-row.has-tight-info {
+    grid-template-columns: minmax(0, 1fr) 372px !important;
+    gap: 24px !important;
+  }
+
+  .a380-row.has-tight-info .info-panel,
+  .soccer-pitch-row.has-tight-info .info-panel,
+  .turntable-row.has-tight-info .info-panel,
+  .splitflap-row.has-tight-info .info-panel {
+    width: 372px !important;
+    max-width: 372px !important;
+    min-width: 0 !important;
+  }
+
+  /* The information cards are only as wide as their content needs.
+     Format stays full-width, with the other two cards side-by-side. */
+  .a380-row .vector-card-stack.stack-format-first,
+  .soccer-pitch-row .vector-card-stack.stack-format-first {
+    width: 372px !important;
+    max-width: 372px !important;
+    grid-template-columns: repeat(2, 180px) !important;
+    gap: 12px !important;
+  }
+
+  .a380-row .vector-card-stack.stack-format-first > .format-card,
+  .soccer-pitch-row .vector-card-stack.stack-format-first > .format-card {
+    width: 372px !important;
+    max-width: 372px !important;
+  }
+
+  /* Compact button/instruction card on the Turntable page. */
+  .turntable-row .city-demo {
+    width: 350px !important;
+    max-width: 350px !important;
+  }
+}
+
+/* Restore the feature heights from before the last enlargement. */
+.wanderports-ui-row .image-card {
+  height: 600px !important;
+}
+
+.taxi-plane-row .image-card,
+.turntable-row .image-card {
+  height: 600px !important;
+}
+
+.splitflap-row .image-card {
+  height: 520px !important;
+}
+
+/* Soccer keeps its natural pitch ratio: no extra white area above/below. */
+.soccer-pitch-row .image-card {
+  width: 100% !important;
+  aspect-ratio: 493 / 277 !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+@media (max-width: 950px) {
+  .a380-row.has-tight-info .info-panel,
+  .soccer-pitch-row.has-tight-info .info-panel,
+  .turntable-row.has-tight-info .info-panel,
+  .splitflap-row.has-tight-info .info-panel,
+  .a380-row .vector-card-stack.stack-format-first,
+  .soccer-pitch-row .vector-card-stack.stack-format-first,
+  .turntable-row .city-demo {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* =========================================================
+   CURRENT3 — COMPACT INFO COLUMNS / MAXIMIZE ARTWORK
+   Requested refinement: trim information panels to content
+   so the SVG/demo cards receive the remaining viewport width.
+========================================================= */
+@media (min-width: 951px) {
+  /* UI vector examples: Format full-width, two compact cards below. */
+  .a380-row.has-tight-info,
+  .soccer-pitch-row.has-tight-info {
+    grid-template-columns: minmax(0, 1fr) 312px !important;
+    gap: 22px !important;
+  }
+
+  .a380-row.has-tight-info .info-panel,
+  .soccer-pitch-row.has-tight-info .info-panel {
+    width: 312px !important;
+    max-width: 312px !important;
+  }
+
+  .a380-row .vector-card-stack.stack-format-first,
+  .soccer-pitch-row .vector-card-stack.stack-format-first {
+    width: 312px !important;
+    max-width: 312px !important;
+    grid-template-columns: 150px 150px !important;
+    gap: 12px !important;
+  }
+
+  .a380-row .vector-card-stack.stack-format-first > .format-card,
+  .soccer-pitch-row .vector-card-stack.stack-format-first > .format-card {
+    width: 312px !important;
+    max-width: 312px !important;
+    min-height: 96px !important;
+  }
+
+  /* Motion examples use only as much sidebar width as the controls need. */
+  .turntable-row.has-tight-info,
+  .splitflap-row.has-tight-info {
+    grid-template-columns: minmax(0, 1fr) 310px !important;
+    gap: 22px !important;
+  }
+
+  .turntable-row.has-tight-info .info-panel,
+  .splitflap-row.has-tight-info .info-panel {
+    width: 310px !important;
+    max-width: 310px !important;
+  }
+
+  .turntable-row .city-demo {
+    width: 296px !important;
+    max-width: 296px !important;
+  }
+}
+
+/* Slightly tighten the content cards themselves without changing typography. */
+.a380-row .vector-info-card,
+.soccer-pitch-row .vector-info-card {
+  padding: 12px !important;
+}
+
+
+.feature-copy-inline {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.feature-copy-inline .feature-description {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+.preview-popout {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  border: 2px solid var(--accent) !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.10) !important;
+}
+.preview-popout:hover {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+.preview-popout svg { width: 18px !important; height: 18px !important; }
+.web-preview-frame {
+  border: 0;
+}
+.image-card.web-preview-card,
+.image-card.web-preview-card .web-preview-stage {
+  aspect-ratio: 16 / 9;
+}
+.image-card.web-preview-card .web-preview-shell {
+  width: 100%;
+  height: 100%;
+}
+.image-card.web-preview-card .preview-popout {
+  align-self: flex-start;
+}
+.branding-system-collage .branding-system-item img {
+  background: transparent !important;
+}
+@media (max-width: 820px) {
+  .feature-copy-inline { align-items: center; }
+}
+
+
+/* Sept 3 — matching featured stages */
+/* UI airport network and Motion turntable match their landing featured stage exactly. */
+@media (min-width: 951px) {
+  .wanderports-ui-row,
+  .turntable-row.has-tight-info {
+    grid-template-columns: 980px 348px !important;
+    gap: 24px !important;
+  }
+  .wanderports-ui-row .info-panel,
+  .turntable-row.has-tight-info .info-panel {
+    width: 348px !important;
+    max-width: 348px !important;
+  }
+}
+.wanderports-ui-row .image-card,
+.turntable-row .image-card {
+  width: 980px !important;
+  max-width: 100% !important;
+  height: 550px !important;
+  min-height: 0 !important;
+  align-self: center !important;
+}
+.turntable-row .motion-inline-svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 650px !important;
+  margin: 0 auto !important;
+}
+
+
+/* =========================================================
+   SEPT 3 FINAL — featured parity, title alignment, footer fit
+========================================================= */
+:root {
+  --service-title-top: 34px;
+  --service-first-row-top-space: 124px;
+  --service-footer-fit: 56px;
+}
+
+.print-list {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+}
+
+.page-section {
+  padding-top: var(--service-title-top) !important;
+}
+
+.page-section .page-title {
+  margin-bottom: 18px !important;
+}
+
+.print-row {
+  align-items: start !important;
+  align-content: start !important;
+}
+
+.print-row:first-child {
+  padding-top: var(--service-first-row-top-space) !important;
+}
+
+.print-row:last-child {
+  min-height: calc(var(--service-page-viewport) - var(--service-footer-fit)) !important;
+  padding-bottom: 0 !important;
+}
+
+@media (min-width: 951px) {
+  .branding-feature-row,
+  .wanderports-ui-row,
+  .turntable-row.has-tight-info,
+  .web-feature-row {
+    grid-template-columns: 980px max-content !important;
+    gap: 24px !important;
+    justify-content: start !important;
+  }
+
+  .branding-feature-row .image-card,
+  .wanderports-ui-row .image-card,
+  .turntable-row.has-tight-info .image-card,
+  .web-feature-row .image-card {
+    width: 980px !important;
+    max-width: 980px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    border-radius: 28px !important;
+    align-self: start !important;
+  }
+
+  .wanderports-ui-row .info-panel,
+  .turntable-row.has-tight-info .info-panel,
+  .web-feature-row .info-panel {
+    width: 348px !important;
+    max-width: 348px !important;
+  }
+
+  .branding-feature-row .info-panel {
+    width: 262px !important;
+    max-width: 262px !important;
+  }
+}
+
+.branding-feature-row .image-card,
+.web-feature-row .image-card,
+.wanderports-ui-row .image-card,
+.turntable-row.has-tight-info .image-card {
+  overflow: hidden !important;
+}
+
+.branding-feature-row .branding-system-collage {
+  position: absolute !important;
+  inset: 0 !important;
+  height: 100% !important;
+  padding: 18px !important;
+  border-radius: 28px !important;
+  background: #2f3640 !important;
+  grid-template-columns: 1.15fr 1.15fr 1fr !important;
+  grid-template-rows: 1.08fr 0.92fr 1fr !important;
+}
+
+.branding-feature-row .branding-system-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+
+.branding-feature-row .layout-stacked img {
+  width: 112% !important;
+  height: 112% !important;
+  max-width: 112% !important;
+  max-height: 112% !important;
+  object-position: center !important;
+}
+
+.branding-feature-row .vector-card-stack {
+  width: fit-content !important;
+  max-width: 220px !important;
+}
+
+.branding-feature-row .vector-info-card {
+  min-height: 0 !important;
+  width: 220px !important;
+  padding: 14px 16px !important;
+}
+
+.web-feature-row .web-preview-stage,
+.web-feature-row .web-preview-shell {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border-radius: 28px !important;
+}
+
+.web-feature-row .web-preview-frame {
+  width: 161.2903226% !important;
+  height: 161.2903226% !important;
+  max-width: none !important;
+  max-height: none !important;
+  transform: scale(.62) !important;
+  transform-origin: top left !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.turntable-row .motion-inline-svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 650px !important;
+  margin: 0 auto !important;
+}
+
+#site-footer {
+  margin-top: calc(var(--service-footer-fit) * -1) !important;
+  position: relative !important;
+  z-index: 30 !important;
+}
+
+#site-footer footer,
+footer {
+  padding-top: 12px !important;
+}
+
+@media (max-width: 950px) {
+  #site-footer {
+    margin-top: 0 !important;
+  }
+
+  .branding-feature-row .image-card,
+  .wanderports-ui-row .image-card,
+  .turntable-row.has-tight-info .image-card,
+  .web-feature-row .image-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .branding-feature-row .branding-system-collage {
+    position: relative !important;
+    height: 550px !important;
+  }
+
+  .web-feature-row .web-preview-frame {
+    width: 161.2903226% !important;
+    height: 161.2903226% !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 3 FINAL-2 — stable hovers, repeated viewport alignment,
+   bottom footer, compact info cards and title-row popout
+========================================================= */
+:root {
+  --service-row-top: 124px;
+  --service-footer-height: 56px;
+}
+
+/* Every project viewport starts its artwork on the same horizontal axis.
+   This applies to second/third projects as well as the featured first one. */
+.print-row,
+.print-row:first-child {
+  padding-top: var(--service-row-top) !important;
+  padding-bottom: 0 !important;
+  align-items: start !important;
+  align-content: start !important;
+}
+
+/* Reserve the footer height in the final project viewport and then render
+   the footer normally, so it lands at the same bottom edge on every page. */
+.print-row:last-child {
+  min-height: calc(var(--service-page-viewport) - var(--service-footer-height)) !important;
+}
+
+#site-footer {
+  margin-top: 0 !important;
+  position: relative !important;
+  z-index: 30 !important;
+  min-height: var(--service-footer-height) !important;
+  height: var(--service-footer-height) !important;
+}
+
+#site-footer footer,
+footer {
+  height: var(--service-footer-height) !important;
+  min-height: var(--service-footer-height) !important;
+  padding: 14px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Give all information cards equal left/right breathing room and let the
+   card width follow its content instead of leaving a large empty right side. */
+.vector-card-stack {
+  justify-items: start !important;
+  align-items: start !important;
+}
+
+.vector-info-card {
+  box-sizing: border-box !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  justify-self: start !important;
+}
+
+.vector-info-card h3,
+.vector-info-card p {
+  max-width: 100% !important;
+}
+
+/* Format-first card groups keep their two-column organization, but the
+   cards themselves no longer carry excess horizontal width. */
+.vector-card-stack.stack-format-first {
+  width: fit-content !important;
+  max-width: 100% !important;
+  grid-template-columns: max-content max-content !important;
+}
+
+.vector-card-stack.stack-format-first > .format-card {
+  width: max-content !important;
+  max-width: 100% !important;
+  grid-column: 1 / -1 !important;
+}
+
+/* Branding page keeps only the requested Use Cases card and fits it tightly. */
+.branding-feature-row .vector-card-stack,
+.branding-feature-row .vector-info-card {
+  width: max-content !important;
+  max-width: 100% !important;
+}
+
+/* Web Design pop-out control sits directly to the right of the label/title. */
+.info-title-action-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+  width: 100% !important;
+}
+
+.info-title-copy {
+  min-width: 0 !important;
+}
+
+.info-title-action-row .caption {
+  margin-bottom: 4px !important;
+}
+
+.info-title-action-row h2 {
+  margin: 0 !important;
+}
+
+.info-title-action-row .preview-popout {
+  position: static !important;
+  flex: 0 0 42px !important;
+  margin: 0 !important;
+}
+
+.web-feature-row .feature-description {
+  margin-top: 2px !important;
+}
+
+@media (max-width: 950px) {
+  .print-row,
+  .print-row:first-child {
+    padding-top: 36px !important;
+  }
+
+  .print-row:last-child {
+    min-height: auto !important;
+  }
+
+  #site-footer {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  #site-footer footer,
+  footer {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .vector-card-stack.stack-format-first {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* Sept 3 — keep service Branding artwork identical to featured Branding artwork */
+.branding-feature-row .branding-system-collage {
+  background: #3b424c !important;
+}
+.branding-feature-row .layout-primary img {
+  width: 96% !important; height: 92% !important; max-width: 96% !important; max-height: 92% !important;
+}
+.branding-feature-row .layout-wordmark img {
+  width: 94% !important; height: 86% !important; max-width: 94% !important; max-height: 86% !important;
+}
+.branding-feature-row .layout-icon img {
+  width: 96% !important; height: 96% !important; max-width: 96% !important; max-height: 96% !important;
+}
+.branding-feature-row .layout-stacked img {
+  width: 112% !important; height: 112% !important; max-width: 112% !important; max-height: 112% !important;
+}
+.branding-feature-row .layout-mono img,
+.branding-feature-row .layout-inverse img,
+.branding-feature-row .layout-extra img {
+  width: 106% !important; height: 100% !important; max-width: 106% !important; max-height: 100% !important;
+}
+
+
+/* =========================================================
+   SEPT 3 FINAL-3 — section tile parity + compact info cards
+========================================================= */
+@media (min-width: 951px) {
+  body .print-row.print-row {
+    grid-template-columns: 980px 348px !important;
+    gap: 24px !important;
+    justify-content: start !important;
+  }
+
+  body .print-row.print-row .image-card {
+    width: 980px !important;
+    max-width: 980px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    aspect-ratio: auto !important;
+    align-self: start !important;
+  }
+
+  body .print-row.print-row .info-panel {
+    width: 348px !important;
+    max-width: 348px !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Information cards stay compact rather than filling the entire sidebar. */
+.info-panel .vector-card-stack {
+  width: fit-content !important;
+  max-width: 100% !important;
+  justify-items: start !important;
+}
+
+.info-panel .vector-info-card {
+  width: fit-content !important;
+  min-width: 150px !important;
+  max-width: 220px !important;
+  min-height: 112px !important;
+  padding: 14px 16px !important;
+  justify-self: start !important;
+}
+
+.info-panel .vector-info-card h3,
+.info-panel .vector-info-card p {
+  width: auto !important;
+  max-width: 188px !important;
+}
+
+/* Taxi Plane uses only the animation stage, with no additional tile fill. */
+.taxi-plane-row .taxi-plane-card,
+.taxi-plane-row .taxi-plane-frame {
+  background: transparent !important;
+}
+.taxi-plane-row .taxi-plane-frame {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  border: 0 !important;
+}
+
+@media (max-width: 950px) {
+  body .print-row.print-row .image-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 380px !important;
+  }
+}
+
+
+/* Sept 3 — stacked logo visual parity with featured Branding tile */
+.branding-feature-row .layout-stacked img {
+  width: 145% !important;
+  height: 145% !important;
+  max-width: 145% !important;
+  max-height: 145% !important;
+  transform: translateY(8%) !important;
+}
+
+
+/* Sept 3 — final requested information-card sizing only */
+.info-panel .vector-card-stack {
+  justify-items: start !important;
+  align-items: start !important;
+}
+
+.info-panel .vector-info-card {
+  box-sizing: border-box !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 220px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  justify-self: start !important;
+}
+
+.info-panel .vector-info-card h3,
+.info-panel .vector-info-card p {
+  width: auto !important;
+  max-width: 188px !important;
+}
+
+/* For A380 and Soccer, Format is the same width as the Use Cases card below. */
+.a380-row .vector-card-stack.stack-format-first > .format-card,
+.soccer-pitch-row .vector-card-stack.stack-format-first > .format-card {
+  grid-column: 1 !important;
+  width: 150px !important;
+  max-width: 150px !important;
+  min-width: 150px !important;
+}
+
+/* Preview / single compact cards follow their actual content width with equal side padding. */
+.web-feature-row .vector-info-card,
+.branding-feature-row .vector-info-card {
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 220px !important;
+}
+
+
+/* =========================================================
+   SEPT 3 — COMPACT CONTINUOUS SPLIT-FLAP BOARD
+   Only the Split-Flap featured tile is affected.
+========================================================= */
+.splitflap-row .motion-inline-svg {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+.splitflap-row .image-card {
+  height: 455px !important;
+  min-height: 455px !important;
+  background: #070707 !important;
+}
+
+@media (min-width: 951px) {
+  .splitflap-row.has-tight-info {
+    grid-template-columns: 980px 310px !important;
+    gap: 22px !important;
+    justify-content: start !important;
+  }
+
+  .splitflap-row.has-tight-info .image-card {
+    width: 980px !important;
+    max-width: 980px !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .splitflap-row .image-card {
+    height: 384px !important;
+    min-height: 384px !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 3 — SPLIT-FLAP TILE DIMENSION FIX
+   Match the Taxi Plane/Web Design feature dimensions exactly.
+========================================================= */
+.splitflap-row .motion-inline-svg,
+.splitflap-row .svg-artwork,
+.splitflap-row .solari-demo,
+.splitflap-row .solari-board {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+}
+
+.splitflap-row .image-card {
+  background: #070707 !important;
+  overflow: hidden !important;
+  border-radius: 28px !important;
+}
+
+@media (min-width: 951px) {
+  body .splitflap-row.has-tight-info {
+    grid-template-columns: 980px 348px !important;
+    gap: 24px !important;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  body .splitflap-row.has-tight-info .image-card {
+    width: 980px !important;
+    max-width: 980px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    aspect-ratio: auto !important;
+  }
+
+  body .splitflap-row.has-tight-info .info-panel {
+    width: 348px !important;
+    max-width: 348px !important;
+    min-width: 0 !important;
+    align-self: start !important;
+  }
+
+  .splitflap-row .city-demo {
+    width: 326px !important;
+    max-width: 326px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .splitflap-row .image-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 440px !important;
+    aspect-ratio: 980 / 550 !important;
+  }
+
+  .splitflap-row .info-panel,
+  .splitflap-row .city-demo {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 3 — REQUESTED CARD / SPLIT-FLAP ALIGNMENT FIX ONLY
+========================================================= */
+
+/* A380 + Soccer: Format above Use Cases; Strengths beside Use Cases.
+   All three cards share one width; the two parallel lower cards share height. */
+.a380-row .vector-card-stack.stack-format-first,
+.soccer-pitch-row .vector-card-stack.stack-format-first {
+  width: 348px !important;
+  max-width: 348px !important;
+  display: grid !important;
+  grid-template-columns: 168px 168px !important;
+  grid-template-areas:
+    "format ."
+    "use strengths" !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+}
+
+.a380-row .vector-card-stack.stack-format-first > .format-card,
+.soccer-pitch-row .vector-card-stack.stack-format-first > .format-card {
+  grid-area: format !important;
+  width: 168px !important;
+  min-width: 168px !important;
+  max-width: 168px !important;
+  height: auto !important;
+}
+
+.a380-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(2),
+.soccer-pitch-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(2) {
+  grid-area: use !important;
+}
+
+.a380-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(3),
+.soccer-pitch-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(3) {
+  grid-area: strengths !important;
+}
+
+.a380-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(2),
+.a380-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(3),
+.soccer-pitch-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(2),
+.soccer-pitch-row .vector-card-stack.stack-format-first > .vector-info-card:nth-child(3) {
+  width: 168px !important;
+  min-width: 168px !important;
+  max-width: 168px !important;
+  height: 100% !important;
+  align-self: stretch !important;
+}
+
+/* Turntable instruction card: compact vertical padding, same text and width. */
+.turntable-row .city-demo {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 14px 16px !important;
+}
+
+.turntable-row .city-demo .hint {
+  margin: 0 !important;
+}
+
+/* Split-Flap tile remains exactly the standard 980×550 featured size. */
+@media (min-width: 951px) {
+  body .splitflap-row.has-tight-info .image-card {
+    width: 980px !important;
+    max-width: 980px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 950px) {
+  .a380-row .vector-card-stack.stack-format-first,
+  .soccer-pitch-row .vector-card-stack.stack-format-first {
+    width: 100% !important;
+    max-width: 348px !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 3 — SPLIT-FLAP POSITIONING FIX
+   Keep the board contained inside its project tile and match
+   the Taxi Plane feature dimensions exactly.
+========================================================= */
+.splitflap-row .image-card {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 28px !important;
+  background: #070707 !important;
+}
+
+.splitflap-row .svg-artwork {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+}
+
+.splitflap-row .solari-demo,
+.splitflap-row .solari-board {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+@media (min-width: 951px) {
+  body .splitflap-row.has-tight-info {
+    display: grid !important;
+    grid-template-columns: 980px 348px !important;
+    gap: 24px !important;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  body .splitflap-row.has-tight-info .image-card {
+    width: 980px !important;
+    max-width: 980px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+    aspect-ratio: auto !important;
+  }
+
+  body .splitflap-row.has-tight-info .info-panel {
+    width: 348px !important;
+    max-width: 348px !important;
+    min-width: 0 !important;
+  }
+}
+
+/* =========================================================
+   SEPT 3 — SPLIT-FLAP SIDEBAR + COMPACT INFO CARD FIX ONLY
+========================================================= */
+@media (min-width: 951px) {
+  body .splitflap-row.has-tight-info {
+    display: grid !important;
+    grid-template-columns: 980px 348px !important;
+    column-gap: 24px !important;
+    width: 1352px !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  body .splitflap-row.has-tight-info .image-card {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  body .splitflap-row.has-tight-info .info-panel {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: 348px !important;
+    max-width: 348px !important;
+    min-width: 0 !important;
+    align-self: start !important;
+    padding-top: 6px !important;
+  }
+
+  body .splitflap-row.has-tight-info .city-demo {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Info cards hug their longest line so left/right inner padding is equal. */
+.info-panel .vector-info-card {
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.info-panel .vector-info-card h3,
+.info-panel .vector-info-card p {
+  width: max-content !important;
+  max-width: calc(100% - 0px) !important;
+}
+
+/* Pop-out control is explicitly white at rest; hover behavior is unchanged. */
+.preview-popout {
+  background: #ffffff !important;
+}
+
+
+/* Sept 3 — UI map interaction card compact width */
+.wanderports-ui-caption .vector-card-stack {
+  width: 220px !important;
+  max-width: 220px !important;
+}
+
+.wanderports-ui-caption .vector-info-card {
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+  box-sizing: border-box !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.wanderports-ui-caption .vector-info-card h3,
+.wanderports-ui-caption .vector-info-card p {
+  width: auto !important;
+  max-width: 188px !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}

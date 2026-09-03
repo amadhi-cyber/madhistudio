@@ -1,0 +1,23 @@
+/* SECTIONS */
+.section:first-of-type {
+  margin-top: var(--section-gap);
+}
+
+.section:last-of-type {
+  margin-bottom: var(--section-gap);
+}
+
+.section {
+  padding: var(--hero-gap) 0;
+}
+
+.section-title {
+  margin-bottom: 32px;
+  font-size: 46px;
+}
+
+.section .btn {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}

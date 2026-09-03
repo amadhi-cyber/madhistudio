@@ -1,0 +1,487 @@
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 132px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+  z-index: 1000;
+}
+
+.nav-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 260px;
+  height: 132px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 260px;
+  height: 132px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.logo a:hover {
+  background: transparent;
+  border-color: transparent;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 17.5px;
+  position: relative;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover,
+.logo a:hover {
+  color: #111;
+}
+
+.nav-item:hover > a {
+  background: transparent;
+  border-color: var(--accent);
+  color: #111;
+}
+
+.nav-item:hover > a[href="aviation.html"] {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+nav a:hover {
+  background: transparent;
+  border-color: var(--accent);
+  color: #111;
+}
+
+.logo a,
+.logo a:hover {
+  border-color: transparent;
+  background: transparent;
+  color: inherit;
+}
+
+
+.logo a.active,
+.logo a.active:hover {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+
+/* ACTIVE PAGE PILL */
+nav a.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-size: 17.5px;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(10, 201, 43, 0.14);
+}
+
+nav a.active:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+nav a.active::after {
+  display: none;
+}
+
+/* TOP NAV DIVIDERS */
+.nav-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(0,0,0,0.24);
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* Invisible hover bridge so dropdown does not disappear */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: -16px;
+  right: -16px;
+  top: 100%;
+  height: 24px;
+  z-index: 1;
+}
+
+/* DROPDOWNS */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(14px);
+  width: max-content;
+  min-width: auto;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 8px 6px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+  transition:
+    opacity 0.22s ease 0.12s,
+    transform 0.22s ease 0.12s,
+    visibility 0s linear 0.28s;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(8px);
+  transition-delay: 0s;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 13px;
+  line-height: 1.25;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: left;
+  position: relative;
+}
+
+/* NON-LINK DROPDOWN LABELS */
+.dropdown-section-label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  color: #111;
+  font-size: 13px;
+  line-height: 1.25;
+  font-style: italic;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ABOUT DROPDOWN - LEFT ALIGNED */
+.about-dropdown {
+  left: 0;
+  right: auto;
+}
+
+.about-dropdown a {
+  justify-content: flex-start;
+  text-align: left;
+  margin-left: 0;
+}
+
+.about-dropdown .about-divider {
+  width: 82%;
+  margin: 4px auto;
+}
+
+.about-dropdown .partnerships-link {
+  font-style: italic;
+}
+
+/* KIDS DROPDOWN - RIGHT ALIGNED */
+.kids-dropdown {
+  left: auto;
+  right: 0;
+}
+
+.kids-dropdown a,
+.kids-dropdown .dropdown-section-label {
+  justify-content: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.kids-dropdown .kids-divider {
+  width: 82%;
+  margin: 4px 0 4px auto;
+}
+
+.dropdown a + a {
+  margin-top: 0;
+}
+
+.dropdown a:hover {
+  background: transparent;
+  border-color: transparent;
+  color: #111;
+}
+
+.dropdown a::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.14s ease;
+}
+
+.dropdown a:hover::after {
+  opacity: 1;
+  transform: none;
+}
+
+.aviation-dropdown a::after {
+  background: var(--gold);
+}
+
+.aviation-dropdown a.aviation-section-link::after {
+  background: var(--gold);
+}
+
+/* DROPDOWN SECTION DIVIDERS */
+.dropdown-divider {
+  display: block;
+  width: 82%;
+  height: 1px;
+  background: var(--border);
+  margin: 6px auto;
+}
+
+.photos-dropdown,
+.content-dropdown,
+.design-dropdown,
+.workshop-dropdown,
+.shop-dropdown,
+.kids-dropdown {
+  min-width: max-content;
+}
+
+.about-dropdown {
+  min-width: max-content;
+}
+
+/* AVIATION NAV */
+.nav-item > a[href="aviation.html"] {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.nav-item > a[href="aviation.html"]:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Aviation active page pill */
+.nav-item > a[href="aviation.html"].active {
+  color: #fff;
+  background: var(--gold);
+  border-color: var(--gold);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(184, 137, 33, 0.16);
+}
+
+.nav-item > a[href="aviation.html"].active:hover {
+  color: #fff;
+  background: var(--gold);
+  border-color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.aviation-dropdown {
+  min-width: max-content;
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  column-gap: 10px;
+  row-gap: 0;
+  padding: 8px 6px;
+}
+
+.aviation-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: max-content;
+}
+
+/* Gold section buttons: Photos, Content, Design */
+.aviation-dropdown a.aviation-section-link {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+  border-color: transparent;
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.aviation-dropdown a.aviation-section-link:hover {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+  background: transparent;
+  border-color: transparent;
+}
+
+.aviation-dropdown a {
+  width: fit-content;
+  border-width: 2px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.aviation-dropdown .dropdown-divider,
+.aviation-dropdown .gold-divider {
+  width: 100%;
+  margin: 3px 0;
+  background: rgba(184, 137, 33, 0.45);
+}
+
+/* CART */
+.cart-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+}
+
+.cart-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  nav a {
+    font-size: 16.25px;
+    padding: 4px 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo a {
+    height: 46px;
+  }
+
+  .logo img {
+    height: 38px;
+    max-width: 250px;
+  }
+
+  nav {
+    height: auto;
+    min-height: 64px;
+    padding: 10px 5%;
+  }
+
+  .nav-inner {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .dropdown {
+    left: auto;
+    right: 0;
+    transform: translateY(14px);
+    max-width: calc(100vw - 32px);
+  }
+
+  .nav-item:hover .dropdown {
+    transform: translateY(8px);
+  }
+
+  .aviation-dropdown {
+    grid-template-columns: 1fr;
+    width: max-content;
+    min-width: max-content;
+    max-width: calc(100vw - 32px);
+  }
+
+  .aviation-column {
+    width: max-content;
+  }
+
+  .about-dropdown a,
+  .about-dropdown .dropdown-section-label {
+    justify-content: flex-end;
+    text-align: right;
+    margin-left: auto;
+  }
+}

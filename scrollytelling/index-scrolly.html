@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Madhi Studio | Scrollytelling Landing Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #8f8f8f;
+  --border: #d9d9d9;
+  --accent: #0AC92B;
+  --header-height: 76px;
+
+  --page-darkness: 0;
+  --photo-progress: 0;
+  --taxi-progress: 0;
+  --sign-progress: 0;
+
+  --photo-reveal-size: 0%;
+
+  --period-left: 50vw;
+  --period-start-top: 50vh;
+  --period-top: 50vh;
+  --crosswalk-reveal-w: 8px;
+  --crosswalk-reveal-h: 8px;
+  --crosswalk-radius: 999px;
+
+  --blackout-scale: 0;
+  --blackout-x: 50vw;
+  --blackout-y: 50vh;
+
+  --photo-mask-x: 50%;
+  --photo-mask-y: 54%;
+  --plane-x: 115vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Montserrat", Arial, sans-serif;
+  overflow-x: hidden;
+  background: rgb(
+    calc(255 - (255 * var(--page-darkness)))
+    calc(255 - (255 * var(--page-darkness)))
+    calc(255 - (255 * var(--page-darkness)))
+  );
+}
+
+body::before {
+  display: none;
+}
+
+/* =========================
+   LOGO ONLY
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1200;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.site-header-inner {
+  width: auto;
+  height: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.logo-mark {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.logo-mark a {
+  display: block;
+  line-height: 0;
+}
+
+.logo-mark img {
+  display: block;
+  width: 200px;
+  height: auto;
+  opacity: 0.4;
+}
+
+.blackout-logo-mark {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 200px;
+  min-height: 72px;
+  z-index: 1700;
+  display: none;
+  pointer-events: none;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  color: #ffffff;
+}
+
+.blackout-logo-main {
+  display: block;
+  font-size: 38px;
+  line-height: 0.95;
+}
+
+.blackout-logo-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: 13px;
+  letter-spacing: 0.20em;
+}
+
+.blackout-logo-sub::before,
+.blackout-logo-sub::after {
+  content: "";
+  height: 2px;
+  width: 32px;
+  background: currentColor;
+}
+
+body.crosswalk-sequence-active .site-header {
+  opacity: 0;
+}
+
+body.crosswalk-sequence-active .blackout-logo-mark {
+  display: block;
+}
+
+/* =========================
+   TYPEWRITER HERO ADDITIONS
+========================= */
+
+.typing-hero {
+  font-size: clamp(22px, 3.15vw, 46px);
+}
+
+.type-line {
+  display: block;
+  min-height: 0.98em;
+}
+
+.typed-accent {
+  color: #111111;
+  transition: color 0.75s ease;
+}
+
+.accent-char {
+  display: inline-block;
+  transition:
+    color 0.35s ease,
+    background-color 0.18s ease;
+}
+
+.accent-char.is-selected {
+  background: rgba(10, 201, 43, 0.18);
+}
+
+.typed-accent.is-green .accent-char {
+  color: var(--accent);
+  background: transparent;
+}
+
+.hero-title.typing-complete .typed-accent {
+  color: var(--accent);
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 0.026em;
+  height: 0.82em;
+  margin-left: 0.055em;
+  background: #111111;
+  transform: translateY(0.08em);
+  animation: cursorBlink 0.78s steps(1, end) infinite;
+  vertical-align: baseline;
+}
+
+@keyframes cursorBlink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+.scroll-cue {
+  position: fixed;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  gap: 7px;
+  color: #aaaaaa;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.scroll-cue.is-visible {
+  opacity: 1;
+}
+
+body.user-has-scrolled .scroll-cue {
+  opacity: 0;
+}
+
+.scroll-cue-arrow {
+  font-size: 22px;
+  line-height: 1;
+  animation: arrowBounce 1.15s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.hero-title {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.type-line,
+.typed-accent,
+#typeLineOneText,
+#typeLineTwoBefore,
+#typeLineThreeText {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.hero-period {
+  display: inline-block;
+  color: #111111;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.travel-period {
+  position: fixed;
+  left: var(--period-left);
+  top: var(--period-top);
+  z-index: 1400;
+  display: none;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3.15vw, 46px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  color: #111111;
+  pointer-events: none;
+}
+
+body.period-travel .travel-period {
+  display: block;
+}
+
+body.period-travel .hero-period {
+  opacity: 0;
+}
+
+body.period-travel #typeLineOne,
+body.period-travel #typeLineTwo,
+body.period-travel #typeLineThreeText {
+  opacity: 0;
+}
+
+body.period-travel .typing-cursor {
+  display: none;
+}
+
+.period-blackout {
+  position: fixed;
+  left: var(--blackout-x);
+  top: var(--blackout-y);
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #000000;
+  transform: translate(-50%, -50%) scale(var(--blackout-scale));
+  transform-origin: center center;
+  z-index: 900;
+  pointer-events: none;
+  opacity: 1;
+  transition: transform 1.25s ease;
+}
+
+.crosswalk-reveal-frame {
+  opacity: 0;
+  transition:
+    opacity 1.4s ease,
+    border-radius 0.08s linear;
+}
+
+body.crosswalk-visible .crosswalk-reveal-frame {
+  opacity: 1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero-panel {
+  min-height: 100vh;
+  padding: 40px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff;
+  position: relative;
+  z-index: 4;
+}
+
+.hero-inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  transform: translateY(-40px);
+}
+
+.hero-title {
+  max-width: 900px;
+  min-height: calc(0.98em * 3);
+  margin: 0 auto;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3.15vw, 46px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  color: #111111;
+}
+
+.hero-title .accent-word {
+  color: var(--accent);
+}
+
+.space-after-hero {
+  height: 150vh;
+  background: transparent;
+}
+
+.section-space {
+  height: 80vh;
+  background: transparent;
+}
+
+.aircraft-clear-space {
+  height: 130vh;
+  background: #ffffff;
+}
+
+.period-to-crosswalk-space {
+  height: 15vh;
+  background: #ffffff;
+}
+
+body.period-travel .typing-cursor {
+  display: none;
+}
+
+/* =========================
+   SCROLLYTELLING BASE
+========================= */
+
+.scene {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+}
+
+.sticky-stage {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* =========================
+   PHOTO SCENE
+========================= */
+
+.photo-scene {
+  height: 300vh;
+}
+
+.photo-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.photo-image-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.photo-image {
+  width: 38vw;
+  max-width: 520px;
+  min-width: 260px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+
+  border-radius: 0;
+  transform: translateY(90px) scale(1);
+
+  filter:
+    brightness(1)
+    contrast(1.04)
+    saturate(1.04);
+}
+
+.photo-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: #ffffff;
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle at var(--photo-mask-x) var(--photo-mask-y),
+      transparent 0,
+      transparent var(--photo-reveal-size),
+      #000 calc(var(--photo-reveal-size) + 0.4%),
+      #000 100%
+    );
+
+  mask-image:
+    radial-gradient(
+      circle at var(--photo-mask-x) var(--photo-mask-y),
+      transparent 0,
+      transparent var(--photo-reveal-size),
+      #000 calc(var(--photo-reveal-size) + 0.4%),
+      #000 100%
+    );
+}
+
+/* =========================
+   TAXI AIRCRAFT SCENE
+========================= */
+
+.taxi-scene {
+  height: 300vh;
+}
+
+.taxi-stage {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aircraft-only {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: min(1050px, 72vw);
+  z-index: 5;
+
+  transform:
+    translateX(var(--plane-x))
+    translateY(-50%);
+
+  opacity: calc(0.15 + (var(--taxi-progress) * 0.85));
+}
+
+.aircraft-only img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes taxiStripe {
+  from {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  to {
+    transform: translateY(-50%) translateX(-86px);
+  }
+}
+
+.taxi-aircraft {
+  position: absolute;
+  left: 0;
+  bottom: 23%;
+  width: min(520px, 46vw);
+  z-index: 5;
+  transform:
+    translateX(calc(105vw - (var(--taxi-progress) * 155vw)))
+    translateY(calc((1 - var(--taxi-progress)) * 18px));
+  filter: drop-shadow(0 24px 30px rgba(0,0,0,0.55));
+}
+
+.taxi-aircraft img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   CROSSWALK SIGN SCENE
+========================= */
+
+.sign-scene {
+  height: 650vh;
+  z-index: 1100;
+  background: transparent;
+}
+
+.sign-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  z-index: 1100;
+}
+
+.crosswalk-svg {
+  width: min(1280px, 96vw);
+  height: min(860px, 88vh);
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+  transform: none;
+  transform-origin: center center;
+}
+
+.crosswalk-svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.crosswalk-reveal-frame {
+  width: var(--crosswalk-reveal-w);
+  height: var(--crosswalk-reveal-h);
+  border-radius: var(--crosswalk-radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  z-index: 1200;
+  opacity: 0;
+  transition:
+    opacity 1.4s ease,
+    border-radius 0.08s linear;
+}
+
+.crosswalk-reveal-frame .crosswalk-svg {
+  flex: 0 0 auto;
+  width: min(1280px, 96vw);
+  height: min(860px, 88vh);
+}
+
+.crosswalk-flashing-svg .led {
+  animation: ledFlash 0.20s steps(1, end) infinite;
+}
+
+body.crosswalk-sequence-active .travel-period {
+  opacity: 0;
+}
+
+body.crosswalk-force-close .travel-period {
+  opacity: 1;
+  color: #111111;
+}
+
+body.crosswalk-closing .travel-period {
+  opacity: 1;
+  color: #111111;
+}
+
+body.crosswalk-closing .crosswalk-reveal-frame {
+  opacity: 0;
+}
+
+body.crosswalk-visible .crosswalk-reveal-frame {
+  width: min(1280px, 96vw);
+  height: min(860px, 88vh);
+  border-radius: 28px;
+}
+
+body.crosswalk-closing .crosswalk-reveal-frame,
+body.crosswalk-force-close .crosswalk-reveal-frame {
+  opacity: 0;
+}
+
+body.plane-moment .travel-period {
+  opacity: 0;
+}
+
+.page-tech-line {
+  margin: 0 auto 34px;
+  max-width: 980px;
+  text-align: center;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(24px, 3vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+}
+
+.page-tech-line strong {
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.browser-demo {
+  width: min(1620px, calc(100vw - 28px));
+  margin: 0 auto;
+  border: 1px solid #d7d7d7;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.08);
+}
+
+.browser-bar {
+  height: 54px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 18px;
+}
+
+.browser-url {
+  height: 30px;
+  flex: 1;
+  margin-left: 12px;
+  border: 1px solid #d8d8d8;
+  border-radius: 999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 22px;
+  color: #7d7d7d;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.browser-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #cfcfcf;
+}
+
+.browser-content {
+  min-height: min(760px, 78vh);
+  padding: clamp(34px, 6vw, 78px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  background: #ffffff;
+}
+
+.client-mark {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 200px;
+  min-height: 72px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.client-mark-main {
+  display: block;
+  font-size: clamp(20px, 2.6vw, 36px);
+  line-height: 0.95;
+}
+
+.client-mark-sub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: clamp(10px, 1.1vw, 14px);
+  letter-spacing: 0.18em;
+}
+
+.client-mark-sub::before,
+.client-mark-sub::after {
+  content: "";
+  height: 2px;
+  width: 34px;
+  background: currentColor;
+}
+
+.browser-hero-statement {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(22px, 3.15vw, 46px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.browser-hero-statement span {
+  color: var(--accent);
+}
+
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta {
+  min-height: 118vh;
+  padding: 90px 22px 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  position: relative;
+  z-index: 5;
+}
+
+.cta-card {
+  width: 100%;
+  text-align: center;
+  background: #ffffff;
+}
+
+.cta-split {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.cta-info-card,
+.cta-contact-card {
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: #ffffff;
+  padding: clamp(28px, 4vw, 46px);
+}
+
+.cta-bottom-note span {
+  color: var(--accent);
+}
+
+/* =========================
+   REVEALS
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tech-section {
+  min-height: 110vh;
+  padding: 130px 24px 90px;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+}
+
+.tech-panel {
+  text-align: center;
+  width: min(900px, 100%);
+}
+
+.tech-panel h2 {
+  margin: 0 0 34px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.tech-list {
+  display: grid;
+  gap: 12px;
+  color: var(--accent);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.pre-browser-space {
+  height: 240vh;
+  background: #ffffff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .cta-split {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-contact-card {
+    text-align: center;
+  }
+
+  .contact-form {
+    text-align: left;
+  }
+
+  .taxi-aircraft {
+    width: min(500px, 68vw);
+  }
+
+  .sign-card {
+    min-height: 62vh;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header-inner {
+    padding: 0 18px;
+  }
+
+  .hero-panel,
+  .final-cta {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 10vw, 54px);
+  }
+
+  .aircraft-only {
+    width: 96vw;
+  }
+
+  .sign-card {
+    border-radius: 28px;
+    min-height: 58vh;
+  }
+
+  .sign-card img {
+    width: min(420px, 86%);
+  }
+
+  .cta-card {
+    border-radius: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header" aria-label="Madhi Studio header">
+  <div class="site-header-inner">
+    <div class="logo-mark">
+      <a href="../index.html" aria-label="Madhi Studio home">
+        <img src="../assets/madhi-studio-logo.png" alt="Madhi Studio logo">
+      </a>
+    </div>
+
+    <div class="blackout-logo-mark" aria-hidden="true">
+      <span class="blackout-logo-main">MADHI</span>
+      <span class="blackout-logo-sub">STUDIO</span>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- HERO ONLY -->
+  <section class="hero-panel">
+    <div class="hero-inner reveal">
+      <h1 class="hero-title typing-hero" id="heroTitle" aria-live="polite">
+        <span class="type-line" id="typeLineOne">
+          <span id="typeLineOneText"></span>
+        </span>
+
+        <span class="type-line" id="typeLineTwo">
+          <span id="typeLineTwoBefore"></span><span class="typed-accent" id="typeAccent"></span>
+        </span>
+
+        <span class="type-line" id="typeLineThree">
+          <span id="typeLineThreeText"></span><span id="heroPeriod" class="hero-period"></span>
+        </span>
+      </h1>
+      <div class="scroll-cue" id="scrollCue" aria-hidden="true">
+        <span>scroll down</span>
+        <span class="scroll-cue-arrow">↓</span>
+      </div>
+    </div>
+  </section>
+
+  <span id="travelPeriod" class="travel-period" aria-hidden="true">.</span>
+  <div class="period-blackout" aria-hidden="true"></div>
+
+  <!-- SHORT SPACE AFTER HERO -->
+  <div class="section-space period-to-crosswalk-space" aria-hidden="true"></div>
+
+  <!-- CROSSWALK SIGN GIRL FLASHING SVG INLINE -->
+  <section class="scene sign-scene" id="signScene">
+    <div class="sticky-stage sign-stage">
+
+    <div class="crosswalk-reveal-frame">  
+      <div class="crosswalk-svg">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="-25 -265 515 395"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-labelledby="title desc">
+          <title id="title">Perspective crosswalk with right-side pedestrian sign assembly</title>
+          <desc id="desc">Black crosswalk markings on a white background with a scaled pedestrian sign, pole, button, and girl assembly on the right side of the road.</desc>
+
+          <defs>
+            <filter id="ledGlow" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+              <feColorMatrix
+                in="blur"
+                type="matrix"
+                values="
+                  1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 0.35 0 0
+                  0 0 0 1 0"
+                result="yellowGlow"/>
+              <feMerge>
+                <feMergeNode in="yellowGlow"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
+            <filter id="panelGlow" x="-45%" y="-45%" width="190%" height="190%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+              <feColorMatrix
+                in="blur"
+                type="matrix"
+                values="
+                  0.75 0 0 0 0.20
+                  0 1.15 0 0 0.30
+                  0 0 0.20 0 0
+                  0 0 0 0.75 0"
+                result="panelYellowGlow"/>
+              <feMerge>
+                <feMergeNode in="panelYellowGlow"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
+            <style>
+              .black-fill {
+                fill: #1f2937;
+                stroke: #111111;
+                stroke-width: 2;
+                stroke-linecap: square;
+                stroke-linejoin: miter;
+              }
+
+              .led {
+                fill: #fff15a;
+                stroke: #111111;
+                stroke-width: 0.8;
+                filter: url(#ledGlow);
+                opacity: 1;
+                animation: none;
+              }
+
+              .crosswalk-flashing-svg .led {
+                animation: ledFlash 0.20s steps(1, end) infinite;
+              }
+
+              @keyframes ledFlash {
+                0%, 49.9% {
+                  opacity: 1;
+                  filter: url(#ledGlow);
+                }
+                50%, 100% {
+                  opacity: 0.12;
+                  filter: none;
+                }
+              }
+
+              .button-silhouette {
+                fill: #1f2937;
+                stroke: #1f2937;
+                stroke-width: 1.2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
+            </style>
+          </defs>
+
+
+          <rect x="-25" y="-225" width="515" height="345" fill="transparent"/>
+
+
+          <g fill="#64748b">
+
+            <polygon points="-15,109 -1,109 130,-51 126,-51"/>
+
+
+            <polygon points="12,109 39,109 96,29 74,29"/>
+            <polygon points="52,109 84,109 126,29 108,29"/>
+            <polygon points="94,109 126,109 158,29 139,29"/>
+            <polygon points="137,109 171,109 193,29 174,29"/>
+            <polygon points="182,109 214,109 225,29 205,29"/>
+            <polygon points="226,109 258,109 257,29 236,29"/>
+            <polygon points="269,109 301,109 288,29 268,29"/>
+            <polygon points="311,109 344,109 321,29 301,29"/>
+            <polygon points="353,109 386,109 353,29 334,29"/>
+            <polygon points="394,109 421,109 382,29 364,29"/>
+
+
+            <polygon points="434,109 448,109 350,-51 346,-51"/>
+          </g>
+
+
+          <g id="sign-girl-assembly" transform="translate(380, -230) scale(0.38)">
+
+
+            <g transform="translate(0, 200)">
+
+
+              <rect class="black-fill" x="106" y="-44" width="8" height="484" />
+              <rect class="black-fill" x="98" y="426" width="24" height="11" />
+              <rect class="black-fill" x="94" y="437" width="32" height="10" />
+              <rect class="black-fill" x="84" y="447" width="52" height="56" rx="4" ry="4" />
+
+
+              <g transform="translate(0, -160)">
+
+
+                <svg
+                  x="20"
+                  y="0"
+                  width="180"
+                  height="225"
+                  viewBox="0 0 816.45599 1022.88"
+                  version="1.1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g transform="translate(0,445.75999)">
+                    <path
+                      filter="url(#panelGlow)"
+                      d="m 815.456,-37.531975 c 0,10.3186 -4.0333,20.0399 -11.3185,27.3482 L 435.565,358.3777 c -7.2968,7.29619 -17.0066,11.3183 -27.337,11.3183 -10.3304,0 -20.0517,-4.02211 -27.3484,-11.3183 L 12.3187,-10.183775 C 5.0219,-17.492075 1,-27.213375 1,-37.531975 c 0,-10.3307 4.0219,-20.04 11.3187,-27.3482 L 380.8796,-433.44178 c 7.2967,-7.296 17.018,-11.3182 27.3484,-11.3182 10.3304,0 20.0402,4.0222 27.337,11.3303 l 368.5725,368.549505 c 7.2852,7.3082 11.3185,17.0175 11.3185,27.3482"
+                      style="fill:#cdff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      d="m 20.6482,-18.522775 c -10.4797,-10.4798 -10.4797,-27.5438 0,-38.0236 L 389.2091,-425.11908 c 10.4914,-10.4798 27.5438,-10.4798 38.0352,0 l 368.5609,368.572705 c 10.4797,10.4798 10.4797,27.5438 0,38.0236 L 427.2443,350.03786 c -10.4914,10.49182 -27.5438,10.49182 -38.0352,0 z"
+                      style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      filter="url(#panelGlow)"
+                      d="m 30.8867,-28.760375 c -4.8377,-4.8374 -4.8377,-12.7093 0,-17.5467 L 399.4476,-414.87998 c 4.8377,-4.8371 12.7205,-4.8371 17.5582,0 l 368.5609,368.572905 c 4.8377,4.8374 4.8377,12.7093 0,17.5467 L 417.0058,339.80026 c -4.8377,4.83827 -12.7205,4.83827 -17.5582,0 z"
+                      style="fill:#cdff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      d="m 368.81,-302.28708 c 20.6723,0 37.5295,16.8572 37.5295,37.5297 0,20.6717 -16.8572,37.541 -37.5295,37.541 -20.6723,0 -37.5295,-16.8693 -37.5295,-37.541 0,-20.6725 16.8572,-37.5297 37.5295,-37.5297"
+                      style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      d="m 255.1671,-65.618775 78.7361,-52.491005 c 3.6427,-15.386 18.7302,-83.6768 49.0204,-99.4887 30.0029,-19.833 140.5918,61.6496 141.2354,62.3158 v 118.851205 l -23.9817,-4.16 -9.3881,-94.880505 c -9.0319,-1.8159 -18.0637,-3.6317 -27.1071,-5.4467 19.7529,51.042205 27.0037,100.235005 15.6391,132.6395049 L 527.2845,187.73356 494.9604,210.67009 425.107,29.261825 l -32.3127,34.4039 -44.8376,136.581485 -42.7464,-15.63863 38.5751,-143.878555 44.8377,-80.2873 -17.1904,-59.2477 -18.2592,23.7984 -85.4927,28.1523 z"
+                      style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      filter="url(#panelGlow)"
+                      d="m 608.2282,549.87469 c 0,14.4786 -11.7783,26.24531 -26.2569,26.24531 H 234.4848 c -14.4786,0 -26.2568,-11.76671 -26.2568,-26.24531 V 400.94043 c 0,-14.4786 11.7782,-26.24543 26.2568,-26.24543 h 347.4865 c 14.4786,0 26.2569,11.76683 26.2569,26.24543 z"
+                      style="fill:#cdff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      d="m 234.4814,568.48435 c -10.2614,0 -18.6153,-8.3539 -18.6153,-18.61535 V 400.9462 c 0,-10.26144 8.3539,-18.61535 18.6153,-18.61535 h 347.4865 c 10.2615,0 18.6154,8.35391 18.6154,18.61535 V 549.869 c 0,10.26145 -8.3539,18.61535 -18.6154,18.61535 z"
+                      style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      filter="url(#panelGlow)"
+                      d="m 234.4814,558.14249 c -4.5619,0 -8.2735,-3.71162 -8.2735,-8.27349 V 400.9462 c 0,-4.56187 3.7116,-8.2735 8.2735,-8.2735 h 347.4865 c 4.5619,0 8.2735,3.71163 8.2735,8.2735 V 549.869 c 0,4.56187 -3.7116,8.27349 -8.2735,8.27349 z"
+                      style="fill:#cdff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      d="m 360.9762,476.74627 118.2305,-68.22181 24.7974,42.96464 -118.2764,68.12995 z"
+                      style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                    <path
+                      d="m 379.1802,433.03588 9.3881,56.38615 44.1482,36.3344 c 7.044,5.80291 2.4361,17.22489 -6.6647,16.51251 l -113.6111,-8.894 49.1008,-102.83258 c 3.9415,-8.23899 16.1333,-6.51537 17.6387,2.49352"
+                      style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:11.491" />
+                  </g>
+                </svg>          
+
+                <g transform="translate(0, -10)">
+
+                  <circle class="led" cx="110" cy="26" r="2.5" />
+                  <circle class="led" cx="181" cy="99" r="2.5" />
+                  <circle class="led" cx="109" cy="172" r="2.5" />
+                  <circle class="led" cx="36" cy="100" r="2.5" />
+
+
+                  <circle class="led" cx="148" cy="62" r="2.5" />
+                  <circle class="led" cx="149" cy="134" r="2.5" />
+                  <circle class="led" cx="71" cy="134" r="2.5" />
+                  <circle class="led" cx="70" cy="63" r="2.5" />
+                </g>
+
+              </g>
+
+
+              <g class="button-silhouette">
+                <rect x="112" y="190" width="8" height="14" rx="2" ry="2" />
+              </g>
+
+
+              <svg
+                x="118"
+                y="185"
+                width="132"
+                height="320"
+                viewBox="0 0 245.95201 599.01575"
+                version="1.1"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(1.3228603,-15.233124)">
+                  <path
+                    d="m 166.60033,613.85606 c -5.7554,-1.19081 -13.43694,-5.41623 -13.85299,-7.62017 -0.20765,-1.1 -0.67215,-2.225 -1.03222,-2.5 -0.36007,-0.275 -1.23832,-1.8252 -1.95167,-3.44489 -1.17115,-2.65913 -1.09157,-3.09985 0.82017,-4.54188 1.16444,-0.87834 6.48225,-3.55906 11.81736,-5.95715 13.22652,-5.94524 27.51755,-14.45777 30.79504,-18.34325 l 2.71011,-3.21283 -5.49422,-0.29518 c -6.85848,-0.36848 -14.96388,2.51101 -19.75346,7.01752 -2.19174,2.0622 -4.25538,3.13274 -5.67921,2.94616 -1.23007,-0.16119 -3.596,0.40995 -5.25763,1.26921 -4.55603,2.35602 -11.77414,2.0779 -13.15751,-0.50696 -1.62554,-3.03735 -0.54948,-8.47298 2.4579,-12.41585 4.35314,-5.70727 9.07404,-8.65324 16.29102,-10.16604 7.02226,-1.47199 12.73063,-4.62792 20.28814,-11.21652 l 4.5,-3.92307 -0.21312,-15.85463 c -0.12971,-9.65031 -1.26845,-24.65947 -2.90995,-38.35464 l -2.69684,-22.5 -3.72951,-4.5 c -2.05123,-2.475 -3.99622,-5.4 -4.32219,-6.5 -0.32598,-1.1 -0.81659,-8.25196 -1.09026,-15.89324 -0.40902,-11.42082 -1.10931,-16.31469 -3.93508,-27.5 -1.89063,-7.48372 -3.9792,-16.30676 -4.64127,-19.60676 -0.66206,-3.3 -1.80291,-6.85707 -2.53521,-7.90461 -0.803,-1.14867 -1.00933,-2.53781 -0.51986,-3.5 0.44637,-0.87746 1.07863,-3.00746 1.40502,-4.73331 1.00654,-5.32227 -1.09331,-6.25228 -14.85341,-6.57854 l -11.95832,-0.28354 v -37.55854 -37.55854 l -3.65122,-3.20832 c -3.30307,-2.90241 -3.57335,-3.51662 -2.83447,-6.44147 2.53606,-10.03893 5.75954,-33.1941 8.45481,-60.73313 0.62883,-6.42514 2.36321,-16.91968 2.95428,-17.87605 0.32119,-0.5197 0.65609,-2.78519 0.74422,-5.03443 0.0881,-2.24924 0.47499,-4.08952 0.85967,-4.08952 0.38468,0 1.26154,-2.8125 1.94858,-6.25 1.8604,-9.30827 5.00516,-19.94649 6.66489,-22.54626 2.96743,-4.64811 3.92836,-18.9401 1.35924,-20.21608 -0.825,-0.40974 -3.075,-1.4643 -5,-2.34346 -3.62465,-1.65541 -7.78368,-4.02091 -19.16637,-10.90113 -3.66651,-2.2162 -8.16651,-4.92397 -10,-6.01727 -1.8335,-1.0933 -5.20719,-3.27886 -7.49711,-4.85681 -2.28991,-1.57794 -4.66135,-2.86899 -5.26987,-2.86899 -2.91882,0 -10.804918,-6.7256 -30.070558,-25.645417 -15.69999,-15.418171 -21.30139,-20.347349 -22.24065,-19.571543 -1.69964,1.403868 -6.99722,-2.841293 -7.44042,-5.962308 -0.18126,-1.276405 -1.04876,-2.770736 -1.92777,-3.320736 -0.87902,-0.55 -3.18762,-2.2375 -5.13024,-3.75 -2.60617,-2.029137 -4.66278,-2.75 -7.84573,-2.75 -2.37254,0 -6.9052,-0.675 -10.07259,-1.5 -3.16739,-0.825 -7.6331,-1.5 -9.92379,-1.5 -7.4999698,0 -10.5553898,-1.012432 -10.2167198,-3.385363 0.26971,-1.889683 1.04647,-2.145405 7.3018198,-2.403863 5.78238,-0.238916 7.28637,-0.663051 8.64635,-2.438318 1.85016,-2.415144 1.46028,-4.264534 -1.57184,-7.455966 -1.14098,-1.20093 -3.64951,-4.21628 -5.57451,-6.700777 -1.9249998,-2.484497 -5.4100098,-5.478353 -7.7444598,-6.653013 -2.33445,-1.17466 -4.49850995,-2.546811 -4.80901995,-3.049223 -1.21699005,-1.969135 0.6552,-2.724176 4.27591995,-1.724447 2.64759,0.731035 3.81209,0.707383 4.07547,-0.08278 0.81396,-2.441871 10.2464798,-0.31452 13.4910398,3.042685 0.98393,1.018084 2.96576,1.851062 4.40407,1.851062 1.81729,0 3.66844,1.230571 6.06768,4.033543 2.4493,2.86145 3.98084,3.865874 5.27054,3.456542 1.25178,-0.3973 2.23075,0.173281 3.14336,1.832077 0.72897,1.324993 2.55069,4.680501 4.04827,7.456684 3.14407,5.828406 7.78099,8.860199 10.73222,7.017125 1.52269,-0.950938 2.7567,-0.287342 7.92423,4.261304 6.07008,5.343106 7.15386,7.186147 5.00624,8.513448 -0.66457,0.410727 0.71031,1.824502 3.40594,3.502305 2.4862,1.547451 4.81748,3.294296 5.18063,3.881877 0.61763,0.99936 11.09504,8.045095 11.96351,8.045095 1.71352,0 17.218418,11.691504 23.929488,18.04409 4.56343,4.319677 11.86064,9.976257 16.21601,12.570187 20.22417,12.04491 27.6453,15.03012 34.48976,13.87375 3.92088,-0.66243 4.17982,-1.00754 5.43521,-7.24398 0.64101,-3.18438 0.59724,-3.23384 -1.99082,-2.24986 -4.6064,1.75135 -7.51529,-0.98749 -7.51529,-7.07597 0,-1.60502 -0.50888,-2.91821 -1.13084,-2.91821 -0.7311,0 -0.93266,-1.22128 -0.57019,-3.454897 0.46418,-2.860418 0.21401,-3.564909 -1.45391,-4.094284 -1.57958,-0.50134 -1.87665,-1.188833 -1.37587,-3.184095 0.48471,-1.931252 0.003,-3.207929 -1.99713,-5.295892 l -2.63581,-2.751191 2.39329,-3.859824 c 4.63381,-7.473281 5.12309,-9.677838 3.71742,-16.749714 -1.09447,-5.506277 -1.05118,-7.343644 0.30091,-12.770857 2.38293,-9.564968 3.94134,-12.633024 11.0981,-21.848882 2.55857,-3.294704 5.26673,-5.990371 6.01813,-5.990371 0.7514,0 2.44771,-0.850729 3.76958,-1.89051 2.49443,-1.962122 6.27316,-3.158988 16.20183,-5.13173 6.2819,-1.248159 20.68513,0.07527 25.66449,2.358161 4.71246,2.160523 14.08651,11.163994 16.55161,15.897278 3.23333,6.208377 5.44839,14.913415 5.44839,21.4118 0,2.873641 0.4921,6.491597 1.09355,8.039901 2.12602,5.472926 0.20597,32.25888 -3.05118,42.565977 -0.62585,1.98049 -0.33344,4.21692 1.04417,7.98588 1.0524,2.87926 1.93657,7.71637 1.96481,10.74913 0.0282,3.03277 0.42119,8.66412 0.87321,12.51412 0.63281,5.38976 0.48725,7.73185 -0.63277,10.18146 -0.80004,1.7498 -1.32678,4.95209 -1.17053,7.1162 0.17631,2.44186 -0.36192,4.92068 -1.41858,6.53336 -2.59709,3.96366 -2.05984,6.62132 3.0119,14.89911 3.9656,6.47242 2.69154,8.60867 -2.73948,4.59334 -2.31244,-1.70966 -3.19213,-3.43819 -4.1011,-8.0584 -0.63646,-3.23504 -1.4674,-5.5181 -1.84655,-5.07347 -1.54983,1.81746 -4.1486,13.55611 -5.60291,25.3084 -0.85077,6.875 -2.1976,17.675 -2.99296,24 -0.79537,6.325 -1.84675,17.8 -2.33642,25.5 -0.48967,7.7 -1.85735,20.25655 -3.03929,27.90344 -1.4964,9.68132 -1.83118,14.22125 -1.10243,14.95 0.57561,0.57561 1.04656,2.91821 1.04656,5.20579 0,2.7054 1.04863,6.12433 3,9.78111 2.54489,4.76901 2.99925,6.72458 2.99505,12.89076 -0.003,3.9979 0.53123,13.01773 1.18657,20.04407 1.18024,12.65428 1.17083,12.78966 -0.99505,14.3067 -1.80951,1.26743 -2.18921,2.51332 -2.20188,7.22483 -0.008,3.13132 -0.36923,6.25053 -0.80178,6.93159 -0.43256,0.68106 -3.20385,1.69674 -6.15842,2.25707 -2.95457,0.56032 -5.58735,1.23416 -5.85061,1.49743 -1.07223,1.07222 -2.24064,41.13618 -1.65228,56.65529 0.53099,14.0058 1.0978,18.37044 3.57128,27.5 1.61706,5.96856 4.38315,17.60192 6.14688,25.85192 l 3.20677,15 -0.3011,30.59191 c -0.32645,33.16908 0.42154,42.15494 4.57059,54.90809 3.47229,10.67291 2.69637,16.41915 -2.74044,20.29514 -2.42127,1.72616 -6.29144,3.21273 -10.1196,3.88705 -6.75556,1.18997 -23.21682,7.5247 -27.60862,10.62453 -1.51105,1.06653 -4.32236,2.19998 -6.24736,2.51876 -1.925,0.31879 -4.85,0.79098 -6.5,1.04932 -1.65,0.25834 -4.57537,0.14376 -6.50083,-0.25463 z"
+                    style="fill:#1f2937" />
+                </g>
+              </svg>
+
+            </g>
+          </g>
+        </svg>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- PHOTO IMAGE REVEAL -->
+  <section class="scene photo-scene" id="photoScene">
+    <div class="sticky-stage photo-stage">
+      <div class="photo-image-wrap" aria-hidden="true">
+        <img src="../assets/scrollytelling/right-message-hero.png" alt="" class="photo-image">
+      </div>
+
+      <div class="photo-vignette" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- B777 AIRCRAFT SVG ONLY -->
+  <section class="scene taxi-scene" id="taxiScene">
+    <div class="sticky-stage taxi-stage">
+
+      <div class="aircraft-only">
+        <img src="../assets/scrollytelling/sticky-scenes.svg" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-space" aria-hidden="true"></div>
+
+  <section class="tech-section" id="techSection">
+    <div class="tech-panel reveal">
+      <h2>This page uses</h2>
+      <div class="tech-list" aria-label="Technologies used on this page">
+        <div>HTML</div>
+        <div>CSS</div>
+        <div>JavaScript</div>
+        <div>Scrollytelling</div>
+        <div>WebP image</div>
+        <div>SVG motion</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pre-browser-space" aria-hidden="true"></div>
+
+  <!-- FINAL CTA / BOTTOM ONLY -->
+  <section class="final-cta" id="finalCta">
+    <div class="cta-card reveal">
+
+      <div class="browser-demo" aria-label="Browser preview mockup">
+        <div class="browser-bar" aria-hidden="true">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <div class="browser-url">www.YourNameBusiness.com</div>
+        </div>
+
+        <div class="browser-content">
+          <div class="client-mark" aria-label="Your Name Business logo placeholder">
+            <span class="client-mark-main">YOUR NAME</span>
+            <span class="client-mark-sub">BUSINESS</span>
+          </div>
+
+          <div class="browser-hero-statement" aria-label="Hero statement preview">
+            <div>There’s nothing more powerful</div>
+            <div>than getting the <span>right message</span></div>
+            <div>to your audience.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* =========================
+   HELPERS
+========================= */
+
+const root = document.documentElement;
+
+const heroTitle = document.getElementById("heroTitle");
+const heroPeriod = document.getElementById("heroPeriod");
+const travelPeriod = document.getElementById("travelPeriod");
+
+const typeLineOneText = document.getElementById("typeLineOneText");
+const typeLineTwoBefore = document.getElementById("typeLineTwoBefore");
+const typeAccent = document.getElementById("typeAccent");
+const typeLineThreeText = document.getElementById("typeLineThreeText");
+const scrollCue = document.getElementById("scrollCue");
+
+const typingCursor = document.createElement("span");
+typingCursor.className = "typing-cursor";
+typingCursor.id = "typingCursor";
+
+const typeSteps = [
+  {
+    target: typeLineOneText,
+    text: "There’s nothing more powerful",
+    pauseAfterWord: 230,
+    pauseAfterLine: 1250
+  },
+  {
+    target: typeLineTwoBefore,
+    text: "than getting the ",
+    pauseAfterWord: 230,
+    pauseAfterLine: 350
+  },
+  {
+    target: typeAccent,
+    text: "right message",
+    pauseAfterWord: 250,
+    pauseAfterLine: 700,
+    animateAccent: true
+  },
+  {
+    target: typeLineThreeText,
+    text: "to your audience",
+    pauseAfterWord: 250,
+    pauseAfterLine: 900,
+    addPeriod: true
+  }
+];
+
+function wait(ms) {
+  return new Promise(resolve => window.setTimeout(resolve, ms));
+}
+
+function placeCursorInside(target) {
+  target.appendChild(typingCursor);
+}
+
+async function blinkBeforeTyping() {
+  typeLineOneText.textContent = "";
+  placeCursorInside(typeLineOneText);
+
+  /*
+    Longer opening blink.
+    Previous was about 3 blinks.
+    This adds roughly 2 more.
+  */
+  await wait(3900);
+}
+
+async function typeInto(target, textToType, speed = 72, pauseAfterWord = 230) {
+  let typedText = "";
+
+  placeCursorInside(target);
+
+  for (const char of textToType) {
+    typedText += char;
+    target.textContent = typedText;
+    placeCursorInside(target);
+
+    if (char === " ") {
+      await wait(pauseAfterWord);
+    } else {
+      await wait(speed);
+    }
+  }
+}
+
+function wrapAccentLetters() {
+  const text = typeAccent.textContent;
+  typeAccent.textContent = "";
+
+  const chars = [];
+
+  for (const char of text) {
+    const span = document.createElement("span");
+    span.className = "accent-char";
+    span.textContent = char === " " ? "\u00A0" : char;
+    typeAccent.appendChild(span);
+    chars.push(span);
+  }
+
+  typeAccent.appendChild(typingCursor);
+
+  return chars;
+}
+
+async function animateRightMessageBackward() {
+  const chars = wrapAccentLetters();
+
+  /*
+    Cursor moves backward from the last "e" toward the first "r".
+    Each character gets lightly highlighted as the cursor passes it.
+  */
+  for (let i = chars.length - 1; i >= 0; i--) {
+    typeAccent.insertBefore(typingCursor, chars[i]);
+    chars[i].classList.add("is-selected");
+    await wait(95);
+  }
+
+  await wait(260);
+
+  /*
+    Now the whole phrase turns green.
+  */
+  typeAccent.classList.add("is-green");
+
+  await wait(260);
+
+  /*
+    After turning green, return cursor directly to the end of "right message"
+    after the final e.
+  */
+  chars[chars.length - 1].insertAdjacentElement("afterend", typingCursor);
+
+  chars.forEach(char => char.classList.remove("is-selected"));
+
+  await wait(450);
+}
+
+async function runHeroTypewriter() {
+  await blinkBeforeTyping();
+
+  for (const step of typeSteps) {
+    await typeInto(
+      step.target,
+      step.text,
+      72,
+      step.pauseAfterWord
+    );
+
+    if (step.addPeriod) {
+      heroPeriod.textContent = ".";
+      heroPeriod.appendChild(typingCursor);
+    }
+
+    if (step.animateAccent) {
+      await wait(250);
+      await animateRightMessageBackward();
+    }
+
+    if (step.pauseAfterLine) {
+      await wait(step.pauseAfterLine);
+    }
+  }
+
+  /*
+    Cursor stays blinking directly after the final period.
+  */
+  heroPeriod.appendChild(typingCursor);
+
+  await wait(250);
+  captureHeroPeriodPosition();
+
+  await wait(420);
+
+  if (!document.body.classList.contains("user-has-scrolled")) {
+    scrollCue.classList.add("is-visible");
+  }
+}
+
+runHeroTypewriter();
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 6) {
+    document.body.classList.add("user-has-scrolled");
+  }
+}, { passive: true });
+
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function getProgress(section) {
+  const rect = section.getBoundingClientRect();
+  const scrollable = rect.height - window.innerHeight;
+
+  if (scrollable <= 0) {
+    return rect.top <= 0 ? 1 : 0;
+  }
+
+  return clamp(-rect.top / scrollable, 0, 1);
+}
+
+/* =========================
+   SCROLLYTELLING PROGRESS
+========================= */
+
+const photoScene = document.getElementById("photoScene");
+const taxiScene = document.getElementById("taxiScene");
+const signScene = document.getElementById("signScene");
+const finalCta = document.getElementById("finalCta");
+const techSection = document.getElementById("techSection");
+
+const crosswalkSvgEl = document.querySelector("#signScene svg");
+
+let crosswalkRevealTimer = null;
+let crosswalkSequenceStarted = false;
+let crosswalkForceClosing = false;
+let crosswalkVisibleSince = 0;
+let crosswalkScrollDistance = 0;
+let lastScrollYForCrosswalk = window.scrollY;
+let lastScrollAt = 0;
+
+function captureHeroPeriodPosition() {
+  if (!heroPeriod || !heroPeriod.firstChild || !travelPeriod) return;
+
+  /*
+    Temporarily hide cursor so the measured period position
+    is not affected by cursor layout.
+  */
+  const cursorWasInside = heroPeriod.contains(typingCursor);
+
+  if (cursorWasInside) {
+    typingCursor.style.display = "none";
+  }
+
+  const range = document.createRange();
+  range.selectNodeContents(heroPeriod.firstChild);
+
+  const rect = range.getBoundingClientRect();
+
+  range.detach();
+
+  if (cursorWasInside) {
+    typingCursor.style.display = "";
+  }
+
+  root.style.setProperty("--period-left", `${rect.left}px`);
+  root.style.setProperty("--period-start-top", `${rect.top}px`);
+  root.style.setProperty("--period-top", `${rect.top}px`);
+  root.style.setProperty("--blackout-x", `${rect.left + rect.width / 2}px`);
+  root.style.setProperty("--blackout-y", `${rect.top + rect.height / 2}px`);
+  root.style.setProperty("--photo-mask-x", `${rect.left + rect.width / 2}px`);
+  root.style.setProperty("--photo-mask-y", `${rect.top + rect.height / 2}px`);
+}
+
+function updateStory() {
+  const signRect = signScene.getBoundingClientRect();
+  const scrollDelta = Math.abs(window.scrollY - lastScrollYForCrosswalk);
+
+  const signTopTrigger = signRect.top < window.innerHeight * 0.78;
+  const signCenteredEnough = signRect.top < window.innerHeight * 0.22;
+  const signHasPassed = signRect.bottom < window.innerHeight * 0.16;
+
+  const signCenterProgress = clamp(
+    1 - Math.abs(
+      (signRect.top + signRect.height * 0.5 - window.innerHeight * 0.5) /
+      (window.innerHeight * 0.95)
+    ),
+    0,
+    1
+  );
+
+  /*
+    Slow blackout iris:
+    opens from the period, holds black, then closes back to the period.
+  */
+  const openProgress = clamp(
+    (window.innerHeight * 0.78 - signRect.top) / (window.innerHeight * 1.9),
+    0,
+    1
+  );
+
+  const closeProgress = clamp(
+    (window.innerHeight * 0.16 - signRect.bottom) / (window.innerHeight * 1.1),
+    0,
+    1
+  );
+
+  let blackoutScale = 0;
+
+  if (crosswalkForceClosing) {
+    blackoutScale = Math.max(0, 180 - closeProgress * 180);
+  } else if (closeProgress > 0) {
+    blackoutScale = (1 - closeProgress) * 180;
+  } else if (openProgress > 0) {
+    blackoutScale = openProgress * 180;
+  }
+
+  root.style.setProperty("--blackout-scale", blackoutScale.toFixed(3));
+
+  if ((closeProgress > 0 && closeProgress < 1) || crosswalkForceClosing) {
+    document.body.classList.add("crosswalk-closing");
+  } else {
+    document.body.classList.remove("crosswalk-closing");
+  }
+
+  /*
+    Crosswalk:
+    - reveal only once black is nearly full-screen
+    - keep the SVG still
+    - flash only while user scrolls
+    - require at least five scroll movements before the user can exit
+  */
+  const userIsScrolling = scrollDelta > 2;
+  if (userIsScrolling) {
+    lastScrollAt = Date.now();
+  }
+
+  if (signCenteredEnough && openProgress > 0.96 && !crosswalkSequenceStarted && closeProgress === 0 && !crosswalkForceClosing) {
+    crosswalkSequenceStarted = true;
+    crosswalkScrollDistance = 0;
+    crosswalkVisibleSince = Date.now();
+    document.body.classList.add("crosswalk-sequence-active");
+
+    crosswalkRevealTimer = window.setTimeout(() => {
+      document.body.classList.add("crosswalk-visible");
+    }, 2000);
+  }
+
+  const crosswalkIsVisible =
+    document.body.classList.contains("crosswalk-visible") &&
+    !crosswalkForceClosing;
+
+  if (crosswalkIsVisible) {
+    const scrollingRecently = Date.now() - lastScrollAt < 180;
+
+    if (scrollingRecently) {
+      crosswalkScrollDistance += scrollDelta;
+      document.body.classList.add("crosswalk-flashing");
+      crosswalkSvgEl?.classList.add("crosswalk-flashing-svg");
+    } else {
+      document.body.classList.remove("crosswalk-flashing");
+      crosswalkSvgEl?.classList.remove("crosswalk-flashing-svg");
+    }
+
+    const enoughScrolls = crosswalkScrollDistance > 5;
+
+    if (enoughScrolls && signHasPassed) {
+      crosswalkForceClosing = true;
+      document.body.classList.add("crosswalk-force-close");
+      document.body.classList.add("crosswalk-closing");
+      document.body.classList.remove("crosswalk-visible");
+      document.body.classList.remove("crosswalk-flashing");
+      crosswalkSvgEl?.classList.remove("crosswalk-flashing-svg");
+    }
+  }
+
+  if (!signTopTrigger || closeProgress >= 1) {
+    crosswalkSequenceStarted = false;
+    crosswalkForceClosing = false;
+    crosswalkScrollDistance = 0;
+
+    document.body.classList.remove("crosswalk-visible");
+    document.body.classList.remove("crosswalk-flashing");
+    document.body.classList.remove("crosswalk-sequence-active");
+    document.body.classList.remove("crosswalk-closing");
+    document.body.classList.remove("crosswalk-force-close");
+
+    crosswalkSvgEl?.classList.remove("crosswalk-flashing-svg");
+
+    window.clearTimeout(crosswalkRevealTimer);
+    crosswalkRevealTimer = null;
+  }
+
+  const periodTravelStart = window.innerHeight * 0.04;
+
+  if (window.scrollY > periodTravelStart) {
+    document.body.classList.add("period-travel");
+  } else {
+    document.body.classList.remove("period-travel");
+  }
+
+  const travelAmount = clamp(
+    (window.scrollY - periodTravelStart) / (window.innerHeight * 4.1),
+    0,
+    1
+  );
+
+  const startTop = parseFloat(
+    getComputedStyle(root).getPropertyValue("--period-start-top")
+  ) || window.innerHeight * 0.5;
+
+  const endTop = window.innerHeight * 0.78;
+
+  const periodTop = startTop + ((endTop - startTop) * travelAmount);
+  const periodLeft = getComputedStyle(root).getPropertyValue("--period-left");
+
+  root.style.setProperty("--blackout-x", periodLeft);
+  root.style.setProperty("--blackout-y", `${periodTop + 11}px`);
+
+  root.style.setProperty("--photo-mask-x", periodLeft);
+  root.style.setProperty("--photo-mask-y", `${periodTop + 11}px`);
+
+  root.style.setProperty("--period-top", `${periodTop}px`);
+
+  const revealWidth = 8 + signCenterProgress * (window.innerWidth * 0.96);
+  const revealHeight = 8 + signCenterProgress * (window.innerHeight * 0.88);
+  const revealRadius = 999 - signCenterProgress * 965;
+
+  root.style.setProperty("--crosswalk-reveal-w", `${revealWidth}px`);
+  root.style.setProperty("--crosswalk-reveal-h", `${revealHeight}px`);
+  root.style.setProperty("--crosswalk-radius", `${Math.max(revealRadius, 28)}px`);
+
+  const photoProgress = getProgress(photoScene);
+
+/*
+  Dog image:
+  - period travels first
+  - circle opens slowly
+  - stays open briefly through middle of scene
+  - closes slowly back to period
+*/
+const dogOpen = clamp((photoProgress - 0.12) / 0.28, 0, 1);
+const dogClose = clamp((photoProgress - 0.66) / 0.26, 0, 1);
+
+let revealSize = 0;
+
+if (dogOpen > 0 && dogClose === 0) {
+  revealSize = dogOpen * 38;
+}
+
+if (dogOpen >= 1 && dogClose === 0) {
+  revealSize = 38;
+}
+
+if (dogClose > 0) {
+  revealSize = (1 - dogClose) * 38;
+}
+
+root.style.setProperty("--photo-reveal-size", `${Math.max(0, revealSize)}%`);
+
+  const taxiProgress = getProgress(taxiScene);
+
+    let planeX = 115;
+
+  if (taxiProgress < 0.14) {
+    planeX = 115;
+  } else if (taxiProgress < 0.42) {
+    planeX = 115 - ((taxiProgress - 0.14) / 0.28) * 200;
+  } else if (taxiProgress < 0.58) {
+    planeX = 120;
+  } else if (taxiProgress < 0.84) {
+    planeX = 120 - ((taxiProgress - 0.58) / 0.26) * 120;
+  } else {
+    planeX = 0;
+  }
+
+  root.style.setProperty("--plane-x", `${planeX}vw`);
+
+    /*
+    Plane movement:
+    - period meets the nose gear
+    - plane exits left
+    - plane returns from right
+    - stops where it started
+  */
+  if (taxiProgress > 0.08 && taxiProgress < 0.18) {
+    document.body.classList.add("plane-moment");
+  } else {
+    document.body.classList.remove("plane-moment");
+  }
+
+  const signProgress = getProgress(signScene);
+
+  root.style.setProperty("--photo-progress", photoProgress.toFixed(4));
+  root.style.setProperty("--taxi-progress", taxiProgress.toFixed(4));
+  root.style.setProperty("--sign-progress", signProgress.toFixed(4));
+
+  if (taxiProgress > 0.12 && taxiProgress < 0.92) {
+    document.body.classList.add("plane-moment");
+  } else {
+    document.body.classList.remove("plane-moment");
+  }
+
+  const finalRect = finalCta.getBoundingClientRect();
+
+  root.style.setProperty("--page-darkness", "0");
+
+  if (finalRect.top < window.innerHeight * 0.35) {
+      document.body.classList.add("show-end-header");
+    } else {
+      document.body.classList.remove("show-end-header");
+    }
+
+    lastScrollYForCrosswalk = window.scrollY;
+  }
+
+window.addEventListener("scroll", updateStory, { passive: true });
+window.addEventListener("resize", updateStory);
+window.addEventListener("load", updateStory);
+window.addEventListener("resize", captureHeroPeriodPosition);
+
+/* =========================
+   REVEALS
+========================= */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  },
+  {
+    threshold: 0.22
+  }
+);
+
+revealItems.forEach(item => revealObserver.observe(item));
+</script>
+
+</body>
+</html>

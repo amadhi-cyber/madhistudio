@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Madhi Studio | UI + Icons.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/cards.css">
+<link rel="stylesheet" href="../css/buttons.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/service-shell.css">
+
+<style>
+/* PAGE */
+.page-section {
+  padding: 110px 0 40px;
+}
+
+.page-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 22px;
+}
+
+.page-intro {
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.collection {
+  padding: 16px 0 110px;
+}
+
+/* gap here applies to desktop version only. */
+.print-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+.print-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 36px;
+  align-items: stretch;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.print-row.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT / CARD COLUMN */
+.info-panel {
+  padding-top: 6px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0.92;
+  align-self: stretch;
+  justify-content: flex-start;
+}
+
+.info-panel h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.72);
+  letter-spacing: -0.3px;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: -15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.info-panel p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.meta-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.meta-list li {
+  font-size: 14px;
+  color: rgba(0,0,0,0.54);
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.vector-card-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  align-items: stretch;
+}
+
+.vector-info-card {
+  width: 100%;
+  min-height: 150px;
+  background: #eef3f9;
+  border: none;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.035);
+  display: flex;
+  flex-direction: column;
+}
+
+.vector-info-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(93, 93, 93, 0.72);
+  margin-bottom: 8px;
+}
+
+.vector-info-card p {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.soccer-demo {
+  width: 100%;
+  margin-top: 12px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.soccer-demo button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 190px;
+  text-align: center;
+}
+
+.soccer-demo button.is-active {
+  background: #d62828;
+  color: #fff;
+}
+
+/* SVG CARD */
+.image-card {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  box-shadow: none;
+}
+
+.a380-row .image-card {
+  aspect-ratio: 16 / 7;
+  min-height: 220px;
+}
+
+.soccer-pitch-row .image-card {
+  aspect-ratio: 4 / 3;
+  min-height: 520px;
+}
+
+.soccer-pitch-object {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.svg-artwork {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* for the SVG itself to appear bigger inside the card, change object-fit to "cover". */
+.svg-artwork svg,
+.svg-artwork object,
+.svg-artwork img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* CRAFT */
+.section-label {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.craft-section {
+  padding: 90px 10%;
+  text-align: center;
+}
+
+.craft-section h2 {
+  font-size: 34px;
+  letter-spacing: -0.4px;
+  font-weight: 600;
+}
+
+.craft-section p {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.craft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.craft-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 26px;
+  text-align: left;
+}
+
+.craft-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.craft-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* WANDERPORTS WORLD MAP UI FEATURE */
+.wanderports-ui-row {
+  grid-template-columns: minmax(0, 2.2fr) minmax(260px, 0.58fr);
+  gap: 28px;
+}
+
+.wanderports-ui-row .image-card {
+  width: 100%;
+  height: 455px;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: #DDF4FF;
+  overflow: hidden;
+}
+
+.wanderports-map-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  margin: 0;
+  background: #DDF4FF;
+}
+
+.wanderports-ui-caption {
+  max-width: 100%;
+  padding-top: 6px;
+}
+
+.wanderports-ui-caption .vector-card-stack {
+  grid-template-columns: 1fr;
+}
+
+.wanderports-ui-caption .vector-info-card {
+  min-height: 112px;
+}
+
+@media (max-width: 950px) {
+  .wanderports-ui-row {
+    grid-template-columns: 1fr;
+  }
+
+  .wanderports-ui-row .image-card {
+    height: min(600px, 68vw);
+    min-height: 380px;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .print-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .info-panel { padding-top: 0; }
+
+  .vector-card-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .vector-info-card {
+    width: 100%;
+  }
+
+  .craft-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .collection,
+  .craft-section {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  /* gap here applies to mobile version only. */
+  .print-list { gap: 70px; }
+}
+</style>
+<link rel="stylesheet" href="../css/service-pages.css">
+</head>
+
+<body class="section-green">
+
+<div id="site-nav"></div>  
+
+<main>
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title">User Interface & Icons.</h1>
+
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="print-list">
+
+    <article class="print-row reveal wanderports-ui-row">
+      <div class="image-card">
+        <iframe
+          class="wanderports-map-frame"
+          src="../assets/projects/wanderports/map/index.html"
+          title="Interactive Airport Network"
+          loading="eager">
+        </iframe>
+      </div>
+
+      <div class="info-panel wanderports-ui-caption">
+        <div class="caption">UI + ICONS</div>
+        <h2>Interactive Airport Network</h2>
+        <p>
+          An interactive airport network visualization combining major U.S. and international airport locations, airport-code cross-highlighting, and visual airport browsing.
+        </p>
+        <div class="vector-card-stack" aria-label="WanderPorts world map interaction details">
+          <div class="vector-info-card">
+            <h3>Interaction</h3>
+            <p>Hover airport dots or airport codes to cross-highlight locations. The streamlined demo uses 10 U.S. and 10 international airports; hover the image reel to pause it.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="print-row reveal a380-row has-tight-info">
+  <div class="image-card">
+    <div class="svg-artwork">
+      <img 
+        src="../assets/ui/a380-schematic-side.svg" 
+        alt="A380 schematic front"
+      >
+    </div>
+  </div>
+
+      <div class="info-panel">
+        <div class="caption">SVG</div>
+        <h2>A380</h2>
+        <div class="vector-card-stack stack-format-first" aria-label="A380 details">
+          <div class="vector-info-card format-card">
+            <h3>Format</h3>
+            <p>
+              SVG<br>
+              Web-ready vector
+            </p>
+          </div>
+
+          <div class="vector-info-card">
+            <h3>Use Cases</h3>
+            <p>
+              Websites<br>
+              Dashboards<br>
+              Signage<br>
+              Presentations<br>
+              Icons<br>
+              Maps<br>
+              Diagrams<br>
+              Interface elements<br>
+              Digital storytelling
+            </p>
+          </div>
+
+          <div class="vector-info-card">
+            <h3>Strengths</h3>
+            <p>
+              Clean<br>
+              Flexible<br>
+              Lightweight<br>
+              Responsive<br>
+              Reusable<br>
+              Crisp at any size<br>
+              Crisp on any screen
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="print-row reveal soccer-pitch-row has-tight-info">
+  <div class="image-card">
+    <div class="svg-artwork">
+      <div id="soccerPitchInline" class="soccer-pitch-inline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 493 277" width="493" height="277">
+  <defs>
+    <pattern id="grass" width="48" height="277" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="24" height="277" fill="#39b85a"/>
+      <rect x="24" y="0" width="24" height="277" fill="#34b256"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="493" height="277" fill="url(#grass)"/>
+
+  <!-- Pitch markings -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Outer pitch lines -->
+    <line x1="16" y1="7" x2="477" y2="7"/>
+    <line x1="16" y1="262" x2="477" y2="262"/>
+    <line x1="16" y1="7" x2="16" y2="262"/>
+    <line x1="477" y1="7" x2="477" y2="262"/>
+
+    <!-- Halfway line -->
+    <line x1="246.5" y1="7" x2="246.5" y2="262"/>
+
+    <!-- Centre circle + spot -->
+    <circle cx="246.5" cy="134.5" r="30"/>
+    <circle cx="246.5" cy="134.5" r="1.4" fill="#ffffff" stroke="none"/>
+
+    <!-- Left penalty area -->
+    <rect x="16" y="73" width="54" height="119"/>
+    <rect x="16" y="103" width="20" height="59"/>
+    <rect x="9" y="119" width="7" height="28"/>
+    <circle cx="52" cy="134.5" r="1.4" fill="#ffffff" stroke="none"/>
+    <path d="M70 114 A24 24 0 0 1 70 155"/>
+
+    <!-- Right penalty area -->
+    <rect x="423" y="73" width="54" height="119"/>
+    <rect x="457" y="103" width="20" height="59"/>
+    <rect x="477" y="119" width="7" height="28"/>
+    <circle cx="441" cy="134.5" r="1.4" fill="#ffffff" stroke="none"/>
+    <path d="M423 114 A24 24 0 0 0 423 155"/>
+
+  </g>
+</svg></div>
+    </div>
+  </div>
+
+      <div class="info-panel">
+        <div class="caption">SVG</div>
+        <h2>Soccer Team Formations</h2>
+        <div class="vector-card-stack stack-format-first" aria-label="Soccer Team Formations details">
+          <div class="vector-info-card format-card">
+            <h3>Format</h3>
+            <p>
+              SVG<br>
+              Web-ready vector
+            </p>
+          </div>
+
+          <div class="vector-info-card">
+            <h3>Use Cases</h3>
+            <p>
+              Websites<br>
+              Dashboards<br>
+              Signage<br>
+              Presentations<br>
+              Icons<br>
+              Maps<br>
+              Diagrams<br>
+              Interface elements<br>
+              Digital storytelling
+            </p>
+          </div>
+
+          <div class="vector-info-card">
+            <h3>Strengths</h3>
+            <p>
+              Clean<br>
+              Flexible<br>
+              Lightweight<br>
+              Responsive<br>
+              Reusable<br>
+              Crisp at any size<br>
+              Crisp on any screen
+            </p>
+          </div>
+        </div>
+
+        <div class="soccer-demo button-only-demo">
+          <button id="soccerPitchStartButton">Blow Whistle</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="../js/service-interactions.js"></script>
+<script src="../js/site-shell.js"></script>
+</body>
+</html>

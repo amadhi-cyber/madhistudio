@@ -1,0 +1,158 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: rgba(0,0,0,0.58);
+  --soft-muted: rgba(0,0,0,0.45);
+
+  --accent: #0AC92B;
+
+  --gold: #b88921;
+  --gold-soft: rgba(184, 137, 33, 0.18);
+  --gold-medium: rgba(184, 137, 33, 0.45);
+  --gold-shadow: rgba(184, 137, 33, 0.12);
+  --gold-bg: #fffaf0;
+
+  --card: #DDF4FF;
+  --border: rgba(0,0,0,0.05);
+  --warm: #FFD35A;
+
+  --hero-gap: 50px;
+  --section-gap: 100px;
+  --component-gap: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding-top: 107px;
+}
+
+/* SECTION COLOR SYSTEM */
+body.section-green .page-title,
+body.section-green .section-title,
+body.section-green .aviation-kicker {
+  color: var(--accent);
+}
+
+body.section-gold .page-title,
+body.section-gold .section-title,
+body.section-gold .aviation-kicker {
+  color: var(--gold);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* FOOTER */
+footer {
+  padding: 18px 32px;
+  min-height: 58px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: inherit;
+}
+
+footer a:hover {
+  color: #111;
+}
+
+/* GLOBAL FOOTER WEBSITE LINKS */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.footer-main {
+  color: var(--muted);
+}
+
+.footer-main a {
+  color: inherit;
+}
+
+.footer-site-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-site-link {
+  width: 210px;
+  min-width: 210px;
+  max-width: 210px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.footer-site-link:hover {
+  color: #111;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 14px;
+  background: currentColor;
+  opacity: 0.45;
+  margin: 0 10px;
+}
+
+/* FOOTER CLICK SAFETY */
+#site-footer {
+  position: relative;
+  z-index: 20;
+}
+
+#site-footer footer,
+#site-footer .footer-inner,
+#site-footer .footer-site-links,
+#site-footer a {
+  position: relative;
+  z-index: 30;
+}
+
+#site-footer a {
+  pointer-events: auto;
+}
+
+#site-footer::before,
+#site-footer::after,
+footer::before,
+footer::after {
+  pointer-events: none;
+}

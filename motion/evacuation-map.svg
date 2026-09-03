@@ -1,0 +1,19 @@
+<svg id="evacuationPlan" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="Interactive simplified evacuation plan">
+<style>
+  .plan-bg{fill:#fbfbfb}.plan-outline{fill:#fff;stroke:#585858;stroke-width:4}.corridor{fill:#f4f6f8;stroke:#b8bec6;stroke-width:2}.room{fill:#fff;stroke:#777;stroke-width:2;transition:fill .2s,stroke .2s}.room-label{font:700 22px Arial,sans-serif;fill:#333;text-anchor:middle;dominant-baseline:middle;pointer-events:none}.room-sub{font:600 13px Arial,sans-serif;fill:#777;text-anchor:middle;pointer-events:none}.evac-room{cursor:pointer}.evac-room:hover .room,.evac-room:focus .room{stroke:#0AC92B;stroke-width:4}.evac-room.active .room{fill:#e7f9eb;stroke:#0AC92B;stroke-width:5}.evac-room.active .room-label{fill:#087d20}.exit-box{fill:#0AC92B}.exit-text{font:800 18px Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:middle}.route{fill:none;stroke:#0AC92B;stroke-width:5;stroke-dasharray:10 9;opacity:.8}.you{fill:#111}.you-label{font:700 14px Arial,sans-serif;fill:#111;text-anchor:middle}.dark .plan-bg{fill:#101214}.dark .plan-outline{fill:#171a1e;stroke:#d5d8dc}.dark .corridor{fill:#22272d;stroke:#58616b}.dark .room{fill:#1b1f24;stroke:#747d87}.dark .room-label{fill:#f1f3f5}.dark .room-sub{fill:#aeb5bd}.dark .you{fill:#fff}.dark .you-label{fill:#fff}.dark .evac-room.active .room{fill:#15351c;stroke:#35d65c}.dark .evac-room.active .room-label{fill:#67ea86}
+</style>
+<rect class="plan-bg" width="1000" height="600"/>
+<rect class="plan-outline" x="45" y="45" width="910" height="510" rx="10"/>
+<rect class="corridor" x="70" y="260" width="860" height="80" rx="12"/>
+<path class="route" d="M500 300 H900"/>
+<circle class="you" cx="500" cy="300" r="10"/><text class="you-label" x="500" y="330">YOU ARE HERE</text>
+<g class="evac-room" data-room="generator" tabindex="0"><rect class="room" x="70" y="70" width="195" height="165" rx="8"/><text class="room-label" x="167.5" y="145">Generator</text><text class="room-sub" x="167.5" y="174">Room</text></g>
+<g class="evac-room" data-room="mechanical" tabindex="0"><rect class="room" x="285" y="70" width="195" height="165" rx="8"/><text class="room-label" x="382.5" y="145">Mechanical</text><text class="room-sub" x="382.5" y="174">Room</text></g>
+<g class="evac-room" data-room="scada" tabindex="0"><rect class="room" x="500" y="70" width="195" height="165" rx="8"/><text class="room-label" x="597.5" y="145">SCADA</text><text class="room-sub" x="597.5" y="174">Control</text></g>
+<g class="evac-room" data-room="office" tabindex="0"><rect class="room" x="715" y="70" width="215" height="165" rx="8"/><text class="room-label" x="822.5" y="145">Office</text><text class="room-sub" x="822.5" y="174">Support</text></g>
+<g class="evac-room" data-room="electrical" tabindex="0"><rect class="room" x="70" y="365" width="195" height="165" rx="8"/><text class="room-label" x="167.5" y="438">Electrical</text><text class="room-sub" x="167.5" y="468">Switchgear</text></g>
+<g class="evac-room" data-room="storage" tabindex="0"><rect class="room" x="285" y="365" width="195" height="165" rx="8"/><text class="room-label" x="382.5" y="438">Storage</text><text class="room-sub" x="382.5" y="468">Room</text></g>
+<g class="evac-room" data-room="control" tabindex="0"><rect class="room" x="500" y="365" width="195" height="165" rx="8"/><text class="room-label" x="597.5" y="438">Control</text><text class="room-sub" x="597.5" y="468">Room</text></g>
+<g class="evac-room" data-room="break" tabindex="0"><rect class="room" x="715" y="365" width="215" height="165" rx="8"/><text class="room-label" x="822.5" y="438">Break</text><text class="room-sub" x="822.5" y="468">Room</text></g>
+<g transform="translate(905 275)"><rect class="exit-box" width="50" height="50" rx="6"/><text class="exit-text" x="25" y="26">EXIT</text></g>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title-03-icon-mark desc-03-icon-mark">
+  <title id="title-03-icon-mark">Aerowander Icon Mark</title>
+  <desc id="desc-03-icon-mark">Clean airplane-window and wing symbol optimized for icons and small placements.</desc>
+  <defs>
+    <style>
+      .aerowander-word { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: -4px; }
+    </style>
+  </defs>
+
+  <svg x="102" y="54" width="308" height="400" viewBox="32 32 336 436" overflow="visible" aria-hidden="true">
+    <defs>
+      <clipPath id="03-icon-mark-window-clip">
+        <rect x="70" y="70" width="260" height="360" rx="130" />
+      </clipPath>
+    </defs>
+
+    <rect x="37" y="34" width="326" height="429" rx="163" fill="#1B2130" stroke="#FFFFFF" stroke-width="4"/>
+
+    <g clip-path="url(#03-icon-mark-window-clip)">
+      <rect x="70" y="100" width="260" height="330" fill="#0989C6"/>
+
+      <!-- Bright purple full wing base -->
+      <path d="M 334 328 L 170 255 L 133 180 L 121 175 L 150 265 L 294 412 Z" fill="#7A16F5"/>
+
+      <!-- Dark purple main wing area, pulled slightly inward so the bright edge shows cleaner -->
+      <path d="M 121 175 L 133 180 L 168 258 L 320 378 L 288 406 L 150 265 Z" fill="#5522B0"/>
+
+      <!-- Bright purple winglet sliver only -->
+      <path d="M 131 179 L 133 180 L 170 255 L 165 250 Z" fill="#7A16F5"/>
+
+      <path d="M 206 310 L 148 314 C 140 315, 140 321, 148 322 L 250 340 Z" fill="#5522B0"/>
+      <path d="M 248 362 L 170 365 C 162 366, 167 372, 170 373 L 278 392 Z" fill="#5522B0"/>
+    </g>
+
+    <path d="M 116.93 100 A 130 130 0 0 0 70 200 L 70 300 A 130 130 0 0 0 330 300 L 330 200 A 130 130 0 0 0 283.07 100" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+
+    <line x1="170" y1="85" x2="230" y2="85" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <line x1="117" y1="99.75" x2="282.75" y2="99.75" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</svg>

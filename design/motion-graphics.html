@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Madhi Studio | Motion Graphics.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/cards.css">
+<link rel="stylesheet" href="../css/buttons.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/service-shell.css">
+
+<style>
+/* PAGE */
+.page-section {
+  padding: 110px 0 40px;
+}
+
+.page-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 22px;
+}
+
+.collection {
+  padding: 16px 0 110px;
+}
+
+.print-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+.print-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 36px;
+  align-items: stretch;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.print-row.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT / CARD COLUMN */
+.info-panel {
+  padding-top: 6px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0.92;
+  align-self: stretch;
+  justify-content: flex-start;
+}
+
+.info-panel h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.72);
+  letter-spacing: -0.3px;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: -15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.vector-card-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  align-items: stretch;
+}
+
+.vector-info-card {
+  width: 100%;
+  min-height: 150px;
+  background: #eef3f9;
+  border: none;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.035);
+  display: flex;
+  flex-direction: column;
+}
+
+.vector-info-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(93, 93, 93, 0.72);
+  margin-bottom: 8px;
+}
+
+.vector-info-card p {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.motion-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 520px;
+  margin-top: 8px;
+}
+
+.city-demo {
+  margin-top: 18px;
+  padding: 20px;
+  background: #eef3f9;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.035);
+}
+
+.city-demo label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(93, 93, 93, 0.72);
+  margin-bottom: 10px;
+}
+
+.city-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.city-controls input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.city-controls input:focus {
+  border-color: var(--accent);
+}
+
+.city-controls button,
+.city-demo button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 12px !important;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* SVG CARD */
+.image-card {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  box-shadow: none;
+}
+
+.svg-artwork {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-artwork object,
+.svg-artwork img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* TEMP DEBUG — add class="debug" to <body> to activate */
+body.debug .image-card {
+  outline: 3px solid blue;
+}
+
+body.debug .motion-svg-object {
+  outline: 3px dashed red;
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.turntable-row .motion-svg-object {
+  width: 90%;
+  height: 90%;
+}
+
+.splitflap-row .motion-svg-object {
+  width: 100%;
+  height: 70%;
+}
+
+.turntable-row .image-card {
+  width: 100%;
+  aspect-ratio: auto;
+  height: 630px;
+  min-height: 0;
+}
+
+.splitflap-row .image-card {
+  width: 100%;
+  height: 560px;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+
+/* EVACUATION MAP ROW */
+.evacuation-row .image-card {
+  width: 100%;
+  height: 520px;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+.evacuation-row .motion-svg-object {
+  width: 100%;
+  height: 100%;
+}
+
+.evacuation-demo {
+  margin-top: 18px;
+  padding: 18px;
+  background: #eef3f9;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.035);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.evacuation-demo.dark {
+  background: #15171a;
+  color: #f3f3f3;
+}
+
+.evacuation-demo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.evacuation-demo label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(93, 93, 93, 0.72);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.evacuation-demo.dark label,
+.evacuation-demo.dark .hint,
+.evacuation-demo.dark .evacuation-legend span {
+  color: rgba(255,255,255,0.72);
+}
+
+.evacuation-utility {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.evacuation-utility button,
+.evacuation-room-btn {
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.evacuation-utility button {
+  background: #111;
+  color: #fff;
+  padding: 9px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.evacuation-demo.dark .evacuation-utility button {
+  background: #fff;
+  color: #111;
+}
+
+.evacuation-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.evacuation-room-btn {
+  position: relative;
+  overflow: hidden;
+  min-height: 36px;
+  padding: 9px 10px 9px 17px;
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  font-size: 11px;
+  text-align: left;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.07);
+}
+
+.evacuation-room-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--room-color, var(--accent));
+}
+
+.evacuation-room-btn:hover {
+  transform: translateY(-1px);
+}
+
+.evacuation-room-btn.active {
+  background: #111;
+  color: #fff;
+}
+
+.evacuation-demo.dark .evacuation-room-btn {
+  background: #252a30;
+  color: #f3f3f3;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
+}
+
+.evacuation-demo.dark .evacuation-room-btn.active {
+  background: #fff;
+  color: #111;
+}
+
+.evacuation-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0 0 12px;
+}
+
+.evacuation-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.evacuation-legend i {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-radius: 999px;
+}
+
+
+/* WANDERPORTS HERO MOTION FEATURE */
+.wanderports-row {
+  grid-template-columns: minmax(0, 2.2fr) minmax(260px, 0.58fr);
+}
+
+.wanderports-row .image-card {
+  width: 100%;
+  height: 630px;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: #DDF4FF;
+}
+
+.wanderports-hero-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #DDF4FF;
+}
+
+#wanderportsPlayButton.is-ready {
+  animation: wanderportsPlayBlink 1.8s ease-in-out infinite;
+}
+
+#wanderportsPlayButton:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+@keyframes wanderportsPlayBlink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 rgba(10,201,43,0); }
+  50% { opacity: 0.48; box-shadow: 0 0 0 7px rgba(10,201,43,0.08); }
+}
+
+@media (max-width: 950px) {
+  .wanderports-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .print-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .info-panel { padding-top: 0; }
+
+  .vector-card-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .vector-info-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .collection {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .print-list { gap: 70px; }
+}
+
+
+/* Taxi Plane portfolio insertion */
+.taxi-plane-card { background:#fff; }
+.taxi-plane-frame { width:100%; height:100%; display:block; border:0; background:#fff; }
+
+
+
+/* SPLIT-FLAP / SOLARI — the entire featured tile is the board. */
+.splitflap-row .image-card {
+  background: #070707 !important;
+}
+
+.splitflap-row .svg-artwork {
+  position: absolute;
+  inset: 0;
+  padding: 0 !important;
+  background: #070707;
+}
+
+.solari-demo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  background: #070707;
+}
+
+.solari-board {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 0;
+  border-radius: inherit;
+  background: #070707;
+  color: #fff;
+  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+}
+
+.solari-grid-row {
+  display: grid;
+  grid-template-columns: 13fr 13fr 2fr;
+  min-height: 0;
+  flex: 0 0 56px;
+  height: 56px;
+  border: 0;
+  background: #070707;
+}
+
+.solari-header-row {
+  flex: 0 0 46px;
+  height: 46px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.solari-col {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: #070707;
+}
+
+.solari-header-row .solari-col {
+  padding: 0 8px;
+}
+
+/* Every visible position is its own two-piece flight card. */
+.solari-field {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.solari-cell,
+.solari-signal-card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  height: 56px;
+  perspective: 120px;
+  color: #fff;
+}
+
+.solari-stair-field {
+  width: auto;
+  flex: 1 1 0;
+  justify-content: stretch;
+}
+
+.solari-stair-field .solari-cell {
+  max-width: none;
+}
+
+.solari-stair-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* Yellow indicator now sits on its own split-flap-style card. */
+.solari-signal-card {
+  width: auto;
+  flex: 1 1 0;
+}
+
+.solari-signal-half {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(50% - .5px);
+  border: 1px solid rgba(236, 235, 226, .58);
+  background: #080808;
+  box-sizing: border-box;
+}
+.solari-signal-half.top { top: 0; }
+.solari-signal-half.bottom { bottom: 0; }
+
+.solari-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 13px;
+  height: 13px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #f4c64c;
+  background: #d89b17;
+  box-shadow: 0 0 0 1px rgba(255,198,64,.12);
+}
+
+/* Off-white card outlines: deliberately softer than pure white. */
+.solari-half,
+.solari-motion {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(50% - .5px);
+  overflow: hidden;
+  border: 1px solid rgba(236, 235, 226, .58);
+  border-radius: 0;
+  background: #080808;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+.solari-half.top,
+.solari-motion.top { top: 0; }
+.solari-half.bottom,
+.solari-motion.bottom { bottom: 0; }
+
+.solari-glyph {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 56px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.solari-half.top .solari-glyph,
+.solari-motion.top .solari-glyph { top: 100%; }
+.solari-half.bottom .solari-glyph,
+.solari-motion.bottom .solari-glyph { top: 0; }
+
+.solari-motion { opacity: 0; z-index: 3; }
+.solari-motion.top { transform-origin: center bottom; }
+.solari-motion.bottom { transform-origin: center top; }
+
+.solari-cell.is-flipping .solari-motion { opacity: 1; }
+.solari-cell.is-flipping .solari-motion.top {
+  animation: madhiSolariFlipUp 45ms cubic-bezier(.4,0,.8,1) both;
+}
+.solari-cell.is-flipping .solari-motion.bottom {
+  animation: madhiSolariReceive 45ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.solari-status-field.is-yellow .solari-cell { color: #fff; }
+
+@keyframes madhiSolariFlipUp {
+  0% { transform: translateY(0) scaleY(1); }
+  45% { transform: translateY(-1px) scaleY(.58); }
+  100% { transform: translateY(-2px) scaleY(.035); }
+}
+
+@keyframes madhiSolariReceive {
+  0% { transform: translateY(2px) scaleY(.035); }
+  45% { transform: translateY(1px) scaleY(.58); }
+  100% { transform: translateY(0) scaleY(1); }
+}
+
+@media (max-width: 950px) {
+  .solari-grid-row { grid-template-columns: 13fr 13fr 2fr; height:44px; flex-basis:44px; }
+  .solari-col { padding: 0; }
+  .solari-header-row .solari-col { padding: 0 5px; }
+  .solari-field { height: 44px; gap: 0; }
+  .solari-cell, .solari-signal-card { max-width: none; height: 44px; }
+  .solari-signal-card { width: auto; flex-basis: auto; }
+  .solari-glyph { font-size: 18px; line-height: 44px; }
+  .solari-header-row { height:44px; flex-basis:44px; font-size:15px; }
+}
+</style>
+<link rel="stylesheet" href="../css/service-pages.css">
+</head>
+
+<body class="section-green">
+
+<div id="site-nav"></div>
+
+<main>
+
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title">Motion Graphics.</h1>
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="print-list">
+
+
+    <!-- ITEM 1: Taxi Plane -->
+    <article class="print-row reveal taxi-plane-row">
+      <div class="image-card taxi-plane-card">
+        <iframe class="taxi-plane-frame" src="../assets/motion/taxi-plane.html" title="Taxi Plane airport-operations motion graphic" loading="eager"></iframe>
+      </div>
+      <div class="info-panel">
+        <div class="caption">MOTION GRAPHICS</div>
+        <h2>Taxi Plane</h2>
+        <p class="motion-description">An animated airport-operations scene combining instructional graphics, a moving aircraft, and taxiway motion into a compact interactive visual.</p>
+      </div>
+    </article>
+
+    <!-- ITEM 2: Turntable -->
+    <article class="print-row reveal turntable-row has-tight-info">
+      <div class="image-card">
+        <div class="svg-artwork">
+          <div id="turntableInline" class="motion-inline-svg"><svg
+  id="turntableScene"
+  class="turntableSvg"
+  viewBox="0 0 594 500"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="Animated SVG record player"
+>
+  <defs>
+    <style>
+      .turntableSvg {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: transparent;
+      }
+
+      .turntable-bg {
+        fill: #fff;
+      }
+
+      .outline {
+        fill: none;
+        stroke: #111;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .thin {
+        stroke-width: 1;
+      }
+
+      .medium {
+        stroke-width: 1.3;
+      }
+
+      .strong {
+        stroke-width: 1.5;
+      }
+
+      .heavy {
+        stroke-width: 2;
+      }
+
+      .record {
+        fill: #050505;
+      }
+
+      .label-fill {
+        fill: #f7f7f7;
+        stroke: #111;
+        stroke-width: 1;
+      }
+
+      .white-fill {
+        fill: #fff;
+      }
+
+      .dark-fill {
+        fill: #111;
+      }
+
+      .groove-1 {
+        fill: none;
+        stroke: #333;
+        stroke-width: 1;
+      }
+
+      .groove-2 {
+        fill: none;
+        stroke: #2a2a2a;
+        stroke-width: 1;
+      }
+
+      .spin-mark {
+        stroke: #777;
+        stroke-width: 2;
+      }
+
+      .button-face {
+        fill: #fff;
+      }
+
+      .button-face:active,
+      #startStopPhysical:active .button-face {
+        fill: #e8e8e8;
+      }
+
+      .turntable-text {
+        font-family: Arial, Helvetica, sans-serif;
+        fill: #111;
+      }
+
+      .label-text {
+        font-size: 8px;
+        font-weight: 600;
+      }
+
+      .button-text {
+        font-size: 7px;
+        font-weight: 700;
+        text-anchor: middle;
+      }
+
+      .tiny-text {
+        font-size: 5px;
+      }
+
+      .micro-text {
+        font-size: 4px;
+      }
+
+      #platterSpin {
+        transform-origin: 248px 258px;
+        transform-box: view-box;
+      }
+
+      /*
+        Your external JS can add .is-playing to the SVG,
+        or directly to #platterSpin.
+      */
+      .is-playing #platterSpin,
+      #platterSpin.is-playing {
+        animation: recordSpin 2.4s linear infinite;
+      }
+
+      @keyframes recordSpin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #tonearm {
+        transform-origin: 465px 163px;
+        transform-box: view-box;
+        transition: transform 0.8s ease-in-out;
+      }
+
+      /*
+        Optional: your JS can add .needle-on to the SVG
+        to move the tonearm slightly inward.
+      */
+      .needle-on #tonearm,
+      #tonearm.needle-on {
+        transform: rotate(-8deg);
+      }
+
+      #startStopPhysical {
+        cursor: pointer;
+      }
+    </style>
+  </defs>             
+
+  <rect class="turntable-bg" width="594" height="500"/>
+
+  <!-- OUTER BODY -->
+  <rect x="45" y="48" width="504" height="420" class="outline heavy"/>
+
+  <!-- TOP HINGES -->
+  <path d="M78 48 L82 30 L112 30 L116 48" class="outline medium"/>
+  <path d="M88 44 L90 35 L105 35 L107 44" class="outline thin"/>
+
+  <path d="M476 48 L480 30 L510 30 L514 48" class="outline medium"/>
+  <path d="M486 44 L488 35 L503 35 L505 44" class="outline thin"/>
+
+  <!-- SMALL TOP KNOBS -->
+  <rect x="321" y="40" width="8" height="8" rx="1" class="outline thin"/>
+  <rect x="340" y="43" width="9" height="5" rx="1" class="outline thin"/>
+  <rect x="359" y="44" width="8" height="4" rx="1" class="outline thin"/>
+
+  <!-- RECORD / PLATTER -->
+  <g id="platterSpin">
+    <circle cx="248" cy="258" r="181" class="outline strong"/>
+    <circle cx="248" cy="258" r="177" class="outline thin"/>
+
+    <!-- BLACK RECORD -->
+    <circle cx="248" cy="258" r="160" class="record"/>
+
+    <!-- RECORD GROOVES -->
+    <circle cx="248" cy="258" r="145" class="groove-1"/>
+    <circle cx="248" cy="258" r="132" class="groove-2"/>
+    <circle cx="248" cy="258" r="119" class="groove-1"/>
+    <circle cx="248" cy="258" r="106" class="groove-2"/>
+    <circle cx="248" cy="258" r="93" class="groove-1"/>
+    <circle cx="248" cy="258" r="80" class="groove-2"/>
+
+    <!-- CENTER LABEL -->
+    <circle cx="248" cy="258" r="72" class="label-fill"/>
+    <circle cx="248" cy="258" r="13" class="outline thin"/>
+    <circle cx="248" cy="258" r="4" class="white-fill" stroke="#111" stroke-width="1"/>
+
+    <!-- SMALL MARKS SO SPIN IS VISIBLE -->
+    <line x1="248" y1="100" x2="248" y2="122" class="spin-mark"/>
+    <line x1="248" y1="394" x2="248" y2="416" class="spin-mark"/>
+    <line x1="90" y1="258" x2="112" y2="258" class="spin-mark"/>
+    <line x1="384" y1="258" x2="406" y2="258" class="spin-mark"/>
+  </g>
+
+  <!-- LEFT TOP DIAL -->
+  <circle cx="94" cy="98" r="24" class="outline strong"/>
+  <circle cx="94" cy="98" r="18" class="outline thin"/>
+  <circle cx="94" cy="98" r="10" class="outline thin"/>
+  <line x1="94" y1="84" x2="94" y2="112" class="outline thin"/>
+  <line x1="89" y1="90" x2="89" y2="106" class="outline thin"/>
+  <line x1="99" y1="90" x2="99" y2="106" class="outline thin"/>
+
+  <!-- START / STOP BUTTON -->
+  <g id="startStopPhysical">
+    <circle class="button-face" cx="91" cy="399" r="16" stroke="#111" stroke-width="2"/>
+    <circle cx="91" cy="399" r="10" class="outline thin"/>
+    <text id="buttonMessage" x="91" y="424" class="turntable-text button-text">START</text>
+  </g>
+
+  <rect x="63" y="434" width="46" height="22" class="outline strong"/>
+
+  <!-- LABEL -->
+  <text x="125" y="455" class="turntable-text label-text">
+    Belt Drive Manual Turntable
+  </text>
+
+  <!-- RIGHT BASE STATIC -->
+  <circle cx="465" cy="163" r="66" class="outline strong"/>
+  <circle cx="465" cy="163" r="58" class="outline thin"/>
+  <circle cx="465" cy="163" r="42" class="outline thin"/>
+  <circle cx="465" cy="163" r="21" class="outline thin"/>
+
+  <!-- TONEARM GROUP -->
+  <g id="tonearm">
+    <rect x="451" y="104" width="32" height="27" transform="rotate(5 467 117)" class="outline thin"/>
+    <rect x="457" y="82" width="31" height="24" transform="rotate(5 472 94)" class="outline thin"/>
+    <path d="M455 80 L484 82 L486 89 L453 87 Z" class="outline thin"/>
+    <rect x="462" y="75" width="15" height="5" class="outline thin"/>
+
+    <rect x="452" y="132" width="30" height="34" class="outline medium"/>
+    <rect x="459" y="136" width="16" height="27" class="outline thin"/>
+    <path d="M467 166 L464 195" class="outline" stroke-width="3"/>
+    <path d="M458 166 L455 195" class="outline" stroke-width="1.2"/>
+
+    <path
+      d="M464 188
+         C466 222, 486 255, 489 282
+         C492 314, 478 340, 463 360"
+      fill="none"
+      stroke="#111"
+      stroke-width="8"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M464 188
+         C466 222, 486 255, 489 282
+         C492 314, 478 340, 463 360"
+      fill="none"
+      stroke="#fff"
+      stroke-width="5"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M464 188
+         C466 222, 486 255, 489 282
+         C492 314, 478 340, 463 360"
+      fill="none"
+      stroke="#111"
+      stroke-width="1.2"
+      stroke-linecap="round"
+    />
+
+    <rect x="454" y="334" width="24" height="19" transform="rotate(20 466 344)" class="outline thin"/>
+    <rect x="447" y="351" width="28" height="47" rx="4" transform="rotate(20 461 375)" class="outline medium"/>
+    <circle cx="452" cy="381" r="4" class="outline thin"/>
+    <circle cx="456" cy="364" r="4" class="outline thin"/>
+    <path d="M468 389 L489 405" class="outline heavy"/>
+    <path d="M443 392 L438 403" class="outline strong"/>
+    <path d="M453 397 L448 409" class="outline strong"/>
+  </g>
+
+  <!-- SPEED DIAL -->
+  <circle cx="500" cy="388" r="18" class="outline heavy"/>
+  <circle cx="500" cy="388" r="14" class="outline thin"/>
+  <text x="492" y="390" class="turntable-text tiny-text">SPEED</text>
+
+  <!-- RIGHT TOP SMALL BLOCKS -->
+  <rect x="369" y="72" width="30" height="44" class="outline thin"/>
+  <rect x="523" y="64" width="19" height="20" class="outline thin"/>
+  <circle cx="533" cy="74" r="5" class="outline thin"/>
+  <circle cx="523" cy="84" r="1.4" class="dark-fill"/>
+
+  <!-- SMALL RIGHT DETAILS -->
+  <circle cx="497" cy="151" r="13" class="outline thin"/>
+  <path d="M492 151 C497 146, 502 146, 506 151" class="outline thin"/>
+  <text x="491" y="154" class="turntable-text tiny-text">ANTI</text>
+
+  <line x1="497" y1="212" x2="497" y2="232" class="outline" stroke-width="1.2"/>
+  <circle cx="497" cy="210" r="3" class="outline thin"/>
+  <rect x="494" y="221" width="6" height="12" class="outline thin"/>
+
+  <rect x="505" y="235" width="31" height="20" class="outline thin"/>
+  <line x1="509" y1="244" x2="532" y2="244" class="outline thin"/>
+  <line x1="509" y1="250" x2="532" y2="250" class="outline thin"/>
+  <text x="512" y="241" class="turntable-text micro-text">PITCH</text>
+  <circle cx="530" cy="251" r="1.5" class="dark-fill"/>
+
+  <!-- BOTTOM CONTROL PANEL -->
+  <rect x="356" y="427" width="178" height="30" class="outline" stroke-width="1.2"/>
+  <rect x="362" y="433" width="166" height="7" class="outline thin"/>
+  <line x1="372" y1="433" x2="372" y2="440" class="outline thin"/>
+  <line x1="382" y1="433" x2="382" y2="440" class="outline thin"/>
+  <line x1="392" y1="433" x2="392" y2="440" class="outline thin"/>
+  <line x1="402" y1="433" x2="402" y2="440" class="outline thin"/>
+  <line x1="492" y1="433" x2="492" y2="440" class="outline thin"/>
+  <line x1="502" y1="433" x2="502" y2="440" class="outline thin"/>
+  <line x1="512" y1="433" x2="512" y2="440" class="outline thin"/>
+
+  <rect x="362" y="446" width="58" height="7" class="outline thin"/>
+  <rect x="432" y="446" width="30" height="7" class="outline thin"/>
+  <rect x="472" y="446" width="55" height="7" class="outline thin"/>
+</svg></div>
+
+          <audio
+            id="recordAudio"
+            src="../assets/little-alicia-cinematic-background-music-for-video-short-version-427660.mp3"
+            loop>
+          </audio>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <div class="caption">MOTION GRAPHICS</div>
+        <h2>Turntable</h2>
+
+        <p class="motion-description">
+          A web-ready SVG record player concept using SVG, CSS animation, JavaScript, and audio.
+        </p>
+
+        <div class="city-demo">
+          <p class="hint">Use the start control on the turntable to spin the record and move the tonearm.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ITEM 3: Split-Flap Board -->
+    <article class="print-row reveal splitflap-row has-tight-info">
+      <div class="image-card">
+        <div class="svg-artwork">
+          <div id="splitFlapInline" class="motion-inline-svg solari-demo" aria-label="Interactive split-flap arrivals board">
+  <div class="solari-board" id="solariBoard">
+    <div class="solari-grid-row solari-header-row" aria-hidden="true">
+      <div class="solari-col solari-from-col">FROM</div>
+      <div class="solari-col solari-status-col">STATUS</div>
+      <div class="solari-col solari-stair-col">STAIRWAY</div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row is-editable">
+      <div class="solari-col solari-from-col"><div id="cityFlaps" class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="PHILADELPHIA"></div></div>
+      <div class="solari-col solari-status-col"><div id="statusFlaps" class="solari-field solari-status-field is-yellow" data-slots="13" data-pad="0" data-solari-value="BOARDING"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div id="stairFlaps" class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="5"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="NEW YORK"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="5 MINS LATE"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="7"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="BOSTON"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ON TIME"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="3"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="WASHINGTON"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field is-yellow" data-slots="13" data-pad="0" data-solari-value="BOARDING"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="2"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="CHICAGO"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="10 MINS LATE"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="9"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="NEWPORT NEWS"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ON TIME"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="4"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="ATLANTA"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ARRIVING"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="6"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="MIAMI"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ON TIME"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="8"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+
+    <div class="solari-grid-row solari-data-row">
+      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="SEATTLE"></div></div>
+      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="DELAYED"></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="1"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+    </div>
+  </div></div>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <div class="caption">MOTION GRAPHICS</div>
+        <h2>Split-Flap Display (Solari Board)</h2>
+
+        <p class="motion-description">
+          A web-ready SVG information board inspired by classic station displays.
+          Enter a city, press update, and the board changes with a clackety flip effect.
+        </p>
+
+        <div class="city-demo">
+          <label for="cityInput">Try a destination</label>
+          <div class="city-controls">
+            <input id="cityInput" type="text" placeholder="Enter city, e.g. Philadelphia" />
+            <button onclick="updateBoard()">Update Board</button>
+          </div>
+          <p class="hint">Each character flips individually with clackety Solari-board motion.</p>
+        </div>
+      </div>
+    </article>
+</div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/service-interactions.js"></script>
+<script src="../js/wanderports-hero-card.js"></script>
+<script src="../js/site-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* BUTTONS */
+.btn,
+.btn.primary {
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: transparent;
+  color: #111;
+  border: 2px solid var(--accent);
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn {
+  will-change: background, border-color, color;
+}
+
+.btn:hover,
+.btn.primary:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}

@@ -1,0 +1,144 @@
+/* DESIGN TURNTABLE */
+.motion-feature {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  aspect-ratio: auto;
+}
+
+.motion-top {
+  text-align: center;
+  align-self: center;
+  width: 100%;
+}
+
+.motion-top h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.motion-top p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.player-wrap {
+  position: relative;
+  overflow: hidden;
+  margin-top: 18px;
+  background: white;
+  border-radius: 18px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+  min-height: 360px;
+}
+
+.player-wrap svg {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.controls-note {
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: left;
+  max-width: 160px;
+  z-index: 5;
+}
+
+.aircraft-schematic {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.aircraft-schematic svg,
+.aircraft-schematic img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* TURNTABLE ANIMATION */
+#platterSpin {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.playing #platterSpin {
+  animation: spinRecord 1.1s linear infinite;
+}
+
+@keyframes spinRecord {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#tonearm {
+  transform-box: view-box;
+  transform-origin: 465px 163px;
+  transition: transform 2.4s cubic-bezier(.35,.02,.16,1);
+}
+
+#tonearm.lifted {
+  transform: translateY(-14px) rotate(0deg);
+}
+
+#tonearm.playing {
+  transform: translateY(-14px) rotate(22deg);
+}
+
+#tonearm.dropped {
+  transform: translateY(0px) rotate(22deg);
+}
+
+#startStopPhysical {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform .16s ease;
+}
+
+#startStopPhysical .button-face {
+  fill: var(--warm);
+  animation: blinkButton 1s ease-in-out infinite;
+}
+
+#startStopPhysical.is-on {
+  transform: translateY(4px) scale(0.93);
+}
+
+#startStopPhysical.is-on .button-face {
+  fill: var(--warm);
+  animation: none;
+}
+
+#startStopPhysical:hover .button-face {
+  filter: brightness(1.05);
+}
+
+@keyframes blinkButton {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
