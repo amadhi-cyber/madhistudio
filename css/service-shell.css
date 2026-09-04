@@ -202,3 +202,23 @@ footer .footer-main a:hover {
   opacity: 1 !important;
 }
 
+
+
+/* Sept 4 — match the enlarged alternate-logo header on desktop service pages. */
+@media (min-width: 1101px) {
+  nav {
+    padding-left: 4px !important;
+    padding-right: 20px !important;
+  }
+  .logo,
+  .logo a {
+    width: 382px !important;
+  }
+  .logo img {
+    width: 366px !important;
+    max-width: none !important;
+    max-height: 112px !important;
+    height: auto !important;
+    transform: none !important;
+  }
+}

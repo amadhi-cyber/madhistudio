@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Madhi Studio | Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
 <link href="css/base.css" rel="stylesheet"/>
 <link href="css/nav.css" rel="stylesheet"/>
 <link href="css/layout.css" rel="stylesheet"/>
@@ -15,15 +15,17 @@
 <link href="css/design.css" rel="stylesheet"/>
 <link href="css/responsive.css" rel="stylesheet"/>
 <link href="css/landing.css" rel="stylesheet"/>
+<link href="css/mobile.css" rel="stylesheet"/>
 </head>
 <body class="section-green">
 <nav aria-label="Primary navigation">
 <div class="nav-inner">
 <div class="logo">
 <a aria-label="Madhi Studio home" href="#home">
-<img alt="Madhi Studio" src="assets/madhi-studio-logo-plain.svg"/>
+<img alt="Madhi Studio" src="assets/madhi-studio-logo-alt.svg"/>
 </a>
 </div>
+<button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
 <div class="nav-links">
 <a class="active" data-nav="home" href="#home">Home</a>
 <span class="nav-divider"></span>
@@ -40,13 +42,12 @@
 <main>
 <!-- HERO: only the typewriter hero portion is carried over from the scrollytelling reference. -->
 <section class="hero typing-hero-panel" id="home">
-<img alt="" aria-hidden="true" class="hero-madhi-background" src="assets/madhi.svg"/>
-<div class="hero-content typing-hero-inner">
-<h1 aria-live="polite" class="hero-title typing-hero" id="heroTitle">
-<span class="type-line" id="typeLineOne"><span id="typeLineOneText"></span></span>
-<span class="type-line" id="typeLineTwo"><span id="typeLineTwoBefore"></span><span class="typed-accent" id="typeAccent"></span></span>
-<span class="type-line" id="typeLineThree"><span id="typeLineThreeText"></span><span class="hero-period" id="heroPeriod"></span></span>
+<div class="hero-content typing-hero-inner hero-static-message">
+<h1 class="hero-title hero-static-title">
+<span>You <em>Imagine</em> It.</span>
+<span>We <em>Create</em> It.</span>
 </h1>
+<p class="hero-static-byline">We help small businesses with customized services like branding &amp; logos, interactive user interfaces, motion graphics or package it all together into complete website design to turn <u>your</u> ideas into clear, memorable digital experiences.</p>
 </div>
 </section>
 <section class="services-viewport" id="services">
@@ -158,10 +159,15 @@
   <div class="branding-system-item layout-extra"><span class="branding-system-label">Inverse light</span><img src="assets/branding/aerowander-system/07-inverse-extra-light.svg" alt="Aerowander inverse extra light logo"></div>
   <div class="branding-system-item layout-mono"><span class="branding-system-label">Monochrome black</span><img src="assets/branding/aerowander-system/06-monochrome-black.svg" alt="Aerowander monochrome black logo"></div>
 </div>
-<div class="card-caption">
-<div class="card-caption-copy"><h3>Aerowander Logo System</h3><p>A seven-piece identity system showing primary, stacked, wordmark, icon-mark, inverse, and monochrome logo applications.</p></div>
-<a class="btn section-action" href="design/branding-logos.html">Explore All Branding + Logos</a>
 </div>
+<div class="landing-feature-info">
+  <div class="caption">BRANDING + LOGOS</div>
+  <h2>Aerowander Logo System</h2>
+  <p class="feature-description">A seven-piece brand system demonstrating primary, stacked, icon-mark, wordmark, inverse, and monochrome logo applications.</p>
+  <div class="vector-card-stack" aria-label="Aerowander branding details">
+    <div class="vector-info-card"><h3>Use Cases</h3><p>Web headers<br>Square placements<br>Favicons/app icons<br>Dark backgrounds<br>One-color production</p></div>
+  </div>
+  <a class="btn section-action landing-feature-explore" href="design/branding-logos.html">Explore All Branding + Logos</a>
 </div>
 </div>
 </div>
@@ -175,10 +181,15 @@
 <div class="landing-airport-network-wrap">
   <iframe class="landing-airport-network-frame" src="assets/projects/wanderports/map/index.html" title="Interactive Airport Network" loading="eager" scrolling="no"></iframe>
 </div>
-<div class="card-caption">
-<div class="card-caption-copy"><h3>Interactive Airport Network</h3><p>An interactive airport network visualization with synchronized map, airport-code, and image-reel hover states.</p></div>
-<a class="btn section-action" href="design/ui-icons.html">Explore All UI + Icons</a>
 </div>
+<div class="landing-feature-info wanderports-ui-caption">
+  <div class="caption">UI + ICONS</div>
+  <h2>Interactive Airport Network</h2>
+  <p>An interactive airport network visualization combining major U.S. and international airport locations, airport-code cross-highlighting, and visual airport browsing.</p>
+  <div class="vector-card-stack" aria-label="WanderPorts world map interaction details">
+    <div class="vector-info-card"><h3>Interaction</h3><p>Hover airport dots or airport codes to cross-highlight locations. The streamlined demo uses 10 U.S. and 10 international airports; hover the image reel to pause it.</p></div>
+  </div>
+  <a class="btn section-action landing-feature-explore" href="design/ui-icons.html">Explore All UI + Icons</a>
 </div>
 </div>
 </div>
@@ -514,12 +525,13 @@
 </svg></div>
   <audio id="recordAudio" src="assets/little-alicia-cinematic-background-music-for-video-short-version-427660.mp3" loop></audio>
 </div>
-<div class="card-caption">
-  <div class="card-caption-copy"><h3>Turntable</h3><p>A web-ready SVG record player concept using SVG, CSS animation, JavaScript, and audio. Use the on-deck start control to play it.</p></div>
-  <div class="landing-turntable-actions">
-    <a class="btn section-action" href="design/motion-graphics.html">Explore All Motion Graphics</a>
-  </div>
 </div>
+<div class="landing-feature-info">
+  <div class="caption">MOTION GRAPHICS</div>
+  <h2>Turntable</h2>
+  <p class="motion-description">A web-ready SVG record player concept using SVG, CSS animation, JavaScript, and audio.</p>
+  <div class="city-demo"><p class="hint">Use the start control on the turntable to spin the record and move the tonearm.</p></div>
+  <a class="btn section-action landing-feature-explore" href="design/motion-graphics.html">Explore All Motion Graphics</a>
 </div>
 </div>
 </div>
@@ -535,12 +547,17 @@
     <iframe class="landing-web-preview" src="assets/projects/airport-photo-hub/index.html?demo=1" title="Airport Photo Hub landing page preview" loading="eager" scrolling="no"></iframe>
   </div>
 </div>
-<div class="card-caption card-caption-has-actions">
-<div class="card-caption-copy"><div><h3>Airport Photo Hub</h3><p>A responsive airport-photography landing page organized around visual collections and prints.</p></div><a class="btn popout-action" href="assets/projects/airport-photo-hub/index.html?demo=1" target="_blank" rel="noopener" aria-label="Open Airport Photo Hub landing-page preview in a new tab" title="Open in new tab"><span class="btn-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7M10 7h7v7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
-<div class="landing-web-actions">
-  <a class="btn section-action" href="design/web-design.html">Explore All Web Design</a>
 </div>
-</div>
+<div class="landing-feature-info">
+  <div class="info-title-action-row">
+    <div class="info-title-copy"><div class="caption">WEB DESIGN</div><h2>Airport Photo Hub</h2></div>
+    <a class="btn popout-action" href="assets/projects/airport-photo-hub/index.html?demo=1" target="_blank" rel="noopener" aria-label="Open Airport Photo Hub landing-page preview in a new tab" title="Open in new tab"><span class="btn-arrow"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7M10 7h7v7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+  <p class="feature-description">A responsive photography storefront concept organizing airport imagery into clear Airside, Terminal, Landside, and Other collections.</p>
+  <div class="vector-card-stack" aria-label="Airport Photo Hub web-design details">
+    <div class="vector-info-card"><h3>Preview</h3><p>Responsive landing page<br>Collection-based navigation<br>Portfolio and print storefront foundation</p></div>
+  </div>
+  <a class="btn section-action landing-feature-explore" href="design/web-design.html">Explore All Web Design</a>
 </div>
 </div>
 </div>
@@ -558,5 +575,6 @@
 </main>
 <script src="js/landing.js"></script>
 <script src="js/service-interactions.js"></script>
+<script src="js/mobile-nav.js"></script>
 </body>
 </html>

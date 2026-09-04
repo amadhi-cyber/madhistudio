@@ -436,7 +436,7 @@ main {
    SEPT 3 FINAL — featured parity, title alignment, footer fit
 ========================================================= */
 :root {
-  --service-title-top: 34px;
+  --service-title-top: 51px;
   --service-first-row-top-space: 124px;
   --service-footer-fit: 56px;
 }

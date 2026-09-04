@@ -14,9 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="nav-inner">
           <div class="logo">
             <a href="${siteUrl("index.html#home")}" aria-label="Madhi Studio home">
-              <img src="${siteUrl("assets/madhi-studio-logo-plain.svg")}" alt="Madhi Studio">
+              <img src="${siteUrl("assets/madhi-studio-logo-alt.svg")}" alt="Madhi Studio">
             </a>
           </div>
+          <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
           <div class="nav-links">
             <a href="${siteUrl("index.html#home")}" data-nav="home">Home</a>
             <span class="nav-divider" aria-hidden="true"></span>

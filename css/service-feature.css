@@ -478,3 +478,30 @@
 .branding-system-collage .layout-extra img {
   width: 106% !important; height: 100% !important; max-width: 106% !important; max-height: 100% !important;
 }
+
+
+/* Sept 4 — logo-system label typography only; SVG positions remain unchanged. */
+.branding-system-label {
+  font-size: 15.125px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+
+/* Sept 4 — keep Branding tile artwork aligned exactly with landing Featured version. */
+.branding-feature-row .branding-system-collage {
+  transform: translateY(18px) !important;
+}
+
+/* =========================================================
+   SEPT 4 — BRANDING TILE TOP-FILL + LABEL COLOR ONLY
+========================================================= */
+/* Keep the service-page Branding tile visually identical to the landing tile. */
+.branding-feature-row .image-card,
+.branding-feature-row .branding-system-collage {
+  background: #3b424c !important;
+}
+
+.branding-feature-row .branding-system-label {
+  color: #c0c0c0 !important;
+}

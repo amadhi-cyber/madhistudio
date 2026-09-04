@@ -3,20 +3,37 @@
 
 const typeLineOneText = document.getElementById("typeLineOneText");
 const typeLineTwoBefore = document.getElementById("typeLineTwoBefore");
-const typeAccent = document.getElementById("typeAccent");
-const typeLineThreeText = document.getElementById("typeLineThreeText");
+const typeAccentMessage = document.getElementById("typeAccentMessage");
+const typeLineThreeBefore = document.getElementById("typeLineThreeBefore");
+const typeAccentAudience = document.getElementById("typeAccentAudience");
+const typeLineFourBefore = document.getElementById("typeLineFourBefore");
+const typeAccentTime = document.getElementById("typeAccentTime");
 const heroPeriod = document.getElementById("heroPeriod");
 
 const typingCursor = document.createElement("span");
 typingCursor.className = "typing-cursor";
 typingCursor.id = "typingCursor";
 
-const typeSteps = [
+const hasTypewriterHero = Boolean(
+  typeLineOneText &&
+  typeLineTwoBefore &&
+  typeAccentMessage &&
+  typeLineThreeBefore &&
+  typeAccentAudience &&
+  typeLineFourBefore &&
+  typeAccentTime &&
+  heroPeriod
+);
+
+const typeSteps = hasTypewriterHero ? [
   { target: typeLineOneText, text: "There’s nothing more powerful", pauseAfterWord: 230, pauseAfterLine: 1250 },
-  { target: typeLineTwoBefore, text: "than getting the ", pauseAfterWord: 230, pauseAfterLine: 350 },
-  { target: typeAccent, text: "right message", pauseAfterWord: 250, pauseAfterLine: 700, animateAccent: true },
-  { target: typeLineThreeText, text: "to your audience", pauseAfterWord: 250, pauseAfterLine: 900, addPeriod: true }
-];
+  { target: typeLineTwoBefore, text: "than getting the ", pauseAfterWord: 230, pauseAfterLine: 250 },
+  { target: typeAccentMessage, text: "right message", pauseAfterWord: 250, pauseAfterLine: 650, animateAccent: true },
+  { target: typeLineThreeBefore, text: "to the ", pauseAfterWord: 230, pauseAfterLine: 250 },
+  { target: typeAccentAudience, text: "right audience", pauseAfterWord: 250, pauseAfterLine: 650, animateAccent: true },
+  { target: typeLineFourBefore, text: "at the ", pauseAfterWord: 230, pauseAfterLine: 250 },
+  { target: typeAccentTime, text: "right time", pauseAfterWord: 250, pauseAfterLine: 650, animateAccent: true, addPeriodAfterAccent: true }
+] : [];
 
 function wait(ms) {
   return new Promise(resolve => window.setTimeout(resolve, ms));
@@ -44,34 +61,34 @@ async function typeInto(target, textToType, speed = 72, pauseAfterWord = 230) {
   }
 }
 
-function wrapAccentLetters() {
-  const text = typeAccent.textContent;
-  typeAccent.textContent = "";
+function wrapAccentLetters(accentElement) {
+  const text = accentElement.textContent;
+  accentElement.textContent = "";
   const chars = [];
 
   for (const char of text) {
     const span = document.createElement("span");
     span.className = "accent-char";
     span.textContent = char === " " ? "\u00A0" : char;
-    typeAccent.appendChild(span);
+    accentElement.appendChild(span);
     chars.push(span);
   }
 
-  typeAccent.appendChild(typingCursor);
+  accentElement.appendChild(typingCursor);
   return chars;
 }
 
-async function animateRightMessageBackward() {
-  const chars = wrapAccentLetters();
+async function animateAccentBackward(accentElement) {
+  const chars = wrapAccentLetters(accentElement);
 
   for (let i = chars.length - 1; i >= 0; i--) {
-    typeAccent.insertBefore(typingCursor, chars[i]);
+    accentElement.insertBefore(typingCursor, chars[i]);
     chars[i].classList.add("is-selected");
     await wait(95);
   }
 
   await wait(260);
-  typeAccent.classList.add("is-green");
+  accentElement.classList.add("is-green");
   await wait(260);
   chars[chars.length - 1].insertAdjacentElement("afterend", typingCursor);
   chars.forEach(char => char.classList.remove("is-selected"));
@@ -84,25 +101,23 @@ async function runHeroTypewriter() {
   for (const step of typeSteps) {
     await typeInto(step.target, step.text, 72, step.pauseAfterWord);
 
-    if (step.addPeriod) {
-      heroPeriod.textContent = ".";
-      heroPeriod.appendChild(typingCursor);
-    }
-
     if (step.animateAccent) {
       await wait(250);
-      await animateRightMessageBackward();
+      await animateAccentBackward(step.target);
+    }
+
+    if (step.addPeriodAfterAccent) {
+      heroPeriod.textContent = ".";
+      typingCursor.remove();
     }
 
     if (step.pauseAfterLine) {
       await wait(step.pauseAfterLine);
     }
   }
-
-  heroPeriod.appendChild(typingCursor);
 }
 
-runHeroTypewriter();
+if (hasTypewriterHero) runHeroTypewriter();
 
 /* Landing navigation state.
    Home remains the active page pill. The service nav underline follows only the

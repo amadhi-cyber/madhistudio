@@ -286,7 +286,7 @@ footer {
 
 @media (max-width: 1200px) {
   .nav-links { gap: 10px; }
-  nav a { font-size: 13px; padding: 4px 6px; }
+  nav a { font-size: 13px; padding: 4px 7.5px; }
   .sitemap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .services-viewport { min-height: auto; padding: 55px 0; }
   .work-section .feature-layout { grid-template-columns: 1.65fr .9fr; }
@@ -516,7 +516,7 @@ nav a.active:hover {
 
 @media (max-width: 1380px) {
   .nav-links { gap: 10px; }
-  nav a { font-size: 12.5px; padding-left: 5px; padding-right: 5px; }
+  nav a { font-size: 12.5px; padding-left: 6.25px; padding-right: 6.25px; }
   .sitemap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 }
 
@@ -755,8 +755,8 @@ nav a.active {
   nav a,
   nav a.active {
     font-size: 15.625px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 6.25px;
+    padding-right: 6.25px;
   }
 }
 
@@ -955,7 +955,7 @@ nav {
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
-  padding: 24px 0 22px;
+  padding: 54px 0 22px;
 }
 
 .services-container {
@@ -1432,7 +1432,7 @@ nav a.active {
 /* Each featured-work viewport now starts on the same title axis as Services. */
 .work-section {
   align-items: flex-start !important;
-  padding-top: 24px !important;
+  padding-top: 54px !important;
   padding-bottom: 22px !important;
   min-height: calc(100vh - var(--landing-header-height)) !important;
 }
@@ -2336,4 +2336,340 @@ footer .footer-main a:hover,
   background: var(--accent) !important;
   color: #ffffff !important;
   border-color: var(--accent) !important;
+}
+
+
+/* =========================================================
+   SEPT 4 — HEADER LOGO / STATIC HERO / SERVICE TILE REFINEMENT
+   Requested changes only.
+========================================================= */
+@media (min-width: 1101px) {
+  nav {
+    padding-left: 4px !important;
+    padding-right: 20px !important;
+  }
+
+  .logo,
+  .logo a {
+    width: 382px !important;
+  }
+
+  .logo img {
+    width: 366px !important;
+    max-width: none !important;
+    max-height: 112px !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  /* All four service tiles use the height needed by the longest Web Design card. */
+  .sitemap-card {
+    height: 570px !important;
+    min-height: 570px !important;
+  }
+}
+
+.hero-static-message {
+  width: min(1180px, calc(100vw - 96px)) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 30px !important;
+  text-align: center !important;
+}
+
+.hero .hero-static-title {
+  width: fit-content !important;
+  max-width: min(980px, 100%) !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(68px, 5.2vw, 104px) !important;
+  line-height: .96 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 500 !important;
+  color: #111 !important;
+  text-align: right !important;
+}
+
+.hero .hero-static-title > span {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+.hero-static-byline {
+  width: min(1180px, 100%) !important;
+  margin: 0 auto !important;
+  color: var(--muted) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: clamp(20px, 1.35vw, 26px) !important;
+  line-height: 1.48 !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+  text-wrap: balance;
+}
+
+.hero-static-byline u {
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: .16em;
+}
+
+/* Enlarge only the white logo-system labels; SVG geometry stays untouched. */
+.branding-system-feature-card .branding-system-label {
+  font-size: 15.125px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+
+
+/* =========================================================
+   SEPT 4 — HERO CLEANUP + LANDING FEATURE INFO COLUMNS
+   Requested changes only.
+========================================================= */
+/* Plain-white hero: no decorative MADHI background artwork. */
+.hero.typing-hero-panel {
+  background: #ffffff !important;
+}
+.hero-madhi-background {
+  display: none !important;
+}
+
+/* Hero title and byline share the same centered block/right edge. */
+.hero-static-message {
+  width: min(980px, calc(100vw - 96px)) !important;
+  align-items: stretch !important;
+  gap: 26px !important;
+}
+.hero .hero-static-title {
+  width: 100% !important;
+  max-width: 980px !important;
+  font-weight: 400 !important;
+  text-align: right !important;
+}
+.hero .hero-static-title em {
+  font-style: italic !important;
+  font-weight: inherit !important;
+}
+.hero-static-byline {
+  width: 100% !important;
+  max-width: 980px !important;
+  margin: 0 !important;
+  font-size: clamp(14.4px, 0.972vw, 18.9px) !important;
+  line-height: 1.48 !important;
+  text-align: right !important;
+  text-wrap: balance;
+}
+
+/* Landing Featured: use the same 980x550 artwork tile and right-side information rhythm as service pages. */
+.work-section .feature-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 980px) minmax(250px, 330px) !important;
+  gap: 24px !important;
+  align-items: start !important;
+  justify-content: start !important;
+  margin-bottom: 0 !important;
+}
+
+#branding-logos .feature-card,
+#ui-icons .feature-card,
+#motion-graphics .feature-card,
+#web-design .feature-card,
+.work-section .feature-card {
+  width: 100% !important;
+  max-width: 980px !important;
+  height: 550px !important;
+  min-height: 550px !important;
+  margin: 0 !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+
+#branding-logos .branding-system-collage,
+#ui-icons .landing-airport-network-wrap,
+#motion-graphics .landing-turntable-artwork,
+#web-design .landing-web-preview-wrap {
+  height: 100% !important;
+  min-height: 100% !important;
+  inset: 0 !important;
+}
+
+/* The old bottom caption band is no longer part of landing featured tiles. */
+.work-section .card-caption {
+  display: none !important;
+}
+
+.landing-feature-info {
+  width: 100%;
+  max-width: 330px;
+  padding-top: 6px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: .92;
+  align-self: stretch;
+  justify-content: flex-start;
+}
+.landing-feature-info h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(0,0,0,.72);
+  letter-spacing: -.3px;
+}
+.landing-feature-info .caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: -15px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.landing-feature-info > p,
+.landing-feature-info .feature-description,
+.landing-feature-info .motion-description {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 100%;
+}
+.landing-feature-info .feature-description,
+.landing-feature-info .motion-description {
+  margin-top: 8px;
+}
+.landing-feature-info .vector-card-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 8px;
+  align-items: stretch;
+}
+.landing-feature-info .vector-info-card,
+.landing-feature-info .city-demo {
+  width: fit-content;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 112px;
+  background: var(--madhi-light-panel) !important;
+  border: none;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.035);
+  display: flex;
+  flex-direction: column;
+}
+.landing-feature-info .vector-info-card h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(93,93,93,.72);
+}
+.landing-feature-info .vector-info-card p,
+.landing-feature-info .city-demo .hint {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.landing-feature-info .city-demo {
+  margin-top: 18px;
+  min-height: 86px;
+  justify-content: center;
+}
+.landing-feature-info .info-title-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.landing-feature-info .info-title-copy {
+  min-width: 0;
+}
+.landing-feature-info .info-title-action-row .caption {
+  margin-bottom: 4px;
+}
+.landing-feature-info .popout-action {
+  position: static !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  flex: 0 0 42px;
+}
+.landing-feature-info .landing-feature-explore {
+  position: static !important;
+  align-self: center !important;
+  margin: 14px auto 0 !important;
+  background: transparent !important;
+  white-space: nowrap;
+}
+.landing-feature-info .landing-feature-explore:hover {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
+@media (max-width: 1380px) and (min-width: 1101px) {
+  .work-section .feature-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px) !important;
+  }
+  .landing-feature-info { max-width: 300px; }
+}
+
+
+/* =========================================================
+   SEPT 4 — requested hero centering + 50% deeper title inset
+   Desktop only; responsive/mobile behavior remains unchanged.
+========================================================= */
+@media (min-width: 1101px) {
+  /* Center the hero copy as one group while preserving its internal right alignment. */
+  .hero-static-message {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: min(980px, calc(100vw - 96px)) !important;
+    max-width: 980px !important;
+    margin: 0 !important;
+    transform: translate(-50%, -60%) !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 4 — requested alignment refinements only
+========================================================= */
+/* Move only the Aerowander artwork/labels down by one text line; preserve all internal spacing. */
+#branding-logos .branding-system-collage {
+  transform: translateY(18px) !important;
+}
+
+/* =========================================================
+   SEPT 4 — BRANDING TILE TOP-FILL + LABEL COLOR ONLY
+========================================================= */
+/* The Aerowander collage is intentionally shifted down one text line;
+   fill the exposed top strip with the exact same charcoal as the artwork. */
+#branding-logos .branding-system-feature-card,
+#branding-logos .branding-system-collage {
+  background: #3b424c !important;
+}
+
+#branding-logos .branding-system-label {
+  color: #c0c0c0 !important;
+}
+
+/* =========================================================
+   SEPT 4 — INDEX BRANDING FEATURED DOG-EAR EDGE ONLY
+   Cover the parent tile edge around this dog-ear with the
+   same green so no dark/black outline is visible.
+========================================================= */
+#branding-logos .feature-card > .dog-ear {
+  top: -2px !important;
+  right: -2px !important;
+  border: 2px solid var(--accent) !important;
+  box-shadow: 0 0 0 2px var(--accent) !important;
 }

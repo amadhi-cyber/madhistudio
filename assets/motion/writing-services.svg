@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-141 62 982 367" role="img" aria-label="Writing services pen nib and baseline mark">
+  <style>
+    .black { fill: #111111; }
+    .green { fill: #0AC92B; }
+    .white { fill: #ffffff; }
+  </style>
+
+  <!-- Pen nib: retained from the supplied Madhi Studio SVG -->
+  <g transform="translate(-102.1 300.25) scale(1.20) translate(-62 -205)">
+    <path class="black" d="M76 70 L122 205 L98 286 L54 286 L30 205 Z"/>
+    <rect class="white" x="74" y="7" width="4" height="210"/>
+    <g transform="translate(0 17)">
+      <circle class="white" cx="76" cy="205" r="30"/>
+      <circle class="green" cx="76" cy="205" r="26"/>
+      <polygon class="white" points="76,192.71 86.64,198.86 86.64,211.14 76,217.29 65.36,211.14 65.36,198.86"/>
+    </g>
+    <rect class="black" x="48" y="286" width="56" height="12" rx="3"/>
+    <rect class="black" x="54" y="298" width="44" height="14" rx="1"/>
+  </g>
+
+  <!-- Bottom baseline: retained from the supplied Madhi Studio SVG -->
+  <rect class="black" x="-50" y="410" width="890.775" height="17"/>
+  <rect class="white" x="-114" y="420" width="936.775" height="4"/>
+</svg>

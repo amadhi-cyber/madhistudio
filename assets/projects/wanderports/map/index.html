@@ -4089,8 +4089,8 @@ circle.highlight{
   const wrap = document.getElementById('mapWrap');
   if (!svg || !wrap) return;
 
-  /* Tighter crop with a 10% zoom and a slight downward composition shift. */
-  svg.setAttribute('viewBox','50 98 950 265');
+  /* Additional 10% zoom; horizontally balanced between the farthest selected international markers. */
+  svg.setAttribute('viewBox','134.72 111.25 855 238.5');
   svg.setAttribute('preserveAspectRatio','xMidYMid meet');
 
   /* Keep only the selected 20 airport markers visible and enlarge them 20%. */

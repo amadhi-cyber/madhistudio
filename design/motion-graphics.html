@@ -502,6 +502,7 @@ body.debug .motion-svg-object {
   max-height: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   overflow: hidden;
   border: 0;
   border-radius: inherit;
@@ -538,6 +539,10 @@ body.debug .motion-svg-object {
 
 .solari-header-row .solari-col {
   padding: 0 8px;
+}
+.solari-header-row .solari-stair-col {
+  justify-content: flex-end;
+  text-align: right;
 }
 
 /* Every visible position is its own two-piece flight card. */
@@ -593,7 +598,7 @@ body.debug .motion-svg-object {
   left: 0;
   width: 100%;
   height: calc(50% - .5px);
-  border: 1px solid rgba(236, 235, 226, .58);
+  border: 1px solid #474747;
   background: #080808;
   box-sizing: border-box;
 }
@@ -622,7 +627,7 @@ body.debug .motion-svg-object {
   width: 100%;
   height: calc(50% - .5px);
   overflow: hidden;
-  border: 1px solid rgba(236, 235, 226, .58);
+  border: 1px solid #474747;
   border-radius: 0;
   background: #080808;
   backface-visibility: hidden;
@@ -642,7 +647,7 @@ body.debug .motion-svg-object {
   transform: translate(-50%, -50%);
   color: #fff;
   font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  font-size: 24px;
+  font-size: 28.8px;
   font-weight: 700;
   letter-spacing: .01em;
   line-height: 56px;
@@ -689,11 +694,24 @@ body.debug .motion-svg-object {
   .solari-field { height: 44px; gap: 0; }
   .solari-cell, .solari-signal-card { max-width: none; height: 44px; }
   .solari-signal-card { width: auto; flex-basis: auto; }
-  .solari-glyph { font-size: 18px; line-height: 44px; }
+  .solari-glyph { font-size: 21.6px; line-height: 44px; }
   .solari-header-row { height:44px; flex-basis:44px; font-size:15px; }
 }
+
+
+/* Madhi Studio landing hero — embedded exactly as its own Motion Graphics tile. */
+.madhi-hero-card { background:#fff; }
+.madhi-hero-frame {
+  width:100%;
+  height:100%;
+  display:block;
+  border:0;
+  background:#fff;
+}
+
 </style>
 <link rel="stylesheet" href="../css/service-pages.css">
+<link rel="stylesheet" href="../css/mobile.css">
 </head>
 
 <body class="section-green">
@@ -713,7 +731,19 @@ body.debug .motion-svg-object {
   <div class="print-list">
 
 
-    <!-- ITEM 1: Taxi Plane -->
+    <!-- ITEM 1: Madhi Studio Hero -->
+    <article class="print-row reveal madhi-hero-row">
+      <div class="image-card madhi-hero-card">
+        <iframe class="madhi-hero-frame" src="../assets/motion/madhi-hero.html" title="Madhi Studio animated landing hero" loading="eager"></iframe>
+      </div>
+      <div class="info-panel">
+        <div class="caption">MOTION GRAPHICS</div>
+        <h2>Madhi Studio Hero</h2>
+        <p class="motion-description">The animated typewriter hero from the Madhi Studio landing page, shown here exactly as it appears on the site.</p>
+      </div>
+    </article>
+
+    <!-- ITEM 2: Taxi Plane -->
     <article class="print-row reveal taxi-plane-row">
       <div class="image-card taxi-plane-card">
         <iframe class="taxi-plane-frame" src="../assets/motion/taxi-plane.html" title="Taxi Plane airport-operations motion graphic" loading="eager"></iframe>
@@ -725,7 +755,7 @@ body.debug .motion-svg-object {
       </div>
     </article>
 
-    <!-- ITEM 2: Turntable -->
+    <!-- ITEM 3: Turntable -->
     <article class="print-row reveal turntable-row has-tight-info">
       <div class="image-card">
         <div class="svg-artwork">
@@ -1073,7 +1103,7 @@ body.debug .motion-svg-object {
       </div>
     </article>
 
-    <!-- ITEM 3: Split-Flap Board -->
+    <!-- ITEM 4: Split-Flap Board -->
     <article class="print-row reveal splitflap-row has-tight-info">
       <div class="image-card">
         <div class="svg-artwork">
@@ -1082,7 +1112,7 @@ body.debug .motion-svg-object {
     <div class="solari-grid-row solari-header-row" aria-hidden="true">
       <div class="solari-col solari-from-col">FROM</div>
       <div class="solari-col solari-status-col">STATUS</div>
-      <div class="solari-col solari-stair-col">STAIRWAY</div>
+      <div class="solari-col solari-stair-col">STAIRS</div>
     </div>
 
     <div class="solari-grid-row solari-data-row is-editable">
@@ -1115,11 +1145,6 @@ body.debug .motion-svg-object {
       <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="9"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
-    <div class="solari-grid-row solari-data-row">
-      <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="NEWPORT NEWS"></div></div>
-      <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ON TIME"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="4"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
-    </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="ATLANTA"></div></div>
@@ -1171,5 +1196,6 @@ body.debug .motion-svg-object {
 <script src="../js/service-interactions.js"></script>
 <script src="../js/wanderports-hero-card.js"></script>
 <script src="../js/site-shell.js"></script>
+<script src="../js/mobile-nav.js"></script>
 </body>
 </html>
