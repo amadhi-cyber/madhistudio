@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="144 -8 148.2 442" role="img" aria-labelledby="towerTitle towerDesc">
+  <title id="towerTitle">Air traffic control tower</title>
+  <desc id="towerDesc">A solid black airport control tower on a transparent background.</desc>
+  <g fill="#000000" transform="matrix(1.3,0,0,1,-35.4,-17.214701)">
+    <g transform="translate(-14,-37.785299)">
+      <path d="m 209,58 c 1.662,0 3,1.338 3,3 v 22 c 0,1.662 -1.338,3 -3,3 -1.662,0 -3,-1.338 -3,-3 V 61 c 0,-1.662 1.338,-3 3,-3 z"/>
+      <path d="m 214,52 a 5,5 0 0 1 -5,5 5,5 0 0 1 -5,-5 5,5 0 0 1 5,-5 5,5 0 0 1 5,5 z"/>
+      <path d="m 168,102 h 82 l -14,30 h -54 z"/>
+      <path d="m 187,132 h 44 c 1.662,0 3,1.338 3,3 v 4 c 0,1.662 -1.338,3 -3,3 h -44 c -1.662,0 -3,-1.338 -3,-3 v -4 c 0,-1.662 1.338,-3 3,-3 z"/>
+      <path d="m 193,142 h 32 l 15,260 h -62 z"/>
+      <path d="m 170,402 h 78 c 2.216,0 4,1.784 4,4 v 10 c 0,2.216 -1.784,4 -4,4 h -78 c -2.216,0 -4,-1.784 -4,-4 v -10 c 0,-2.216 1.784,-4 4,-4 z"/>
+      <path d="m 156,420 h 106 c 2.216,0 4,1.784 4,4 v 6 c 0,2.216 -1.784,4 -4,4 H 156 c -2.216,0 -4,-1.784 -4,-4 v -6 c 0,-2.216 1.784,-4 4,-4 z"/>
+    </g>
+  </g>
+</svg>

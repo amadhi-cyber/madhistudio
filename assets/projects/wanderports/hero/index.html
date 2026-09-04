@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WanderPorts Hero Sequence</title>
+<link rel="stylesheet" href="css/aerowander-home.css">
+<link rel="stylesheet" href="css/aerowander-hero-sequence.css">
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#C6ECFF}
+body{padding:0!important}
+.aw-page,.aw-home-main{width:100%!important;height:100%!important;min-height:0!important;margin:0!important;overflow:hidden!important}
+.aw-journey-hero{width:100%!important;height:100%!important;min-height:100%!important;margin:0!important}
+.aw-journey-stage{height:100%!important;min-height:0!important}
+.aw-hero-replay{display:none!important}
+.aw-sound-toggle{top:12px;right:12px;transform:scale(.82);transform-origin:top right}
+@media(max-width:700px){.aw-sound-toggle{display:none}}
+
+/* Portfolio-frame composition: keep the skyline AND both terminal clusters visibly inside the tile. */
+.aw-city-center{width:clamp(500px,46vw,720px)!important;bottom:-1px!important}
+.aw-terminal-wrap{width:clamp(104px,7.2vw,132px)!important;opacity:1!important;visibility:visible!important}
+.aw-tower-wrap{width:clamp(24px,1.7vw,32px)!important;opacity:1!important;visibility:visible!important}
+.aw-airport-cluster--left .aw-terminal-wrap{right:24%!important;bottom:-4px!important}
+.aw-airport-cluster--left .aw-tower-wrap{right:62%!important;bottom:-11px!important}
+.aw-airport-cluster--right .aw-terminal-wrap{left:24%!important;bottom:-4px!important}
+.aw-airport-cluster--right .aw-tower-wrap{left:62%!important;bottom:-11px!important}
+
+
+/* Portfolio-frame composition fine-tuning: start the sky at the top edge and lift the scene so the skyline/terminal groups stay visible. */
+.aw-journey-stage{position:relative;top:-8px!important;}
+.aw-status-strip{margin-top:-6px!important;}
+
+</style>
+</head>
+<body class="home-page">
+<div class="aw-page">
+<main class="aw-home-main">
+<section aria-labelledby="home-title" class="home-hero aw-journey-hero">
+<button aria-label="Mute hero flip sounds" aria-pressed="false" class="aw-sound-toggle" data-aw-sound-toggle title="Mute hero flip sounds" type="button">
+<span aria-hidden="true" class="aw-sound-toggle__icon">🔊</span><span class="aw-sound-toggle__label">Sound on</span>
+</button>
+<div class="aw-journey-stage" data-aw-hero-sequence>
+<button aria-label="Play hero animation again" class="aw-hero-replay" data-aw-hero-replay hidden type="button"></button>
+<img alt="" aria-hidden="true" class="aw-cloud aw-cloud--a" src="assets/icons/clouds.svg"><img alt="" aria-hidden="true" class="aw-cloud aw-cloud--b" src="assets/icons/clouds.svg"><img alt="" aria-hidden="true" class="aw-cloud aw-cloud--c" src="assets/icons/clouds.svg">
+<div aria-hidden="true" class="aw-hero-group aw-hero-group--left"><div class="aw-airport-cluster aw-airport-cluster--left">
+<div class="aw-terminal-wrap"><img alt="" class="aw-terminal" src="assets/hero/terminal.svg"></div>
+<div class="aw-tower-wrap"><img alt="" class="aw-tower" src="assets/hero/control-tower.svg"></div>
+<div class="aw-plane-wrap"><img alt="" class="aw-plane" src="assets/hero/plane-white.svg"></div>
+<div class="aw-passenger-wrap"><img alt="" class="aw-passenger" src="assets/hero/passenger.svg"></div>
+</div></div>
+<div class="aw-hero-group aw-hero-group--center"><div aria-hidden="true" class="aw-city-center"><img alt="" class="aw-city-skyline" src="assets/hero/skyline.svg"></div>
+<div class="aw-journey-copy"><div aria-hidden="true" class="aw-type-prompt"><span class="aw-type-line aw-type-line--one" data-aw-type-line-one></span><span class="aw-type-line aw-type-line--two" data-aw-type-line-two></span><span class="aw-type-line aw-type-line--three aw-wordmark" data-aw-type-line-three></span></div>
+<div class="aw-journey-title-stack"><h1 class="aw-journey-title" id="home-title"><img alt="Discover the World" class="aw-title-board aw-title-board--discover" data-aw-flip-board data-aw-board-role="discover" src="assets/icons/discover-the-world.svg"></h1>
+<div class="aw-journey-title-secondary"><object aria-label="Between Flights" class="aw-title-board aw-title-board--between" data-aw-board-role="between" data="assets/icons/between-flights-board.svg" type="image/svg+xml"></object></div></div></div></div>
+<div aria-hidden="true" class="aw-hero-group aw-hero-group--right"><div class="aw-airport-cluster aw-airport-cluster--right">
+<div class="aw-passenger-wrap"><img alt="" class="aw-passenger aw-passenger--toward-terminal" src="assets/hero/passenger.svg"></div>
+<div class="aw-terminal-wrap"><img alt="" class="aw-terminal" src="assets/hero/terminal.svg"></div>
+<div class="aw-tower-wrap"><img alt="" class="aw-tower" src="assets/hero/control-tower.svg"></div>
+<div class="aw-plane-wrap"><img alt="" class="aw-plane" src="assets/hero/plane-white.svg"></div>
+</div></div>
+</div>
+<div aria-hidden="true" class="aw-status-strip"><div class="aw-status-slot aw-status-slot--left"><img alt="Arriving status board" class="aw-status-board aw-status-board--arriving" data-aw-flip-board data-aw-board-role="arriving" src="assets/icons/arriving.svg"></div><div class="aw-status-slot aw-status-slot--center"><img alt="Connecting status board" class="aw-status-board aw-status-board--connecting" data-aw-flip-board data-aw-board-role="connecting" src="assets/icons/connecting.svg"></div><div class="aw-status-slot aw-status-slot--right"><img alt="Departing status board" class="aw-status-board aw-status-board--departing" data-aw-flip-board data-aw-board-role="departing" src="assets/icons/departing.svg"></div></div>
+</section>
+</main>
+</div>
+<script src="js/aerowander-hero-sequence.js"></script>
+</body>
+</html>
