@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 145" role="img" aria-labelledby="planeTitle planeDesc">
-  <title id="planeTitle">Purple airplane</title>
-  <desc id="planeDesc">A purple airplane from the AeroWander icon artwork.</desc>
-  <g fill="#FF7F00" transform="translate(254 1) scale(-1 1)">
-    <path d="M 224.49219,159.5 254.42187,124 239.95312,116.39063 211.55469,128.57813 180.5,116.48437 251.4375,52.4375 232,44 124.875,99.0625 57.9375,77.3125 c -3.109731,-1.010445 -9.54123,0.302443 -12,8.1875 -2.441014,7.828116 2.157629,12.817628 4.125,13.5 z" fill-rule="evenodd" transform="translate(-42 -35) scale(.95)"/>
-  </g>
-</svg>
