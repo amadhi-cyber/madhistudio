@@ -124,10 +124,12 @@ if (hasTypewriterHero) runHeroTypewriter();
    featured-work viewport crossing the visual center of the screen, and clears
    immediately outside those four viewports (including after Web Design). */
 const homeNavLink = document.querySelector('nav [data-nav="home"]');
+const contactNavLink = document.querySelector('nav [data-nav="contact"]');
 const serviceNavLinks = [...document.querySelectorAll('nav [data-section-target]')];
 const serviceSections = serviceNavLinks
   .map(link => ({ link, section: document.getElementById(link.dataset.sectionTarget) }))
   .filter(item => item.section);
+const contactSection = document.getElementById('contact');
 
 if (homeNavLink) homeNavLink.classList.add('active');
 
@@ -146,9 +148,20 @@ function updateServiceUnderline() {
     }
   }
 
+  if (!currentId && contactSection) {
+    const contactRect = contactSection.getBoundingClientRect();
+    if (contactRect.top <= probeY && contactRect.bottom > probeY) {
+      currentId = 'contact';
+    }
+  }
+
   serviceNavLinks.forEach(link => {
     link.classList.toggle('section-current', Boolean(currentId) && link.dataset.sectionTarget === currentId);
   });
+
+  if (contactNavLink) {
+    contactNavLink.classList.toggle('section-current', currentId === 'contact');
+  }
 }
 
 function queueServiceUnderlineUpdate() {
@@ -161,3 +174,190 @@ window.addEventListener('resize', queueServiceUnderlineUpdate);
 window.addEventListener('load', updateServiceUnderline);
 updateServiceUnderline();
 
+
+/* Contact-project brief validation, attachments, and email submission. */
+const projectBriefForm = document.getElementById('projectBriefForm');
+const briefFormStatus = document.getElementById('briefFormStatus');
+const attachmentInput = document.getElementById('briefAttachments');
+const attachmentDropzone = document.getElementById('attachmentDropzone');
+const attachmentBrowse = document.getElementById('attachmentBrowse');
+const attachmentFileList = document.getElementById('attachmentFileList');
+const contactSuccessPopup = document.getElementById('contactSuccessPopup');
+
+if (projectBriefForm) {
+  const requiredBriefFields = [...projectBriefForm.querySelectorAll('[required]')];
+  const submitButton = projectBriefForm.querySelector('.contact-submit');
+  let selectedAttachments = [];
+  let successTimer = 0;
+
+  function fieldHasValidValue(field) {
+    if (!String(field.value || '').trim()) return false;
+    return field.checkValidity();
+  }
+
+  function updateBriefFieldState(field) {
+    const wrapper = field.closest('.contact-field');
+    if (!wrapper) return;
+    wrapper.classList.toggle('is-valid', fieldHasValidValue(field));
+  }
+
+  requiredBriefFields.forEach(field => {
+    ['input', 'change', 'blur'].forEach(eventName => {
+      field.addEventListener(eventName, () => updateBriefFieldState(field));
+    });
+    updateBriefFieldState(field);
+  });
+
+  function buildProjectBrief() {
+    const value = id => document.getElementById(id)?.value?.trim() || '';
+    return [
+      `Name: ${value('briefName')}`,
+      `Email: ${value('briefEmail')}`,
+      `Project type: ${value('briefProjectType')}`,
+      `Timeline: ${value('briefTimeline')}`,
+      '',
+      'What I am trying to build or fix:',
+      value('briefMessage')
+    ].join('\n');
+  }
+
+  function renderAttachments() {
+    if (!attachmentFileList) return;
+    attachmentFileList.textContent = selectedAttachments.length
+      ? selectedAttachments.map(file => file.name).join(', ')
+      : 'No files added.';
+  }
+
+  function addAttachments(files) {
+    const incoming = [...(files || [])].filter(file => file instanceof File);
+    if (!incoming.length) return;
+
+    const merged = [...selectedAttachments];
+    incoming.forEach(file => {
+      const duplicate = merged.some(existing =>
+        existing.name === file.name &&
+        existing.size === file.size &&
+        existing.lastModified === file.lastModified
+      );
+      if (!duplicate) merged.push(file);
+    });
+
+    const totalBytes = merged.reduce((sum, file) => sum + file.size, 0);
+    if (totalBytes > 10 * 1024 * 1024) {
+      if (briefFormStatus) briefFormStatus.textContent = 'Attachments must total 10 MB or less.';
+      return;
+    }
+
+    selectedAttachments = merged;
+    if (briefFormStatus) briefFormStatus.textContent = '';
+    renderAttachments();
+  }
+
+  if (attachmentBrowse && attachmentInput) {
+    attachmentBrowse.addEventListener('click', event => {
+      event.preventDefault();
+      attachmentInput.click();
+    });
+    attachmentInput.addEventListener('change', () => {
+      addAttachments(attachmentInput.files);
+      attachmentInput.value = '';
+    });
+  }
+
+  if (attachmentDropzone) {
+    attachmentDropzone.addEventListener('click', event => {
+      if (event.target !== attachmentBrowse) attachmentDropzone.focus();
+    });
+    attachmentDropzone.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && attachmentInput) {
+        event.preventDefault();
+        attachmentInput.click();
+      }
+    });
+    ['dragenter', 'dragover'].forEach(eventName => {
+      attachmentDropzone.addEventListener(eventName, event => {
+        event.preventDefault();
+        attachmentDropzone.classList.add('is-dragover');
+      });
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      attachmentDropzone.addEventListener(eventName, event => {
+        event.preventDefault();
+        attachmentDropzone.classList.remove('is-dragover');
+      });
+    });
+    attachmentDropzone.addEventListener('drop', event => addAttachments(event.dataTransfer?.files));
+    attachmentDropzone.addEventListener('paste', event => {
+      const files = [...(event.clipboardData?.items || [])]
+        .filter(item => item.kind === 'file')
+        .map(item => item.getAsFile())
+        .filter(Boolean);
+      if (files.length) {
+        event.preventDefault();
+        addAttachments(files);
+      }
+    });
+  }
+
+  function showSuccessPopup() {
+    if (!contactSuccessPopup) return;
+    window.clearTimeout(successTimer);
+    contactSuccessPopup.classList.add('is-visible');
+    contactSuccessPopup.setAttribute('aria-hidden', 'false');
+    successTimer = window.setTimeout(() => {
+      contactSuccessPopup.classList.remove('is-visible');
+      contactSuccessPopup.setAttribute('aria-hidden', 'true');
+    }, 2400);
+  }
+
+  if (contactSuccessPopup) {
+    contactSuccessPopup.addEventListener('click', () => {
+      window.clearTimeout(successTimer);
+      contactSuccessPopup.classList.remove('is-visible');
+      contactSuccessPopup.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  projectBriefForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    requiredBriefFields.forEach(updateBriefFieldState);
+
+    if (!projectBriefForm.checkValidity()) {
+      projectBriefForm.reportValidity();
+      if (briefFormStatus) briefFormStatus.textContent = 'Please complete the required fields.';
+      return;
+    }
+
+    if (briefFormStatus) briefFormStatus.textContent = 'Sending…';
+    if (submitButton) submitButton.disabled = true;
+
+    const formData = new FormData(projectBriefForm);
+    formData.delete('attachment');
+    selectedAttachments.forEach(file => formData.append('attachment', file, file.name));
+    formData.append('project_brief', buildProjectBrief());
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/info@madhistudio.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      let result = null;
+      try { result = await response.json(); } catch (error) { result = null; }
+      if (!response.ok || result?.success === false) throw new Error('Submission failed');
+
+      if (briefFormStatus) briefFormStatus.textContent = '';
+      showSuccessPopup();
+      projectBriefForm.reset();
+      selectedAttachments = [];
+      renderAttachments();
+      requiredBriefFields.forEach(updateBriefFieldState);
+    } catch (error) {
+      if (briefFormStatus) briefFormStatus.textContent = 'Unable to send. Please email info@madhistudio.com directly.';
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+
+  renderAttachments();
+}

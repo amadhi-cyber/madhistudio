@@ -14,7 +14,7 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
 .airport-scroller{width:100%;height:132px;overflow:hidden;background:var(--sky);border-top:1px solid rgba(122,22,245,.25)}
 .airport-track{width:max-content;height:100%;display:flex;align-items:stretch;animation:airportTicker 300s linear infinite;will-change:transform}
 .airport-scroller:hover .airport-track,.airport-scroller:focus-within .airport-track{animation-play-state:paused}
-.airport-set{height:100%;display:flex;gap:8px;padding:4px 8px 4px 0}
+.airport-set{height:100%;display:flex;gap:0;padding:4px 0}
 .airport-card{position:relative;display:block;flex:0 0 166px;height:124.5px;overflow:hidden;border:1px solid rgba(122,22,245,.62);background:#dbe3e8;padding:0;cursor:pointer}
 .airport-card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .25s ease}
 .airport-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.28));transition:background .18s ease, box-shadow .18s ease}
@@ -4082,8 +4082,8 @@ circle.highlight{
 
 <script id="madhi-airport-network-demo-script">
 (() => {
-  const US = ['SEA','SFO','LAX','PHX','DFW','ORD','ATL','IAD','JFK','MIA'];
-  const INTL = ['YVR','LHR','CDG','IST','DXB','JNB','SIN','HKG','HND','SYD'];
+  const US = ['ATL','DFW','IAD','JFK','LAX','MIA','ORD','PHX','SEA','SFO'];
+  const INTL = ['CDG','DXB','HKG','HND','IST','JNB','LHR','SIN','SYD','YVR'];
   const selected = new Set([...US, ...INTL]);
   const svg = document.querySelector('#mapWrap > svg');
   const wrap = document.getElementById('mapWrap');
@@ -4126,12 +4126,18 @@ circle.highlight{
   const oldSummary = svg.querySelector('#wanderport-map-summary');
   if (oldSummary) oldSummary.style.display='none';
 
-  /* Keep only the selected airport imagery in both looping reel copies. */
+  /* Keep the selected reel continuous: alphabetized U.S. first, then international, with no group break. */
+  const reelOrder = [...US, ...INTL];
   document.querySelectorAll('.airport-set').forEach(set => {
-    [...set.querySelectorAll('.airport-card[data-code]')].forEach(card => {
-      const code = card.dataset.code;
-      if (!selected.has(code)) { card.remove(); return; }
+    const cards = new Map(
+      [...set.querySelectorAll('.airport-card[data-code]')].map(card => [card.dataset.code, card])
+    );
+    set.replaceChildren();
+    reelOrder.forEach(code => {
+      const card = cards.get(code);
+      if (!card) return;
       card.classList.add(US.includes(code) ? 'us-airport' : 'intl-airport');
+      set.appendChild(card);
     });
   });
 

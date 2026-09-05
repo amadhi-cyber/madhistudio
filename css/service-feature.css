@@ -505,3 +505,45 @@
 .branding-feature-row .branding-system-label {
   color: #c0c0c0 !important;
 }
+
+/* =========================================================
+   SEPT 5 — BRANDING LOGO-SYSTEM TILE 10% PROPORTIONAL REDUCTION ONLY
+========================================================= */
+@media (min-width: 951px) {
+  .branding-feature-row {
+    grid-template-columns: 882px 348px !important;
+    gap: 24px !important;
+  }
+  .branding-feature-row .image-card {
+    width: 882px !important;
+    max-width: 882px !important;
+    height: 495px !important;
+    min-height: 495px !important;
+    border-radius: 25.2px !important;
+  }
+  .branding-feature-row .branding-system-collage {
+    height: 495px !important;
+    min-height: 495px !important;
+    inset: 0 !important;
+    padding: 16.2px !important;
+    gap: 10.8px !important;
+    transform: translateY(16.2px) !important;
+  }
+  .branding-feature-row .branding-system-label {
+    top: 9px !important;
+    left: 10.8px !important;
+    font-size: 13.6125px !important;
+  }
+}
+
+@media (min-width: 951px) {
+  .print-row.branding-feature-row:first-child {
+    grid-template-columns: 882px 348px !important;
+  }
+  .print-row.branding-feature-row:first-child .image-card {
+    width: 882px !important;
+    max-width: 882px !important;
+    height: 495px !important;
+    min-height: 495px !important;
+  }
+}

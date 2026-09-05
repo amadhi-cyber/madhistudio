@@ -1,4 +1,5 @@
-/* Current Madhi Studio landing-page header/footer applied to individual service pages only. */
+/* Service-page spacing and footer adjustments.
+   Header/nav/logo styling now comes exclusively from css/nav.css so every page shares one global header. */
 :root {
   --service-header-height: 119px;
   --service-header-divider: rgba(17,17,17,0.10);
@@ -10,74 +11,6 @@ body {
 
 html {
   scroll-padding-top: var(--service-header-height) !important;
-}
-
-nav {
-  height: var(--service-header-height) !important;
-  padding: 0 20px !important;
-  border-bottom: 0 !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-  background: #ffffff !important;
-  backdrop-filter: none !important;
-}
-
-nav::before {
-  content: none !important;
-  display: none !important;
-}
-
-nav::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  height: 1px !important;
-  background: var(--service-header-divider) !important;
-  z-index: 10001 !important;
-  pointer-events: none !important;
-}
-
-.logo,
-.logo a {
-  width: 260px !important;
-  height: var(--service-header-height) !important;
-}
-
-.logo a {
-  justify-content: flex-start !important;
-}
-
-.logo img {
-  width: 250px !important;
-  max-height: 105px !important;
-  height: auto !important;
-  transform: none !important;
-}
-
-.nav-links {
-  gap: 22px !important;
-}
-
-nav a,
-nav a.active {
-  font-size: 15.75px !important;
-}
-
-.nav-divider {
-  width: 1px !important;
-  height: 16px !important;
-  background: var(--service-header-divider) !important;
-}
-
-.logo a.active,
-.logo a.active:hover {
-  background: transparent !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  color: inherit !important;
 }
 
 footer {
@@ -114,9 +47,6 @@ footer .footer-site-links a:hover {
 
 @media (max-width: 760px) {
   body { padding-top: 0 !important; }
-  nav { height: auto !important; min-height: 86px !important; }
-  .logo, .logo a { height: auto !important; min-height: 62px !important; }
-  .logo img { width: min(250px, 42vw) !important; }
 }
 
 
@@ -202,23 +132,3 @@ footer .footer-main a:hover {
   opacity: 1 !important;
 }
 
-
-
-/* Sept 4 — match the enlarged alternate-logo header on desktop service pages. */
-@media (min-width: 1101px) {
-  nav {
-    padding-left: 4px !important;
-    padding-right: 20px !important;
-  }
-  .logo,
-  .logo a {
-    width: 382px !important;
-  }
-  .logo img {
-    width: 366px !important;
-    max-width: none !important;
-    max-height: 112px !important;
-    height: auto !important;
-    transform: none !important;
-  }
-}

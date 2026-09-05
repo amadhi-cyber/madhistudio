@@ -213,6 +213,14 @@
   object-position: center center;
 }
 
+/* CAMERA ONLY — keep centered and reduced a further 25% inside its tile */
+.camera-row .svg-artwork .motion-svg-object {
+  width: 45%;
+  height: 45%;
+  object-fit: contain;
+  object-position: center center;
+}
+
 /* TEMP DEBUG — add class="debug" to <body> to activate */
 body.debug .image-card {
   outline: 3px solid blue;
@@ -1184,6 +1192,26 @@ body.debug .motion-svg-object {
           </div>
           <p class="hint">Each character flips individually with clackety Solari-board motion.</p>
         </div>
+      </div>
+    </article>
+
+    <!-- ITEM 5: Camera -->
+    <article class="print-row reveal camera-row">
+      <div class="image-card">
+        <div class="svg-artwork">
+          <object
+            class="motion-svg-object"
+            data="../assets/motion/camera-with-aperture.svg"
+            type="image/svg+xml"
+            aria-label="Camera animated SVG graphic">
+          </object>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <div class="caption">MOTION GRAPHICS</div>
+        <h2>Camera</h2>
+        <p class="motion-description">An animated SVG camera graphic featuring an aperture lens and blinking status light.</p>
       </div>
     </article>
 </div>

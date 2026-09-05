@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function mountSiteShell() {
   const navMount = document.getElementById("site-nav");
   const footerMount = document.getElementById("site-footer");
 
@@ -10,24 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (navMount) {
     navMount.innerHTML = `
-      <nav aria-label="Primary navigation">
+      <nav class="site-nav-global" aria-label="Primary navigation">
         <div class="nav-inner">
           <div class="logo">
             <a href="${siteUrl("index.html#home")}" aria-label="Madhi Studio home">
               <img src="${siteUrl("assets/madhi-studio-logo-alt.svg")}" alt="Madhi Studio">
             </a>
           </div>
-          <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
           <div class="nav-links">
             <a href="${siteUrl("index.html#home")}" data-nav="home">Home</a>
             <span class="nav-divider" aria-hidden="true"></span>
-            <a href="${siteUrl("design/branding-logos.html")}" data-nav="branding-logos">Branding + Logos</a>
-            <a href="${siteUrl("design/ui-icons.html")}" data-nav="ui-icons">UI + Icons</a>
-            <a href="${siteUrl("design/motion-graphics.html")}" data-nav="motion-graphics">Motion Graphics</a>
-            <a href="${siteUrl("design/web-design.html")}" data-nav="web-design">Web Design</a>
+            <a href="${siteUrl("design/branding-logos.html")}" data-nav="branding-logos" data-section-target="branding-logos"><span class="service-nav-label">Branding, Logos &amp; Icons</span></a>
+            <a href="${siteUrl("design/ui-icons.html")}" data-nav="ui-icons" data-section-target="ui-icons"><span class="service-nav-label">Interactive User Platforms</span></a>
+            <a href="${siteUrl("design/motion-graphics.html")}" data-nav="motion-graphics" data-section-target="motion-graphics"><span class="service-nav-label">Motion Graphics</span></a>
+            <a href="${siteUrl("design/web-design.html")}" data-nav="web-design" data-section-target="web-design"><span class="service-nav-label">Websites &amp; Landing Pages</span></a>
             <span class="nav-divider" aria-hidden="true"></span>
-            <a href="${siteUrl("contact.html")}" data-nav="contact">Contact</a>
-            <a href="${siteUrl("about.html")}" data-nav="about">About</a>
+            <a href="${siteUrl("index.html#contact")}" data-nav="contact">Contact</a>
           </div>
         </div>
       </nav>`;
@@ -43,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const pageToNav = {
+    "index.html": "home",
+    "contact.html": "contact",
     "ui-icons.html": "ui-icons",
     "branding-logos.html": "branding-logos",
     "motion-graphics.html": "motion-graphics",
@@ -52,4 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (activeNav) {
     document.querySelector(`#site-nav [data-nav="${activeNav}"]`)?.classList.add("active");
   }
-});
+}
+
+if (document.getElementById("site-nav") || document.getElementById("site-footer")) {
+  mountSiteShell();
+} else {
+  document.addEventListener("DOMContentLoaded", mountSiteShell, { once: true });
+}
+
