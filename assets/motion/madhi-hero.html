@@ -4,11 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Madhi Studio Hero Demo</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="../../css/base.css">
 <link rel="stylesheet" href="../../css/landing.css">
+
 <style>
-  html, body {
+  html,
+  body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -16,7 +20,11 @@
     overflow: hidden;
     background: #fff;
   }
-  body { min-height: 0 !important; }
+
+  body {
+    min-height: 0 !important;
+  }
+
   .hero.typing-hero-panel {
     width: 100%;
     height: 100vh !important;
@@ -25,79 +33,416 @@
     padding: 0 !important;
     overflow: hidden !important;
   }
+
   .hero-madhi-background {
     left: 20px !important;
     right: 20px !important;
     width: calc(100% - 40px) !important;
     max-width: none !important;
   }
+
   .typing-hero-inner {
     width: min(1540px, calc(100% - 80px)) !important;
     max-width: none !important;
   }
+
   body::before {
     display: none !important;
     content: none !important;
   }
+
+  /* =========================================================
+     HERO TEXT — ALLURA
+     ========================================================= */
   .hero .hero-title.typing-hero {
-    width: min(980px, 100%) !important;
-    max-width: 980px !important;
+    width: min(1120px, 100%) !important;
+    max-width: 1120px !important;
     margin: 0 0 0 auto !important;
     text-align: right !important;
-  }
-  .type-line {
-    text-align: right !important;
+
+    font-family: "Allura", "Segoe Script", "Brush Script MT", cursive !important;
+    font-size: clamp(52.4px, 4.28vw, 78.2px) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+
+    /* Slightly more line height than the previous 0.60 */
+    line-height: 0.78 !important;
+
+    /* Keep the composition open and airy */
+    letter-spacing: 0.01em !important;
+    word-spacing: 0.06em !important;
+
+    font-kerning: none;
+    font-variant-ligatures: none;
   }
 
+  .hero .hero-title.typing-hero,
+  .hero .hero-title.typing-hero *,
+  .hero .hero-title.typing-hero span {
+    font-family: "Allura", "Segoe Script", "Brush Script MT", cursive !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+  }
+
+  /*
+    Each line owns its final space from the beginning.
+    Nothing is added or removed from the layout when a line completes,
+    so the composition remains seamless while typing.
+  */
+  .type-line {
+    display: block !important;
+    width: 100% !important;
+    height: 0.88em !important;
+    min-height: 0.88em !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    text-align: right !important;
+    font-size: inherit !important;
+    line-height: 0.88 !important;
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  /* Main copy remains black */
+  #typeLineOneText,
+  #typeLineTwoBefore,
+  #typeLineThreeBefore,
+  #typeLineFourBefore {
+    color: #000000 !important;
+  }
+
+  /*
+    Highlight phrases TYPE IN BLACK FIRST.
+    Once the full phrase finishes, JS adds .is-highlighted and
+    the whole phrase smoothly changes to green.
+  */
+  .typed-accent,
+  #typeAccentMessage,
+  #typeAccentAudience,
+  #typeAccentTime {
+    color: #000000 !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+    word-spacing: inherit !important;
+
+    transition: color 0.48s ease !important;
+  }
+
+  .typed-accent.is-highlighted,
+  #typeAccentMessage.is-highlighted,
+  #typeAccentAudience.is-highlighted,
+  #typeAccentTime.is-highlighted {
+    color: #00C92B !important;
+  }
+
+  .hero-period,
+  #heroPeriod {
+    color: #000000 !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: inherit !important;
+    letter-spacing: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  /*
+    Individual character spans keep already-typed characters stable.
+    No completed line is rewritten.
+  */
+  .typed-char {
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+  }
+
+  .typed-space {
+    display: inline-block;
+    width: 0.28em;
+  }
+
+  /*
+    IMPORTANT:
+    No clipping is applied to the first T anymore.
+    This restores the complete top of the Allura capital T.
+  */
+
+  /* Remove any cursor treatment from this file or external CSS. */
+  .typing-cursor,
+  .type-cursor,
+  .cursor,
+  #typingCursor,
+  #typeCursor,
+  .hero-cursor,
+  .typing-hero::after,
+  .type-line::after {
+    display: none !important;
+    content: none !important;
+    animation: none !important;
+  }
+
+  /* =========================================================
+     BOTTOM BRAND TEXT
+     ========================================================= */
+  .writing-services-brandline {
+    position: absolute;
+    left: 9.2%;
+    bottom: 20px;
+    z-index: 2;
+
+    display: flex;
+    align-items: baseline;
+    gap: 0.35em;
+
+    font-family: "Inter", Arial, Helvetica, sans-serif !important;
+    font-size: clamp(18.43px, 1.387vw, 26.695px);
+    line-height: 1;
+    color: #000000;
+    text-align: left;
+    white-space: nowrap;
+
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .writing-services-brandline__name,
+  .writing-services-brandline__descriptor {
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Inter", Arial, Helvetica, sans-serif !important;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: 0;
+  }
+
+  .writing-services-brandline__name {
+    font-style: normal;
+    font-weight: 500;
+    color: #0AC92B;
+  }
+
+  .writing-services-brandline__descriptor {
+    font-style: italic;
+    font-weight: 300;
+    color:#C0C0C0;
+  }
+
+  /* =========================================================
+     WRITING SERVICES PEN + CONTINUOUS BASELINE
+     ========================================================= */
   .writing-services-mark {
     position: absolute;
     left: 1.75%;
-    bottom: 0;
-    width: 72%;
+    bottom: -1px;
+
+    width: 98.25%;
     height: auto;
+    max-width: none !important;
+
     display: block;
+
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+
     z-index: 1;
     pointer-events: none;
     user-select: none;
   }
 
-  /* Continues the extracted baseline to directly beneath the final typed cursor position. */
-  .writing-services-line-extension {
-    position: absolute;
-    left: 72%;
-    right: 2.25%;
-    bottom: 0;
-    height: 2.91%;
-    background: #111111;
-    z-index: 1;
-    pointer-events: none;
+  @media (max-width: 1100px) {
+    .hero .hero-title.typing-hero {
+      width: min(920px, 100%) !important;
+      max-width: 920px !important;
+      font-size: clamp(52.4px, 4.28vw, 78.2px) !important;
+    }
   }
 
-  .writing-services-line-extension::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 58.82%;
-    height: 23.53%;
-    background: #ffffff;
+  @media (max-width: 760px) {
+    .typing-hero-inner {
+      width: calc(100% - 36px) !important;
+    }
+
+    .hero .hero-title.typing-hero {
+      width: 100% !important;
+      max-width: 100% !important;
+      font-size: clamp(52.4px, 4.28vw, 78.2px) !important;
+      line-height: 0.82 !important;
+    }
+
+    .type-line {
+      height: 0.82em !important;
+      min-height: 0.82em !important;
+      line-height: 0.82 !important;
+      white-space: normal;
+    }
+
+    .writing-services-brandline {
+      left: 9.2%;
+      bottom: 18px;
+      font-size: clamp(10.26px, 2.736vw, 13.68px);
+      gap: 0.3em;
+    }
   }
 </style>
 </head>
+
 <body class="section-green">
+
 <section class="hero typing-hero-panel" id="home">
-  <img class="writing-services-mark" src="writing-services.svg" alt="" aria-hidden="true">
-  <span class="writing-services-line-extension" aria-hidden="true"></span>
-  <img alt="" aria-hidden="true" class="hero-madhi-background" src="../madhi.svg">
+
+  <img
+    class="writing-services-mark"
+    src="writing-services.svg"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <div class="writing-services-brandline" aria-label="The Write Message. A Copywriting Company in Washington DC.">
+    <span class="writing-services-brandline__name">The Write Message.</span>
+    <span class="writing-services-brandline__descriptor">A Copywriting Company in Washington DC.</span>
+  </div>
+
+  <img
+    alt=""
+    aria-hidden="true"
+    class="hero-madhi-background"
+    src="../madhi.svg"
+  >
+
   <div class="hero-content typing-hero-inner">
-    <h1 aria-live="polite" class="hero-title typing-hero" id="heroTitle">
+    <h1
+      aria-live="polite"
+      class="hero-title typing-hero"
+      id="heroTitle"
+    >
       <span class="type-line" id="typeLineOne"><span id="typeLineOneText"></span></span>
       <span class="type-line" id="typeLineTwo"><span id="typeLineTwoBefore"></span><span class="typed-accent" id="typeAccentMessage"></span></span>
       <span class="type-line" id="typeLineThree"><span id="typeLineThreeBefore"></span><span class="typed-accent" id="typeAccentAudience"></span></span>
       <span class="type-line" id="typeLineFour"><span id="typeLineFourBefore"></span><span class="typed-accent" id="typeAccentTime"></span><span class="hero-period" id="heroPeriod"></span></span>
     </h1>
   </div>
+
 </section>
-<script src="../../js/landing.js"></script>
+
+<script>
+  /*
+    Smooth hero typing:
+    - waits for Allura to load
+    - starts 1 second later
+    - no cursor
+    - slightly slower than the previous version
+    - no layout jump when lines finish
+    - highlight phrases type in black, then fade to green
+  */
+
+  const TYPE_START_DELAY = 1000;
+
+  /* Previous version: 125ms. Slightly slower now. */
+  const TYPE_SPEED = 170;
+
+  /* Timing requested:
+     1 second after the first line,
+     then for each highlighted phrase:
+     1 second in black -> turn green -> 1 second -> continue.
+  */
+  const FIRST_LINE_PAUSE = 1000;
+  const PRE_HIGHLIGHT_PAUSE = 1000;
+  const POST_HIGHLIGHT_PAUSE = 1000;
+
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  function appendCharacter(element, character) {
+    const span = document.createElement("span");
+
+    if (character === " ") {
+      span.className = "typed-space";
+      span.setAttribute("aria-hidden", "true");
+      span.textContent = " ";
+    } else {
+      span.className = "typed-char";
+      span.textContent = character;
+    }
+
+    element.appendChild(span);
+  }
+
+  async function typeInto(element, text) {
+    element.textContent = "";
+
+    for (const character of text) {
+      appendCharacter(element, character);
+      await sleep(TYPE_SPEED);
+    }
+  }
+
+  async function typeThenHighlight(element, text) {
+    element.classList.remove("is-highlighted");
+
+    /* Type the complete phrase in black. */
+    await typeInto(element, text);
+
+    /* Hold the completed black phrase for one second. */
+    await sleep(PRE_HIGHLIGHT_PAUSE);
+
+    /* Then highlight the whole phrase in green. */
+    element.classList.add("is-highlighted");
+
+    /* Hold the green highlight for one second before continuing. */
+    await sleep(POST_HIGHLIGHT_PAUSE);
+  }
+
+  async function runHeroTyping() {
+    const lineOne = document.getElementById("typeLineOneText");
+    const lineTwoBefore = document.getElementById("typeLineTwoBefore");
+    const accentMessage = document.getElementById("typeAccentMessage");
+    const lineThreeBefore = document.getElementById("typeLineThreeBefore");
+    const accentAudience = document.getElementById("typeAccentAudience");
+    const lineFourBefore = document.getElementById("typeLineFourBefore");
+    const accentTime = document.getElementById("typeAccentTime");
+    const period = document.getElementById("heroPeriod");
+
+    /* First line: wait one full second after "powerful". */
+    await typeInto(lineOne, "There’s nothing more powerful");
+    await sleep(FIRST_LINE_PAUSE);
+
+    /* Type in black -> wait 1 sec -> highlight green -> wait 1 sec. */
+    await typeInto(lineTwoBefore, "than getting the ");
+    await typeThenHighlight(accentMessage, "right message");
+
+    await typeInto(lineThreeBefore, "to the ");
+    await typeThenHighlight(accentAudience, "right audience");
+
+    await typeInto(lineFourBefore, "at the ");
+    await typeThenHighlight(accentTime, "right time");
+
+    period.textContent = ".";
+  }
+
+  window.addEventListener("DOMContentLoaded", async () => {
+    /*
+      Waiting for Allura prevents the fallback-font-to-Allura swap
+      that can cause a visible layout jump.
+    */
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
+    await sleep(TYPE_START_DELAY);
+    runHeroTyping();
+  });
+</script>
+
 </body>
 </html>
