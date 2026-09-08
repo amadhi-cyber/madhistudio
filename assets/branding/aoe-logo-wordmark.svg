@@ -7,13 +7,13 @@
       text-anchor: middle;
     }
     .aoe-main {
-      fill: #111184;
+      fill: #003dad;
       font-size: 66px;
       font-weight: 600;
       letter-spacing: -0.65px;
     }
     .aoe-sub {
-      fill: #65081F;
+      fill: #0a92d1;
       font-size: 58px;
       font-weight: 700;
     }
@@ -86,7 +86,7 @@
   <g class="aoe-wordmark">
     <text class="aoe-main" x="646" y="69">Airport</text>
     <text class="aoe-main" x="646" y="145">Operations</text>
-    <rect x="474" y="168" width="344" height="92" rx="46" fill="#ffffff"/>
+    <rect x="474" y="168" width="344" height="92" rx="46" fill="#FFFFFF"/>
     <text class="aoe-sub" x="646" y="232">Explained</text>
   </g>
 </svg>

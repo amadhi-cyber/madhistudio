@@ -295,7 +295,11 @@
     };
     const addFormationLabel=(items,color)=>{
       items.forEach(item=>{
-        const t=mkText(item.x,item.y,item.text,'middle','16',color,'0.8');
+        const t=mkText(item.x,item.y,item.text,'middle','20',color,'1');
+        t.setAttribute('stroke','#ffffff');
+        t.setAttribute('stroke-width','0.9');
+        t.setAttribute('paint-order','stroke fill');
+        t.setAttribute('stroke-linejoin','round');
         layer.appendChild(t);
       });
     };
