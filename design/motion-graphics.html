@@ -214,6 +214,11 @@
 }
 
 /* CAMERA ONLY — keep centered and reduced a further 25% inside its tile */
+.camera-row .image-card,
+.camera-row .svg-artwork {
+  background: #3b424c;
+}
+
 .camera-row .svg-artwork .motion-svg-object {
   width: 45%;
   height: 45%;
@@ -520,14 +525,32 @@ body.debug .motion-svg-object {
 }
 
 .solari-grid-row {
+  position: relative;
   display: grid;
-  grid-template-columns: 13fr 13fr 2fr;
+  grid-template-columns: 13fr 13fr 3fr;
   min-height: 0;
   flex: 0 0 56px;
   height: 56px;
   border: 0;
   background: #070707;
 }
+
+/* One uninterrupted amber rule at the bottom of every board row.
+   Each rule also serves as the top rule for the city row directly below it. */
+.solari-header-row::after,
+.solari-data-row::after {
+  content: "";
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #d89b17;
+  pointer-events: none;
+}
+
+
 
 .solari-header-row {
   flex: 0 0 46px;
@@ -545,12 +568,26 @@ body.debug .motion-svg-object {
   background: #070707;
 }
 
+/* Amber vertical rules frame the full STATUS card field: the left rule
+   sits immediately before the B in BOARDING; the right rule sits after
+   all 13 status cards (one blank card after 10 MINS LATE). */
+.solari-data-row .solari-col.solari-status-col {
+  border-left: 1px solid #d89b17;
+  border-right: 1px solid #d89b17;
+}
+
+.solari-col.solari-stair-col {
+  border-left: 0;
+}
+
 .solari-header-row .solari-col {
   padding: 0 8px;
+  justify-content: center;
+  text-align: center;
 }
 .solari-header-row .solari-stair-col {
-  justify-content: flex-end;
-  text-align: right;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Every visible position is its own two-piece flight card. */
@@ -589,11 +626,33 @@ body.debug .motion-svg-object {
 
 .solari-stair-wrap {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: center;
+  justify-content: stretch;
   gap: 0;
 }
+
+.solari-stair-spacer {
+  position: relative;
+  width: 100%;
+  height: 56px;
+}
+
+.solari-stair-spacer::before,
+.solari-stair-spacer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: calc(50% - .5px);
+  border: 1px solid #474747;
+  background: #080808;
+  box-sizing: border-box;
+}
+
+.solari-stair-spacer::before { top: 0; }
+.solari-stair-spacer::after { bottom: 0; }
 
 /* Yellow indicator now sits on its own split-flap-style card. */
 .solari-signal-card {
@@ -625,6 +684,13 @@ body.debug .motion-svg-object {
   border: 2px solid #f4c64c;
   background: #d89b17;
   box-shadow: 0 0 0 1px rgba(255,198,64,.12);
+}
+
+/* Reduce the doubled seam between neighboring flip cards so characters
+   read as one continuous word/number while retaining each card edge. */
+.solari-field > .solari-cell:not(:first-child) .solari-half,
+.solari-field > .solari-cell:not(:first-child) .solari-motion {
+  border-left-width: 0;
 }
 
 /* Off-white card outlines: deliberately softer than pure white. */
@@ -696,11 +762,11 @@ body.debug .motion-svg-object {
 }
 
 @media (max-width: 950px) {
-  .solari-grid-row { grid-template-columns: 13fr 13fr 2fr; height:44px; flex-basis:44px; }
+  .solari-grid-row { grid-template-columns: 13fr 13fr 3fr; height:44px; flex-basis:44px; }
   .solari-col { padding: 0; }
   .solari-header-row .solari-col { padding: 0 5px; }
   .solari-field { height: 44px; gap: 0; }
-  .solari-cell, .solari-signal-card { max-width: none; height: 44px; }
+  .solari-cell, .solari-signal-card, .solari-stair-spacer { max-width: none; height: 44px; }
   .solari-signal-card { width: auto; flex-basis: auto; }
   .solari-glyph { font-size: 21.6px; line-height: 44px; }
   .solari-header-row { height:44px; flex-basis:44px; font-size:15px; }
@@ -1126,50 +1192,50 @@ body.debug .motion-svg-object {
     <div class="solari-grid-row solari-data-row is-editable">
       <div class="solari-col solari-from-col"><div id="cityFlaps" class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="PHILADELPHIA"></div></div>
       <div class="solari-col solari-status-col"><div id="statusFlaps" class="solari-field solari-status-field is-yellow" data-slots="13" data-pad="0" data-solari-value="BOARDING"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div id="stairFlaps" class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="5"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div id="stairFlaps" class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="5"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="NEW YORK"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="5 MINS LATE"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="7"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="7"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="BOSTON"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ON TIME"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="3"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="3"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="WASHINGTON"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field is-yellow" data-slots="13" data-pad="0" data-solari-value="BOARDING"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="2"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="2"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="CHICAGO"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="10 MINS LATE"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="9"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="9"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="ATLANTA"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ARRIVING"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="6"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="6"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="MIAMI"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="ON TIME"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="8"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="8"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
 
     <div class="solari-grid-row solari-data-row">
       <div class="solari-col solari-from-col"><div class="solari-field solari-from-field" data-slots="13" data-pad="0" data-solari-value="SEATTLE"></div></div>
       <div class="solari-col solari-status-col"><div class="solari-field solari-status-field" data-slots="13" data-pad="0" data-solari-value="DELAYED"></div></div>
-      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="1"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
+      <div class="solari-col solari-stair-col"><div class="solari-stair-wrap"><span class="solari-stair-spacer" aria-hidden="true"></span><div class="solari-field solari-stair-field" data-slots="1" data-pad="0" data-solari-value="1"></div><span class="solari-signal-card" aria-hidden="true"><span class="solari-signal-half top"></span><span class="solari-signal-half bottom"></span><span class="solari-dot"></span></span></div></div>
     </div>
   </div></div>
         </div>

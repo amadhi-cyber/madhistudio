@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 276" width="840" height="276" role="img" aria-labelledby="title desc">
+  <title id="title">Airport Operations Explained logo with wordmark</title>
+  <desc id="desc">Existing Airport Operations Explained airport-window logo mark with the stacked Airport Operations Explained wordmark from the website header.</desc>
+  <style>
+    .aoe-wordmark {
+      font-family: "Quicksand", Arial, sans-serif;
+      text-anchor: middle;
+    }
+    .aoe-main {
+      fill: #111184;
+      font-size: 66px;
+      font-weight: 600;
+      letter-spacing: -0.65px;
+    }
+    .aoe-sub {
+      fill: #65081F;
+      font-size: 58px;
+      font-weight: 700;
+    }
+  </style>
+
+  <!-- Existing AOE mark, preserved from the latest branding SVG. -->
+  <g transform="translate(-42 -42)">
+<defs>
+    <clipPath id="window-clip">
+      <rect x="50" y="50" width="400" height="260" rx="35" />
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#window-clip)">
+    <rect x="0" y="0" width="500" height="500" fill="#5A9BE4" />
+
+    <rect x="0" y="200" width="500" height="300" fill="#70C43D" />
+
+    <g transform="translate(-10, -10)">
+      <path d="M 90 140 a 25 25 0 0 1 25 -25 a 35 35 0 0 1 65 -5 a 25 25 0 0 1 20 30 z" fill="#ffffff"/>
+    </g>
+    <g transform="translate(-40, -10)">
+      <path d="M 260 110 a 20 20 0 0 1 20 -20 a 30 30 0 0 1 50 0 a 20 20 0 0 1 15 20 z" fill="#ffffff"/>
+	</g>
+    <g transform="translate(68, 68) scale(2.2)">
+      <g transform="translate(1,-945.875)">
+        <path
+          id="rect3381"
+          d="M 33,947.375 L 33,963.375 L 20,963.375 L 20,972.3125 L 20,972.375 L 20.03125,972.375 L 26.34375,982.6875 L 39.875,982.71875 L 46.9375,972.375 L 47,972.375 L 47,963.375 L 35,963.375 L 35,947.375 L 33,947.375 z"
+          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+          id="rect3383"
+          d="M 8,1018.3622 L 120,1018.3622 L 120,1048.3622 L 8,1048.3622 L 8,1018.3622 z"
+          style="fill:#c6c6de;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+          id="rect3385"
+          d="M 76,1010.3622 L 106,1010.3622 L 106,1017.3622 L 76,1017.3622 L 76,1010.3622 z"
+          style="fill:#efe7ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+          id="rect3400"
+          d="M 21,984.36218 L 46,984.36218 L 46,1017.3622 L 21,1017.3622 L 21,984.36218 z"
+          style="fill:#efe7ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+          id="rect2500"
+          d="M 20,982.375 L 20,985.375 L 20,990.375 L 20,994.375 L 20,998.375 L 20,1002.375 L 20,1016.375 L 9.09375,1016.375 L 6.96875,1016.375 L 6.96875,1046.375 L 0,1046.375 L 0,1050.375 L 129,1050.375 L 129,1046.375 L 121.15625,1046.375 L 121.15625,1016.375 L 121,1016.375 L 108,1016.375 L 108,1008.375 L 77,1008.375 L 74,1008.375 L 74,1011.375 L 74,1016.375 L 47,1016.375 L 47,982.375 L 20,982.375 z M 23,985.375 L 44,985.375 L 44,990.375 L 23,990.375 L 23,985.375 z M 23,994.375 L 44,994.375 L 44,998.375 L 23,998.375 L 23,994.375 z M 23,1002.375 L 44,1002.375 L 44,1016.375 L 23,1016.375 L 23,1002.375 z M 77,1011.375 L 105,1011.375 L 105,1016.375 L 77,1016.375 L 77,1011.375 z M 9.09375,1019.375 L 74,1019.375 L 77,1019.375 L 119,1019.375 L 119,1046.375 L 102,1046.375 L 102,1032.375 L 92,1032.375 L 92,1046.375 L 9.09375,1046.375 L 9.09375,1019.375 z M 13,1024.375 L 13,1027.375 L 36,1027.375 L 36,1024.375 L 13,1024.375 z M 40,1024.375 L 40,1027.375 L 63,1027.375 L 63,1024.375 L 40,1024.375 z M 66,1024.375 L 66,1027.375 L 89,1027.375 L 89,1024.375 L 66,1024.375 z M 92,1024.375 L 92,1027.375 L 115,1027.375 L 115,1024.375 L 92,1024.375 z M 13,1032.375 L 13,1042.375 L 36,1042.375 L 36,1032.375 L 13,1032.375 z M 40,1032.375 L 40,1042.375 L 63,1042.375 L 63,1032.375 L 40,1032.375 z M 66,1032.375 L 66,1042.375 L 89,1042.375 L 89,1032.375 L 66,1032.375 z M 105,1032.375 L 105,1042.375 L 115,1042.375 L 115,1032.375 L 105,1032.375 z"
+          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+        <path
+          id="rect3402"
+          d="M 23,967.36218 L 43.999997,967.36218 L 43.999997,971.36218 L 23,971.36218 L 23,967.36218 z"
+          style="fill:#efe7ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1" />
+        <g transform="translate(50, -15)">
+          <path
+            d="M 91.227481,989.8173 C 91.227481,989.8173 89.754286,975.72462 88.84731,975.26037 C 87.894655,974.77274 82.614456,978.25198 82.614456,978.25198 L 79.122836,984.8938 C 79.122836,984.8938 78.615442,980.7394 77.847305,979.13663 C 76.93656,977.23631 74.046392,974.01081 74.046392,974.01081 L 80.630714,974.99677 C 80.630714,974.99677 86.404004,971.9878 86.069498,971.32982 C 84.102778,967.46129 77.14942,961.08044 77.14942,961.08044 L 93.816926,968.47035 C 93.816926,968.47035 102.09561,963.91341 103.72026,964.42288 C 105.37689,964.94238 105.05066,964.70223 105.3252,966.54168 C 105.59761,968.36688 96.269269,971.55529 96.269269,971.55529 L 91.227481,989.8173 z"
+            id="path3451"
+            style="fill:#000000;fill-opacity:1;" />
+        </g>
+    </g>
+  </g>
+
+  <line x1="180" y1="50" x2="180" y2="310" stroke="#1A1A1A" stroke-width="8"/>
+  <line x1="320" y1="50" x2="320" y2="310" stroke="#1A1A1A" stroke-width="8"/>
+
+  <line x1="50" y1="200" x2="450" y2="200" stroke="#1A1A1A" stroke-width="8"/>
+
+  <rect x="50" y="50" width="400" height="260" rx="35" fill="none" stroke="#1A1A1A" stroke-width="16"/>
+</g>
+  </g>
+
+  <!-- Wordmark treatment from the AOE website header. -->
+  <g class="aoe-wordmark">
+    <text class="aoe-main" x="646" y="69">Airport</text>
+    <text class="aoe-main" x="646" y="145">Operations</text>
+    <rect x="474" y="168" width="344" height="92" rx="46" fill="#ffffff"/>
+    <text class="aoe-sub" x="646" y="232">Explained</text>
+  </g>
+</svg>

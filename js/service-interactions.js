@@ -216,8 +216,8 @@
       #turntableScene.is-playing #platterSpin,#turntableScene.is-starting #platterSpin{animation:madhiRecordSpin 2.4s linear infinite}
       @keyframes madhiRecordSpin{to{transform:rotate(360deg)}}
       #turntableScene #tonearm{transform-origin:465px 163px;transform-box:view-box;transition:transform 1.35s cubic-bezier(.22,.8,.22,1)}
-      #turntableScene .button-face{fill:#9FDEA8!important;animation:madhiButtonBlink 1.1s ease-in-out infinite}
-      #turntableScene.is-playing .button-face,#turntableScene.is-starting .button-face{fill:#EC8585!important}
+      #turntableScene .button-face{fill:#18d73e!important;filter:drop-shadow(0 0 6px rgba(24,215,62,.82)) drop-shadow(0 0 12px rgba(24,215,62,.42));animation:madhiButtonBlink 1.1s ease-in-out infinite}
+      #turntableScene.is-playing .button-face,#turntableScene.is-starting .button-face{fill:#ff8a1f!important;filter:drop-shadow(0 0 6px rgba(255,138,31,.86)) drop-shadow(0 0 12px rgba(255,138,31,.46))}
       @keyframes madhiButtonBlink{0%,100%{opacity:1}50%{opacity:.55}}
       #turntableScene.arm-lifted #tonearm{transform:translateY(-12px) rotate(0deg)}
       #turntableScene.arm-over #tonearm{transform:translateY(-12px) rotate(24deg)}
@@ -290,8 +290,14 @@
     const layer=document.createElementNS(NS,'g'); layer.setAttribute('id','formationLayer');
     svg.appendChild(layer);
 
-    const mkText=(x,y,text,anchor='middle')=>{
-      const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor',anchor);t.setAttribute('font-family','Arial,sans-serif');t.setAttribute('font-size','8');t.setAttribute('font-weight','700');t.setAttribute('fill','#fff');t.textContent=text;return t;
+    const mkText=(x,y,text,anchor='middle',size='8',color='#fff',opacity='1')=>{
+      const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('text-anchor',anchor);t.setAttribute('font-family','Arial,sans-serif');t.setAttribute('font-size',size);t.setAttribute('font-weight','700');t.setAttribute('fill',color);t.setAttribute('opacity',opacity);t.textContent=text;return t;
+    };
+    const addFormationLabel=(items,color)=>{
+      items.forEach(item=>{
+        const t=mkText(item.x,item.y,item.text,'middle','16',color,'0.8');
+        layer.appendChild(t);
+      });
     };
     const formations={
       red:[
@@ -331,8 +337,7 @@ redFace:[
     };
 
     const players=[];
-    function addTeam(team,color,positions,label,xLabel,anchor){
-      const labelText=document.createElementNS(NS,'text');labelText.setAttribute('x',xLabel);labelText.setAttribute('y','20');labelText.setAttribute('text-anchor',anchor);labelText.setAttribute('font-family','Arial,sans-serif');labelText.setAttribute('font-size','12');labelText.setAttribute('font-weight','800');labelText.setAttribute('fill',color);labelText.textContent=label;layer.appendChild(labelText);
+    function addTeam(team,color,positions){
       positions.forEach((pos,i)=>{
         const g=document.createElementNS(NS,'g');g.dataset.team=team;g.dataset.index=i;
         const c=document.createElementNS(NS,'circle');c.setAttribute('r',i===0?'7':'6');c.setAttribute('fill',color);c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','1.6');
@@ -341,8 +346,22 @@ redFace:[
         g.setAttribute('transform',`translate(${pos[0]} ${pos[1]})`);
       });
     }
-    addTeam('red','#e03131',formations.red,'4-3-3',123.25,'middle');
-    addTeam('blue','#2563eb',formations.blue,'3-5-2',369.75,'middle');
+    addTeam('red','#e03131',formations.red);
+    addFormationLabel([
+      {x:88,y:21,text:'4'},
+      {x:119,y:21,text:'-'},
+      {x:150,y:21,text:'3'},
+      {x:180,y:21,text:'-'},
+      {x:210,y:21,text:'3'}
+    ], '#ff3b3b');
+    addTeam('blue','#2563eb',formations.blue);
+    addFormationLabel([
+      {x:288,y:21,text:'2'},
+      {x:317,y:21,text:'-'},
+      {x:346,y:21,text:'5'},
+      {x:375,y:21,text:'-'},
+      {x:404,y:21,text:'3'}
+    ], '#2563eb');
 
     let facing=false,raf=0;
     function animateTo(targetRed,targetBlue){

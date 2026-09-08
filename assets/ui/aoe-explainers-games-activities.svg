@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="376"
+  height="450"
+  viewBox="15 5 376 450">
+
+  <defs>
+    <!-- animation -->
+    <style>
+      .lego-layer {
+        opacity: 0;
+        transform-box: fill-box;
+        transform-origin: center;
+        animation-duration: 11.5s;
+        animation-timing-function: cubic-bezier(.22, .9, .22, 1);
+        animation-fill-mode: both;
+        animation-iteration-count: 1;
+      }
+
+      .lego-bottom {
+        animation-name: legoBottomLoop;
+      }
+
+      .lego-middle {
+        animation-name: legoMiddleLoop;
+      }
+
+      .lego-top {
+        animation-name: legoTopLoop;
+      }
+
+      .lego-block-label {
+        font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: -0.04em;
+        fill: #5B1166;
+        text-anchor: middle;
+        dominant-baseline: central;
+        text-rendering: geometricPrecision;
+      }
+      @keyframes legoBottomLoop {
+        0% {
+          opacity: 0;
+          transform: translateY(-170px);
+        }
+
+        10% {
+          opacity: 1;
+          transform: translateY(4px);
+        }
+
+        13% {
+          opacity: 1;
+          transform: translateY(-1.5px);
+        }
+
+        16%,
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes legoMiddleLoop {
+        0%,
+        22% {
+          opacity: 0;
+          transform: translateY(-170px);
+        }
+
+        34% {
+          opacity: 1;
+          transform: translateY(4px);
+        }
+
+        37% {
+          opacity: 1;
+          transform: translateY(-1.5px);
+        }
+
+        40%,
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes legoTopLoop {
+        0%,
+        46% {
+          opacity: 0;
+          transform: translateY(-170px);
+        }
+
+        58% {
+          opacity: 1;
+          transform: translateY(4px);
+        }
+
+        61% {
+          opacity: 1;
+          transform: translateY(-1.5px);
+        }
+
+        64%,
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .lego-layer {
+          animation: none;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <!-- LIGHT GREEN STUD GRADIENT -->
+    <linearGradient id="studGradLight" gradientUnits="userSpaceOnUse" x1="225" x2="280.5" y1="213.75" y2="213.75">
+      <stop offset="0" stop-color="#D8F6DC"/>
+      <stop offset=".74" stop-color="#A9E4B1"/>
+      <stop offset="1" stop-color="#C2F1C8"/>
+    </linearGradient>
+
+    <!-- MEDIUM GREEN STUD GRADIENT -->
+    <linearGradient id="studGradMedium" gradientUnits="userSpaceOnUse" x1="225" x2="280.5" y1="213.75" y2="213.75">
+      <stop offset="0" stop-color="#9AEAA5"/>
+      <stop offset=".74" stop-color="#67CF77"/>
+      <stop offset="1" stop-color="#84E291"/>
+    </linearGradient>
+
+    <!-- DARK GREEN STUD GRADIENT -->
+    <linearGradient id="studGradDark" gradientUnits="userSpaceOnUse" x1="225" x2="280.5" y1="213.75" y2="213.75">
+      <stop offset="0" stop-color="#52DE64"/>
+      <stop offset=".74" stop-color="#32B946"/>
+      <stop offset="1" stop-color="#47D45A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===================================================== -->
+  <!-- BOTTOM BLOCK - DARKEST #47D45A -->
+  <!-- ===================================================== -->
+  <g class="lego-layer lego-bottom">
+    <g transform="translate(0 -590)">
+      <path d="m17.8571 870.219 90-80 280 100-90 80z"
+            fill="#5BE26D"
+            stroke="#2EAF42"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <path d="m17.8571 870.219v70l280 100v-70z"
+            fill="#47D45A"
+            stroke="#2EAF42"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <path d="m297.857 1040.22v-70l90-80v70z"
+            fill="#2FB744"
+            stroke="#2EAF42"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <g stroke="#2EAF42" stroke-linecap="round" stroke-linejoin="round" transform="translate(80.11 684.97)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradDark)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#69E679"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#2EAF42" stroke-linecap="round" stroke-linejoin="round" transform="translate(12.11 659.64)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradDark)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#69E679"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#2EAF42" stroke-linecap="round" stroke-linejoin="round" transform="translate(-57.89 636.3)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradDark)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#69E679"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#2EAF42" stroke-linecap="round" stroke-linejoin="round" transform="translate(-125.89 610.97)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradDark)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#69E679"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#2EAF42" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(33.36 724.22)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradDark)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#69E679"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-34.64 698.89)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradDark)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#69E679"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-104.64 675.56)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradDark)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#69E679"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-172.64 650.22)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradDark)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#69E679"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="lego-block-label">
+      <text x="158" y="365" transform="rotate(19.65 158 365)">Explainers</text>
+    </g>
+  </g>
+
+  <!-- ===================================================== -->
+  <!-- MIDDLE BLOCK - MEDIUM #84E291 -->
+  <!-- ===================================================== -->
+  <g class="lego-layer lego-middle">
+    <g transform="translate(0 -685)">
+      <path d="m17.8571 870.219 90-80 280 100-90 80z"
+            fill="#9DE9A8"
+            stroke="#5CBC69"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <path d="m17.8571 870.219v70l280 100v-70z"
+            fill="#84E291"
+            stroke="#5CBC69"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <path d="m297.857 1040.22v-70l90-80v70z"
+            fill="#69CC78"
+            stroke="#5CBC69"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <g stroke="#5CBC69" stroke-linecap="round" stroke-linejoin="round" transform="translate(80.11 684.97)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradMedium)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#B1EFBA"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#5CBC69" stroke-linecap="round" stroke-linejoin="round" transform="translate(12.11 659.64)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradMedium)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#B1EFBA"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#5CBC69" stroke-linecap="round" stroke-linejoin="round" transform="translate(-57.89 636.3)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradMedium)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#B1EFBA"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#5CBC69" stroke-linecap="round" stroke-linejoin="round" transform="translate(-125.89 610.97)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradMedium)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#B1EFBA"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#5CBC69" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(33.36 724.22)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradMedium)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#B1EFBA"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-34.64 698.89)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradMedium)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#B1EFBA"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-104.64 675.56)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradMedium)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#B1EFBA"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-172.64 650.22)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradMedium)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#B1EFBA"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="lego-block-label">
+      <text x="158" y="270" transform="rotate(19.65 158 270)">Games</text>
+    </g>
+  </g>
+
+  <!-- ===================================================== -->
+  <!-- TOP BLOCK - LIGHTEST #C2F1C8 -->
+  <!-- ===================================================== -->
+  <g class="lego-layer lego-top">
+    <g transform="translate(0 -780)">
+      <path d="m17.8571 870.219 90-80 280 100-90 80z"
+            fill="#D5F6D9"
+            stroke="#92C899"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <path d="m17.8571 870.219v70l280 100v-70z"
+            fill="#C2F1C8"
+            stroke="#92C899"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <path d="m297.857 1040.22v-70l90-80v70z"
+            fill="#A8DEB0"
+            stroke="#92C899"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+      <g stroke="#92C899" stroke-linecap="round" stroke-linejoin="round" transform="translate(80.11 684.97)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradLight)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#E5FAE8"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#92C899" stroke-linecap="round" stroke-linejoin="round" transform="translate(12.11 659.64)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradLight)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#E5FAE8"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#92C899" stroke-linecap="round" stroke-linejoin="round" transform="translate(-57.89 636.3)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradLight)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#E5FAE8"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#92C899" stroke-linecap="round" stroke-linejoin="round" transform="translate(-125.89 610.97)">
+        <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+              fill="url(#studGradLight)"/>
+        <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+              fill="#E5FAE8"
+              stroke-width=".789"
+              transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+      </g>
+
+      <g stroke="#92C899" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(33.36 724.22)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradLight)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#E5FAE8"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-34.64 698.89)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradLight)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#E5FAE8"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-104.64 675.56)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradLight)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#E5FAE8"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+
+        <g transform="translate(-172.64 650.22)">
+          <path d="m280 197.5-54.5.5v17c-.003.0843 0 .16533 0 .25 0 8.142 12.208 14.75 27.25 14.75s27.25-6.608 27.25-14.75c0-.0847.003-.16567 0-.25z"
+                fill="url(#studGradLight)"/>
+          <path d="m115 85c0 5.52285-11.1929 10-25 10s-25-4.47715-25-10 11.1929-10 25-10 25 4.47715 25 10z"
+                fill="#E5FAE8"
+                stroke-width=".789"
+                transform="matrix(1.09 0 0 1.475 154.65 72.63)"/>
+        </g>
+      </g>
+    </g>
+
+    <g class="lego-block-label">
+      <text x="158" y="175" transform="rotate(19.65 158 175)">Activities</text>
+    </g>
+  </g>
+</svg>

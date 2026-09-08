@@ -73,11 +73,6 @@
     fill="url(#cameraBody)"
   />
 
-  <path
-    d="M150 160 L150 125 Q150 105 170 105 L260 105 Q280 105 280 125 L280 160 Z"
-    fill="#191919"
-  />
-
   <circle cx="600" cy="430" r="215" fill="#ffffff" />
 
   <svg x="395" y="205" width="408" height="450" viewBox="-120 -120 240 240">

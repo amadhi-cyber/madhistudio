@@ -3721,3 +3721,34 @@ nav a.active {
 .client-viewport .studio-card-title-main {
   font-weight: 600 !important;
 }
+
+
+/* Sept 8 — landing current-section nav uses outlined hover pill, not underline */
+nav a[data-section-target].section-current,
+nav a[data-nav="contact"].section-current {
+  background: transparent !important;
+  border-color: var(--accent) !important;
+  color: #111 !important;
+}
+
+nav a[data-section-target].section-current::after,
+nav a[data-nav="contact"].section-current::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* Sept 8 — remove landing contact underline while keeping outlined pill */
+.site-nav-global a[data-nav="contact"].section-current,
+.site-nav-global a[data-nav="contact"].active.section-current {
+  background: transparent !important;
+  border-color: var(--accent) !important;
+  color: #111 !important;
+}
+.site-nav-global a[data-nav="contact"].section-current::after,
+.site-nav-global a[data-nav="contact"].active.section-current::after,
+.site-nav-global a[data-nav="contact"].active::after {
+  content: none !important;
+  display: none !important;
+  background: transparent !important;
+}
