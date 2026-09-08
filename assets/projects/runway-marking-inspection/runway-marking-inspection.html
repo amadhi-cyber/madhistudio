@@ -26,17 +26,15 @@
   body{min-height:100vh;overflow:hidden}
 
   .prototype-wrap{
-    max-width:1500px;
-    margin:0 auto;
-    padding:22px;
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding:0;
+    height:100vh;
   }
 
   .title-row{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:20px;
-    margin:0 0 14px;
+    display:none;
   }
 
   h1{
@@ -59,8 +57,9 @@
     grid-template-columns:minmax(0,1fr) minmax(190px, 18vw);
     gap:16px;
     align-items:stretch;
-    height:min(82vh,820px);
-    min-height:620px;
+    height:100vh;
+    min-height:100vh;
+    padding:14px;
   }
 
   .main-card,
