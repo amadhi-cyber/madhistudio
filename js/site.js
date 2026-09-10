@@ -206,14 +206,15 @@ function ensureAltHeaderColorLock() {
 
 function mountSiteShell() {
   const currentFile = window.location.pathname.split("/").filter(Boolean).pop() || "index.html";
-  const isOriginalIndex = currentFile === "index.html";
-  const landingFile = isOriginalIndex ? "index.html" : "index-alt.html";
-  const navLabels = isOriginalIndex
+  const headerStyle = document.documentElement.dataset.headerStyle || "alt";
+  const isOriginalStyle = headerStyle === "default";
+  const landingFile = isOriginalStyle ? "index-alt.html" : "index.html";
+  const navLabels = isOriginalStyle
     ? { branding: "Branding, Logos &amp; Icons", ui: "Interactive User Platforms", motion: "Motion Graphics", web: "Websites &amp; Landing Pages" }
     : { branding: "Branding", ui: "User Interfaces", motion: "Motion", web: "Websites" };
 
   if (!document.documentElement.dataset.headerStyle) {
-    document.documentElement.dataset.headerStyle = isOriginalIndex ? "default" : "alt";
+    document.documentElement.dataset.headerStyle = "alt";
   }
   ensureAltHeaderColorLock();
   const navMount = document.getElementById("site-nav");
