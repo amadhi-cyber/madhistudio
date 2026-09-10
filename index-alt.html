@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en" data-page="home" data-header-style="default">
+<html lang="en" data-page="home" data-header-style="alt">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Madhi Studio | Web Design, Branding, UI &amp; Motion Design</title>
 <meta name="description" content="Madhi Studio creates custom websites, branding, interactive UI, icons and motion design for small businesses and distinctive digital projects."/>
-<meta name="robots" content="index,follow,max-image-preview:large"/>
+<meta name="robots" content="noindex,follow,max-image-preview:large"/>
 <link rel="canonical" href="https://madhistudio.com/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Madhi Studio"/>
@@ -18,16 +18,345 @@
 <meta name="twitter:description" content="Madhi Studio creates custom websites, branding, interactive UI, icons and motion design for small businesses and distinctive digital projects."/>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
-<link href="css/site.css" rel="stylesheet"/>
 <link href="css/home.css" rel="stylesheet"/>
 <link href="css/design.css" rel="stylesheet"/>
 <link href="css/responsive.css" rel="stylesheet"/>
 <link href="css/landing.css" rel="stylesheet"/>
 <link href="css/mobile.css" rel="stylesheet"/>
+<link href="css/site.css?v=20260910-5" rel="stylesheet"/>
+<style id="index-alt-header-final-lock">
+html[data-header-style="alt"] #site-nav { border: 0 !important; box-shadow: none !important; outline: 0 !important; }
+html[data-header-style="alt"] nav.site-nav-global,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-bottom-width: 0 !important;
+  border-bottom-style: none !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+html[data-header-style="alt"] nav.site-nav-global::before,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  height: 4px !important;
+  background: #fff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  z-index: 10006 !important;
+  pointer-events: none !important;
+}
+html[data-header-style="alt"] nav.site-nav-global::after,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html[data-header-style="alt"] .site-nav-global .nav-links > a:hover,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.section-current:not(.active),
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.section-current:not(.active),
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #fff !important;
+}
+html[data-header-style="alt"] body > main,
+html[data-header-style="alt"] body > main > :first-child {
+  border-top: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+</style>
+<style id="index-alt-service-feature-sizing">
+/* INDEX-ALT ONLY — service card height/list treatment + featured copy scale. */
+html[data-header-style="alt"] #services .sitemap-card-content {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+html[data-header-style="alt"] #services .sitemap-service-copy { display: block !important; }
+html[data-header-style="alt"] #services .sitemap-summary {
+  min-height: 0 !important;
+  margin: 0 !important;
+  font-size: 15.5px !important;
+  line-height: 1.52 !important;
+}
+html[data-header-style="alt"] #services .sitemap-includes-block {
+  margin-top: 16px !important;
+  color: rgba(17,17,17,.76);
+}
+html[data-header-style="alt"] #services .sitemap-includes-label {
+  margin: 0 0 8px !important;
+  font-size: 14.5px !important;
+  line-height: 1.35 !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+}
+html[data-header-style="alt"] #services .sitemap-includes-list {
+  margin: 0 !important;
+  padding: 0 0 0 17px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  column-gap: 18px !important;
+  row-gap: 5px !important;
+  font-size: 14.25px !important;
+  line-height: 1.3 !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+html[data-header-style="alt"] #services .sitemap-includes-list li {
+  margin: 0 !important;
+  padding-left: 1px !important;
+  break-inside: avoid;
+}
+html[data-header-style="alt"] #services .sitemap-main-link { margin-top: auto !important; }
+@media (min-width: 1101px) {
+  html[data-header-style="alt"] #services .sitemap-card {
+    height: 482px !important;
+    min-height: 482px !important;
+    max-height: 482px !important;
+  }
+}
+html[data-header-style="alt"] .work-section .landing-feature-info > p,
+html[data-header-style="alt"] .work-section .landing-feature-info .feature-description,
+html[data-header-style="alt"] .work-section .landing-feature-info .motion-description {
+  font-size: 15.5px !important;
+  line-height: 1.55 !important;
+}
+html[data-header-style="alt"] .work-section .landing-feature-info .vector-info-card h3,
+html[data-header-style="alt"] .work-section .landing-feature-info .city-demo h3 {
+  font-size: 14.5px !important;
+  line-height: 1.35 !important;
+}
+html[data-header-style="alt"] .work-section .landing-feature-info .vector-info-card p,
+html[data-header-style="alt"] .work-section .landing-feature-info .city-demo .hint {
+  font-size: 15.5px !important;
+  line-height: 1.5 !important;
+}
+html[data-header-style="alt"] .work-section .landing-feature-info .vector-info-card,
+html[data-header-style="alt"] .work-section .landing-feature-info .city-demo {
+  height: auto !important;
+  min-height: 0 !important;
+}
+html[data-header-style="alt"][data-theme="dark"] #services .sitemap-includes-block,
+html[data-header-style="alt"][data-theme="dark"] #services .sitemap-includes-label,
+html[data-header-style="alt"][data-theme="dark"] #services .sitemap-includes-list {
+  color: var(--muted) !important;
+}
+</style>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Madhi Studio","url":"https://madhistudio.com/","email":"info@madhistudio.com","description":"Custom web design, branding, UI design, icons and motion design.","serviceType":["Custom Web Design","Brand Identity and Logo Design","UI Design and Interactive Interfaces","Motion Design and Animation"]}
 </script>
+
+<style id="index-alt-copy-and-approach-refinement">
+/* INDEX-ALT ONLY — hero follows the centered CTA viewport typography. */
+html[data-header-style="alt"] #home .hero-static-message {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(24px, 4vw, 80px) !important;
+  padding-right: clamp(24px, 4vw, 80px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 0 !important;
+}
+html[data-header-style="alt"] #home .hero-static-title {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto 36px !important;
+  text-align: center !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(68px, 5.2vw, 104px) !important;
+  font-weight: 400 !important;
+  line-height: .96 !important;
+  letter-spacing: -.045em !important;
+}
+html[data-header-style="alt"] #home .hero-static-title > span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+html[data-header-style="alt"] #home .hero-static-byline {
+  width: 100% !important;
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  color: var(--muted) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: clamp(14.4px, .972vw, 18.9px) !important;
+  line-height: 1.48 !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+  text-wrap: balance;
+}
+html[data-header-style="alt"] .hero-service-pills {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: clamp(12px, 1vw, 20px) !important;
+  margin: 20px auto 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  position: static !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html[data-header-style="alt"] .hero-service-pills a {
+  display: inline !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--muted) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: clamp(14.4px, .972vw, 18.9px) !important;
+  font-weight: 400 !important;
+  letter-spacing: normal !important;
+  line-height: 1.48 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: opacity .18s ease !important;
+}
+html[data-header-style="alt"] .hero-service-pills a:hover,
+html[data-header-style="alt"] .hero-service-pills a:focus-visible {
+  background: transparent !important;
+  color: var(--muted) !important;
+  border: 0 !important;
+  filter: none !important;
+  opacity: 1;
+  font-weight: 700 !important;
+}
+html[data-header-style="alt"] .hero-service-separator {
+  display: inline-block !important;
+  color: var(--muted) !important;
+  font-family: "Inter", Arial, sans-serif !important;
+  font-size: clamp(14.4px, .972vw, 18.9px) !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+}
+@media (max-width: 900px) {
+  html[data-header-style="alt"] #home .hero-static-title {
+    font-size: clamp(48px, 10vw, 76px) !important;
+  }
+  html[data-header-style="alt"] #home .hero-static-title > span {
+    white-space: normal !important;
+  }
+  html[data-header-style="alt"] .hero-service-pills {
+    gap: 8px 12px !important;
+    margin-top: 10px !important;
+  }
+  html[data-header-style="alt"] .hero-service-pills a {
+    font-size: clamp(14.4px, 3.8vw, 18.9px) !important;
+  }
+}
+
+@media (min-width: 1101px) {
+  html[data-header-style="alt"] .approach-viewport .studio-info-grid-four {
+    --approach-gap: clamp(44px, 3.1vw, 58px);
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: var(--approach-gap) !important;
+  }
+
+  html[data-header-style="alt"] .approach-viewport .studio-info-card {
+    position: relative !important;
+    height: 340px !important;
+    min-height: 340px !important;
+    overflow: visible !important;
+  }
+
+  html[data-header-style="alt"] .approach-viewport .studio-info-card-content {
+    grid-template-rows: 148px auto !important;
+    row-gap: 18px !important;
+  }
+
+  html[data-header-style="alt"] .approach-viewport .studio-info-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: calc(var(--approach-gap) / -2);
+    width: 48px;
+    height: 24px;
+    transform: translate(50%, -50%);
+    background: var(--accent);
+    clip-path: polygon(0 36%, 66% 36%, 66% 0, 100% 50%, 66% 100%, 66% 64%, 0 64%);
+    z-index: 5;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  html[data-header-style="alt"] .approach-viewport .studio-info-grid-four {
+    gap: 52px !important;
+  }
+  html[data-header-style="alt"] .approach-viewport .studio-info-card {
+    position: relative !important;
+    min-height: 300px !important;
+    overflow: visible !important;
+  }
+  html[data-header-style="alt"] .approach-viewport .studio-info-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -42px;
+    width: 42px;
+    height: 21px;
+    transform: translateX(-50%) rotate(90deg);
+    background: var(--accent);
+    clip-path: polygon(0 36%, 66% 36%, 66% 0, 100% 50%, 66% 100%, 66% 64%, 0 64%);
+    z-index: 5;
+    pointer-events: none;
+  }
+}
+
+/* Sept 10 follow-up — index-alt-only spacing and precise control alignment. */
+html[data-header-style="alt"] #services .sitemap-card-top {
+  margin-bottom: 5px !important;
+}
+html[data-header-style="alt"] #services .sitemap-includes-block {
+  margin-top: 10px !important;
+}
+html[data-header-style="alt"] #web-design .popout-action {
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+html[data-header-style="alt"] #web-design .popout-action .btn-arrow {
+  display: grid !important;
+  place-items: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+}
+html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+</style>
+
 </head>
 <body class="section-green">
 <div id="site-nav"></div>
@@ -36,15 +365,20 @@
 <section class="hero typing-hero-panel" id="home">
 <div class="hero-content typing-hero-inner hero-static-message">
 <h1 class="hero-title hero-static-title">
-<span>You <em>Imagine</em> It.</span>
-<span>We <em>Create</em> It.</span>
+<span>Make something worth noticing.</span>
 </h1>
-<p class="hero-static-byline">We help small businesses with customized services like branding &amp; logos, interactive user interfaces, motion graphics or package it all together in complete website design to turn <u>your</u> ideas into clear, memorable digital experiences.</p>
+<p class="hero-static-byline">Madhi Studio creates distinctive websites, brands,<br/>and digital experiences to make small businesses look anything but small.</p>
+<div class="hero-service-pills" role="navigation" aria-label="Madhi Studio services">
+<a href="#branding-logos">Branding</a><span class="hero-service-separator" aria-hidden="true">•</span>
+<a href="#ui-icons">User Interfaces</a><span class="hero-service-separator" aria-hidden="true">•</span>
+<a href="#motion-graphics">Motion</a><span class="hero-service-separator" aria-hidden="true">•</span>
+<a href="#web-design">Websites</a>
+</div>
 </div>
 </section>
 <section class="services-viewport" id="services">
 <div class="container services-container">
-<h2 class="section-title services-title">What we can build for you.</h2>
+<h2 class="section-title services-title">What I Do.</h2>
 <p class="services-byline"><em>Our goal is not to unnecessarily sell a giant package. It is to identify what the project actually needs, build it well, and successfully communicate a business or entity’s unique selling point and core message across to its target audience. Each service below is paired with one real example of the work.</em></p>
 <div class="sitemap-grid">
 <article class="sitemap-card">
@@ -52,7 +386,7 @@
 <div class="sitemap-card-top"><h2><span>Branding.</span></h2><span class="sitemap-number">1</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Strong branding concepts and charismatic, fitting logos reflective of a business’ identity and visual direction, and representative of its products and services.</p>
-<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>logo design, wordmarks, brand identity, typography, color palettes, icon systems, brand guidelines, social graphics, naming/visual concepts</em></p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>logo design</li><li>wordmarks</li><li>brand identity</li><li>typography</li><li>color palettes</li><li>icon systems</li><li>brand guidelines</li><li>social graphics</li><li>naming/visual concepts</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#branding-logos">Explore Branding</a>
@@ -63,7 +397,7 @@
 <div class="sitemap-card-top"><h2><span>User Interfaces.</span></h2><span class="sitemap-number">2</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Interfaces that guide people through a task with responsive behavior, feedback states, reusable components, and purposeful interaction.</p>
-<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>custom icons, ui components, buttons, cards, menus, dashboards, app/web interface concepts, maps and interactive tools, design systems, infographics that behave like interfaces</em></p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>custom icons</li><li>ui components</li><li>buttons</li><li>cards</li><li>menus</li><li>dashboards</li><li>app/web interface concepts</li><li>maps and interactive tools</li><li>design systems</li><li>infographics that behave like interfaces</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#ui-icons">Explore User Interfaces</a>
@@ -74,7 +408,7 @@
 <div class="sitemap-card-top"><h2><span>Motion.</span></h2><span class="sitemap-number">3</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Subtle animation, movement and visual feedback that add clarity, pace, and personality without getting in the way of the experience.</p>
-<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>logo animation, animated svg, web animation, kinetic typography, short promotional clips, animated infographics, social media motion, intro/outro sequences, scrollytelling animation</em></p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>logo animation</li><li>animated svg</li><li>web animation</li><li>kinetic typography</li><li>short promotional clips</li><li>animated infographics</li><li>social media motion</li><li>intro/outro sequences</li><li>scrollytelling animation</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#motion-graphics">Explore Motion</a>
@@ -85,7 +419,7 @@
 <div class="sitemap-card-top"><h2><span>Websites.</span></h2><span class="sitemap-number">4</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Distinctive, responsive websites built around your story with clear hierarchy, strong visual identity, organized content layout and packages everything together.</p>
-<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>landing pages, portfolio sites, small business websites, interactive websites, microsites, responsive/mobile design, website redesigns, scrollytelling pages, prototypes, front-end implementation</em></p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>landing pages</li><li>portfolio sites</li><li>small business websites</li><li>interactive websites</li><li>microsites</li><li>responsive/mobile design</li><li>website redesigns</li><li>scrollytelling pages</li><li>prototypes</li><li>front-end implementation</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#web-design">Explore Websites</a>
@@ -451,30 +785,30 @@
 </section>
 <section class="studio-info-viewport approach-viewport" id="approach">
 <div class="container studio-info-container">
-<h2 class="section-title studio-info-title">Our Approach.</h2>
+<h2 class="section-title studio-info-title">How I Work.</h2>
 <p class="studio-info-byline"><em>Small projects work best when the decisions stay visible. We agree on the goal, build the strongest useful version, review what matters, and launch it.</em></p>
 <div class="studio-info-grid studio-info-grid-four">
 <article class="studio-info-card">
 <div class="studio-info-card-content">
-<h3><span class="studio-card-title-main">Define:</span><span class="studio-card-title-detail">A Clear Scope.</span></h3>
+<h3><span class="studio-card-title-main">Define.</span><span class="studio-card-title-detail">A Clear Scope.</span></h3>
 <p>Agree on the audience, purpose, pages, content, functions, and what the finished project needs to accomplish.</p>
 </div>
 </article>
 <article class="studio-info-card">
 <div class="studio-info-card-content">
-<h3><span class="studio-card-title-main">Design + Build:</span><span class="studio-card-title-detail">A Working Site.</span></h3>
+<h3><span class="studio-card-title-main">Design.</span><span class="studio-card-title-detail">A Working Site.</span></h3>
 <p>Create the layout, visual language, responsive behavior, and interactions as one coherent working experience.</p>
 </div>
 </article>
 <article class="studio-info-card">
 <div class="studio-info-card-content">
-<h3><span class="studio-card-title-main">Review + Refine:</span><span class="studio-card-title-detail">A Launch-Ready Version.</span></h3>
+<h3><span class="studio-card-title-main">Build.</span><span class="studio-card-title-detail">A Launch-Ready Version.</span></h3>
 <p>Test the important details, gather focused feedback, and resolve the changes that improve clarity or function.</p>
 </div>
 </article>
 <article class="studio-info-card">
 <div class="studio-info-card-content">
-<h3><span class="studio-card-title-main">Launch:</span><span class="studio-card-title-detail">A Powerful Communications Medium</span></h3>
+<h3><span class="studio-card-title-main">Launch.</span><span class="studio-card-title-detail">A Powerful Communications Medium</span></h3>
 <p>Publish the site, verify it in the real environment, and leave the structure ready for future pages and projects.</p>
 </div>
 </article>
@@ -581,6 +915,6 @@
 </footer>
 </section>
 </main>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=20260910-5"></script>
 </body>
 </html>
