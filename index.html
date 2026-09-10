@@ -70,6 +70,12 @@ html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a
   border-style: solid !important;
   border-color: #fff !important;
 }
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+  border-color: transparent !important;
+}
 html[data-header-style="alt"] body > main,
 html[data-header-style="alt"] body > main > :first-child {
   border-top: 0 !important;
@@ -293,8 +299,8 @@ html[data-header-style="alt"] .hero-service-separator {
     position: absolute;
     top: 50%;
     right: calc(var(--approach-gap) / -2);
-    width: 48px;
-    height: 24px;
+    width: 24px;
+    height: 12px;
     transform: translate(50%, -50%);
     background: var(--accent);
     clip-path: polygon(0 36%, 66% 36%, 66% 0, 100% 50%, 66% 100%, 66% 64%, 0 64%);
@@ -317,8 +323,8 @@ html[data-header-style="alt"] .hero-service-separator {
     position: absolute;
     left: 50%;
     bottom: -42px;
-    width: 42px;
-    height: 21px;
+    width: 20px;
+    height: 11px;
     transform: translateX(-50%) rotate(90deg);
     background: var(--accent);
     clip-path: polygon(0 36%, 66% 36%, 66% 0, 100% 50%, 66% 100%, 66% 64%, 0 64%);
@@ -434,19 +440,16 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 <div class="feature-layout">
 <div class="feature-card branding-system-feature-card">
 <span class="dog-ear">Featured</span>
-<div aria-label="Aerowander logo system collage" class="branding-system-collage logo-system-six">
+<div aria-label="Aerowander three-logo system collage" class="branding-system-collage logo-system-three">
 <div class="branding-system-item layout-primary"><span class="branding-system-label">PRIMARY</span><img alt="Aerowander primary logo" src="assets/branding/aerowander-system/01-primary-horizontal.svg"/></div>
 <div class="branding-system-item layout-inverse"><span class="branding-system-label">INVERSE/LIGHT</span><img alt="Aerowander inverse light logo" src="assets/branding/aerowander-system/05-inverse-light.svg"/></div>
 <div class="branding-system-item layout-mono"><span class="branding-system-label">MONOCHROME/BLACK</span><img alt="Aerowander monochrome black logo" src="assets/branding/aerowander-system/06-monochrome-black.svg"/></div>
-<div class="branding-system-item layout-stacked"><span class="branding-system-label">STACKED</span><img alt="Aerowander stacked logo" src="assets/branding/aerowander-system/02-secondary-stacked.svg"/></div>
-<div class="branding-system-item layout-icon"><span class="branding-system-label">ICON MARK</span><img alt="Aerowander icon mark" src="assets/branding/aerowander-system/03-icon-mark.svg"/></div>
-<div class="branding-system-item layout-wordmark"><span class="branding-system-label">WORD MARK</span><img alt="Aerowander word mark logo" src="assets/branding/aerowander-system/04-wordmark-only.svg"/></div>
 </div>
 </div>
 <div class="landing-feature-info">
 <div class="caption">BRANDING</div>
 <h2>Logo System</h2>
-<p class="feature-description">A 6-icon system to fit your various needs.</p>
+<p class="feature-description">A 3-logo system to fit your various needs.</p>
 <a class="btn section-action landing-feature-explore" href="design/branding-logos.html">Explore All Branding</a>
 </div>
 </div>

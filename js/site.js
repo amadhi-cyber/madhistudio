@@ -11,10 +11,58 @@
   const read = key => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const write = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
 
-  const savedTheme = read(THEME_KEY);
+  const readWindowTheme = () => {
+    try {
+      const match = String(window.name || '').match(/(?:^|\|)madhi-theme:(dark|light)(?:\||$)/);
+      return match ? match[1] : null;
+    } catch (_) { return null; }
+  };
+
+  const writeWindowTheme = value => {
+    try {
+      const current = String(window.name || '')
+        .split('|')
+        .filter(part => part && !part.startsWith('madhi-theme:'));
+      current.push(`madhi-theme:${value}`);
+      window.name = current.join('|');
+    } catch (_) {}
+  };
+
+  const readUrlTheme = () => {
+    try {
+      const value = new URL(window.location.href).searchParams.get('theme');
+      return value === 'dark' || value === 'light' ? value : null;
+    } catch (_) { return null; }
+  };
+
+  const savedTheme = readUrlTheme() || read(THEME_KEY) || readWindowTheme();
   const savedMotion = read(MOTION_KEY);
   root.dataset.theme = savedTheme === 'dark' ? 'dark' : 'light';
+  writeWindowTheme(root.dataset.theme);
   root.dataset.motion = savedMotion === 'off' ? 'off' : (savedMotion === 'on' ? 'on' : (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'off' : 'on'));
+
+  function isThemeCarryLink(anchor) {
+    const raw = anchor?.getAttribute?.('href');
+    if (!raw || raw.startsWith('#') || /^(?:mailto:|tel:|javascript:)/i.test(raw)) return false;
+    try {
+      const url = new URL(raw, window.location.href);
+      if (url.protocol === 'file:') return window.location.protocol === 'file:';
+      return (url.protocol === 'http:' || url.protocol === 'https:') && url.origin === window.location.origin;
+    } catch (_) { return false; }
+  }
+
+  function syncThemeToInternalLinks() {
+    const dark = root.dataset.theme === 'dark';
+    document.querySelectorAll('a[href]').forEach(anchor => {
+      if (!isThemeCarryLink(anchor)) return;
+      try {
+        const url = new URL(anchor.getAttribute('href'), window.location.href);
+        if (dark) url.searchParams.set('theme', 'dark');
+        else url.searchParams.delete('theme');
+        anchor.href = url.href;
+      } catch (_) {}
+    });
+  }
 
   const motionEnabled = () => root.dataset.motion !== 'off';
 
@@ -66,7 +114,9 @@
   function applyTheme(theme, persist = true) {
     root.dataset.theme = theme === 'dark' ? 'dark' : 'light';
     if (persist) write(THEME_KEY, root.dataset.theme);
+    writeWindowTheme(root.dataset.theme);
     updatePreferenceControls();
+    syncThemeToInternalLinks();
     window.dispatchEvent(new CustomEvent('madhi:themechange', { detail: { theme: root.dataset.theme } }));
   }
 
@@ -84,9 +134,19 @@
     document.getElementById('motionToggle')?.addEventListener('click', () => applyMotion(motionEnabled() ? 'off' : 'on'));
     document.querySelectorAll('iframe, object').forEach(node => node.addEventListener('load', () => syncEmbeddedMotion(node)));
     syncAllEmbeddedMotion();
+    syncThemeToInternalLinks();
   }
 
-  window.MadhiPreferences = { motionEnabled, applyTheme, applyMotion, syncAllEmbeddedMotion, setupPreferenceControls };
+  window.addEventListener('madhi:shellready', syncThemeToInternalLinks);
+
+  window.addEventListener('pageshow', () => {
+    const persisted = read(THEME_KEY) || readWindowTheme();
+    if (persisted === 'dark' || persisted === 'light') {
+      applyTheme(persisted, false);
+    }
+  });
+
+  window.MadhiPreferences = { motionEnabled, applyTheme, applyMotion, syncAllEmbeddedMotion, syncThemeToInternalLinks, setupPreferenceControls };
 })();
 
 
@@ -98,11 +158,14 @@ function ensureAltHeaderColorLock() {
   style.id = 'madhi-alt-header-color-lock';
   style.textContent = `
     html[data-header-style="alt"] nav.site-nav-global,
-    html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global,
-    html[data-header-style="alt"] nav.site-nav-global .nav-inner,
-    html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global .nav-inner {
+    html[data-header-style="alt"] nav.site-nav-global .nav-inner {
       background: var(--madhi-alt-header-bg) !important;
       background-color: var(--madhi-alt-header-bg) !important;
+    }
+    html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global,
+    html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global .nav-inner {
+      background: #1515A5 !important;
+      background-color: #1515A5 !important;
     }
     html[data-header-style="alt"] nav.site-nav-global,
     html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global {
@@ -168,7 +231,7 @@ function ensureAltHeaderColorLock() {
     html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
       color: #fff !important;
       background: var(--accent) !important;
-      border: 2px solid #fff !important;
+      border: 2px solid transparent !important;
     }
     html[data-header-style="alt"] .site-nav-global .nav-divider,
     html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-divider {
@@ -193,12 +256,186 @@ function ensureAltHeaderColorLock() {
       outline: none !important;
     }
     @media (max-width: 1100px) {
-      html[data-header-style="alt"] .site-nav-global .nav-links,
-      html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links {
+      html[data-header-style="alt"] .site-nav-global .nav-links {
         background: var(--madhi-alt-header-bg) !important;
         background-color: var(--madhi-alt-header-bg) !important;
         border-bottom-color: rgba(255,255,255,.40) !important;
       }
+      html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links {
+        background: #1515A5 !important;
+        background-color: #1515A5 !important;
+        border-bottom-color: rgba(255,255,255,.40) !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+function ensureGlobalDisplayPolishLock() {
+  if (document.getElementById('madhi-global-display-polish-lock')) return;
+  const style = document.createElement('style');
+  style.id = 'madhi-global-display-polish-lock';
+  style.textContent = `
+    /* Motion setting remains implemented, but its control is intentionally hidden/disabled. */
+    #motionToggle { display: none !important; }
+
+    /* Exact half-black / half-white theme disc; black border in light, white border in dark. */
+    #themeToggle,
+    html[data-theme="dark"] #themeToggle {
+      position: relative !important;
+      overflow: hidden !important;
+      padding: 0 !important;
+      border-width: 2px !important;
+      border-style: solid !important;
+      border-color: #111111 !important;
+      border-radius: 999px !important;
+      background: linear-gradient(90deg, #111111 0%, #111111 50%, #ffffff 50%, #ffffff 100%) !important;
+      background-image: linear-gradient(90deg, #111111 0%, #111111 50%, #ffffff 50%, #ffffff 100%) !important;
+      color: transparent !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+    }
+    #themeToggle::before,
+    #themeToggle::after { content: none !important; display: none !important; }
+    #themeToggle .preference-glyph { display: none !important; }
+    #themeToggle:hover,
+    #themeToggle:focus-visible { border-color: #111111 !important; }
+    html[data-theme="dark"] #themeToggle,
+    html[data-theme="dark"] #themeToggle:hover,
+    html[data-theme="dark"] #themeToggle:focus-visible { border-color: #ffffff !important; }
+
+    /* Hero service links use a subtle visual-bold hover without moving. */
+    html[data-header-style="alt"] .hero-service-pills a {
+      font-weight: 400 !important;
+      transform: none !important;
+      filter: none !important;
+      text-shadow: 0 0 transparent !important;
+      transition: color .16s ease, text-shadow .16s ease !important;
+    }
+    html[data-header-style="alt"] .hero-service-pills a:hover,
+    html[data-header-style="alt"] .hero-service-pills a:focus-visible {
+      font-weight: 400 !important;
+      transform: none !important;
+      filter: none !important;
+      text-shadow: .32px 0 currentColor, -.32px 0 currentColor !important;
+    }
+    html[data-header-style="alt"][data-theme="dark"] .hero-service-pills a:hover,
+    html[data-header-style="alt"][data-theme="dark"] .hero-service-pills a:focus-visible {
+      color: var(--accent) !important;
+    }
+
+    /* Contact current viewport is indicated only by the nav pill on blue-header pages. */
+    html[data-header-style="alt"] .site-nav-global a[data-nav="contact"].section-current::after,
+    html[data-header-style="alt"][data-theme="dark"] .site-nav-global a[data-nav="contact"].section-current::after,
+    html[data-header-style="alt"] .site-nav-global a[data-nav="contact"].active.section-current::after,
+    html[data-header-style="alt"][data-theme="dark"] .site-nav-global a[data-nav="contact"].active.section-current::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    /* Active blue-header nav pill has no visible border. */
+    html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+    html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+    html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+    html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+      color: #ffffff !important;
+      background: var(--accent) !important;
+      border-color: transparent !important;
+    }
+
+    /* Dark mode: visible site buttons are white with black labels until hovered. */
+    html[data-theme="dark"] :is(
+      a.btn,
+      .btn.primary,
+      .section-action,
+      .landing-feature-explore,
+      .sitemap-main-link,
+      .hub-main-link,
+      .card-main-link,
+      .aviation-main-link,
+      .contact-submit,
+      .cta-contact-button,
+      .preview-popout,
+      .popout-action,
+      .aerowordsmith-fullscreen,
+      .aoe-learning-replay,
+      button:not(#themeToggle):not(#motionToggle):not(.nav-toggle):not(.attachment-browse)
+    ) {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      color: #111111 !important;
+      border-color: transparent !important;
+    }
+    html[data-theme="dark"] :is(
+      a.btn,
+      .btn.primary,
+      .section-action,
+      .landing-feature-explore,
+      .sitemap-main-link,
+      .hub-main-link,
+      .card-main-link,
+      .aviation-main-link,
+      .contact-submit,
+      .cta-contact-button,
+      .preview-popout,
+      .popout-action,
+      .aerowordsmith-fullscreen,
+      .aoe-learning-replay,
+      button:not(#themeToggle):not(#motionToggle):not(.nav-toggle):not(.attachment-browse)
+    ):is(:hover, :focus-visible) {
+      background: var(--accent) !important;
+      background-color: var(--accent) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    /* UI demo button follows the same rule in dark mode. */
+    html[data-theme="dark"] .soccer-demo button:not(.is-active) {
+      background: #ffffff !important;
+      color: #111111 !important;
+      border-color: transparent !important;
+    }
+    html[data-theme="dark"] .soccer-demo button:not(.is-active):hover,
+    html[data-theme="dark"] .soccer-demo button:not(.is-active):focus-visible {
+      background: var(--accent) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    /* Service-number badges use the same face as the service title and stay optically centered. */
+    .sitemap-card-top .sitemap-number,
+    .hub-card-top .hub-number,
+    .card-top .card-number {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+      font-size: 24px !important;
+      font-weight: 500 !important;
+      line-height: 1 !important;
+      text-align: center !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 !important;
+    }
+
+    /* Pop-out arrows stay black on the white resting button, white on green hover. */
+    html[data-theme="dark"] .preview-popout,
+    html[data-theme="dark"] .popout-action,
+    html[data-theme="dark"] .preview-popout svg,
+    html[data-theme="dark"] .popout-action svg,
+    html[data-theme="dark"] .preview-popout .btn-arrow,
+    html[data-theme="dark"] .popout-action .btn-arrow {
+      color: #111111 !important;
+      border-color: transparent !important;
+    }
+    html[data-theme="dark"] .preview-popout:hover,
+    html[data-theme="dark"] .preview-popout:focus-visible,
+    html[data-theme="dark"] .popout-action:hover,
+    html[data-theme="dark"] .popout-action:focus-visible,
+    html[data-theme="dark"] .preview-popout:hover svg,
+    html[data-theme="dark"] .preview-popout:focus-visible svg,
+    html[data-theme="dark"] .popout-action:hover svg,
+    html[data-theme="dark"] .popout-action:focus-visible svg {
+      color: #ffffff !important;
+      border-color: transparent !important;
     }
   `;
   document.head.appendChild(style);
@@ -217,6 +454,7 @@ function mountSiteShell() {
     document.documentElement.dataset.headerStyle = "alt";
   }
   ensureAltHeaderColorLock();
+  ensureGlobalDisplayPolishLock();
   const navMount = document.getElementById("site-nav");
   const footerMount = document.getElementById("site-footer");
 
@@ -251,7 +489,7 @@ function mountSiteShell() {
       </nav>
       <div class="site-preferences" aria-label="Display settings">
         <button class="preference-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Use dark mode" title="Dark mode"><span class="preference-glyph" aria-hidden="true"></span></button>
-        <button class="preference-toggle" id="motionToggle" type="button" aria-pressed="true" aria-label="Turn motion off" title="Motion on"><span class="preference-glyph" aria-hidden="true"></span></button>
+        <button class="preference-toggle" id="motionToggle" type="button" aria-pressed="true" aria-label="Turn motion off" title="Motion on" hidden disabled tabindex="-1" aria-hidden="true"><span class="preference-glyph" aria-hidden="true"></span></button>
       </div>`;
   }
 
@@ -1188,7 +1426,12 @@ document.querySelectorAll('[data-aerowordsmith-action]').forEach(button => {
       const source = aoeArtwork.dataset.src;
       if (!source) return;
       aoeArtwork.dataset.started = 'true';
-      aoeArtwork.setAttribute('data', `${source}?start=${Date.now()}`);
+      const startUrl = `${source}?start=${Date.now()}`;
+      if (aoeArtwork.tagName === 'IMG') {
+        aoeArtwork.setAttribute('src', startUrl);
+      } else {
+        aoeArtwork.setAttribute('data', startUrl);
+      }
     };
 
     if ('IntersectionObserver' in window) {
@@ -1209,7 +1452,12 @@ document.querySelectorAll('[data-aerowordsmith-action]').forEach(button => {
     const source = aoeArtwork.dataset.src;
     if (!source) return;
     aoeArtwork.dataset.started = 'true';
-    aoeArtwork.setAttribute('data', `${source}?replay=${Date.now()}`);
+    const replayUrl = `${source}?replay=${Date.now()}`;
+    if (aoeArtwork.tagName === 'IMG') {
+      aoeArtwork.setAttribute('src', replayUrl);
+    } else {
+      aoeArtwork.setAttribute('data', replayUrl);
+    }
   });
 
   document.getElementById('aerowordsmithFullscreen')?.addEventListener('click', () => {

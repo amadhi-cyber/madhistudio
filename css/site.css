@@ -2407,3 +2407,628 @@ html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-syst
   html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-wordmark img { width: 78% !important; max-width: 78% !important; }
   html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-stacked img { width: 44% !important; max-width: 44% !important; }
 }
+
+/* =========================================================
+   SEPT 10 — DISPLAY CONTROL + DARK MODE POLISH
+   Global behavior; no layout/content changes.
+========================================================= */
+
+/* Keep the motion preference implementation in JS, but hide/disable its UI control. */
+#motionToggle {
+  display: none !important;
+}
+
+/* Theme button itself becomes the half-dark / half-light symbol. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  background: linear-gradient(90deg, #111111 0 50%, #ffffff 50% 100%) !important;
+  border: 1px solid rgba(127,127,127,.55) !important;
+  color: transparent !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+}
+#themeToggle .preference-glyph {
+  display: none !important;
+}
+#themeToggle:hover,
+#themeToggle:focus-visible,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible {
+  border-color: var(--accent) !important;
+}
+
+/* Dark mode: headings/tile titles stay legible on dark surfaces. */
+html[data-theme="dark"] :is(
+  .section-title,
+  .page-title,
+  .studio-info-title,
+  .services-title,
+  .sitemap-card h1,
+  .sitemap-card h2,
+  .hub-card h1,
+  .hub-card h2,
+  .studio-info-card h3,
+  .landing-feature-info h2,
+  .info-panel h2,
+  .print-row h2
+) {
+  color: #ffffff !important;
+}
+
+/* Dark mode: button labels are white at rest and remain clear on hover/focus. */
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button
+) {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button
+):is(:hover, :focus-visible) {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — REQUESTED DISPLAY / HOVER FINISHES
+   Global where applicable; no layout or copy changes.
+========================================================= */
+
+/* Theme toggle: exact half-black / half-white disc with a 2px theme-aware border. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: transparent !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #111111 !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+}
+#themeToggle::before,
+#themeToggle::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 50% !important;
+  pointer-events: none !important;
+}
+#themeToggle::before {
+  left: 0 !important;
+  background: #111111 !important;
+}
+#themeToggle::after {
+  right: 0 !important;
+  background: #ffffff !important;
+}
+#themeToggle:hover,
+#themeToggle:focus-visible {
+  border-color: #111111 !important;
+}
+html[data-theme="dark"] #themeToggle,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible {
+  border-color: #ffffff !important;
+}
+#themeToggle .preference-glyph { display: none !important; }
+
+/* Hero service links: no movement; a subtle visual-bold treatment only. */
+html[data-header-style="alt"] .hero-service-pills a {
+  font-weight: 400 !important;
+  transform: none !important;
+  filter: none !important;
+  text-shadow: 0 0 transparent !important;
+  transition: color .16s ease, text-shadow .16s ease !important;
+}
+html[data-header-style="alt"] .hero-service-pills a:hover,
+html[data-header-style="alt"] .hero-service-pills a:focus-visible {
+  font-weight: 400 !important;
+  transform: none !important;
+  filter: none !important;
+  text-shadow: .32px 0 currentColor, -.32px 0 currentColor !important;
+}
+html[data-header-style="alt"][data-theme="dark"] .hero-service-pills a:hover,
+html[data-header-style="alt"][data-theme="dark"] .hero-service-pills a:focus-visible {
+  color: var(--accent) !important;
+}
+
+/* UI / Icons demo button matches the site's outlined buttons. */
+.soccer-demo button:not(.is-active) {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 2px solid var(--accent) !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.soccer-demo button:not(.is-active):hover,
+.soccer-demo button:not(.is-active):focus-visible {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}
+
+/* Contact current-section state on the blue header is pill-only: no underline. */
+html[data-header-style="alt"] .site-nav-global a[data-nav="contact"].section-current::after,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global a[data-nav="contact"].section-current::after,
+html[data-header-style="alt"] .site-nav-global a[data-nav="contact"].active.section-current::after,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global a[data-nav="contact"].active.section-current::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Dark mode button labels are black on their white resting fill; white on green hover. */
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action
+) {
+  color: #111111 !important;
+}
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action
+):is(:hover, :focus-visible) {
+  color: #ffffff !important;
+}
+
+/* Service-number badges use the same typeface as the service title. */
+.sitemap-number,
+.hub-number,
+.card-number {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 400 !important;
+}
+
+/* Pop-out/new-tab arrows are black on their resting white circle. */
+.preview-popout,
+.popout-action,
+.preview-popout svg,
+.popout-action svg,
+.preview-popout .btn-arrow,
+.popout-action .btn-arrow {
+  color: #111111 !important;
+}
+.preview-popout:hover,
+.preview-popout:focus-visible,
+.popout-action:hover,
+.popout-action:focus-visible,
+.preview-popout:hover svg,
+.preview-popout:focus-visible svg,
+.popout-action:hover svg,
+.popout-action:focus-visible svg {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   SEPT 10 — DARK MODE BUTTON / TOGGLE FINAL LOCK
+   Requested global behavior. No layout/copy changes.
+========================================================= */
+
+/* Motion implementation remains available in JS, but the control stays hidden. */
+#motionToggle { display: none !important; }
+
+/* Theme control: exact 50/50 black + white fill with theme-aware 2px border. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #111111 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #111111 0%, #111111 50%, #ffffff 50%, #ffffff 100%) !important;
+  background-image: linear-gradient(90deg, #111111 0%, #111111 50%, #ffffff 50%, #ffffff 100%) !important;
+  color: transparent !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+}
+#themeToggle::before,
+#themeToggle::after {
+  content: none !important;
+  display: none !important;
+}
+#themeToggle .preference-glyph { display: none !important; }
+#themeToggle:hover,
+#themeToggle:focus-visible { border-color: #111111 !important; }
+html[data-theme="dark"] #themeToggle,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible { border-color: #ffffff !important; }
+
+/* Blue-header active nav pill: green fill, white text, transparent border. */
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+  color: #ffffff !important;
+  background: var(--accent) !important;
+  border-color: transparent !important;
+}
+
+/* Dark mode: all visible site buttons rest as white / black with no visible border. */
+html[data-theme="dark"] :is(
+  a.btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action,
+  .aerowordsmith-fullscreen,
+  .aoe-learning-replay,
+  button:not(#themeToggle):not(#motionToggle):not(.nav-toggle):not(.attachment-browse)
+) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border-color: transparent !important;
+}
+
+html[data-theme="dark"] :is(
+  a.btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action,
+  .aerowordsmith-fullscreen,
+  .aoe-learning-replay,
+  button:not(#themeToggle):not(#motionToggle):not(.nav-toggle):not(.attachment-browse)
+):is(:hover, :focus-visible) {
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+/* Dark-mode pop-out controls specifically have no green ring at rest. */
+html[data-theme="dark"] :is(.preview-popout, .popout-action) {
+  border-color: transparent !important;
+}
+html[data-theme="dark"] :is(.preview-popout, .popout-action),
+html[data-theme="dark"] :is(.preview-popout, .popout-action) svg,
+html[data-theme="dark"] :is(.preview-popout, .popout-action) .btn-arrow {
+  color: #111111 !important;
+}
+html[data-theme="dark"] :is(.preview-popout, .popout-action):is(:hover, :focus-visible),
+html[data-theme="dark"] :is(.preview-popout, .popout-action):is(:hover, :focus-visible) svg,
+html[data-theme="dark"] :is(.preview-popout, .popout-action):is(:hover, :focus-visible) .btn-arrow {
+  color: #ffffff !important;
+}
+
+/* UI demo button follows the same dark-mode button treatment. */
+html[data-theme="dark"] .soccer-demo button:not(.is-active) {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-color: transparent !important;
+}
+html[data-theme="dark"] .soccer-demo button:not(.is-active):is(:hover, :focus-visible) {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+/* Service numbers use the same system face as their neighboring title and sit optically centered. */
+.sitemap-card-top .sitemap-number,
+.hub-card-top .hub-number,
+.card-top .card-number {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — REQUESTED LIGHT/DARK + BRANDING/FORM REFINEMENTS
+   Final shared overrides only.
+========================================================= */
+
+/* Featured category labels: 20% larger and bold in both themes. */
+.caption,
+.landing-feature-info .caption,
+.info-panel .caption {
+  font-size: 14.4px !important;
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+}
+html[data-theme="dark"] :is(.caption, .landing-feature-info .caption, .info-panel .caption) {
+  color: var(--accent) !important;
+}
+
+/* Service-number badge type/color follows the neighboring section title. */
+.sitemap-card-top .sitemap-number,
+.hub-card-top .hub-number,
+.card-top .card-number {
+  font-family: inherit !important;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  color: #111111 !important;
+  text-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+html[data-theme="dark"] .sitemap-card-top .sitemap-number,
+html[data-theme="dark"] .hub-card-top .hub-number,
+html[data-theme="dark"] .card-top .card-number {
+  color: #ffffff !important;
+  background: transparent !important;
+  border-color: rgba(255,255,255,.28) !important;
+}
+
+/* Contact fields: green focus ring and persistent valid-state cue in both themes. */
+.contact-input-shell input:focus,
+.contact-input-shell select:focus,
+.contact-input-shell textarea:focus,
+html[data-theme="dark"] .contact-input-shell input:focus,
+html[data-theme="dark"] .contact-input-shell select:focus,
+html[data-theme="dark"] .contact-input-shell textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(10,201,43,.10) !important;
+  outline: none !important;
+}
+.contact-field.is-valid .contact-input-shell input,
+.contact-field.is-valid .contact-input-shell select,
+.contact-field.is-valid .contact-input-shell textarea,
+html[data-theme="dark"] .contact-field.is-valid .contact-input-shell input,
+html[data-theme="dark"] .contact-field.is-valid .contact-input-shell select,
+html[data-theme="dark"] .contact-field.is-valid .contact-input-shell textarea {
+  border-color: var(--accent) !important;
+}
+.contact-field .field-check {
+  opacity: 0 !important;
+}
+.contact-field.is-valid .field-check {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Home featured Branding system: three equal horizontal logo lockups, stacked vertically. */
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  padding: 22px 28px !important;
+  background: #3b424c !important;
+}
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .branding-system-item {
+  grid-column: 1 !important;
+  padding: 8px 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .layout-primary { grid-row: 1 !important; }
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .layout-inverse { grid-row: 2 !important; }
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .layout-mono { grid-row: 3 !important; }
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .branding-system-label {
+  display: none !important;
+}
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .branding-system-item img {
+  position: static !important;
+  width: 88% !important;
+  height: auto !important;
+  max-width: 88% !important;
+  max-height: 86% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — SERVICE-PAGE DARK SURFACE CLEANUP
+   Keep individual service-page information panels on the page
+   background instead of the medium-grey card surface.
+========================================================= */
+html[data-page="service"][data-theme="dark"] .info-panel {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — GLOBAL THEME PERSISTENCE VISUAL LOCK + SVG CANVAS
+   Keeps every page on the selected theme and leaves SVG
+   artwork transparent so each tile owns its own background.
+========================================================= */
+html[data-theme="dark"] body,
+html[data-theme="dark"] main,
+html[data-theme="dark"] .page-section,
+html[data-theme="dark"] .collection,
+html[data-theme="dark"] .print-list,
+html[data-theme="dark"] .print-row {
+  background-color: #111111 !important;
+}
+
+/* SVG artwork itself never paints a wrapper/background; tile classes remain in control. */
+.svg-artwork,
+.svg-artwork > object[type="image/svg+xml"],
+.svg-artwork > img[src$=".svg"],
+.image-card object[type="image/svg+xml"],
+.image-card img[src$=".svg"],
+.branding-system-item,
+.branding-system-item img[src$=".svg"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Static branding SVGs render as transparent images over their existing tile fills. */
+.aoe-logo-row .svg-artwork img,
+.aoi-logo-row .svg-artwork img,
+.wanderports-logo-row .svg-artwork img {
+  display: block;
+  background: transparent !important;
+  background-color: transparent !important;
+  object-fit: contain;
+  object-position: center center;
+}
+
+
+/* =========================================================
+   SEPT 10 — SPLIT-FLAP / TURNTABLE / AOE + DARK HEADER FIX
+   Requested targeted adjustments only.
+========================================================= */
+
+/* Dark blue header on every alternate/global-header page while dark mode is active. */
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global .nav-inner {
+  background: #1515A5 !important;
+  background-color: #1515A5 !important;
+}
+@media (max-width: 1100px) {
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links {
+    background: #1515A5 !important;
+    background-color: #1515A5 !important;
+  }
+}
+
+/* Split-flap controls: match the descriptive-copy color in dark mode and keep a visible caret. */
+html[data-theme="dark"] .splitflap-row .city-demo label {
+  color: var(--muted) !important;
+}
+html[data-theme="dark"] .splitflap-row .city-controls input {
+  caret-color: #111111 !important;
+  color: #111111 !important;
+}
+html[data-theme="dark"] .splitflap-row .city-controls input:focus {
+  caret-color: #111111 !important;
+}
+
+/* Turntable artwork owns a full white tile in dark mode on both the Motion page and homepage. */
+html[data-theme="dark"] .turntable-row .image-card,
+html[data-theme="dark"] .turntable-row .svg-artwork,
+html[data-theme="dark"] #motion-graphics .landing-turntable-artwork,
+html[data-theme="dark"] #motion-graphics .landing-turntable-inline,
+html[data-theme="dark"] #motion-graphics #turntableInline,
+html[data-theme="dark"] #turntableInline .turntableSvg {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+html[data-theme="dark"] #turntableInline .turntable-bg,
+html[data-theme="dark"] .turntable-row .turntable-bg {
+  fill: #ffffff !important;
+}
+
+/* AOE learning object itself stays transparent; the surrounding tile supplies the fill. */
+.aoe-learning-row .aoe-learning-artwork,
+.aoe-learning-row .aoe-learning-artwork object,
+.aoe-learning-row #aoeLearningObject {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* =========================================================
+   SEPT 10 — SVG TRANSPARENCY + POPOUT STABILITY
+   Requested targeted adjustments only.
+========================================================= */
+
+/* External SVG artwork should show only its artwork; the tile owns the background. */
+.aoe-learning-row .aoe-learning-artwork img,
+.camera-row .svg-artwork img.motion-svg-object {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Website pop-out controls: reserve a transparent border in every state and never shift on hover. */
+.preview-popout,
+.landing-preview-popout,
+.popout-action,
+html[data-theme="dark"] .preview-popout,
+html[data-theme="dark"] .landing-preview-popout,
+html[data-theme="dark"] .popout-action {
+  border: 2px solid transparent !important;
+  transform: none !important;
+  translate: none !important;
+  transition: background-color .18s ease, color .18s ease, box-shadow .18s ease !important;
+}
+
+.preview-popout:hover,
+.preview-popout:focus-visible,
+.landing-preview-popout:hover,
+.landing-preview-popout:focus-visible,
+.popout-action:hover,
+.popout-action:focus-visible,
+html[data-theme="dark"] .preview-popout:hover,
+html[data-theme="dark"] .preview-popout:focus-visible,
+html[data-theme="dark"] .landing-preview-popout:hover,
+html[data-theme="dark"] .landing-preview-popout:focus-visible,
+html[data-theme="dark"] .popout-action:hover,
+html[data-theme="dark"] .popout-action:focus-visible {
+  border-color: transparent !important;
+  transform: none !important;
+  translate: none !important;
+}
+
+.preview-popout svg,
+.landing-preview-popout svg,
+.popout-action svg,
+.preview-popout:hover svg,
+.landing-preview-popout:hover svg,
+.popout-action:hover svg {
+  transform: none !important;
+}
+

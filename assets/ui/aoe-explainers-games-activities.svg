@@ -3,11 +3,13 @@
   xmlns="http://www.w3.org/2000/svg"
   width="376"
   height="450"
-  viewBox="15 5 376 450">
+  viewBox="15 5 376 450"
+  style="background:transparent; background-color:transparent;">
 
   <defs>
     <!-- animation -->
     <style>
+      html, body, svg { background: transparent !important; background-color: transparent !important; }
       .lego-layer {
         opacity: 0;
         transform-box: fill-box;

@@ -429,7 +429,8 @@
   justify-content: center;
 }
 
-.aoe-learning-artwork object {
+.aoe-learning-artwork object,
+.aoe-learning-artwork img {
   width: 70%;
   height: 70%;
   display: block;
@@ -488,7 +489,8 @@
 .aerowordsmith-how-list li + li { margin-top: 3px; }
 
 @media (max-width: 950px) {
-  .aoe-learning-artwork object {
+  .aoe-learning-artwork object,
+.aoe-learning-artwork img {
     width: 80%;
     height: 80%;
   }
@@ -647,12 +649,10 @@
     <article class="print-row reveal aoe-learning-row">
       <div class="image-card">
         <div class="aoe-learning-artwork">
-          <object
+          <img
             id="aoeLearningObject"
             data-src="../assets/ui/aoe-explainers-games-activities.svg"
-            type="image/svg+xml"
-            aria-label="Animated Airport Operations Explained learning concept with explainers, games, and activities">
-          </object>
+            alt="Animated Airport Operations Explained learning concept with explainers, games, and activities">
         </div>
         <button class="aoe-learning-replay" id="aoeLearningReplay" type="button" aria-label="Replay AOE learning animation" title="Replay animation">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">

@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Explore Madhi Studio branding, logo design, wordmarks, icon systems and visual identity work for distinctive businesses and digital products."/>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="../css/site.css?v=20260910-5" rel="stylesheet"/>
+<link href="../css/site.css?v=20260910-6" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/responsive.css">
 <link rel="stylesheet" href="../css/service-shell.css">
 <link rel="stylesheet" href="../css/service-feature.css">
@@ -44,8 +44,11 @@
   justify-content: center;
 }
 .aoe-logo-row .svg-artwork object,
+.aoe-logo-row .svg-artwork img,
 .aoi-logo-row .svg-artwork object,
-.wanderports-logo-row .svg-artwork object {
+.aoi-logo-row .svg-artwork img,
+.wanderports-logo-row .svg-artwork object,
+.wanderports-logo-row .svg-artwork img {
   width: 72%;
   height: 62%;
   display: block;
@@ -73,24 +76,40 @@
 
 @media (max-width: 950px) {
   .aoe-logo-row .svg-artwork object,
+  .aoe-logo-row .svg-artwork img,
   .aoi-logo-row .svg-artwork object,
-  .wanderports-logo-row .svg-artwork object {
+  .aoi-logo-row .svg-artwork img,
+  .wanderports-logo-row .svg-artwork object,
+  .wanderports-logo-row .svg-artwork img {
     width: 82%;
     height: 72%;
   }
 }
 
-/* Sept 10 — Aerowander featured system: reference-style six-lockup arrangement. */
-.branding-feature-row .branding-system-collage.logo-system-six {
+/* Sept 10 — Aerowander featured system: compact three-logo arrangement. */
+@media (min-width: 951px) {
+  .branding-feature-row.has-tight-info {
+    grid-template-columns: 640px 262px !important;
+    gap: 30px !important;
+    justify-content: start !important;
+  }
+  .branding-feature-row .image-card {
+    width: 640px !important;
+    max-width: 640px !important;
+    height: 550px !important;
+    min-height: 550px !important;
+  }
+}
+.branding-feature-row .branding-system-collage.logo-system-three {
   display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-columns: 1fr !important;
   grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
   gap: 0 !important;
-  padding: 20px 26px !important;
+  padding: 22px 28px !important;
   background: #3b424c !important;
 }
-.branding-feature-row .branding-system-collage.logo-system-six .branding-system-item {
-  padding: 8px 20px !important;
+.branding-feature-row .branding-system-collage.logo-system-three .branding-system-item {
+  padding: 8px 18px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -100,70 +119,31 @@
   background: transparent !important;
   border: 0 !important;
 }
-.branding-feature-row .branding-system-collage.logo-system-six .branding-system-label { display: none !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .branding-system-item img {
+.branding-feature-row .branding-system-collage.logo-system-three .branding-system-label {
+  display: none !important;
+}
+.branding-feature-row .branding-system-collage.logo-system-three .branding-system-item img {
   position: static !important;
-  width: auto !important;
+  width: 94% !important;
   height: auto !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+  max-width: 94% !important;
+  max-height: 88% !important;
   object-fit: contain !important;
   object-position: center !important;
   transform: none !important;
   background: transparent !important;
 }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-primary { grid-column: 1 !important; grid-row: 1 !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-inverse { grid-column: 1 !important; grid-row: 2 !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-mono { grid-column: 1 !important; grid-row: 3 !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-icon { grid-column: 2 !important; grid-row: 1 !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-wordmark { grid-column: 2 !important; grid-row: 2 !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-stacked { grid-column: 2 !important; grid-row: 3 !important; }
-.branding-feature-row .branding-system-collage.logo-system-six .layout-primary img,
-.branding-feature-row .branding-system-collage.logo-system-six .layout-inverse img,
-.branding-feature-row .branding-system-collage.logo-system-six .layout-mono img {
-  width: 90% !important;
-  max-width: 90% !important;
-  max-height: 82% !important;
-}
-.branding-feature-row .branding-system-collage.logo-system-six .layout-icon img {
-  width: 41% !important;
-  max-width: 41% !important;
-  max-height: 88% !important;
-}
-.branding-feature-row .branding-system-collage.logo-system-six .layout-wordmark img {
-  width: 76% !important;
-  max-width: 76% !important;
-  max-height: 58% !important;
-}
-.branding-feature-row .branding-system-collage.logo-system-six .layout-stacked .stacked-lockup {
-  width: 90% !important;
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-}
-.branding-feature-row .branding-system-collage.logo-system-six .layout-stacked .stacked-icon {
-  width: 41% !important;
-  max-width: 41% !important;
-  max-height: 62% !important;
-}
-.branding-feature-row .branding-system-collage.logo-system-six .layout-stacked .stacked-wordmark {
-  width: 90% !important;
-  max-width: 90% !important;
-  max-height: 28% !important;
-}
-@media (max-width: 620px) {
-  .branding-feature-row .branding-system-collage.logo-system-six { padding: 12px 10px !important; }
-  .branding-feature-row .branding-system-collage.logo-system-six .branding-system-item { padding: 5px 8px !important; }
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-primary img,
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-inverse img,
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-mono img { width: 94% !important; max-width: 94% !important; }
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-icon img { width: 44% !important; max-width: 44% !important; }
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-wordmark img { width: 84% !important; max-width: 84% !important; }
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-stacked .stacked-icon { width: 44% !important; max-width: 44% !important; }
-  .branding-feature-row .branding-system-collage.logo-system-six .layout-stacked .stacked-wordmark { width: 92% !important; max-width: 92% !important; }
+.branding-feature-row .branding-system-collage.logo-system-three .layout-primary { grid-column: 1 !important; grid-row: 1 !important; }
+.branding-feature-row .branding-system-collage.logo-system-three .layout-inverse { grid-column: 1 !important; grid-row: 2 !important; }
+.branding-feature-row .branding-system-collage.logo-system-three .layout-mono { grid-column: 1 !important; grid-row: 3 !important; }
+@media (max-width: 950px) {
+  .branding-feature-row .branding-system-collage.logo-system-three {
+    padding: 16px 18px !important;
+  }
+  .branding-feature-row .branding-system-collage.logo-system-three .branding-system-item img {
+    width: 96% !important;
+    max-width: 96% !important;
+  }
 }
 </style>
 </head>
@@ -173,29 +153,22 @@
 <section class="page-section"><div class="container"><h1 class="page-title">Branding.</h1><div class="section-divider"></div></div></section>
 <section class="collection"><div class="print-list">
   <article class="print-row reveal branding-feature-row has-tight-info">
-    <div class="image-card"><div class="branding-system-collage logo-system-six" aria-label="Aerowander six-logo system collage">
+    <div class="image-card"><div class="branding-system-collage logo-system-three" aria-label="Aerowander three-logo system collage">
       <div class="branding-system-item layout-primary"><span class="branding-system-label">PRIMARY</span><img src="../assets/branding/aerowander-system/01-primary-horizontal.svg" alt="Aerowander primary logo"></div>
       <div class="branding-system-item layout-inverse"><span class="branding-system-label">INVERSE/LIGHT</span><img src="../assets/branding/aerowander-system/05-inverse-light.svg" alt="Aerowander inverse light logo"></div>
       <div class="branding-system-item layout-mono"><span class="branding-system-label">MONOCHROME/BLACK</span><img src="../assets/branding/aerowander-system/06-monochrome-black.svg" alt="Aerowander monochrome black logo"></div>
-      <div class="branding-system-item layout-stacked"><span class="branding-system-label">STACKED</span><div class="stacked-lockup" role="img" aria-label="Aerowander stacked logo"><img class="stacked-icon" src="../assets/branding/aerowander-system/03-icon-mark.svg" alt=""><img class="stacked-wordmark" src="../assets/branding/aerowander-system/04-wordmark-only.svg" alt=""></div></div>
-      <div class="branding-system-item layout-wordmark"><span class="branding-system-label">WORD MARK</span><img src="../assets/branding/aerowander-system/04-wordmark-only.svg" alt="Aerowander word mark logo"></div>
-      <div class="branding-system-item layout-icon"><span class="branding-system-label">ICON MARK</span><img src="../assets/branding/aerowander-system/03-icon-mark.svg" alt="Aerowander icon mark"></div>
     </div></div>
     <div class="info-panel">
       <div class="caption">BRANDING</div>
       <h2>Logo System</h2>
-      <p class="feature-description">A 6-icon system to fit your various needs.</p>
+      <p class="feature-description">A 3-logo system to fit your various needs.</p>
     </div>
   </article>
 
   <article class="print-row reveal aoe-logo-row">
     <div class="image-card">
       <div class="svg-artwork">
-        <object
-          data="../assets/branding/aoe-logo-wordmark.svg"
-          type="image/svg+xml"
-          aria-label="Airport Operations Explained logo wordmark">
-        </object>
+        <img src="../assets/branding/aoe-logo-wordmark.svg" alt="Airport Operations Explained logo wordmark">
       </div>
     </div>
 
@@ -209,11 +182,7 @@
   <article class="print-row reveal aoi-logo-row">
     <div class="image-card">
       <div class="svg-artwork">
-        <object
-          data="../assets/branding/aoi-logo.svg"
-          type="image/svg+xml"
-          aria-label="Airport Operations Intelligence logo">
-        </object>
+        <img src="../assets/branding/aoi-logo.svg" alt="Airport Operations Intelligence logo">
       </div>
     </div>
 
@@ -227,11 +196,7 @@
   <article class="print-row reveal wanderports-logo-row">
     <div class="image-card">
       <div class="svg-artwork">
-        <object
-          data="../assets/branding/wanderports-logo.svg"
-          type="image/svg+xml"
-          aria-label="WanderPorts logo">
-        </object>
+        <img src="../assets/branding/wanderports-logo.svg" alt="WanderPorts logo">
       </div>
     </div>
 
@@ -261,6 +226,6 @@
 </div></section>
 </main>
 <div id="site-footer"></div>
-<script src="../js/site.js?v=20260910-5"></script>
+<script src="../js/site.js?v=20260910-6"></script>
 </body>
 </html>
