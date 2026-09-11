@@ -558,3 +558,41 @@ nav.mobile-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rota
     justify-content: center !important;
   }
 }
+
+
+/* Sept 11 — Motion Graphics loads mobile.css last; preserve the final service-page media fit. */
+@media (max-width: 950px) {
+  html[data-page="service"] .print-row,
+  html[data-page="service"] .print-row:first-child,
+  html[data-page="service"] .print-row:last-child,
+  html[data-page="service"] .print-row.has-tight-info {
+    display:grid !important; grid-template-columns:1fr !important; gap:18px !important;
+    min-height:0 !important; height:auto !important; padding:26px 0 !important; margin:0 !important;
+  }
+  html[data-page="service"] .image-card,
+  html[data-page="service"] .madhi-hero-row .image-card,
+  html[data-page="service"] .taxi-plane-row .image-card,
+  html[data-page="service"] .turntable-row .image-card,
+  html[data-page="service"] .splitflap-row .image-card,
+  html[data-page="service"] .camera-row .image-card {
+    width:100% !important; max-width:100% !important; height:auto !important; min-height:0 !important;
+    aspect-ratio:16 / 9 !important; overflow:hidden !important;
+  }
+  html[data-page="service"] .info-panel,
+  html[data-page="service"] .print-row.has-tight-info .info-panel {
+    width:100% !important; max-width:100% !important; min-width:0 !important; padding-top:0 !important;
+  }
+  html[data-page="service"] .orientation-note {
+    display:block !important; margin:9px 0 0 !important; font-size:12.5px !important; line-height:1.4 !important; font-style:italic !important;
+  }
+}
+@media (max-width: 700px) {
+  html[data-page="service"] .splitflap-row .solari-grid-row { height:34px !important; flex-basis:34px !important; }
+  html[data-page="service"] .splitflap-row .solari-header-row { height:34px !important; flex-basis:34px !important; font-size:10px !important; }
+  html[data-page="service"] .splitflap-row .solari-field,
+  html[data-page="service"] .splitflap-row .solari-cell,
+  html[data-page="service"] .splitflap-row .solari-signal-card,
+  html[data-page="service"] .splitflap-row .solari-stair-spacer { height:34px !important; }
+  html[data-page="service"] .splitflap-row .solari-glyph { font-size:10.5px !important; line-height:34px !important; }
+  html[data-page="service"] .splitflap-row .solari-dot { width:8px !important; height:8px !important; border-width:1px !important; }
+}

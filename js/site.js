@@ -488,6 +488,7 @@ function mountSiteShell() {
       </nav>
       <div class="site-preferences" aria-label="Display settings">
         <button class="preference-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Use dark mode" title="Dark mode"><span class="preference-glyph" aria-hidden="true"></span></button>
+        <button class="preference-toggle back-to-top-toggle" id="backToTop" type="button" aria-label="Go back to top of page"><span class="back-to-top-arrow" aria-hidden="true">↑</span><span class="back-to-top-tooltip" role="tooltip">Go back to top of page</span></button>
         <button class="preference-toggle" id="motionToggle" type="button" aria-pressed="true" aria-label="Turn motion off" title="Motion on" hidden disabled tabindex="-1" aria-hidden="true"><span class="preference-glyph" aria-hidden="true"></span></button>
       </div>`;
   }
@@ -1615,4 +1616,42 @@ document.addEventListener('click', (event) => {
   } else {
     syncRunwayFrameTheme();
   }
+})();
+
+
+/* Sept 11 — mobile orientation guidance + back-to-top control. */
+(() => {
+  const setupPortfolioMobilePolish = () => {
+    const orientationText = 'Note: Rotate device to landscape for best experience.';
+    const panels = [
+      ...document.querySelectorAll('#ui-icons .landing-feature-info, #motion-graphics .landing-feature-info, #web-design .landing-feature-info'),
+      ...document.querySelectorAll('html[data-page="service"] .print-row .info-panel')
+    ];
+    panels.forEach(panel => {
+      if (panel.querySelector(':scope > .orientation-note')) return;
+      const note = document.createElement('p');
+      note.className = 'orientation-note';
+      note.textContent = orientationText;
+      const description = [...panel.children].find(el => el.matches?.('p:not(.orientation-note)'));
+      if (description) description.insertAdjacentElement('afterend', note);
+      else panel.appendChild(note);
+    });
+
+    const backToTop = document.getElementById('backToTop');
+    if (!backToTop || backToTop.dataset.ready === 'true') return;
+    backToTop.dataset.ready = 'true';
+    backToTop.addEventListener('click', () => {
+      const reduce = window.MadhiPreferences?.motionEnabled?.() === false || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    });
+    const syncAttention = () => {
+      const threshold = Math.max(window.innerHeight * .9, 420);
+      backToTop.classList.toggle('is-attention', window.scrollY > threshold);
+    };
+    syncAttention();
+    window.addEventListener('scroll', syncAttention, { passive: true });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupPortfolioMobilePolish, { once: true });
+  else setupPortfolioMobilePolish();
+  window.addEventListener('madhi:shellready', setupPortfolioMobilePolish);
 })();

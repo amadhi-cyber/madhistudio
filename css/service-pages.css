@@ -1246,3 +1246,116 @@ html[data-theme="dark"] .preview-popout svg {
   color: inherit !important;
   stroke: currentColor !important;
 }
+
+
+/* =========================================================
+   SEPT 11 — MOBILE SERVICE-PAGE MEDIA FIT
+========================================================= */
+@media (max-width: 950px) {
+  html[data-page="service"] {
+    scroll-snap-type: none !important;
+    scroll-padding-top: 84px !important;
+  }
+  html[data-page="service"] body {
+    padding-top: 84px !important;
+  }
+  html[data-page="service"] .page-section {
+    padding-top: 24px !important;
+  }
+  html[data-page="service"] .print-row,
+  html[data-page="service"] .print-row:first-child,
+  html[data-page="service"] .print-row:last-child,
+  html[data-page="service"] .print-row.has-tight-info {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 26px 0 !important;
+    margin: 0 !important;
+  }
+  html[data-page="service"] .image-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+  }
+  html[data-page="service"] .branding-feature-row .image-card,
+  html[data-page="service"] .a380-row .image-card,
+  html[data-page="service"] .soccer-pitch-row .image-card,
+  html[data-page="service"] .madhi-hero-row .image-card,
+  html[data-page="service"] .taxi-plane-row .image-card,
+  html[data-page="service"] .turntable-row .image-card,
+  html[data-page="service"] .splitflap-row .image-card,
+  html[data-page="service"] .camera-row .image-card,
+  html[data-page="service"] .wanderports-ui-row .image-card,
+  html[data-page="service"] .runway-inspection-row .image-card,
+  html[data-page="service"] .aoe-learning-row .image-card,
+  html[data-page="service"] .web-feature-row .image-card {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+  html[data-page="service"] .aerowordsmith-row .image-card { aspect-ratio: 1 / 1 !important; }
+  html[data-page="service"] :is(.aoe-logo-row,.aoi-logo-row,.wanderports-logo-row) .image-card {
+    aspect-ratio: 16 / 7 !important;
+  }
+  html[data-page="service"] :is(.aoe-logo-row,.aoi-logo-row,.wanderports-logo-row) .svg-artwork img {
+    width: 88% !important;
+    height: 86% !important;
+    max-width: 88% !important;
+    max-height: 86% !important;
+    object-fit: contain !important;
+  }
+  html[data-page="service"] .image-card > iframe,
+  html[data-page="service"] .wanderports-map-frame,
+  html[data-page="service"] .aerowordsmith-frame,
+  html[data-page="service"] .runway-inspection-frame,
+  html[data-page="service"] .madhi-hero-frame,
+  html[data-page="service"] .taxi-plane-frame {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    border: 0 !important;
+  }
+  html[data-page="service"] .web-preview-stage,
+  html[data-page="service"] .web-preview-shell {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  html[data-page="service"] .info-panel,
+  html[data-page="service"] .print-row.has-tight-info .info-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-top: 0 !important;
+  }
+  html[data-page="service"] .orientation-note {
+    display: block !important;
+    margin: 9px 0 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    font-style: italic !important;
+  }
+}
+@media (max-width: 700px) {
+  html[data-page="service"] body { padding-top: 76px !important; }
+  html[data-page="service"] { scroll-padding-top: 76px !important; }
+
+  /* Split-flap typography scales with the compact portrait tile rather than clipping. */
+  .splitflap-row .solari-grid-row { height: 34px !important; flex-basis: 34px !important; }
+  .splitflap-row .solari-header-row { height: 34px !important; flex-basis: 34px !important; font-size: 10px !important; }
+  .splitflap-row .solari-field,
+  .splitflap-row .solari-cell,
+  .splitflap-row .solari-signal-card,
+  .splitflap-row .solari-stair-spacer { height: 34px !important; }
+  .splitflap-row .solari-glyph { font-size: 10.5px !important; line-height: 34px !important; }
+  .splitflap-row .solari-dot { width: 8px !important; height: 8px !important; border-width: 1px !important; }
+}

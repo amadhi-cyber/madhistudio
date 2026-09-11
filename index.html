@@ -39,7 +39,7 @@
 <link href="css/responsive.css" rel="stylesheet"/>
 <link href="css/landing.css" rel="stylesheet"/>
 <link href="css/mobile.css" rel="stylesheet"/>
-<link href="css/site.css?v=20260911-1" rel="stylesheet"/>
+<link href="css/site.css?v=20260911-2" rel="stylesheet"/>
 <style id="index-alt-header-final-lock">
 html[data-header-style="alt"] #site-nav { border: 0 !important; box-shadow: none !important; outline: 0 !important; }
 html[data-header-style="alt"] nav.site-nav-global,
@@ -103,11 +103,11 @@ html[data-header-style="alt"] #services .sitemap-card-content {
 }
 html[data-header-style="alt"] #services .sitemap-service-copy {
   display: grid !important;
-  grid-template-rows: 94px auto !important;
+  grid-template-rows: 118px auto !important;
   row-gap: 0 !important;
 }
 html[data-header-style="alt"] #services .sitemap-summary {
-  min-height: 94px !important;
+  min-height: 118px !important;
   margin: 0 !important;
   font-size: 15.5px !important;
   line-height: 1.52 !important;
@@ -467,7 +467,7 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 <div class="sitemap-card-top"><h2><span>Motion Graphics.</span></h2><span class="sitemap-number">3</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Subtle animation, movement and visual feedback that add clarity, pace, and personality without getting in the way of the experience.</p>
-<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>animated logos &amp; icons</li><li>kinetic typography</li><li>promotional clips</li><li>animated infographics</li><li>social media motion</li><li>intro/outro sequences</li><li>scrollytelling animation</li></ul></div>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>animated logos &amp; icons</li><li>animated infographics</li><li>promotional clips</li><li>kinetic typography</li><li>social media motion</li><li>intro/outro sequences</li><li>scrollytelling animation</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#motion-graphics">Explore Motion Graphics</a>
@@ -910,19 +910,7 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 <section class="studio-info-viewport contact-form-viewport" id="contact">
 <div class="container studio-info-container contact-form-container">
 <h2 class="section-title studio-info-title">Contact Us.</h2>
-<div class="contact-content-grid">
-<aside class="contact-guide-card">
-<h3>A useful first message includes:</h3>
-<ul>
-<li>What you or the organization does.</li>
-<li>What you want the website or page to accomplish.</li>
-<li>Whether something already exists.</li>
-<li>Any examples, screenshots, or references you like.</li>
-<li>Your rough timing.</li>
-</ul>
-<p>The form creates a clean project brief you can email directly to Madhi Studio, or copy into any contact method.</p>
-<p class="contact-email-note">If you prefer to email your note, send it to <a href="mailto:info@madhistudio.com">info@madhistudio.com</a></p>
-</aside>
+<div class="contact-content-grid contact-content-grid-form-only">
 <form action="https://formsubmit.co/info@madhistudio.com" class="contact-brief-form" enctype="multipart/form-data" id="projectBriefForm" method="POST" novalidate>
 <input name="_subject" type="hidden" value="Madhi Studio — Project Brief"/>
 <input name="_template" type="hidden" value="table"/>
@@ -937,19 +925,31 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 <span class="contact-input-shell"><input autocomplete="email" id="briefEmail" name="email" required type="email"/><span aria-hidden="true" class="field-check">✓</span></span>
 </label>
 <label class="contact-field">
+<span class="contact-field-label">Organization</span>
+<span class="contact-input-shell"><input autocomplete="organization" id="briefOrganization" name="organization" type="text"/><span aria-hidden="true" class="field-check">✓</span></span>
+</label>
+<label class="contact-field">
 <span class="contact-field-label">Project type</span>
 <span class="contact-input-shell"><select id="briefProjectType" name="projectType" required><option value="">Choose one</option><option>Branding, Logos &amp; Icons</option><option>User Interfaces</option><option>Motion Graphics</option><option>Websites &amp; Landing Pages</option><option>Other</option></select><span aria-hidden="true" class="field-check">✓</span></span>
 </label>
 <label class="contact-field">
+<span class="contact-field-label">Website/Page Objective</span>
+<span class="contact-input-shell"><input id="briefObjective" name="websitePageObjective" placeholder="What should the page help visitors do?" type="text"/><span aria-hidden="true" class="field-check">✓</span></span>
+</label>
+<label class="contact-field">
+<span class="contact-field-label">Current Website URL</span>
+<span class="contact-input-shell"><input autocomplete="url" id="briefWebsiteUrl" name="currentWebsiteUrl" placeholder="example.com" type="text"/><span aria-hidden="true" class="field-check">✓</span></span>
+</label>
+<label class="contact-field contact-field-timeline">
 <span class="contact-field-label">Timeline</span>
 <span class="contact-input-shell"><select id="briefTimeline" name="timeline" required><option value="">Choose one</option><option>Flexible</option><option>As soon as possible</option><option>Within 1 month</option><option>Within 2–3 months</option><option>Still exploring</option></select><span aria-hidden="true" class="field-check">✓</span></span>
 </label>
-<label class="contact-field contact-field-wide">
+<label class="contact-field contact-field-message">
 <span class="contact-field-label">What are you trying to build or fix?</span>
-<span class="contact-input-shell"><textarea id="briefMessage" minlength="10" name="message" placeholder="A short description is enough. Include any current website, rough idea, important features, and what you want visitors to do." required></textarea><span aria-hidden="true" class="field-check">✓</span></span>
+<span class="contact-input-shell"><textarea id="briefMessage" minlength="10" name="message" placeholder="A short description is enough. Include your rough idea, important features, and what you want visitors to do." required></textarea><span aria-hidden="true" class="field-check">✓</span></span>
 </label>
-<div class="contact-field contact-field-wide contact-attachment-field">
-<span class="contact-field-label">Attachments <span class="contact-optional">(optional)</span></span>
+<div class="contact-field contact-attachment-field">
+<span class="contact-field-label">Attachments <span class="contact-recommended">(recommended)</span></span>
 <div class="attachment-dropzone" id="attachmentDropzone" tabindex="0">
 <input accept="image/*,.pdf,.doc,.docx,.rtf,.txt,.ppt,.pptx,.xls,.xlsx" id="briefAttachments" multiple name="attachment" type="file"/>
 <span class="attachment-dropzone-copy">Drag files here, paste files into this box, or <button class="attachment-browse" id="attachmentBrowse" type="button">choose files</button>.</span>
@@ -960,6 +960,7 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 <div class="contact-form-actions">
 <button class="btn contact-submit" type="submit">Submit</button>
 <span aria-live="polite" class="contact-form-status" id="briefFormStatus"></span>
+<p class="contact-email-note contact-email-note-below-submit">If you prefer to email your note, send it to <a href="mailto:info@madhistudio.com">info@madhistudio.com</a></p>
 </div>
 </form>
 </div>
@@ -974,6 +975,6 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 </footer>
 </section>
 </main>
-<script src="js/site.js?v=20260911-1"></script>
+<script src="js/site.js?v=20260911-2"></script>
 </body>
 </html>
