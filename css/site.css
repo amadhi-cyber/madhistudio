@@ -1,0 +1,3908 @@
+/* MADHI STUDIO — consolidated shared CSS from the original project. */
+
+/* ===== SOURCE: base.css ===== */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: rgba(0,0,0,0.58);
+  --soft-muted: rgba(0,0,0,0.45);
+
+  --accent: #0AC92B;
+
+  --gold: #b88921;
+  --gold-soft: rgba(184, 137, 33, 0.18);
+  --gold-medium: rgba(184, 137, 33, 0.45);
+  --gold-shadow: rgba(184, 137, 33, 0.12);
+  --gold-bg: #fffaf0;
+
+  --card: #DDF4FF;
+  --border: rgba(0,0,0,0.05);
+  --warm: #FFD35A;
+
+  --hero-gap: 50px;
+  --section-gap: 100px;
+  --component-gap: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: auto;
+  scrollbar-color: var(--accent) rgba(10, 201, 43, 0.18);
+}
+
+html::-webkit-scrollbar {
+  width: 14px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(10, 201, 43, 0.18);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding-top: 107px;
+}
+
+/* SECTION COLOR SYSTEM */
+body.section-green .page-title,
+body.section-green .section-title,
+body.section-green .aviation-kicker {
+  color: var(--accent);
+}
+
+body.section-gold .page-title,
+body.section-gold .section-title,
+body.section-gold .aviation-kicker {
+  color: var(--gold);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* FOOTER */
+footer {
+  padding: 18px 32px;
+  min-height: 58px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: inherit;
+}
+
+footer a:hover {
+  color: #111;
+}
+
+/* GLOBAL FOOTER WEBSITE LINKS */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.footer-main {
+  color: var(--muted);
+}
+
+.footer-main a {
+  color: inherit;
+}
+
+.footer-site-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-site-link {
+  width: 210px;
+  min-width: 210px;
+  max-width: 210px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.footer-site-link:hover {
+  color: #111;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 14px;
+  background: currentColor;
+  opacity: 0.45;
+  margin: 0 10px;
+}
+
+/* FOOTER CLICK SAFETY */
+#site-footer {
+  position: relative;
+  z-index: 20;
+}
+
+#site-footer footer,
+#site-footer .footer-inner,
+#site-footer .footer-site-links,
+#site-footer a {
+  position: relative;
+  z-index: 30;
+}
+
+#site-footer a {
+  pointer-events: auto;
+}
+
+#site-footer::before,
+#site-footer::after,
+footer::before,
+footer::after {
+  pointer-events: none;
+}
+
+/* Global Madhi Studio scrollbar — shared by landing and all service pages. */
+html {
+  scrollbar-width: auto !important;
+  scrollbar-color: var(--accent) rgba(10, 201, 43, 0.18) !important;
+}
+
+html::-webkit-scrollbar {
+  width: 14px !important;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(10, 201, 43, 0.18) !important;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--accent) !important;
+  border-radius: 999px !important;
+}
+
+
+/* ===== SOURCE: nav.css ===== */
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 132px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0,0,0,0.18);
+  z-index: 1000;
+}
+
+.nav-inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 260px;
+  height: 132px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 260px;
+  height: 132px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.logo a:hover {
+  background: transparent;
+  border-color: transparent;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transform: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 17.5px;
+  position: relative;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover,
+.logo a:hover {
+  color: #111;
+}
+
+.nav-item:hover > a {
+  background: transparent;
+  border-color: var(--accent);
+  color: #111;
+}
+
+.nav-item:hover > a[href="aviation.html"] {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+nav a:hover {
+  background: transparent;
+  border-color: var(--accent);
+  color: #111;
+}
+
+.logo a,
+.logo a:hover {
+  border-color: transparent;
+  background: transparent;
+  color: inherit;
+}
+
+
+.logo a.active,
+.logo a.active:hover {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: inherit;
+}
+
+/* ACTIVE PAGE PILL */
+nav a.active {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-size: 17.5px;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(10, 201, 43, 0.14);
+}
+
+nav a.active:hover {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+nav a.active::after {
+  display: none;
+}
+
+/* TOP NAV DIVIDERS */
+.nav-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(0,0,0,0.24);
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* Invisible hover bridge so dropdown does not disappear */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: -16px;
+  right: -16px;
+  top: 100%;
+  height: 24px;
+  z-index: 1;
+}
+
+/* DROPDOWNS */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(14px);
+  width: max-content;
+  min-width: auto;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 8px 6px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+  transition:
+    opacity 0.22s ease 0.12s,
+    transform 0.22s ease 0.12s,
+    visibility 0s linear 0.28s;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(8px);
+  transition-delay: 0s;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-size: 13px;
+  line-height: 1.25;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: left;
+  position: relative;
+}
+
+/* NON-LINK DROPDOWN LABELS */
+.dropdown-section-label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  color: #111;
+  font-size: 13px;
+  line-height: 1.25;
+  font-style: italic;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ABOUT DROPDOWN - LEFT ALIGNED */
+.about-dropdown {
+  left: 0;
+  right: auto;
+}
+
+.about-dropdown a {
+  justify-content: flex-start;
+  text-align: left;
+  margin-left: 0;
+}
+
+.about-dropdown .about-divider {
+  width: 82%;
+  margin: 4px auto;
+}
+
+.about-dropdown .partnerships-link {
+  font-style: italic;
+}
+
+/* KIDS DROPDOWN - RIGHT ALIGNED */
+.kids-dropdown {
+  left: auto;
+  right: 0;
+}
+
+.kids-dropdown a,
+.kids-dropdown .dropdown-section-label {
+  justify-content: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.kids-dropdown .kids-divider {
+  width: 82%;
+  margin: 4px 0 4px auto;
+}
+
+.dropdown a + a {
+  margin-top: 0;
+}
+
+.dropdown a:hover {
+  background: transparent;
+  border-color: transparent;
+  color: #111;
+}
+
+.dropdown a::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.14s ease;
+}
+
+.dropdown a:hover::after {
+  opacity: 1;
+  transform: none;
+}
+
+.aviation-dropdown a::after {
+  background: var(--gold);
+}
+
+.aviation-dropdown a.aviation-section-link::after {
+  background: var(--gold);
+}
+
+/* DROPDOWN SECTION DIVIDERS */
+.dropdown-divider {
+  display: block;
+  width: 82%;
+  height: 1px;
+  background: var(--border);
+  margin: 6px auto;
+}
+
+.photos-dropdown,
+.content-dropdown,
+.design-dropdown,
+.workshop-dropdown,
+.shop-dropdown,
+.kids-dropdown {
+  min-width: max-content;
+}
+
+.about-dropdown {
+  min-width: max-content;
+}
+
+/* AVIATION NAV */
+.nav-item > a[href="aviation.html"] {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.nav-item > a[href="aviation.html"]:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Aviation active page pill */
+.nav-item > a[href="aviation.html"].active {
+  color: #fff;
+  background: var(--gold);
+  border-color: var(--gold);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  padding: 4px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(184, 137, 33, 0.16);
+}
+
+.nav-item > a[href="aviation.html"].active:hover {
+  color: #fff;
+  background: var(--gold);
+  border-color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.aviation-dropdown {
+  min-width: max-content;
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  column-gap: 10px;
+  row-gap: 0;
+  padding: 8px 6px;
+}
+
+.aviation-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: max-content;
+}
+
+/* Gold section buttons: Photos, Content, Design */
+.aviation-dropdown a.aviation-section-link {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+  border-color: transparent;
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.aviation-dropdown a.aviation-section-link:hover {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+  background: transparent;
+  border-color: transparent;
+}
+
+.aviation-dropdown a {
+  width: fit-content;
+  border-width: 2px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.aviation-dropdown .dropdown-divider,
+.aviation-dropdown .gold-divider {
+  width: 100%;
+  margin: 3px 0;
+  background: rgba(184, 137, 33, 0.45);
+}
+
+/* CART */
+.cart-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+}
+
+.cart-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  nav a {
+    font-size: 16.25px;
+    padding: 4px 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo a {
+    height: 46px;
+  }
+
+  .logo img {
+    height: 38px;
+    max-width: 250px;
+  }
+
+  nav {
+    height: auto;
+    min-height: 64px;
+    padding: 10px 5%;
+  }
+
+  .nav-inner {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .dropdown {
+    left: auto;
+    right: 0;
+    transform: translateY(14px);
+    max-width: calc(100vw - 32px);
+  }
+
+  .nav-item:hover .dropdown {
+    transform: translateY(8px);
+  }
+
+  .aviation-dropdown {
+    grid-template-columns: 1fr;
+    width: max-content;
+    min-width: max-content;
+    max-width: calc(100vw - 32px);
+  }
+
+  .aviation-column {
+    width: max-content;
+  }
+
+  .about-dropdown a,
+  .about-dropdown .dropdown-section-label {
+    justify-content: flex-end;
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+/* Sept 5 — service navigation width only */
+@media (min-width: 1101px) {
+  .nav-links > a[data-section-target],
+  .nav-links > a[data-nav="branding-logos"],
+  .nav-links > a[data-nav="ui-icons"],
+  .nav-links > a[data-nav="motion-graphics"],
+  .nav-links > a[data-nav="web-design"] {
+    width: 108px;
+    min-width: 108px;
+    min-height: 40px;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.08;
+    white-space: normal;
+  }
+}
+
+
+/* Sept 5 — requested shared header/nav corrections only */
+@media (min-width: 1101px) {
+  .nav-links > a[data-section-target],
+  .nav-links > a[data-nav="branding-logos"],
+  .nav-links > a[data-nav="ui-icons"],
+  .nav-links > a[data-nav="motion-graphics"],
+  .nav-links > a[data-nav="web-design"] {
+    width: 108px;
+    min-width: 108px;
+    min-height: 42px;
+    padding: 4px 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.08;
+    font-size: 13px;
+    white-space: normal;
+    vertical-align: middle;
+  }
+
+  .service-nav-label {
+    width: 100%;
+    min-height: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.08;
+  }
+
+  .service-nav-label > span {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+
+/* =========================================================
+   SEPT 5 — GLOBAL MADHI HEADER UNIFICATION
+   Shared proportions for landing + service pages.
+========================================================= */
+:root {
+  --madhi-header-height: 119px;
+  --madhi-header-divider: rgba(17,17,17,0.10);
+}
+
+nav {
+  height: var(--madhi-header-height) !important;
+  padding: 0 20px !important;
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+nav::before {
+  content: none !important;
+  display: none !important;
+}
+
+nav::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: var(--madhi-header-divider) !important;
+  z-index: 10001 !important;
+  pointer-events: none !important;
+}
+
+.logo,
+.logo a {
+  width: 260px !important;
+  height: var(--madhi-header-height) !important;
+}
+
+.logo a {
+  justify-content: flex-start !important;
+}
+
+.logo img {
+  width: 250px !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: 105px !important;
+  transform: none !important;
+}
+
+.nav-links {
+  gap: 22px !important;
+  align-items: center !important;
+}
+
+nav a,
+nav a.active {
+  font-size: 15.75px !important;
+}
+
+.nav-divider {
+  flex: 0 0 1px !important;
+  width: 1px !important;
+  height: 16px !important;
+  background: var(--madhi-header-divider) !important;
+}
+
+@media (min-width: 1101px) {
+  .nav-links > a[data-section-target],
+  .nav-links > a[data-nav="branding-logos"],
+  .nav-links > a[data-nav="ui-icons"],
+  .nav-links > a[data-nav="motion-graphics"],
+  .nav-links > a[data-nav="web-design"] {
+    width: 160px !important;
+    min-width: 160px !important;
+    min-height: 48px !important;
+    padding: 6px 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
+  }
+
+  .service-nav-label {
+    width: 100% !important;
+    min-height: 38px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.08 !important;
+  }
+
+  .service-nav-label > span {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1500px) {
+  .nav-links {
+    gap: clamp(10px, 1.15vw, 18px) !important;
+  }
+  .nav-links > a[data-section-target],
+  .nav-links > a[data-nav="branding-logos"],
+  .nav-links > a[data-nav="ui-icons"],
+  .nav-links > a[data-nav="motion-graphics"],
+  .nav-links > a[data-nav="web-design"] {
+    width: clamp(140px, 10vw, 160px) !important;
+    min-width: clamp(140px, 10vw, 160px) !important;
+  }
+}
+
+/* =========================================================
+   SEPT 5 — HOME / CONTACT PILL SIDE PADDING ONLY
+   Match the horizontal breathing room used by the service nav items.
+========================================================= */
+@media (min-width: 1101px) {
+  .nav-links > a[data-nav="home"],
+  .nav-links > a[data-nav="contact"] {
+    min-height: 48px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* =========================================================
+   SEPT 5 — FINAL GLOBAL SERVICE NAV TYPE CONSISTENCY
+   One shared rule for all four service links on every page.
+========================================================= */
+@media (min-width: 1101px) {
+  .nav-links > a[data-nav="branding-logos"],
+  .nav-links > a[data-nav="ui-icons"],
+  .nav-links > a[data-nav="motion-graphics"],
+  .nav-links > a[data-nav="web-design"],
+  .nav-links > a[data-nav="branding-logos"].active,
+  .nav-links > a[data-nav="ui-icons"].active,
+  .nav-links > a[data-nav="motion-graphics"].active,
+  .nav-links > a[data-nav="web-design"].active {
+    font-family: inherit !important;
+    font-size: 15.75px !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    line-height: 1.08 !important;
+  }
+
+  .nav-links > a[data-nav="branding-logos"] .service-nav-label,
+  .nav-links > a[data-nav="ui-icons"] .service-nav-label,
+  .nav-links > a[data-nav="motion-graphics"] .service-nav-label,
+  .nav-links > a[data-nav="web-design"] .service-nav-label,
+  .nav-links > a[data-nav="branding-logos"] .service-nav-label > span,
+  .nav-links > a[data-nav="ui-icons"] .service-nav-label > span,
+  .nav-links > a[data-nav="motion-graphics"] .service-nav-label > span,
+  .nav-links > a[data-nav="web-design"] .service-nav-label > span {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    letter-spacing: inherit !important;
+    line-height: inherit !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 5 — FINAL GLOBAL HEADER LOCK
+   One shared header source for landing + every service page.
+   The .site-nav-global class is mounted by js/site-shell.js,
+   so later page CSS cannot resize the logo/nav independently.
+========================================================= */
+@media (min-width: 1101px) {
+  .site-nav-global {
+    height: 123px !important;
+    min-height: 123px !important;
+    padding: 0 8px !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18) !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .site-nav-global::before,
+  .site-nav-global::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .site-nav-global .nav-inner {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .site-nav-global .logo,
+  .site-nav-global .logo a {
+    width: 470px !important;
+    min-width: 470px !important;
+    height: 123px !important;
+  }
+
+  .site-nav-global .logo a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 0 !important;
+  }
+
+  .site-nav-global .logo img {
+    width: 451px !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: 116px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+    transform: none !important;
+  }
+
+  .site-nav-global .nav-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 18px !important;
+    min-width: 0 !important;
+  }
+
+  .site-nav-global .nav-links > a,
+  .site-nav-global .nav-links > a.active {
+    min-height: 38px !important;
+    padding: 5px 20px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+    font-size: 15.75px !important;
+    font-weight: 400 !important;
+    line-height: 1.08 !important;
+    letter-spacing: normal !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+  }
+
+  .site-nav-global .nav-links > a[data-nav="branding-logos"],
+  .site-nav-global .nav-links > a[data-nav="ui-icons"],
+  .site-nav-global .nav-links > a[data-nav="motion-graphics"],
+  .site-nav-global .nav-links > a[data-nav="web-design"] {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+    padding: 5px 20px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-family: inherit !important;
+    font-size: 15.75px !important;
+    font-weight: 400 !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+  }
+
+  .site-nav-global .service-nav-label {
+    width: auto !important;
+    min-height: 0 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    font: inherit !important;
+    line-height: inherit !important;
+  }
+
+  .site-nav-global .nav-links > a[data-nav="home"],
+  .site-nav-global .nav-links > a[data-nav="contact"] {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    white-space: nowrap !important;
+  }
+
+  .site-nav-global .nav-divider {
+    flex: 0 0 1px !important;
+    width: 1px !important;
+    height: 20px !important;
+    background: var(--site-header-divider, rgba(17, 17, 17, 0.10)) !important;
+  }
+}
+
+/* Keep the same proportions on narrower desktop widths without changing typography between links. */
+@media (min-width: 1101px) and (max-width: 1600px) {
+  .site-nav-global .logo,
+  .site-nav-global .logo a {
+    width: 378px !important;
+    min-width: 378px !important;
+  }
+
+  .site-nav-global .logo img {
+    width: 367px !important;
+  }
+
+  .site-nav-global .nav-links {
+    gap: 10px !important;
+  }
+
+  .site-nav-global .nav-links > a,
+  .site-nav-global .nav-links > a.active {
+    font-size: 14px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .site-nav-global .nav-links > a[data-nav="branding-logos"],
+  .site-nav-global .nav-links > a[data-nav="ui-icons"],
+  .site-nav-global .nav-links > a[data-nav="motion-graphics"],
+  .site-nav-global .nav-links > a[data-nav="web-design"] {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+    padding: 5px 20px !important;
+    font-size: 14px !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* =========================================================
+   SEPT 5 — GLOBAL ONE-LINE HEADER LOCK
+   Same header, typography, dividers, and active-pill padding on every page.
+========================================================= */
+@media (min-width: 1101px) {
+  .site-nav-global {
+    border-top: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.22) !important;
+  }
+
+  .site-nav-global .nav-links > a,
+  .site-nav-global .nav-links > a.active,
+  .site-nav-global .nav-links > a[data-nav="home"],
+  .site-nav-global .nav-links > a[data-nav="contact"],
+  .site-nav-global .nav-links > a[data-nav="branding-logos"],
+  .site-nav-global .nav-links > a[data-nav="ui-icons"],
+  .site-nav-global .nav-links > a[data-nav="motion-graphics"],
+  .site-nav-global .nav-links > a[data-nav="web-design"] {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    min-height: 38px !important;
+    height: auto !important;
+    padding: 5px 20px !important;
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+    font-size: 15.75px !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    letter-spacing: normal !important;
+  }
+
+  .site-nav-global .service-nav-label {
+    display: inline !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    white-space: nowrap !important;
+    font: inherit !important;
+    line-height: inherit !important;
+  }
+
+  .site-nav-global .nav-divider {
+    width: 1px !important;
+    flex: 0 0 1px !important;
+    height: 20px !important;
+    background: rgba(0, 0, 0, 0.22) !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1600px) {
+  .site-nav-global .nav-links > a,
+  .site-nav-global .nav-links > a.active,
+  .site-nav-global .nav-links > a[data-nav="home"],
+  .site-nav-global .nav-links > a[data-nav="contact"],
+  .site-nav-global .nav-links > a[data-nav="branding-logos"],
+  .site-nav-global .nav-links > a[data-nav="ui-icons"],
+  .site-nav-global .nav-links > a[data-nav="motion-graphics"],
+  .site-nav-global .nav-links > a[data-nav="web-design"] {
+    font-size: 14px !important;
+  }
+}
+
+/* Green top rule and one shared fixed-header height apply on every page. */
+.site-nav-global {
+  border-top: 0 !important;
+}
+
+@media (min-width: 1101px) {
+  .site-nav-global,
+  .site-nav-global .nav-inner,
+  .site-nav-global .logo,
+  .site-nav-global .logo a {
+    height: 119px !important;
+    min-height: 119px !important;
+  }
+}
+
+/* =========================================================
+   SEPT 5 — SHARED HEADER DIVIDER LOCK
+   One grey divider beneath the global header on every page.
+========================================================= */
+:root {
+  --site-header-divider: rgba(17, 17, 17, 0.10);
+}
+
+.site-nav-global {
+  border-bottom: 1px solid var(--site-header-divider) !important;
+}
+
+.site-nav-global::before,
+.site-nav-global::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* =========================================================
+   SEPT 5 — REQUESTED HOME / CONTACT DIVIDER VISIBILITY
+========================================================= */
+.site-nav-global .nav-divider {
+  width: 1px !important;
+  flex: 0 0 1px !important;
+  height: 20px !important;
+  background: var(--site-header-divider, rgba(17, 17, 17, 0.10)) !important;
+}
+
+/* Contact uses the same current-viewport underline as the service links. */
+.site-nav-global a[data-nav="contact"].section-current {
+  overflow: visible !important;
+}
+.site-nav-global a[data-nav="contact"].section-current::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 8px !important;
+  right: 8px !important;
+  bottom: -2px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: var(--accent) !important;
+}
+
+/* =========================================================
+   SEPT 5 — CONTACT EDGE SPACING + GLOBAL HEADER DIVIDER FIX
+   Requested changes only.
+========================================================= */
+/* Match the outer right-side breathing room to the header's left inset,
+   which shifts the navigation group slightly left without changing item spacing. */
+.site-nav-global .nav-links {
+  padding-right: 20px !important;
+}
+
+/* Keep the same grey divider visible beneath the shared header on every page,
+   including the index/contact viewports where landing-page rules load later. */
+nav.site-nav-global {
+  border-bottom: 0 !important;
+}
+
+/* =========================================================
+   SEPT 5 — HEADER DIVIDER FRONT LAYER
+   Keep the grey divider visibly painted above the fixed header surface.
+========================================================= */
+nav.site-nav-global::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 1px !important;
+  background: var(--site-header-divider, rgba(17, 17, 17, 0.10)) !important;
+  z-index: 10005 !important;
+  pointer-events: none !important;
+}
+
+
+/* ===== SOURCE: layout.css ===== */
+/* SECTIONS */
+.section:first-of-type {
+  margin-top: var(--section-gap);
+}
+
+.section:last-of-type {
+  margin-bottom: var(--section-gap);
+}
+
+.section {
+  padding: var(--hero-gap) 0;
+}
+
+.section-title {
+  margin-bottom: 32px;
+  font-size: 46px;
+}
+
+.section .btn {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* ===== SOURCE: cards.css ===== */
+/* FEATURED LAYOUT */
+.feature-layout {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+/* BASE FEATURE CARD */
+.feature-card {
+  position: relative;
+  width: 100%;
+  display: block;
+  background: var(--card);
+  border: 0.5px solid #dfdede;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.feature-card:hover {
+  border-color: #ccc;
+}
+
+/* SHARED IMAGE POSITIONING */
+.feature-card img {
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  height: auto;
+  display: block;
+}
+
+/* =========================================================
+   HUB CARD GRID
+   Used by homepage category cards and category hub pages.
+   Matches the clean blue-grey card style from the reference.
+========================================================= */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 50px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 50px;
+}
+
+.hub-section {
+  padding: 16px 0 var(--hero-gap);
+}
+
+.hub-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 50px;
+}
+
+.hub-card {
+  position: relative;
+  min-height: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: 26px;
+  background: var(--card);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hub-card:hover {
+  border-color: var(--border);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.055);
+}
+
+/* Supports both naming systems:
+   Reference file: .hub-card-content / .hub-card-top
+   Current index:  .card-content / .card-top
+*/
+
+.hub-card-content,
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-card-top,
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.hub-card h1,
+.hub-card h2 {
+  font-size: clamp(25px, 3vw, 35px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 1.02;
+  color: #111;
+  max-width: 75%;
+  overflow-wrap: break-word;
+}
+
+.hub-number,
+.card-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  color: #aaa;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hub-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  min-height: 86px;
+  margin-bottom: 16px;
+}
+
+.hub-main-link,
+.card-main-link {
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 14px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.hub-main-link:hover,
+.card-main-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hub-links,
+.card-links {
+  display: grid;
+  gap: 8px;
+}
+
+.hub-links a,
+.card-links a {
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 12.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hub-links a:hover,
+.card-links a:hover {
+  color: #111;
+  outline: 2px solid var(--accent);
+}
+
+/* Add arrows automatically if your current links do not include spans */
+.card-links a::after {
+  content: "→";
+}
+
+.hub-links a span,
+.card-links a span {
+  margin-left: auto;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .grid-3,
+  .grid-4,
+  .hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .grid-3,
+  .grid-4,
+  .hub-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+/* PHOTOS — 4:3 */
+.photos-card {
+  aspect-ratio: 4 / 3;
+  max-width: 700px;
+}
+
+.photos-card img {
+  width: 84%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* CONTENT — 1:1 */
+.content-card {
+  aspect-ratio: 1 / 1;
+  max-width: 700px;
+}
+
+.content-card img {
+  width: 78%;
+  max-height: 72%;
+  object-fit: contain;
+}
+
+/* DESIGN — 16:9 */
+.design-card {
+  aspect-ratio: 16 / 9;
+  max-width: 1400px;
+}
+
+.design-card img {
+  width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+/* PILLS */
+.pill {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(255,255,255,0.88);
+  color: #111;
+  padding: 7px 13px;
+  border: 2px solid var(--accent);
+  border-color: var(--accent);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 5;
+}
+
+/* FEATURED DOG EAR */
+.dog-ear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 32px;
+  font-size: 16.1px;
+  font-weight: 500;
+  z-index: 6;
+  border-bottom-left-radius: 18px;
+}
+
+/* CARD BOTTOM TEXT BAND */
+.card-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  transition: border-color 0.2s ease;
+  padding: 10px 14px;
+  z-index: 4;
+}
+
+.feature-card:hover .card-caption,
+.mini-card:hover .card-caption {
+  border-top: 2px solid #dfdede;
+}
+
+.card-caption h3 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.card-caption p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* =========================================================
+   GOLD NAVIGATION CARD STYLE
+   Used by Aviation cards and Sitemap special-focus cards.
+   Darker gold family based on #b88921.
+========================================================= */
+
+.aviation-card,
+.special-card.sitemap-card {
+  position: relative;
+  min-height: 100%;
+  padding: 10px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 26px;
+  background: var(--gold-bg);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.aviation-card:hover,
+.special-card.sitemap-card:hover {
+  border-color: #b88921;
+  box-shadow: 0 18px 40px var(--gold-shadow);
+}
+
+.aviation-card-content,
+.special-card .sitemap-card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.aviation-card-top,
+.special-card .sitemap-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.aviation-card-top h1,
+.special-card .sitemap-card-top h1 {
+  flex: 0 1 75%;
+  width: 75%;
+  max-width: 75%;
+  min-width: 0;
+}
+
+.aviation-card h1,
+.special-card .sitemap-card-top h1 {
+  color: #b88921;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  letter-spacing: -1.5px;
+  line-height: 1.02;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.aviation-card p,
+.special-card.sitemap-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.aviation-number,
+.special-card .sitemap-number {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid rgba(184, 137, 33, 0.45);
+  color: #b88921;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.aviation-main-link,
+.special-card .sitemap-main-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 14px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #b88921;
+  border: 2px solid transparent;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: font-weight 0.2s ease, transform 0.2s ease;
+}
+
+.aviation-main-link:hover,
+.special-card .sitemap-main-link:hover {
+  background: #b88921;
+  border-color: transparent;
+  color: #fff;
+  font-weight: 600;
+}
+
+.aviation-links,
+.special-card .sitemap-links {
+  display: grid;
+  grid-template-rows: repeat(5, 32px);
+  gap: 8px;
+}
+
+.aviation-links a,
+.special-card .sitemap-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 32px;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid rgba(184, 137, 33, 0.18);
+  color: var(--muted);
+  font-size: 12.5px;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.aviation-links a::after,
+.special-card .sitemap-links a::after {
+  display: none;
+  content: "";
+}
+
+.aviation-links a:hover,
+.special-card .sitemap-links a:hover {
+  color: #111;
+  border-color: #b88921;
+  transform: translateX(2px);
+}
+
+@media (max-width: 620px) {
+  .aviation-card,
+  .special-card.sitemap-card {
+    border-radius: 24px;
+  }
+
+  .aviation-card h1,
+  .special-card .sitemap-card-top h1 {
+    font-size: clamp(24px, 9vw, 34px);
+  }
+}
+
+/* ===== SOURCE: buttons.css ===== */
+/* BUTTONS */
+.btn,
+.btn.primary {
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: transparent;
+  color: #111;
+  border: 2px solid var(--accent);
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn {
+  will-change: background, border-color, color;
+}
+
+.btn:hover,
+.btn.primary:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* =========================================================
+   MADHI STUDIO — DISPLAY CONTROLS
+   Added without changing the original light-theme palette,
+   typography, desktop layout, positioning, or visible copy.
+========================================================= */
+:root { color-scheme: light; }
+
+html[data-theme="dark"] {
+  --bg: #111111;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,.74);
+  --soft-muted: rgba(255,255,255,.56);
+  --accent: #0AC92B;
+  --gold: #FFD35A;
+  --gold-soft: rgba(255,211,90,.18);
+  --gold-medium: rgba(255,211,90,.45);
+  --gold-shadow: rgba(255,211,90,.12);
+  --gold-bg: #20242c;
+  --card: #20242c;
+  --border: rgba(255,255,255,.15);
+  --warm: #FFD35A;
+  --madhi-light-panel: #20242c;
+  --madhi-light-line: rgba(255,255,255,.12);
+  --madhi-shared-divider: rgba(255,255,255,.18);
+  --madhi-header-divider: rgba(255,255,255,.18);
+  --landing-header-divider: rgba(255,255,255,.18);
+  --service-header-divider: rgba(255,255,255,.18);
+  --site-header-divider: rgba(255,255,255,.18);
+  color-scheme: dark;
+}
+
+/* Small fixed controls; they do not participate in page layout. */
+.site-preferences {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1400;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.preference-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(17,17,17,.22);
+  border-radius: 999px;
+  background: rgba(255,255,255,.96);
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.preference-toggle:hover,
+.preference-toggle:focus-visible {
+  border-color: #0AC92B;
+  outline: none;
+  transform: translateY(-1px);
+}
+.preference-toggle[aria-pressed="true"] {
+  background: #0AC92B;
+  border-color: #0AC92B;
+  color: #ffffff;
+}
+.preference-glyph {
+  font-family: Arial, sans-serif !important;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+}
+#themeToggle .preference-glyph::before { content: "◐"; }
+#motionToggle .preference-glyph::before { content: "▶"; font-size: 15px; }
+html[data-motion="off"] #motionToggle .preference-glyph::before { content: "Ⅱ"; font-size: 16px; }
+
+/* Dark mode recolors only; dimensions and placement stay untouched. */
+html[data-theme="dark"] body,
+html[data-theme="dark"] body.section-green,
+html[data-theme="dark"] body.section-gold {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] nav,
+html[data-theme="dark"] .site-nav-global {
+  background: #111111 !important;
+  border-bottom-color: rgba(255,255,255,.18) !important;
+}
+html[data-theme="dark"] nav::after { background: rgba(255,255,255,.18) !important; }
+html[data-theme="dark"] nav a,
+html[data-theme="dark"] .dropdown a { color: rgba(255,255,255,.80) !important; }
+html[data-theme="dark"] nav a:hover { color: #ffffff !important; }
+html[data-theme="dark"] .nav-divider { background: rgba(255,255,255,.26) !important; }
+html[data-theme="dark"] .dropdown {
+  background: #171c24 !important;
+  border-color: rgba(255,255,255,.15) !important;
+}
+html[data-theme="dark"] .logo img { filter: brightness(0) invert(1); }
+
+html[data-theme="dark"] .hero.typing-hero-panel,
+html[data-theme="dark"] .services-viewport,
+html[data-theme="dark"] .studio-info-viewport,
+html[data-theme="dark"] #contact-cta.contact-viewport,
+html[data-theme="dark"] .page-section,
+html[data-theme="dark"] .collection {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] #branding-logos,
+html[data-theme="dark"] #ui-icons,
+html[data-theme="dark"] #motion-graphics,
+html[data-theme="dark"] #web-design {
+  background: #171c24 !important;
+}
+html[data-theme="dark"] .sitemap-card,
+html[data-theme="dark"] .studio-info-card,
+html[data-theme="dark"] .contact-guide-card,
+html[data-theme="dark"] .vector-info-card,
+html[data-theme="dark"] .info-panel,
+html[data-theme="dark"] .work-section .card-caption {
+  background: #20242c !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+html[data-theme="dark"] .contact-brief-form,
+html[data-theme="dark"] .contact-field input,
+html[data-theme="dark"] .contact-field select,
+html[data-theme="dark"] .contact-field textarea,
+html[data-theme="dark"] .attachment-dropzone {
+  background: #20242c !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+html[data-theme="dark"] .contact-field input::placeholder,
+html[data-theme="dark"] .contact-field textarea::placeholder { color: rgba(255,255,255,.56) !important; }
+html[data-theme="dark"] :is(.hero-static-byline,.services-byline,.studio-info-byline,.sitemap-summary,.sitemap-includes-line,.landing-feature-info,.landing-feature-info p,.studio-info-card p,.contact-intro p,.contact-guide-card,.info-panel p,.vector-info-card p,.caption) {
+  color: rgba(255,255,255,.76) !important;
+}
+html[data-theme="dark"] :is(.hero .hero-static-title,.hero h1,.contact-intro h2,.studio-info-card h3,.contact-guide-card h3,.contact-field-label,.landing-feature-info h2,.print-row h2,.info-panel h2) {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] :is(.section-title,.page-title,.studio-info-title,.landing-feature-info .caption,.aviation-kicker) {
+  color: #0AC92B !important;
+}
+html[data-theme="dark"] footer,
+html[data-theme="dark"] footer .footer-main,
+html[data-theme="dark"] footer .footer-main a,
+html[data-theme="dark"] .cta-footer .footer-main,
+html[data-theme="dark"] .cta-footer .footer-main a {
+  color: rgba(255,255,255,.72) !important;
+  border-color: rgba(255,255,255,.14) !important;
+}
+html[data-theme="dark"] .preference-toggle {
+  background: #20242c;
+  color: #ffffff;
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+}
+html[data-theme="dark"] .preference-toggle[aria-pressed="true"] {
+  background: #0AC92B;
+  border-color: #0AC92B;
+  color: #ffffff;
+}
+
+/* Website-wide motion policy. */
+html[data-motion="off"] { scroll-behavior: auto !important; }
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation-duration: .001ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+  transition-delay: 0ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Sitewide hamburger. Hidden on desktop; mobile-only navigation behavior. */
+html[data-page] .nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 2px solid #0AC92B;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111111;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+html[data-page] .nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform .2s ease, opacity .2s ease;
+}
+html[data-page] nav.mobile-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+html[data-page] nav.mobile-open .nav-toggle span:nth-child(2) { opacity: 0; }
+html[data-page] nav.mobile-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 1100px) {
+  html[data-page] body.mobile-menu-open { overflow: hidden !important; }
+  html[data-page] nav .nav-inner { position: relative !important; }
+  html[data-page] nav .nav-toggle { display: inline-flex !important; }
+  html[data-page] nav .nav-links {
+    position: absolute !important;
+    top: calc(100% + 1px) !important;
+    left: -18px !important;
+    right: -18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    padding: 0 18px !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(17,17,17,.10) !important;
+    box-shadow: 0 18px 34px rgba(0,0,0,.08) !important;
+    transition: max-height .26s ease, opacity .18s ease, padding .26s ease !important;
+  }
+  html[data-page] nav.mobile-open .nav-links {
+    max-height: calc(100svh - 78px) !important;
+    overflow-y: auto !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    padding-top: 12px !important;
+    padding-bottom: 18px !important;
+  }
+  html[data-page] nav .nav-links a,
+  html[data-page] nav a,
+  html[data-page] nav a.active {
+    width: 100% !important;
+    min-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 9px 12px !important;
+    border-radius: 14px !important;
+  }
+  html[data-page] nav .nav-links .nav-divider { display: none !important; }
+  html[data-theme="dark"] nav .nav-links {
+    background: #111111 !important;
+    border-bottom-color: rgba(255,255,255,.16) !important;
+  }
+  html[data-theme="dark"] nav .nav-toggle {
+    background: #20242c !important;
+    color: #ffffff !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-preferences { right: 10px; bottom: 10px; gap: 6px; }
+  .preference-toggle { width: 40px; height: 40px; }
+}
+
+/* =========================================================
+   INDEX-ALT HEADER COLOR TREATMENT
+   Applies only to index-alt.html via data-header-style="alt".
+   All other pages retain the original Madhi Studio header.
+========================================================= */
+:root {
+  --madhi-alt-header-bg: #32a8f7;
+  --madhi-alt-header-green: var(--accent);
+  --madhi-alt-header-white: #ffffff;
+  --madhi-alt-header-divider: rgba(255,255,255,.40);
+}
+
+html[data-header-style="alt"] nav.site-nav-global,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global {
+  background: var(--madhi-alt-header-bg) !important;
+  background-color: var(--madhi-alt-header-bg) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-bottom-width: 0 !important;
+  border-bottom-style: none !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+html[data-header-style="alt"] nav.site-nav-global .nav-inner,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global .nav-inner {
+  background: var(--madhi-alt-header-bg) !important;
+  background-color: var(--madhi-alt-header-bg) !important;
+}
+
+html[data-header-style="alt"] nav.site-nav-global::after,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+html[data-header-style="alt"] .site-nav-global .logo a,
+html[data-header-style="alt"] .site-nav-global .logo a:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo a,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo a:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+html[data-header-style="alt"] .site-nav-global .logo img,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+html[data-header-style="alt"] .site-nav-global .nav-links > a,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a {
+  color: var(--madhi-alt-header-white) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Hover = green pill border, white type. */
+html[data-header-style="alt"] .site-nav-global .nav-links > a:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:hover {
+  color: var(--madhi-alt-header-white) !important;
+  background: transparent !important;
+  border: 2px solid var(--madhi-alt-header-white) !important;
+}
+
+/* Current landing section = white 2px border, white type. */
+html[data-header-style="alt"] .site-nav-global .nav-links > a.section-current:not(.active),
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.section-current:not(.active) {
+  color: var(--madhi-alt-header-white) !important;
+  background: transparent !important;
+  border: 2px solid var(--madhi-alt-header-white) !important;
+}
+
+/* Active = green fill, white type, white 2px border. */
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+  color: var(--madhi-alt-header-white) !important;
+  background: var(--madhi-alt-header-green) !important;
+  border: 2px solid var(--madhi-alt-header-white) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,.10) !important;
+}
+
+html[data-header-style="alt"] .site-nav-global .nav-divider,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-divider {
+  width: 2px !important;
+  flex: 0 0 2px !important;
+  background: var(--madhi-alt-header-divider) !important;
+}
+
+html[data-header-style="alt"] .site-nav-global .nav-toggle,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-toggle {
+  color: var(--madhi-alt-header-white) !important;
+  background: transparent !important;
+  border-color: var(--madhi-alt-header-white) !important;
+}
+
+html[data-header-style="alt"] .site-nav-global .nav-toggle span,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-toggle span {
+  background: var(--madhi-alt-header-white) !important;
+}
+
+@media (max-width: 1100px) {
+  html[data-header-style="alt"] .site-nav-global .nav-links,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links {
+    background: var(--madhi-alt-header-bg) !important;
+    background-color: var(--madhi-alt-header-bg) !important;
+    border-bottom-color: var(--madhi-alt-header-divider) !important;
+  }
+}
+
+
+/* INDEX-ALT ONLY — final header edge lock. */
+html[data-header-style="alt"] nav.site-nav-global,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global {
+  border-top: 0 !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html[data-header-style="alt"] nav.site-nav-global::before,
+html[data-header-style="alt"] nav.site-nav-global::after,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::before,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html[data-header-style="alt"] body > main,
+html[data-header-style="alt"] body > main > :first-child {
+  border-top: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* INDEX-ALT ONLY — final visual edge lock (Sept 10). */
+html[data-header-style="alt"] nav.site-nav-global,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-bottom-width: 0 !important;
+  border-bottom-style: none !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+html[data-header-style="alt"] nav.site-nav-global::before,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html[data-header-style="alt"] nav.site-nav-global::after,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::after {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html[data-header-style="alt"] .site-nav-global .nav-links > a:hover,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.section-current:not(.active),
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.section-current:not(.active),
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+  border-width: 2px !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — SIX-LOCKUP LOGO SYSTEM
+   Shared by the Aerowander featured logo system only.
+========================================================= */
+.branding-system-collage.logo-system-six {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  background: #3b424c !important;
+}
+
+.branding-system-collage.logo-system-six .branding-system-item {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 30px 14px 14px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.branding-system-collage.logo-system-six .branding-system-label {
+  top: 10px !important;
+  left: 12px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  letter-spacing: .03em !important;
+  color: rgba(255,255,255,.82) !important;
+}
+
+.branding-system-collage.logo-system-six .branding-system-item img {
+  position: static !important;
+  width: 78% !important;
+  height: 68% !important;
+  max-width: 78% !important;
+  max-height: 68% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+  background: transparent !important;
+}
+
+.branding-system-collage.logo-system-six .layout-primary { grid-column: 1 !important; grid-row: 1 !important; }
+.branding-system-collage.logo-system-six .layout-inverse { grid-column: 1 !important; grid-row: 2 !important; }
+.branding-system-collage.logo-system-six .layout-mono    { grid-column: 1 !important; grid-row: 3 !important; display: flex !important; }
+.branding-system-collage.logo-system-six .layout-stacked { grid-column: 2 !important; grid-row: 1 !important; }
+.branding-system-collage.logo-system-six .layout-icon    { grid-column: 2 !important; grid-row: 2 !important; }
+.branding-system-collage.logo-system-six .layout-wordmark{ grid-column: 2 !important; grid-row: 3 !important; }
+
+@media (max-width: 620px) {
+  .branding-system-collage.logo-system-six {
+    gap: 8px !important;
+  }
+  .branding-system-collage.logo-system-six .branding-system-item {
+    padding: 27px 8px 8px !important;
+  }
+  .branding-system-collage.logo-system-six .branding-system-label {
+    top: 8px !important;
+    left: 8px !important;
+    font-size: 9px !important;
+  }
+  .branding-system-collage.logo-system-six .branding-system-item img {
+    width: 84% !important;
+    height: 70% !important;
+    max-width: 84% !important;
+    max-height: 70% !important;
+  }
+}
+
+
+/* =========================================================
+   SEPT 10 — INDEX-ALT HERO + NAV SCALE / AEROWANDER COLLAGE
+   Requested refinements only.
+========================================================= */
+/* Increase only the blue index-alt desktop navigation type and inter-item spacing by 15%. */
+@media (min-width: 1601px) {
+  html[data-header-style="alt"] .site-nav-global .nav-links {
+    gap: 20.7px !important;
+  }
+  html[data-header-style="alt"] .site-nav-global .nav-links > a,
+  html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="home"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="contact"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="branding-logos"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="ui-icons"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="motion-graphics"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="web-design"] {
+    font-size: 18.1125px !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1600px) {
+  html[data-header-style="alt"] .site-nav-global .nav-links {
+    gap: 11.5px !important;
+  }
+  html[data-header-style="alt"] .site-nav-global .nav-links > a,
+  html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="home"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="contact"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="branding-logos"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="ui-icons"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="motion-graphics"],
+  html[data-header-style="alt"] .site-nav-global .nav-links > a[data-nav="web-design"] {
+    font-size: 16.1px !important;
+  }
+}
+
+/* Six Aerowander lockups on index-alt: two clean columns, three rows, balanced visual scale. */
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  padding: 20px 26px !important;
+  background: #3b424c !important;
+}
+
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .branding-system-item {
+  padding: 8px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .branding-system-label {
+  display: none !important;
+}
+
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .branding-system-item img {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-primary { grid-column: 1 !important; grid-row: 1 !important; }
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-inverse { grid-column: 1 !important; grid-row: 2 !important; }
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-mono { grid-column: 1 !important; grid-row: 3 !important; }
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-icon { grid-column: 2 !important; grid-row: 1 !important; }
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-wordmark { grid-column: 2 !important; grid-row: 2 !important; }
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-stacked { grid-column: 2 !important; grid-row: 3 !important; }
+
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-primary img,
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-inverse img,
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-mono img {
+  width: 78% !important;
+  max-width: 78% !important;
+  max-height: 74% !important;
+}
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-icon img {
+  width: 24% !important;
+  max-width: 24% !important;
+  max-height: 72% !important;
+}
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-wordmark img {
+  width: 62% !important;
+  max-width: 62% !important;
+  max-height: 48% !important;
+}
+html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-stacked img {
+  width: 32% !important;
+  max-width: 32% !important;
+  max-height: 78% !important;
+}
+
+@media (max-width: 620px) {
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six { padding: 12px 10px !important; }
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .branding-system-item { padding: 5px 8px !important; }
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-primary img,
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-inverse img,
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-mono img { width: 88% !important; max-width: 88% !important; }
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-icon img { width: 34% !important; max-width: 34% !important; }
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-wordmark img { width: 78% !important; max-width: 78% !important; }
+  html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-stacked img { width: 44% !important; max-width: 44% !important; }
+}
+
+/* =========================================================
+   SEPT 10 — DISPLAY CONTROL + DARK MODE POLISH
+   Global behavior; no layout/content changes.
+========================================================= */
+
+/* Keep the motion preference implementation in JS, but hide/disable its UI control. */
+#motionToggle {
+  display: none !important;
+}
+
+/* Theme button itself becomes the half-dark / half-light symbol. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  background: linear-gradient(90deg, #111111 0 50%, #ffffff 50% 100%) !important;
+  border: 1px solid rgba(127,127,127,.55) !important;
+  color: transparent !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+}
+#themeToggle .preference-glyph {
+  display: none !important;
+}
+#themeToggle:hover,
+#themeToggle:focus-visible,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible {
+  border-color: var(--accent) !important;
+}
+
+/* Dark mode: headings/tile titles stay legible on dark surfaces. */
+html[data-theme="dark"] :is(
+  .section-title,
+  .page-title,
+  .studio-info-title,
+  .services-title,
+  .sitemap-card h1,
+  .sitemap-card h2,
+  .hub-card h1,
+  .hub-card h2,
+  .studio-info-card h3,
+  .landing-feature-info h2,
+  .info-panel h2,
+  .print-row h2
+) {
+  color: #ffffff !important;
+}
+
+/* Dark mode: button labels are white at rest and remain clear on hover/focus. */
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button
+) {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button
+):is(:hover, :focus-visible) {
+  color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — REQUESTED DISPLAY / HOVER FINISHES
+   Global where applicable; no layout or copy changes.
+========================================================= */
+
+/* Theme toggle: exact half-black / half-white disc with a 2px theme-aware border. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  color: transparent !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #111111 !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+}
+#themeToggle::before,
+#themeToggle::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 50% !important;
+  pointer-events: none !important;
+}
+#themeToggle::before {
+  left: 0 !important;
+  background: #111111 !important;
+}
+#themeToggle::after {
+  right: 0 !important;
+  background: #ffffff !important;
+}
+#themeToggle:hover,
+#themeToggle:focus-visible {
+  border-color: #111111 !important;
+}
+html[data-theme="dark"] #themeToggle,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible {
+  border-color: #ffffff !important;
+}
+#themeToggle .preference-glyph { display: none !important; }
+
+/* Hero service links: no movement; a subtle visual-bold treatment only. */
+html[data-header-style="alt"] .hero-service-pills a {
+  font-weight: 400 !important;
+  transform: none !important;
+  filter: none !important;
+  text-shadow: 0 0 transparent !important;
+  transition: color .16s ease !important;
+}
+html[data-header-style="alt"] .hero-service-pills a:hover,
+html[data-header-style="alt"] .hero-service-pills a:focus-visible,
+html[data-header-style="alt"][data-theme="dark"] .hero-service-pills a:hover,
+html[data-header-style="alt"][data-theme="dark"] .hero-service-pills a:focus-visible {
+  color: var(--accent) !important;
+  font-weight: 400 !important;
+  transform: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+/* UI / Icons demo button matches the site's outlined buttons. */
+.soccer-demo button:not(.is-active) {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 2px solid var(--accent) !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.soccer-demo button:not(.is-active):hover,
+.soccer-demo button:not(.is-active):focus-visible {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}
+
+/* Contact current-section state on the blue header is pill-only: no underline. */
+html[data-header-style="alt"] .site-nav-global a[data-nav="contact"].section-current::after,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global a[data-nav="contact"].section-current::after,
+html[data-header-style="alt"] .site-nav-global a[data-nav="contact"].active.section-current::after,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global a[data-nav="contact"].active.section-current::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Dark mode button labels are black on their white resting fill; white on green hover. */
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action
+) {
+  color: #111111 !important;
+}
+html[data-theme="dark"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action
+):is(:hover, :focus-visible) {
+  color: #ffffff !important;
+}
+
+/* Service-number badges use the same typeface as the service title. */
+.sitemap-number,
+.hub-number,
+.card-number {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 400 !important;
+}
+
+/* Pop-out/new-tab arrows are black on their resting white circle. */
+.preview-popout,
+.popout-action,
+.preview-popout svg,
+.popout-action svg,
+.preview-popout .btn-arrow,
+.popout-action .btn-arrow {
+  color: #111111 !important;
+}
+.preview-popout:hover,
+.preview-popout:focus-visible,
+.popout-action:hover,
+.popout-action:focus-visible,
+.preview-popout:hover svg,
+.preview-popout:focus-visible svg,
+.popout-action:hover svg,
+.popout-action:focus-visible svg {
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   SEPT 10 — DARK MODE BUTTON / TOGGLE FINAL LOCK
+   Requested global behavior. No layout/copy changes.
+========================================================= */
+
+/* Motion implementation remains available in JS, but the control stays hidden. */
+#motionToggle { display: none !important; }
+
+/* Theme control: exact 50/50 black + white fill with theme-aware 2px border. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #111111 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #111111 0%, #111111 50%, #ffffff 50%, #ffffff 100%) !important;
+  background-image: linear-gradient(90deg, #111111 0%, #111111 50%, #ffffff 50%, #ffffff 100%) !important;
+  color: transparent !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+}
+#themeToggle::before,
+#themeToggle::after {
+  content: none !important;
+  display: none !important;
+}
+#themeToggle .preference-glyph { display: none !important; }
+#themeToggle:hover,
+#themeToggle:focus-visible { border-color: #111111 !important; }
+html[data-theme="dark"] #themeToggle,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible { border-color: #ffffff !important; }
+
+/* Blue-header active nav pill: green fill, white text, transparent border. */
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
+  color: #ffffff !important;
+  background: var(--accent) !important;
+  border-color: transparent !important;
+}
+
+/* Dark mode: all visible site buttons rest as white / black with no visible border. */
+html[data-theme="dark"] :is(
+  a.btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action,
+  .aerowordsmith-fullscreen,
+  .aoe-learning-replay,
+  button:not(#themeToggle):not(#motionToggle):not(.nav-toggle):not(.attachment-browse)
+) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border-color: transparent !important;
+}
+
+html[data-theme="dark"] :is(
+  a.btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action,
+  .aerowordsmith-fullscreen,
+  .aoe-learning-replay,
+  button:not(#themeToggle):not(#motionToggle):not(.nav-toggle):not(.attachment-browse)
+):is(:hover, :focus-visible) {
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+/* Dark-mode pop-out controls specifically have no green ring at rest. */
+html[data-theme="dark"] :is(.preview-popout, .popout-action) {
+  border-color: transparent !important;
+}
+html[data-theme="dark"] :is(.preview-popout, .popout-action),
+html[data-theme="dark"] :is(.preview-popout, .popout-action) svg,
+html[data-theme="dark"] :is(.preview-popout, .popout-action) .btn-arrow {
+  color: #111111 !important;
+}
+html[data-theme="dark"] :is(.preview-popout, .popout-action):is(:hover, :focus-visible),
+html[data-theme="dark"] :is(.preview-popout, .popout-action):is(:hover, :focus-visible) svg,
+html[data-theme="dark"] :is(.preview-popout, .popout-action):is(:hover, :focus-visible) .btn-arrow {
+  color: #ffffff !important;
+}
+
+/* UI demo button follows the same dark-mode button treatment. */
+html[data-theme="dark"] .soccer-demo button:not(.is-active) {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-color: transparent !important;
+}
+html[data-theme="dark"] .soccer-demo button:not(.is-active):is(:hover, :focus-visible) {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+/* Service numbers use the same system face as their neighboring title and sit optically centered. */
+.sitemap-card-top .sitemap-number,
+.hub-card-top .hub-number,
+.card-top .card-number {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — REQUESTED LIGHT/DARK + BRANDING/FORM REFINEMENTS
+   Final shared overrides only.
+========================================================= */
+
+/* Featured category labels: 20% larger and bold in both themes. */
+.caption,
+.landing-feature-info .caption,
+.info-panel .caption {
+  font-size: 14.4px !important;
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+}
+html[data-theme="dark"] :is(.caption, .landing-feature-info .caption, .info-panel .caption) {
+  color: var(--accent) !important;
+}
+
+/* Service-number badge type/color follows the neighboring section title. */
+.sitemap-card-top .sitemap-number,
+.hub-card-top .hub-number,
+.card-top .card-number {
+  font-family: inherit !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  color: #111111 !important;
+  text-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 0 2px !important;
+}
+html[data-theme="dark"] .sitemap-card-top .sitemap-number,
+html[data-theme="dark"] .hub-card-top .hub-number,
+html[data-theme="dark"] .card-top .card-number {
+  color: #ffffff !important;
+  background: transparent !important;
+  border-color: rgba(255,255,255,.28) !important;
+}
+
+/* Contact fields: green focus ring and persistent valid-state cue in both themes. */
+.contact-input-shell input:focus,
+.contact-input-shell select:focus,
+.contact-input-shell textarea:focus,
+html[data-theme="dark"] .contact-input-shell input:focus,
+html[data-theme="dark"] .contact-input-shell select:focus,
+html[data-theme="dark"] .contact-input-shell textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(10,201,43,.10) !important;
+  outline: none !important;
+}
+.contact-field.is-valid .contact-input-shell input,
+.contact-field.is-valid .contact-input-shell select,
+.contact-field.is-valid .contact-input-shell textarea,
+html[data-theme="dark"] .contact-field.is-valid .contact-input-shell input,
+html[data-theme="dark"] .contact-field.is-valid .contact-input-shell select,
+html[data-theme="dark"] .contact-field.is-valid .contact-input-shell textarea {
+  border-color: var(--accent) !important;
+}
+.contact-field .field-check {
+  opacity: 0 !important;
+}
+.contact-field.is-valid .field-check {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* Home featured Branding system: three equal horizontal logo lockups, stacked vertically. */
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  padding: 22px 28px !important;
+  background: #3b424c !important;
+}
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .branding-system-item {
+  grid-column: 1 !important;
+  padding: 8px 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .layout-primary { grid-row: 1 !important; }
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .layout-inverse { grid-row: 2 !important; }
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .layout-mono { grid-row: 3 !important; }
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .branding-system-label {
+  display: none !important;
+}
+#branding-logos .branding-system-feature-card .branding-system-collage.logo-system-three .branding-system-item img {
+  position: static !important;
+  width: 88% !important;
+  height: auto !important;
+  max-width: 88% !important;
+  max-height: 86% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — SERVICE-PAGE DARK SURFACE CLEANUP
+   Keep individual service-page information panels on the page
+   background instead of the medium-grey card surface.
+========================================================= */
+html[data-page="service"][data-theme="dark"] .info-panel {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SEPT 10 — GLOBAL THEME PERSISTENCE VISUAL LOCK + SVG CANVAS
+   Keeps every page on the selected theme and leaves SVG
+   artwork transparent so each tile owns its own background.
+========================================================= */
+html[data-theme="dark"] body,
+html[data-theme="dark"] main,
+html[data-theme="dark"] .page-section,
+html[data-theme="dark"] .collection,
+html[data-theme="dark"] .print-list,
+html[data-theme="dark"] .print-row {
+  background-color: #111111 !important;
+}
+
+/* SVG artwork itself never paints a wrapper/background; tile classes remain in control. */
+.svg-artwork,
+.svg-artwork > object[type="image/svg+xml"],
+.svg-artwork > img[src$=".svg"],
+.image-card object[type="image/svg+xml"],
+.image-card img[src$=".svg"],
+.branding-system-item,
+.branding-system-item img[src$=".svg"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Static branding SVGs render as transparent images over their existing tile fills. */
+.aoe-logo-row .svg-artwork img,
+.aoi-logo-row .svg-artwork img,
+.wanderports-logo-row .svg-artwork img {
+  display: block;
+  background: transparent !important;
+  background-color: transparent !important;
+  object-fit: contain;
+  object-position: center center;
+}
+
+
+/* =========================================================
+   SEPT 10 — SPLIT-FLAP / TURNTABLE / AOE + DARK HEADER FIX
+   Requested targeted adjustments only.
+========================================================= */
+
+/* Dark-mode global header uses the same medium gray as the camera tile. */
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global,
+html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global .nav-inner {
+  background: #3b424c !important;
+  background-color: #3b424c !important;
+}
+@media (max-width: 1100px) {
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links {
+    background: #3b424c !important;
+    background-color: #3b424c !important;
+  }
+}
+
+/* Split-flap controls: match the descriptive-copy color in dark mode and keep a visible caret. */
+html[data-theme="dark"] .splitflap-row .city-demo label {
+  color: var(--muted) !important;
+}
+html[data-theme="dark"] .splitflap-row .city-controls input {
+  caret-color: #111111 !important;
+  color: #111111 !important;
+}
+html[data-theme="dark"] .splitflap-row .city-controls input:focus {
+  caret-color: #111111 !important;
+}
+
+/* Turntable artwork owns a full white tile in dark mode on both the Motion page and homepage. */
+html[data-theme="dark"] .turntable-row .image-card,
+html[data-theme="dark"] .turntable-row .svg-artwork,
+html[data-theme="dark"] #motion-graphics .landing-turntable-artwork,
+html[data-theme="dark"] #motion-graphics .landing-turntable-inline,
+html[data-theme="dark"] #motion-graphics #turntableInline,
+html[data-theme="dark"] #turntableInline .turntableSvg {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+html[data-theme="dark"] #turntableInline .turntable-bg,
+html[data-theme="dark"] .turntable-row .turntable-bg {
+  fill: #ffffff !important;
+}
+
+/* AOE learning object itself stays transparent; the surrounding tile supplies the fill. */
+.aoe-learning-row .aoe-learning-artwork,
+.aoe-learning-row .aoe-learning-artwork object,
+.aoe-learning-row #aoeLearningObject {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* =========================================================
+   SEPT 10 — SVG TRANSPARENCY + POPOUT STABILITY
+   Requested targeted adjustments only.
+========================================================= */
+
+/* External SVG artwork should show only its artwork; the tile owns the background. */
+.aoe-learning-row .aoe-learning-artwork img,
+.camera-row .svg-artwork img.motion-svg-object {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Website pop-out controls: reserve a transparent border in every state and never shift on hover. */
+.preview-popout,
+.landing-preview-popout,
+.popout-action,
+html[data-theme="dark"] .preview-popout,
+html[data-theme="dark"] .landing-preview-popout,
+html[data-theme="dark"] .popout-action {
+  border: 2px solid transparent !important;
+  transform: none !important;
+  translate: none !important;
+  transition: background-color .18s ease, color .18s ease, box-shadow .18s ease !important;
+}
+
+.preview-popout:hover,
+.preview-popout:focus-visible,
+.landing-preview-popout:hover,
+.landing-preview-popout:focus-visible,
+.popout-action:hover,
+.popout-action:focus-visible,
+html[data-theme="dark"] .preview-popout:hover,
+html[data-theme="dark"] .preview-popout:focus-visible,
+html[data-theme="dark"] .landing-preview-popout:hover,
+html[data-theme="dark"] .landing-preview-popout:focus-visible,
+html[data-theme="dark"] .popout-action:hover,
+html[data-theme="dark"] .popout-action:focus-visible {
+  border-color: transparent !important;
+  transform: none !important;
+  translate: none !important;
+}
+
+.preview-popout svg,
+.landing-preview-popout svg,
+.popout-action svg,
+.preview-popout:hover svg,
+.landing-preview-popout:hover svg,
+.popout-action:hover svg {
+  transform: none !important;
+}
+
+
+
+/* =========================================================
+   SEPT 11 — GLOBAL TEXT BUTTON SCALE
+   Match button labels to the site's paragraph text scale.
+========================================================= */
+:is(
+  a.btn,
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action,
+  .aerowordsmith-fullscreen,
+  .aoe-learning-replay,
+  input[type="submit"],
+  input[type="button"],
+  button:not(#themeToggle):not(#motionToggle):not(.nav-toggle)
+) {
+  font-size: 14.4px !important;
+}
+
+
+/* =========================================================
+   SEPT 11 — EXTERNAL / NEW-TAB POPOUT CONTROL
+   Green ring at rest; green fill + white arrow on hover.
+========================================================= */
+html :is(.preview-popout, .landing-preview-popout, .popout-action),
+html[data-theme="dark"] :is(.preview-popout, .landing-preview-popout, .popout-action) {
+  border: 2px solid var(--accent) !important;
+  border-color: var(--accent) !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  transform: none !important;
+  translate: none !important;
+  box-sizing: border-box !important;
+}
+
+html :is(.preview-popout, .landing-preview-popout, .popout-action):is(:hover, :focus-visible),
+html[data-theme="dark"] :is(.preview-popout, .landing-preview-popout, .popout-action):is(:hover, :focus-visible) {
+  border-color: transparent !important;
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  transform: none !important;
+  translate: none !important;
+}
+
+html :is(.preview-popout, .landing-preview-popout, .popout-action) svg,
+html :is(.preview-popout, .landing-preview-popout, .popout-action) .btn-arrow {
+  color: inherit !important;
+  stroke: currentColor !important;
+}
+
+
+/* =========================================================
+   SEPT 11 — REQUESTED DARK TILE / DETAIL REFINEMENTS
+========================================================= */
+
+/* Dark-mode tile fill matches the What I Do cards (#20242c).
+   Light-mode tile fills are intentionally unchanged. */
+html[data-theme="dark"] #branding-logos .branding-system-feature-card,
+html[data-theme="dark"] #branding-logos .branding-system-collage.logo-system-three,
+html[data-theme="dark"] .branding-feature-row .image-card,
+html[data-theme="dark"] .branding-feature-row .branding-system-collage.logo-system-three,
+html[data-theme="dark"] .a380-row .image-card,
+html[data-theme="dark"] .runway-inspection-row .image-card,
+html[data-theme="dark"] .runway-inspection-row .runway-inspection-frame,
+html[data-theme="dark"] .camera-row .image-card,
+html[data-theme="dark"] .camera-row .svg-artwork {
+  background: #20242c !important;
+  background-color: #20242c !important;
+}
+
+/* AOE Learning uses a white tile in both themes. */
+.aoe-learning-row .image-card {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Keep the replay control outlined green, including dark mode. */
+.aoe-learning-replay,
+html[data-theme="dark"] .aoe-learning-replay,
+.aoe-learning-replay:hover,
+.aoe-learning-replay:focus-visible,
+html[data-theme="dark"] .aoe-learning-replay:hover,
+html[data-theme="dark"] .aoe-learning-replay:focus-visible {
+  border: 2px solid var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Camera artwork: +25% from 45% to 56.25%. */
+.camera-row .svg-artwork .motion-svg-object {
+  width: 56.25% !important;
+  height: 56.25% !important;
+}
+
+/* Larger external/new-tab arrows while preserving the existing circle size. */
+html body .preview-popout svg,
+html body .landing-preview-popout svg {
+  width: 23px !important;
+  height: 23px !important;
+}
+html body .popout-action .btn-arrow,
+html body .popout-action .btn-arrow svg {
+  width: 23px !important;
+  height: 23px !important;
+}
+
+/* Contact email: green address; punctuation outside the link keeps normal text color. */
+.contact-email-note a {
+  color: var(--accent) !important;
+  text-decoration: underline !important;
+  text-decoration-color: currentColor !important;
+  text-underline-offset: .14em !important;
+}
+html[data-theme="dark"] .contact-email-note a {
+  text-decoration-color: #ffffff !important;
+}
+
+/* =========================================================
+   SEPT 11 — REQUESTED THEME CONTROL + MAP FULLSCREEN
+========================================================= */
+/* Theme control reduced by 30% from 44px. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  width: 31px !important;
+  height: 31px !important;
+  min-width: 31px !important;
+  min-height: 31px !important;
+}
+
+/* Fullscreen control shared by the landing and User Interfaces airport maps. */
+.landing-airport-network-card,
+.wanderports-ui-row .image-card {
+  position: relative !important;
+}
+.map-fullscreen-control {
+  position: absolute !important;
+  top: 18px !important;
+  right: 18px !important;
+  z-index: 30 !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  background: #ffffff !important;
+  color: #111111 !important;
+  cursor: pointer !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.10) !important;
+  transition: background-color .18s ease, color .18s ease !important;
+}
+.map-fullscreen-control-under-dogear {
+  top: 58px !important;
+}
+.map-fullscreen-control svg {
+  width: 20px !important;
+  height: 20px !important;
+  display: block !important;
+}
+.map-fullscreen-control:hover,
+.map-fullscreen-control:focus-visible,
+html[data-theme="dark"] .map-fullscreen-control:hover,
+html[data-theme="dark"] .map-fullscreen-control:focus-visible {
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  outline: none !important;
+  transform: none !important;
+}
+.landing-airport-network-card:fullscreen,
+.wanderports-ui-row .image-card:fullscreen {
+  width: 100vw !important;
+  max-width: none !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: #111111 !important;
+}
+.landing-airport-network-card:fullscreen .landing-airport-network-wrap,
+.wanderports-ui-row .image-card:fullscreen .wanderports-map-frame {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  inset: 0 !important;
+}
+.landing-airport-network-card:fullscreen .map-fullscreen-control-under-dogear {
+  top: 58px !important;
+}
+
+
+
+/* =========================================================
+   SEPT 11 — LIGHT THEME PANEL + TYPOGRAPHY / CONTROL FINISH
+   Requested targeted adjustments only.
+========================================================= */
+
+/* All pale-blue Madhi UI panels become neutral #F5F5F5 in light mode only. */
+html[data-theme="light"] {
+  --card: #F5F5F5 !important;
+  --madhi-light-panel: #F5F5F5 !important;
+}
+html[data-theme="light"] :is(
+  #services .sitemap-card,
+  .studio-info-card,
+  .contact-guide-card,
+  .vector-info-card,
+  .city-demo,
+  .evacuation-demo,
+  .craft-card,
+  .work-section .card-caption
+) {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+}
+
+/* Landing hero: service links match the byline size, stay regular-weight on hover. */
+html[data-theme="light"][data-header-style="alt"] #home .hero-service-pills a,
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-pills a {
+  font-size: clamp(14.4px, .972vw, 18.9px) !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+}
+html[data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible) {
+  color: var(--accent) !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+/* Light-mode hero and What I Do card titles use the requested deep blue. */
+html[data-theme="light"] #home .hero-static-title,
+html[data-theme="light"] #home .hero-static-title > span,
+html[data-theme="light"] #services .sitemap-card h2,
+html[data-theme="light"] #services .sitemap-card h2 > span {
+  color: #1f2a44 !important;
+}
+
+/* Service-card number bubbles use the handwritten hero face. */
+#services .sitemap-number {
+  font-family: "Shadows Into Light", cursive !important;
+  font-weight: 400 !important;
+}
+
+/* Align the 'This service includes:' line across all four service cards. */
+html[data-header-style="alt"] #services .sitemap-service-copy {
+  display: grid !important;
+  grid-template-rows: 94px auto !important;
+  row-gap: 0 !important;
+}
+html[data-header-style="alt"] #services .sitemap-summary {
+  min-height: 94px !important;
+}
+html[data-header-style="alt"] #services .sitemap-includes-block {
+  margin-top: 0 !important;
+}
+
+/* Larger approach arrows, with about half the previous empty side space. */
+@media (min-width: 1101px) {
+  html[data-header-style="alt"] .approach-viewport .studio-info-card:not(:last-child)::after {
+    width: 38px !important;
+    height: 18px !important;
+    clip-path: polygon(0 34%, 54% 34%, 54% 0, 100% 50%, 54% 100%, 54% 66%, 0 66%) !important;
+  }
+}
+@media (max-width: 1100px) {
+  html[data-header-style="alt"] .approach-viewport .studio-info-card:not(:last-child)::after {
+    width: 30px !important;
+    height: 16px !important;
+    clip-path: polygon(0 34%, 54% 34%, 54% 0, 100% 50%, 54% 100%, 54% 66%, 0 66%) !important;
+  }
+}
+
+/* Theme disc: slightly smaller than the original 44px and matched to the 40px pop-out bubble. */
+#themeToggle,
+html[data-theme="dark"] #themeToggle {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+}
+
+/* Compact custom scrollbar visual. The native colored thumb is hidden; scrolling remains native. */
+html {
+  scrollbar-width: none !important;
+}
+html::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+#madhiScrollTrack {
+  position: fixed;
+  z-index: 2000;
+  top: 10px;
+  right: 4px;
+  bottom: 10px;
+  width: 13px;
+  border-radius: 999px;
+  background: rgba(10, 201, 43, 0.15);
+  pointer-events: auto;
+}
+#madhiScrollThumb {
+  position: absolute;
+  top: 0;
+  left: 3.5px;
+  width: 6px;
+  height: 31vh;
+  min-height: 90px;
+  max-height: 230px;
+  border-radius: 999px;
+  background: var(--accent);
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+}
+#madhiScrollThumb:active { cursor: grabbing; }
+
+/* Light-theme branding and project tile fills. Dark-theme treatments remain unchanged. */
+html[data-theme="light"] #branding-logos .branding-system-feature-card,
+html[data-theme="light"] #branding-logos .branding-system-collage.logo-system-three,
+html[data-theme="light"] .branding-feature-row .image-card,
+html[data-theme="light"] .branding-feature-row .branding-system-collage.logo-system-three,
+html[data-theme="light"] .aoe-logo-row .image-card,
+html[data-theme="light"] .aoi-logo-row .image-card,
+html[data-theme="light"] .a380-row .image-card,
+html[data-theme="light"] .runway-inspection-row .image-card,
+html[data-theme="light"] .runway-inspection-row .runway-inspection-frame,
+html[data-theme="light"] .camera-row .image-card,
+html[data-theme="light"] .camera-row .svg-artwork {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+}
+
+/* Split-flap light mode: neutral outer/header fill, while every flap card remains black. */
+html[data-theme="light"] .splitflap-row .image-card,
+html[data-theme="light"] .splitflap-row .svg-artwork,
+html[data-theme="light"] .splitflap-row .solari-demo,
+html[data-theme="light"] .splitflap-row .solari-board,
+html[data-theme="light"] .splitflap-row .solari-header-row,
+html[data-theme="light"] .splitflap-row .solari-header-row .solari-col {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+}
+html[data-theme="light"] .splitflap-row .solari-header-row,
+html[data-theme="light"] .splitflap-row .solari-header-row .solari-col {
+  color: #111111 !important;
+}
+html[data-theme="light"] .splitflap-row .solari-data-row,
+html[data-theme="light"] .splitflap-row .solari-data-row .solari-col {
+  background: #070707 !important;
+  background-color: #070707 !important;
+}
+html[data-theme="light"] .splitflap-row .solari-half,
+html[data-theme="light"] .splitflap-row .solari-motion,
+html[data-theme="light"] .splitflap-row .solari-stair-spacer::before,
+html[data-theme="light"] .splitflap-row .solari-stair-spacer::after,
+html[data-theme="light"] .splitflap-row .solari-signal-half {
+  background: #080808 !important;
+  background-color: #080808 !important;
+}
+
+/* Airport-map fullscreen controls use the same blue as the map water. */
+.map-fullscreen-control,
+html[data-theme="dark"] .map-fullscreen-control {
+  border: 2px solid #5CBBFF !important;
+  border-color: #5CBBFF !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #5CBBFF !important;
+}
+.map-fullscreen-control:hover,
+.map-fullscreen-control:focus-visible,
+html[data-theme="dark"] .map-fullscreen-control:hover,
+html[data-theme="dark"] .map-fullscreen-control:focus-visible {
+  border-color: var(--accent) !important;
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   SEPT 11 — TARGETED FINAL POLISH
+   Only the requested control, light-theme artwork, form, and fullscreen refinements.
+========================================================= */
+
+/* Contact attachment browse action: same green as the email address;
+   dark-mode underline remains white for contrast. */
+.attachment-browse {
+  color: var(--accent) !important;
+  text-decoration: underline !important;
+  text-decoration-color: currentColor !important;
+  text-underline-offset: .15em !important;
+}
+html[data-theme="dark"] .attachment-browse {
+  color: var(--accent) !important;
+  text-decoration-color: #ffffff !important;
+}
+
+/* Contact form field labels match the surrounding paragraph text scale. */
+.contact-field-label {
+  font-size: 14.5px !important;
+}
+
+/* Theme toggle: no hover movement; only the border turns green. */
+#themeToggle,
+#themeToggle:hover,
+#themeToggle:focus-visible,
+html[data-theme="dark"] #themeToggle,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible {
+  transform: none !important;
+  translate: none !important;
+  transition: border-color .18s ease !important;
+}
+#themeToggle:hover,
+#themeToggle:focus-visible,
+html[data-theme="dark"] #themeToggle:hover,
+html[data-theme="dark"] #themeToggle:focus-visible {
+  border-color: var(--accent) !important;
+}
+
+/* Button labels are bold everywhere; existing font sizes remain unchanged. */
+:is(
+  button,
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .landing-preview-popout,
+  .popout-action,
+  input[type="submit"],
+  input[type="button"]
+) {
+  font-weight: 700 !important;
+}
+
+/* Restore the service-card number bubbles to their previous typeface. */
+#services .sitemap-number,
+.sitemap-card-top .sitemap-number {
+  font-family: inherit !important;
+  font-weight: 500 !important;
+}
+
+/* Keep the airport-network artwork proportional when the tile enters fullscreen. */
+.landing-airport-network-card:fullscreen,
+.wanderports-ui-row .image-card:fullscreen {
+  display: grid !important;
+  place-items: center !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  background: #111111 !important;
+  overflow: hidden !important;
+}
+.landing-airport-network-card:fullscreen .landing-airport-network-wrap,
+.wanderports-ui-row .image-card:fullscreen .wanderports-map-frame {
+  width: min(100vw, 177.7778vh) !important;
+  height: min(100vh, 56.25vw) !important;
+  min-height: 0 !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  aspect-ratio: 16 / 9 !important;
+  inset: auto !important;
+  margin: auto !important;
+  object-fit: contain !important;
+}
+.landing-airport-network-card:fullscreen .landing-airport-network-frame {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+/* A380: one artwork per theme. Light mode uses the single outline drawing and fills the tile. */
+.a380-row .a380-artwork-light { display: block !important; }
+.a380-row .a380-artwork-dark { display: none !important; }
+html[data-theme="dark"] .a380-row .a380-artwork-light { display: none !important; }
+html[data-theme="dark"] .a380-row .a380-artwork-dark { display: block !important; }
+html[data-theme="light"] .a380-row .a380-artwork-light {
+  width: 96% !important;
+  height: 96% !important;
+  max-width: 96% !important;
+  max-height: 96% !important;
+  margin: auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+/* Light-mode requested neutral tile fills. */
+html[data-theme="light"] .runway-inspection-row .image-card,
+html[data-theme="light"] .runway-inspection-row .runway-inspection-frame,
+html[data-theme="light"] .splitflap-row .image-card,
+html[data-theme="light"] .splitflap-row .svg-artwork,
+html[data-theme="light"] .camera-row .image-card,
+html[data-theme="light"] .camera-row .svg-artwork {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+}
+
+/* "Try a destination" panel gets the same border treatment as its parent tile. */
+.splitflap-row .city-demo,
+.splitflap-row .city-demo-controls-only {
+  border: 1px solid var(--border) !important;
+}
+
+/* =========================================================
+   SEPT 11 — FINAL REQUESTED MICRO-REFINEMENTS
+========================================================= */
+
+/* Number bubbles: keep the existing face/size, but make the numeral bold. */
+#services .sitemap-number,
+.sitemap-card-top .sitemap-number,
+.hub-card-top .hub-number,
+.card-top .card-number {
+  font-weight: 700 !important;
+}
+
+/* Button labels: slightly less bold than the prior 700 treatment; size unchanged. */
+:is(
+  button,
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .landing-preview-popout,
+  .popout-action,
+  input[type="submit"],
+  input[type="button"]
+) {
+  font-weight: 600 !important;
+}
+
+/* Attachment browse text is intentionally regular-weight. */
+.attachment-browse {
+  font-weight: 400 !important;
+}
+
+/* Light-mode Runway Marking Inspection tile uses the same neutral tile gray. */
+html[data-theme="light"] .runway-inspection-row .image-card,
+html[data-theme="light"] .runway-inspection-row .runway-inspection-frame {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+}
+
+/* =========================================================
+   SEPT 11 — BRANDING LIGHT SURFACES + HERO / POPOUT FINISH
+   Targeted changes only.
+========================================================= */
+
+/* Light mode: all Branding page artwork tiles are pure white.
+   Dark-mode tile treatments remain unchanged. */
+html[data-theme="light"] body.section-green :is(
+  .branding-feature-row .image-card,
+  .branding-feature-row .branding-system-collage.logo-system-three,
+  .aoe-logo-row .image-card,
+  .aoi-logo-row .image-card,
+  .wanderports-logo-row .image-card,
+  .a380-row .image-card
+) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Light mode: the Branding logo-system tile on index.html is white as well. */
+html[data-theme="light"] #branding-logos :is(
+  .branding-system-feature-card,
+  .branding-system-collage.logo-system-three
+) {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Branding logo system: normalize all three lockups to the exact same render box
+   in both themes so icon and wordmark scale/alignment stay consistent. */
+.branding-feature-row .branding-system-collage.logo-system-three .branding-system-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.branding-feature-row .branding-system-collage.logo-system-three .branding-system-item img {
+  width: 94% !important;
+  height: 100% !important;
+  max-width: 94% !important;
+  max-height: 100% !important;
+  margin: 0 auto !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  transform: none !important;
+}
+
+/* Light-mode handwritten hero headings use the requested neutral gray. */
+html[data-theme="light"] #home .hero-static-title,
+html[data-theme="light"] #home .hero-static-title > span,
+html[data-theme="light"] .cta-static-title,
+html[data-theme="light"] .cta-static-title > span {
+  color: #8a8e92 !important;
+}
+
+/* External/new-tab arrow: reduce stroke weight to match the medium-weight action text. */
+html :is(.preview-popout, .landing-preview-popout, .popout-action) svg path,
+html[data-theme="dark"] :is(.preview-popout, .landing-preview-popout, .popout-action) svg path {
+  stroke-width: 2.1 !important;
+}
+
+/* =========================================================
+   SEPT 11 — REQUESTED WEIGHT / HOVER / THEME-TOGGLE POLISH
+   No layout or content changes.
+========================================================= */
+
+/* Dark mode: replace the black half of the theme disc with the same neutral
+   gray used for the light-theme hero text. */
+html[data-theme="dark"] #themeToggle::before {
+  background: #8a8e92 !important;
+}
+
+/* Hero service labels: keep the existing green hover color, but use the same
+   medium emphasis as action-button text. */
+html[data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible),
+html[data-header-style="alt"][data-theme="dark"] #home .hero-service-pills a:is(:hover, :focus-visible) {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+/* Number badges: medium weight, matching the action-button label weight. */
+#services .sitemap-number,
+.sitemap-card-top .sitemap-number,
+.hub-card-top .hub-number,
+.card-top .card-number {
+  font-weight: 600 !important;
+}
+
+/* Approach and client card heading emphasis: soften the first line. */
+.approach-viewport .studio-info-card h3,
+.client-viewport .studio-info-card h3,
+.approach-viewport .studio-card-title-main,
+.client-viewport .studio-card-title-main {
+  font-weight: 500 !important;
+}
+
+/* What-I-Do service titles use the same title weight/rhythm as the other
+   informational cards. */
+#services .sitemap-card h2,
+#services .sitemap-card h2 > span {
+  font-family: "Inter", Arial, sans-serif !important;
+  font-weight: 500 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -2px !important;
+}
+
+/* =========================================================
+   SEPT 11 — FINAL LIGHT-SURFACE / WEIGHT REFINEMENTS
+   Requested changes only.
+========================================================= */
+
+/* Slightly darker neutral gray, carried through the existing hero-gray uses. */
+html[data-theme="light"] #home .hero-static-title,
+html[data-theme="light"] #home .hero-static-title > span,
+html[data-theme="light"] .cta-static-title,
+html[data-theme="light"] .cta-static-title > span {
+  color: #767B80 !important;
+}
+
+/* Match the contact guide heading to the light-mode hero statement. */
+html[data-theme="light"] .contact-guide-card h3 {
+  color: #767B80 !important;
+}
+
+/* Dark-mode theme disc: replace only the dark half with the same neutral gray. */
+html[data-theme="dark"] #themeToggle {
+  background: linear-gradient(90deg, #767B80 0 50%, #ffffff 50% 100%) !important;
+}
+html[data-theme="dark"] #themeToggle::before {
+  background: #767B80 !important;
+}
+
+/* Hero section labels: visually strengthen on hover without changing metrics,
+   so adjacent links/separators never shift. */
+html[data-header-style="alt"] body.section-green #home .hero-service-pills a,
+html[data-header-style="alt"] body.section-green #home .hero-service-pills a:hover,
+html[data-header-style="alt"] body.section-green #home .hero-service-pills a:focus-visible {
+  transform: none !important;
+  translate: none !important;
+  font-weight: 400 !important;
+  transition: color .16s ease, text-shadow .16s ease !important;
+}
+html[data-header-style="alt"] body.section-green #home .hero-service-pills a:hover,
+html[data-header-style="alt"] body.section-green #home .hero-service-pills a:focus-visible {
+  color: var(--accent) !important;
+  text-shadow: .32px 0 currentColor, -.32px 0 currentColor !important;
+}
+
+/* What-I-Do titles: lighten the face so long titles return to the intended
+   two-line rhythm without widening any card. */
+html[data-header-style="alt"] body.section-green #services .sitemap-card h2,
+html[data-header-style="alt"] body.section-green #services .sitemap-card h2 > span {
+  font-weight: 400 !important;
+}
+
+/* How-I-Work and right-client title first lines: restore a clearer medium-bold emphasis. */
+html[data-header-style="alt"] body.section-green .approach-viewport .studio-info-card h3,
+html[data-header-style="alt"] body.section-green .client-viewport .studio-info-card h3,
+html[data-header-style="alt"] body.section-green .approach-viewport .studio-card-title-main,
+html[data-header-style="alt"] body.section-green .client-viewport .studio-card-title-main {
+  font-weight: 600 !important;
+}
+html[data-header-style="alt"] body.section-green .approach-viewport .studio-card-title-detail,
+html[data-header-style="alt"] body.section-green .client-viewport .studio-card-title-detail {
+  font-weight: 400 !important;
+}
+
+/* Light mode: make the contact form use the same neutral fill as its guide tile,
+   and remove the outside panel border. */
+html[data-theme="light"] .contact-brief-form {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+/* Light mode: remove exterior card borders from the matching informational tiles. */
+html[data-theme="light"] :is(
+  #services .sitemap-card,
+  .approach-viewport .studio-info-card,
+  .client-viewport .studio-info-card,
+  .contact-guide-card
+) {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+/* =========================================================
+   SEPT 11 — UNIFIED #4F4F4F TITLE COLOR
+   Requested text-color changes only.
+========================================================= */
+
+/* Landing hero + "Start with what you know." in both themes. */
+html[data-theme="light"] #home .hero-static-title,
+html[data-theme="light"] #home .hero-static-title > span,
+html[data-theme="dark"] #home .hero-static-title,
+html[data-theme="dark"] #home .hero-static-title > span,
+html[data-theme="light"] .cta-static-title,
+html[data-theme="light"] .cta-static-title > span,
+html[data-theme="dark"] .cta-static-title,
+html[data-theme="dark"] .cta-static-title > span {
+  color: #4F4F4F !important;
+}
+
+/* What I Do card titles + number bubbles. */
+html[data-theme="light"] #services .sitemap-card h2,
+html[data-theme="light"] #services .sitemap-card h2 > span,
+html[data-theme="dark"] #services .sitemap-card h2,
+html[data-theme="dark"] #services .sitemap-card h2 > span,
+html[data-theme="light"] #services .sitemap-number,
+html[data-theme="dark"] #services .sitemap-number {
+  color: #4F4F4F !important;
+}
+
+/* How I Work + Right Client card titles. */
+html[data-theme="light"] .approach-viewport .studio-info-card h3,
+html[data-theme="light"] .approach-viewport .studio-card-title-main,
+html[data-theme="light"] .approach-viewport .studio-card-title-detail,
+html[data-theme="dark"] .approach-viewport .studio-info-card h3,
+html[data-theme="dark"] .approach-viewport .studio-card-title-main,
+html[data-theme="dark"] .approach-viewport .studio-card-title-detail,
+html[data-theme="light"] .client-viewport .studio-info-card h3,
+html[data-theme="light"] .client-viewport .studio-card-title-main,
+html[data-theme="light"] .client-viewport .studio-card-title-detail,
+html[data-theme="dark"] .client-viewport .studio-info-card h3,
+html[data-theme="dark"] .client-viewport .studio-card-title-main,
+html[data-theme="dark"] .client-viewport .studio-card-title-detail {
+  color: #4F4F4F !important;
+}
+
+/* Contact guide title + form field titles. */
+html[data-theme="light"] .contact-guide-card h3,
+html[data-theme="dark"] .contact-guide-card h3,
+html[data-theme="light"] .contact-field-label,
+html[data-theme="dark"] .contact-field-label {
+  color: #4F4F4F !important;
+}
+
+/* Theme toggle dark half follows the same requested neutral. */
+html[data-theme="dark"] #themeToggle {
+  background: linear-gradient(90deg, #4F4F4F 0 50%, #ffffff 50% 100%) !important;
+}
+html[data-theme="dark"] #themeToggle::before {
+  background: #4F4F4F !important;
+}
+
+/* =========================================================
+   SEPT 11 — DARK MODE GREY TEXT -> WHITE
+   Dark-theme text-color changes only. Light mode unchanged.
+========================================================= */
+
+/* Promote shared neutral text variables to white in dark mode. */
+html[data-theme="dark"] {
+  --text: #ffffff;
+  --muted: #ffffff;
+  --soft-muted: #ffffff;
+}
+
+/* Dark-mode text that previously used softened/grey white values. */
+html[data-theme="dark"] nav a,
+html[data-theme="dark"] .dropdown a,
+html[data-theme="dark"] .contact-field input::placeholder,
+html[data-theme="dark"] .contact-field textarea::placeholder,
+html[data-theme="dark"] :is(
+  .hero-static-byline,
+  .services-byline,
+  .studio-info-byline,
+  .sitemap-summary,
+  .sitemap-includes-line,
+  .landing-feature-info,
+  .landing-feature-info p,
+  .studio-info-card p,
+  .contact-intro p,
+  .contact-guide-card,
+  .info-panel p,
+  .vector-info-card p,
+  .caption
+),
+html[data-theme="dark"] footer,
+html[data-theme="dark"] footer .footer-main,
+html[data-theme="dark"] footer .footer-main a,
+html[data-theme="dark"] .cta-footer .footer-main,
+html[data-theme="dark"] .cta-footer .footer-main a,
+html[data-theme="dark"] .splitflap-row .city-demo label {
+  color: #ffffff !important;
+}
+
+/* Requested neutral #4F4F4F title applications become white in dark mode only. */
+html[data-theme="dark"] #home .hero-static-title,
+html[data-theme="dark"] #home .hero-static-title > span,
+html[data-theme="dark"] .cta-static-title,
+html[data-theme="dark"] .cta-static-title > span,
+html[data-theme="dark"] #services .sitemap-card h2,
+html[data-theme="dark"] #services .sitemap-card h2 > span,
+html[data-theme="dark"] #services .sitemap-number,
+html[data-theme="dark"] .approach-viewport .studio-info-card h3,
+html[data-theme="dark"] .approach-viewport .studio-card-title-main,
+html[data-theme="dark"] .approach-viewport .studio-card-title-detail,
+html[data-theme="dark"] .client-viewport .studio-info-card h3,
+html[data-theme="dark"] .client-viewport .studio-card-title-main,
+html[data-theme="dark"] .client-viewport .studio-card-title-detail,
+html[data-theme="dark"] .contact-guide-card h3,
+html[data-theme="dark"] .contact-field-label {
+  color: #ffffff !important;
+}

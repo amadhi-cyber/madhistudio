@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Airport Photo Hub | Home.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/home.css">
+
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <a href="index.html" aria-label="Airport Photo Hub home">
+        <img src="graphics/aph-logo-with-wordmark-viewfinder.svg" alt="Airport Photo Hub logo">
+      </a>
+    </div>
+
+    <div class="nav-links" aria-label="Primary navigation">
+      <a href="index.html" data-nav="home" class="active">Home</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="airside.html" data-nav="airside">Airside</a>
+      <a href="terminal.html" data-nav="terminal">Terminal</a>
+      <a href="landside.html" data-nav="landside">Landside</a>
+      <a href="other.html" data-nav="other">Other</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="services.html" data-nav="services">Services</a>
+      <a href="prints.html" data-nav="prints">Prints</a>
+      <span class="nav-divider" aria-hidden="true"></span>
+      <a href="about.html" data-nav="about">About</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+    <h1>Reimagining Airports Through the Lens.</h1>
+  </section>
+
+  <section class="section">
+
+    <div class="home-collection-grid">
+      <a class="home-collection-card" href="airside.html">
+        <img src="images/airside.webp" alt="Airside airport photography">
+        <span>Airside</span>
+      </a>
+
+      <a class="home-collection-card" href="terminal.html">
+        <img src="images/terminal.webp" alt="Terminal airport photography">
+        <span>Terminal</span>
+      </a>
+
+      <a class="home-collection-card" href="landside.html">
+        <img src="images/landside.webp" alt="Landside airport photography">
+        <span>Landside</span>
+      </a>
+
+      <a class="home-collection-card" href="other.html">
+        <img src="images/other.webp" alt="Other airport photography">
+        <span>Other</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="cta">
+    <a href="prints.html" class="btn">Explore All Collections</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>© 2026 Airport Photo Hub LLC</span>
+  <span>Crafted with Intention</span>
+</footer>
+
+<style id="madhi-demo-only-style">
+  .madhi-demo-notice {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 99999;
+    transform: translate(-50%, -50%) scale(.96);
+    padding: 13px 22px;
+    border-radius: 999px;
+    background: rgba(17,17,17,.92);
+    color: #fff;
+    font: 700 15px/1.2 Arial, Helvetica, sans-serif;
+    letter-spacing: .02em;
+    box-shadow: 0 12px 32px rgba(0,0,0,.22);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .16s ease, transform .16s ease;
+  }
+  .madhi-demo-notice.is-visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  html.madhi-demo-mode a { cursor: not-allowed !important; }
+</style>
+<script id="madhi-demo-only-script">
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('demo') !== '1') return;
+  document.documentElement.classList.add('madhi-demo-mode');
+
+  const notice = document.createElement('div');
+  notice.className = 'madhi-demo-notice';
+  notice.setAttribute('role','status');
+  notice.setAttribute('aria-live','polite');
+  notice.textContent = 'Demo Only';
+  document.body.appendChild(notice);
+
+  let timer = null;
+  const showNotice = () => {
+    clearTimeout(timer);
+    notice.classList.add('is-visible');
+    timer = setTimeout(() => notice.classList.remove('is-visible'), 1350);
+  };
+
+  document.addEventListener('pointerover', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    const fromLink = event.relatedTarget?.closest?.('a[href]');
+    if (fromLink === link) return;
+    showNotice();
+  }, true);
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    showNotice();
+  }, true);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="220" viewBox="0 0 1000 220" role="img" aria-labelledby="title-04-wordmark-only desc-04-wordmark-only">
+  <title id="title-04-wordmark-only">Aerowander Wordmark Only</title>
+  <desc id="desc-04-wordmark-only">Wordmark-only aerowander logo for narrow placements and minimal branding.</desc>
+  <defs>
+    <style>
+      .aerowander-word { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: -4px; }
+    </style>
+  </defs>
+  <text class="aerowander-word" x="60" y="150" font-size="150">
+    <tspan fill="#0EA5E9">aero</tspan><tspan fill="#7A16F5">wander</tspan>
+  </text>
+</svg>

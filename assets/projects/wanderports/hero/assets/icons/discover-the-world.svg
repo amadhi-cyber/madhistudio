@@ -1,0 +1,2099 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="612.40" height="52.00" viewBox="0 0 612.40 52.00" role="img" aria-label="DISCOVER THE WORLD">
+  <defs>
+    <style><![CDATA[
+    .board{opacity:0;transform-box:fill-box;transform-origin:center;animation:boardIn 1.35s ease-out .04s 1 forwards}
+    .card-half{fill:#000;stroke:#fff;stroke-width:1.2;vector-effect:non-scaling-stroke}
+    .glyph{font-family:"Arial Narrow","Roboto Condensed",Arial,sans-serif;font-size:29px;font-weight:700;letter-spacing:.02em;pointer-events:none}
+    .letter-state{opacity:0;pointer-events:none}
+    .letter-state.transient{animation:stateWindow var(--tick) linear var(--d) 1 forwards}
+    .letter-state.final{animation:finalState .01s linear var(--d) 1 forwards}
+    .top-motion,.bottom-motion{transform-box:fill-box}
+    .transient .top-motion{transform-origin:center bottom;animation:flipUp var(--tick) cubic-bezier(.4,0,.8,1) var(--d) 1 both}
+    .transient .bottom-motion{transform-origin:center top;animation:flipReceive var(--tick) cubic-bezier(.2,.7,.2,1) var(--d) 1 both}
+    .final .top-motion{transform-origin:center bottom;animation:finalTop .10s ease-out var(--d) 1 both}
+    .final .bottom-motion{transform-origin:center top;animation:finalBottom .10s ease-out var(--d) 1 both}
+    @keyframes boardIn{0%{opacity:0;transform:scaleY(.10)}100%{opacity:1;transform:scaleY(1)}}
+    @keyframes stateWindow{0%{opacity:1}99%{opacity:1}100%{opacity:0}}
+    @keyframes finalState{0%{opacity:0}100%{opacity:1}}
+    @keyframes flipUp{0%{transform:translateY(0) scaleY(1)}45%{transform:translateY(-1px) scaleY(.58)}100%{transform:translateY(-2px) scaleY(.035)}}
+    @keyframes flipReceive{0%{transform:translateY(2px) scaleY(.035)}45%{transform:translateY(1px) scaleY(.58)}100%{transform:translateY(0) scaleY(1)}}
+    @keyframes finalTop{0%{transform:translateY(-2px) scaleY(.04)}100%{transform:translateY(0) scaleY(1)}}
+    @keyframes finalBottom{0%{transform:translateY(2px) scaleY(.04)}100%{transform:translateY(0) scaleY(1)}}
+]]></style>
+    <clipPath id="topClip1"><rect x="0.00" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip1"><rect x="0.00" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip2"><rect x="34.20" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip2"><rect x="34.20" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip3"><rect x="68.40" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip3"><rect x="68.40" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip4"><rect x="102.60" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip4"><rect x="102.60" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip5"><rect x="136.80" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip5"><rect x="136.80" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip6"><rect x="171.00" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip6"><rect x="171.00" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip7"><rect x="205.20" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip7"><rect x="205.20" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip8"><rect x="239.40" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip8"><rect x="239.40" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip9"><rect x="273.60" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip9"><rect x="273.60" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip10"><rect x="307.80" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip10"><rect x="307.80" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip11"><rect x="342.00" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip11"><rect x="342.00" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip12"><rect x="376.20" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip12"><rect x="376.20" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip13"><rect x="410.40" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip13"><rect x="410.40" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip14"><rect x="444.60" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip14"><rect x="444.60" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip15"><rect x="478.80" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip15"><rect x="478.80" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip16"><rect x="513.00" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip16"><rect x="513.00" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip17"><rect x="547.20" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip17"><rect x="547.20" y="26.50" width="31.00" height="25.50"/></clipPath><clipPath id="topClip18"><rect x="581.40" y="0" width="31.00" height="25.50"/></clipPath><clipPath id="bottomClip18"><rect x="581.40" y="26.50" width="31.00" height="25.50"/></clipPath>
+  </defs>
+  <g class="board">
+    <g class="split-card" data-target="D">
+      <rect class="card-half" x="0.00" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="0.00" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:1.100s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="0.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip1)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="0.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip1)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.155s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="0.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip1)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="0.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip1)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.210s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="0.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip1)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="0.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip1)">C</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:1.265s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="0.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip1)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="0.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="15.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip1)">D</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="I">
+      <rect class="card-half" x="34.20" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="34.20" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:1.280s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.335s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.390s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.445s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.500s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.555s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.610s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.665s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">H</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:1.720s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="34.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip2)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="34.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="49.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip2)">I</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="S">
+      <rect class="card-half" x="68.40" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="68.40" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:1.460s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.515s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.570s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.625s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.680s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.735s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.790s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.845s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.900s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.955s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.010s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.065s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.120s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.175s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">N</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.230s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">O</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.285s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">P</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">P</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.340s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">Q</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">Q</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.395s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">R</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">R</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:2.450s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="69.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip3)">S</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="69.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="83.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip3)">S</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="C">
+      <rect class="card-half" x="102.60" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="102.60" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:1.640s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="103.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="118.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip4)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="103.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="118.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip4)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.695s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="103.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="118.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip4)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="103.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="118.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip4)">B</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:1.750s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="103.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="118.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip4)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="103.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="118.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip4)">C</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="O">
+      <rect class="card-half" x="136.80" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="136.80" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:1.820s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.875s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.930s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:1.985s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.040s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.095s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.150s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.205s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.260s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.315s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.370s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.425s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.480s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.535s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">N</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:2.590s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="137.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip5)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="137.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="152.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip5)">O</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="V">
+      <rect class="card-half" x="171.00" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="171.00" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:2.000s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.055s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.110s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.165s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.220s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.275s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.330s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.385s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.440s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.495s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.550s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.605s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.660s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.715s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">N</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.770s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">O</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.825s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">P</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">P</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.880s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">Q</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">Q</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.935s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">R</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">R</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.990s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">S</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">S</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.045s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">T</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">T</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.100s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">U</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">U</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:3.155s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="171.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip6)">V</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="171.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="186.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip6)">V</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="E">
+      <rect class="card-half" x="205.20" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="205.20" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:2.180s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="205.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip7)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="205.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip7)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.235s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="205.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip7)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="205.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip7)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.290s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="205.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip7)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="205.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip7)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.345s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="205.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip7)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="205.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip7)">D</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:2.400s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="205.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip7)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="205.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="220.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip7)">E</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="R">
+      <rect class="card-half" x="239.40" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="239.40" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:2.360s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.415s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.470s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.525s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.580s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.635s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.690s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.745s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.800s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.855s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.910s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.965s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.020s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.075s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">N</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.130s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">O</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.185s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">P</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">P</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.240s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">Q</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">Q</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:3.295s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="240.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip8)">R</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="240.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="254.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip8)">R</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target=" ">
+      <rect class="card-half" x="273.60" y="0" width="31.00" height="25.75" rx="1.0"/>
+      <rect class="card-half" x="273.60" y="26.25" width="31.00" height="25.75" rx="1.0"/>
+    </g>
+    <g class="split-card" data-target="T">
+      <rect class="card-half" x="307.80" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="307.80" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:2.720s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.775s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.830s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.885s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.940s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.995s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.050s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.105s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.160s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.215s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.270s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.325s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.380s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.435s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">N</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.490s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">O</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.545s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">P</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">P</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.600s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">Q</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">Q</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.655s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">R</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">R</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.710s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">S</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">S</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:3.765s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="308.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip10)">T</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="308.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="323.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip10)">T</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="H">
+      <rect class="card-half" x="342.00" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="342.00" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:2.900s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:2.955s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.010s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.065s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.120s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.175s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.230s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">G</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:3.285s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="342.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip11)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="342.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="357.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip11)">H</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="E">
+      <rect class="card-half" x="376.20" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="376.20" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:3.080s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="376.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip12)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="376.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip12)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.135s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="376.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip12)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="376.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip12)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.190s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="376.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip12)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="376.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip12)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.245s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="376.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip12)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="376.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip12)">D</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:3.300s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="376.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip12)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="376.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="391.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip12)">E</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target=" ">
+      <rect class="card-half" x="410.40" y="0" width="31.00" height="25.75" rx="1.0"/>
+      <rect class="card-half" x="410.40" y="26.25" width="31.00" height="25.75" rx="1.0"/>
+    </g>
+    <g class="split-card" data-target="W">
+      <rect class="card-half" x="444.60" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="444.60" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:3.440s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.495s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.550s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.605s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.660s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.715s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.770s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.825s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.880s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.935s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.990s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.045s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.100s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.155s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">N</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.210s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">O</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.265s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">P</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">P</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.320s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">Q</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">Q</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.375s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">R</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">R</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.430s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">S</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">S</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.485s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">T</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">T</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.540s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">U</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">U</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.595s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">V</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">V</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:4.650s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="445.30" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip14)">W</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="445.30" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="460.10" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip14)">W</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="O">
+      <rect class="card-half" x="478.80" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="478.80" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:3.620s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.675s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.730s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.785s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.840s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.895s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.950s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.005s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.060s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.115s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.170s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.225s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.280s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.335s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">N</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:4.390s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="479.50" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip15)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="479.50" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="494.30" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip15)">O</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="R">
+      <rect class="card-half" x="513.00" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="513.00" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:3.800s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.855s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.910s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:3.965s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.020s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.075s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.130s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.185s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.240s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.295s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.350s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">K</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.405s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">L</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.460s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">M</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">M</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.515s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">N</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">N</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.570s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">O</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">O</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.625s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">P</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">P</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.680s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">Q</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">Q</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:4.735s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="513.70" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip16)">R</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="513.70" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="528.50" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip16)">R</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="L">
+      <rect class="card-half" x="547.20" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="547.20" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:3.980s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.035s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.090s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">C</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.145s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">D</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.200s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">E</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">E</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.255s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">F</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">F</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.310s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">G</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">G</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.365s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">H</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">H</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.420s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">I</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">I</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.475s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">J</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">J</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.530s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">K</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">K</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:4.585s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="547.90" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip17)">L</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="547.90" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="562.70" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip17)">L</text>
+        </g>
+      </g>
+    </g>
+    <g class="split-card" data-target="D">
+      <rect class="card-half" x="581.40" y="0" width="31.00" height="25.50" rx="1.0"/>
+      <rect class="card-half" x="581.40" y="26.50" width="31.00" height="25.50" rx="1.0"/>
+      <g class="letter-state transient" style="--d:4.160s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="582.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip18)">A</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="582.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip18)">A</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.215s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="582.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip18)">B</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="582.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip18)">B</text>
+        </g>
+      </g>
+      <g class="letter-state transient" style="--d:4.270s;--tick:0.055s">
+        <g class="top-motion">
+          <rect x="582.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip18)">C</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="582.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip18)">C</text>
+        </g>
+      </g>
+      <g class="letter-state final" style="--d:4.325s;--tick:0.001s">
+        <g class="top-motion">
+          <rect x="582.10" y="0.70" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#topClip18)">D</text>
+        </g>
+        <g class="bottom-motion">
+          <rect x="582.10" y="26.50" width="29.60" height="24.80" rx="0.7" fill="#000000"/>
+          <text x="596.90" y="35.36" text-anchor="middle" class="glyph" fill="#ffffff" clip-path="url(#bottomClip18)">D</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

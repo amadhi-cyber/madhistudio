@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Taxi Plane</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{width:100%;height:100%;margin:0;background:transparent;overflow:hidden}
+  body{font-family:Arial,Helvetica,sans-serif}
+  .taxi-animation-card{
+    position:relative;
+    width:100%;
+    height:100%;
+    min-height:0;
+    overflow:hidden;
+    background:linear-gradient(#dff5ff 0%,#f8fbff 48%,#d7ead1 48%,#d7ead1 100%);
+  }
+  .scene{position:relative;width:100%;height:100%;overflow:hidden}
+  .taxiway{
+    position:absolute;
+    left:0;
+    bottom:38px;
+    width:100%;
+    height:185px;
+    background:#2f2f2f;
+    border-top:3px solid #ffeb3b;
+    border-bottom:3px solid #ffeb3b;
+  }
+  .edge-line{position:absolute;left:0;width:100%;height:3px;background:#ffeb3b}
+  .top-inner{top:4px}
+  .bottom-inner{bottom:4px}
+  .centerline{position:absolute;top:76px;left:0;width:100%;height:9px;background:#ffeb3b}
+  .aircraft-wrap{
+    position:absolute;
+    width:min(1180px,118vw);
+    height:360px;
+    left:100%;
+    bottom:109px;
+    animation:taxiLeft 14s linear infinite;
+    will-change:transform;
+  }
+  @keyframes taxiLeft{
+    from{transform:translateX(0)}
+    to{transform:translateX(calc(-100vw - 1260px))}
+  }
+  .aircraft{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center bottom;
+    pointer-events:none;
+    user-select:none;
+  }
+  .shadow{
+    position:absolute;
+    left:6.6%;
+    bottom:15.1%;
+    width:86.6%;
+    height:22px;
+    background:rgba(0,0,0,.18);
+    border-radius:50%;
+    filter:blur(8px);
+  }
+  @media(max-width:800px){
+    .taxiway{bottom:34px;height:150px}
+    .centerline{top:62px;height:8px}
+    .aircraft-wrap{width:860px;height:300px;bottom:72px}
+    .shadow{height:14px}
+  }
+</style>
+</head>
+<body>
+  <div class="taxi-animation-card">
+    <div class="scene">
+      <div class="taxiway">
+        <div class="edge-line top-inner"></div>
+        <div class="edge-line bottom-inner"></div>
+        <div class="centerline"></div>
+      </div>
+      <div class="aircraft-wrap">
+        <div class="shadow"></div>
+        <img class="aircraft" src="./b777-taxi.svg" alt="Taxiing Boeing 777" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

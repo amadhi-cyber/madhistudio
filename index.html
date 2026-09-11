@@ -2,6 +2,18 @@
 
 <html lang="en" data-page="home" data-header-style="alt">
 <head>
+<script id="madhi-theme-bootstrap">
+(() => {
+  try {
+    const queryTheme = new URLSearchParams(window.location.search).get('theme');
+    const savedTheme = localStorage.getItem('madhi-theme');
+    const theme = (queryTheme === 'dark' || queryTheme === 'light')
+      ? queryTheme
+      : ((savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'dark');
+    document.documentElement.dataset.theme = theme;
+  } catch (_) {}
+})();
+</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Madhi Studio | Web Design, Branding, UI &amp; Motion Design</title>
@@ -18,12 +30,16 @@
 <meta name="twitter:description" content="Madhi Studio creates custom websites, branding, interactive UI, icons and motion design for small businesses and distinctive digital projects."/>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/shadows-into-light@5.3.0/index.min.css">
 <link href="css/home.css" rel="stylesheet"/>
 <link href="css/design.css" rel="stylesheet"/>
 <link href="css/responsive.css" rel="stylesheet"/>
 <link href="css/landing.css" rel="stylesheet"/>
 <link href="css/mobile.css" rel="stylesheet"/>
-<link href="css/site.css?v=20260910-5" rel="stylesheet"/>
+<link href="css/site.css?v=20260911-1" rel="stylesheet"/>
 <style id="index-alt-header-final-lock">
 html[data-header-style="alt"] #site-nav { border: 0 !important; box-shadow: none !important; outline: 0 !important; }
 html[data-header-style="alt"] nav.site-nav-global,
@@ -38,18 +54,13 @@ html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global {
 }
 html[data-header-style="alt"] nav.site-nav-global::before,
 html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::before {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: 0 !important;
-  height: 4px !important;
-  background: #fff !important;
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
   border: 0 !important;
+  background: transparent !important;
   box-shadow: none !important;
-  z-index: 10006 !important;
-  pointer-events: none !important;
 }
 html[data-header-style="alt"] nav.site-nav-global::after,
 html[data-header-style="alt"][data-theme="dark"] nav.site-nav-global::after {
@@ -90,15 +101,19 @@ html[data-header-style="alt"] #services .sitemap-card-content {
   display: flex !important;
   flex-direction: column !important;
 }
-html[data-header-style="alt"] #services .sitemap-service-copy { display: block !important; }
+html[data-header-style="alt"] #services .sitemap-service-copy {
+  display: grid !important;
+  grid-template-rows: 94px auto !important;
+  row-gap: 0 !important;
+}
 html[data-header-style="alt"] #services .sitemap-summary {
-  min-height: 0 !important;
+  min-height: 94px !important;
   margin: 0 !important;
   font-size: 15.5px !important;
   line-height: 1.52 !important;
 }
 html[data-header-style="alt"] #services .sitemap-includes-block {
-  margin-top: 16px !important;
+  margin-top: 0 !important;
   color: rgba(17,17,17,.76);
 }
 html[data-header-style="alt"] #services .sitemap-includes-label {
@@ -186,8 +201,8 @@ html[data-header-style="alt"] #home .hero-static-title {
   max-width: none !important;
   margin: 0 auto 36px !important;
   text-align: center !important;
-  font-family: "Playfair Display", Georgia, serif !important;
-  font-size: clamp(68px, 5.2vw, 104px) !important;
+  font-family: "Shadows Into Light", cursive !important;
+  font-size: clamp(81.6px, 6.24vw, 124.8px) !important;
   font-weight: 400 !important;
   line-height: .96 !important;
   letter-spacing: -.045em !important;
@@ -234,22 +249,23 @@ html[data-header-style="alt"] .hero-service-pills a {
   background: transparent !important;
   color: var(--muted) !important;
   font-family: "Inter", Arial, sans-serif !important;
-  font-size: clamp(14.4px, .972vw, 18.9px) !important;
+  font-size: clamp(12.96px, .875vw, 17.01px) !important;
   font-weight: 400 !important;
   letter-spacing: normal !important;
   line-height: 1.48 !important;
   text-decoration: none !important;
   box-shadow: none !important;
-  transition: opacity .18s ease !important;
+  transition: color .16s ease, text-shadow .16s ease !important;
 }
 html[data-header-style="alt"] .hero-service-pills a:hover,
 html[data-header-style="alt"] .hero-service-pills a:focus-visible {
   background: transparent !important;
-  color: var(--muted) !important;
+  color: var(--accent) !important;
   border: 0 !important;
   filter: none !important;
   opacity: 1;
-  font-weight: 700 !important;
+  font-weight: 400 !important;
+  text-shadow: .35px 0 currentColor, -.35px 0 currentColor !important;
 }
 html[data-header-style="alt"] .hero-service-separator {
   display: inline-block !important;
@@ -261,7 +277,7 @@ html[data-header-style="alt"] .hero-service-separator {
 }
 @media (max-width: 900px) {
   html[data-header-style="alt"] #home .hero-static-title {
-    font-size: clamp(48px, 10vw, 76px) !important;
+    font-size: clamp(57.6px, 12vw, 91.2px) !important;
   }
   html[data-header-style="alt"] #home .hero-static-title > span {
     white-space: normal !important;
@@ -271,7 +287,7 @@ html[data-header-style="alt"] .hero-service-separator {
     margin-top: 10px !important;
   }
   html[data-header-style="alt"] .hero-service-pills a {
-    font-size: clamp(14.4px, 3.8vw, 18.9px) !important;
+    font-size: clamp(12.96px, 3.42vw, 17.01px) !important;
   }
 }
 
@@ -338,7 +354,7 @@ html[data-header-style="alt"] #services .sitemap-card-top {
   margin-bottom: 5px !important;
 }
 html[data-header-style="alt"] #services .sitemap-includes-block {
-  margin-top: 10px !important;
+  margin-top: 0 !important;
 }
 html[data-header-style="alt"] #web-design .popout-action {
   display: grid !important;
@@ -349,20 +365,57 @@ html[data-header-style="alt"] #web-design .popout-action {
 html[data-header-style="alt"] #web-design .popout-action .btn-arrow {
   display: grid !important;
   place-items: center !important;
-  width: 18px !important;
-  height: 18px !important;
+  width: 23px !important;
+  height: 23px !important;
   margin: 0 !important;
   line-height: 0 !important;
 }
 html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
   display: block !important;
-  width: 18px !important;
-  height: 18px !important;
+  width: 23px !important;
+  height: 23px !important;
   margin: 0 !important;
   transform: none !important;
 }
 </style>
 
+
+<style id="madhi-service-card-title-rhythm">
+html[data-header-style="alt"] #services .sitemap-card-top {
+  margin-bottom: 16px !important;
+}
+html[data-header-style="alt"] #services .sitemap-card h2 {
+  min-height: 2em !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  align-content: normal !important;
+}
+html[data-header-style="alt"] #services .sitemap-card h2 > span {
+  display: block !important;
+}
+</style>
+
+<style id="madhi-hero-shadow-font-lock">
+#home .hero-static-title,
+#home .hero-static-title > span,
+#contact-message .cta-static-title,
+#contact-message .cta-static-title > span {
+  font-family: "Shadows Into Light", cursive !important;
+  font-weight: 400 !important;
+}
+#home .hero-static-title,
+#contact-message .cta-static-title {
+  font-size: clamp(81.6px, 6.24vw, 124.8px) !important;
+  line-height: .96 !important;
+  letter-spacing: -.045em !important;
+}
+@media (max-width: 900px) {
+  #home .hero-static-title,
+  #contact-message .cta-static-title {
+    font-size: clamp(57.6px, 12vw, 91.2px) !important;
+  }
+}
+</style>
 </head>
 <body class="section-green">
 <div id="site-nav"></div>
@@ -375,10 +428,10 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </h1>
 <p class="hero-static-byline">Madhi Studio creates distinctive websites, brands,<br/>and digital experiences to make small businesses look anything but small.</p>
 <div class="hero-service-pills" role="navigation" aria-label="Madhi Studio services">
-<a href="#branding-logos">Branding</a><span class="hero-service-separator" aria-hidden="true">•</span>
+<a href="#branding-logos">Branding, Logos &amp; Icons</a><span class="hero-service-separator" aria-hidden="true">•</span>
 <a href="#ui-icons">User Interfaces</a><span class="hero-service-separator" aria-hidden="true">•</span>
-<a href="#motion-graphics">Motion</a><span class="hero-service-separator" aria-hidden="true">•</span>
-<a href="#web-design">Websites</a>
+<a href="#motion-graphics">Motion Graphics</a><span class="hero-service-separator" aria-hidden="true">•</span>
+<a href="#web-design">Websites &amp; Landing Pages</a>
 </div>
 </div>
 </section>
@@ -389,21 +442,21 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 <div class="sitemap-grid">
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Branding.</span></h2><span class="sitemap-number">1</span></div>
+<div class="sitemap-card-top"><h2><span>Branding, Logos &amp; Icons.</span></h2><span class="sitemap-number">1</span></div>
 <div class="sitemap-service-copy">
-<p class="sitemap-summary">Strong branding concepts and charismatic, fitting logos reflective of a business’ identity and visual direction, and representative of its products and services.</p>
-<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>logo design</li><li>wordmarks</li><li>brand identity</li><li>typography</li><li>color palettes</li><li>icon systems</li><li>brand guidelines</li><li>social graphics</li><li>naming/visual concepts</li></ul></div>
+<p class="sitemap-summary">Charismatic branding concepts reflective of a business' identity, products and services.</p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>logo design</li><li>wordmarks</li><li>brand identity</li><li>typography</li><li>color palettes</li><li>icon systems</li><li>social graphics</li><li>naming/visual concepts</li></ul></div>
 
 </div>
-<a class="sitemap-main-link" href="#branding-logos">Explore Branding</a>
+<a class="sitemap-main-link" href="#branding-logos">Explore Branding, Logos &amp; Icons</a>
 </div>
 </article>
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>User Interfaces.</span></h2><span class="sitemap-number">2</span></div>
+<div class="sitemap-card-top"><h2><span>User<br/>Interfaces.</span></h2><span class="sitemap-number">2</span></div>
 <div class="sitemap-service-copy">
-<p class="sitemap-summary">Interfaces that guide people through a task with responsive behavior, feedback states, reusable components, and purposeful interaction.</p>
-<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>custom icons</li><li>ui components</li><li>buttons</li><li>cards</li><li>menus</li><li>dashboards</li><li>app/web interface concepts</li><li>maps and interactive tools</li><li>design systems</li><li>infographics that behave like interfaces</li></ul></div>
+<p class="sitemap-summary">Interfaces that guide people through workflows with interactive &amp; responsive behavior and feedback.</p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>custom icons</li><li>ui components</li><li>buttons</li><li>cards</li><li>menus</li><li>dashboards</li><li>app/web interface</li><li>maps</li><li>interactive tools</li><li>infographics</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#ui-icons">Explore User Interfaces</a>
@@ -411,24 +464,24 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </article>
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Motion.</span></h2><span class="sitemap-number">3</span></div>
+<div class="sitemap-card-top"><h2><span>Motion Graphics.</span></h2><span class="sitemap-number">3</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Subtle animation, movement and visual feedback that add clarity, pace, and personality without getting in the way of the experience.</p>
-<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>logo animation</li><li>animated svg</li><li>web animation</li><li>kinetic typography</li><li>short promotional clips</li><li>animated infographics</li><li>social media motion</li><li>intro/outro sequences</li><li>scrollytelling animation</li></ul></div>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>animated logos &amp; icons</li><li>kinetic typography</li><li>promotional clips</li><li>animated infographics</li><li>social media motion</li><li>intro/outro sequences</li><li>scrollytelling animation</li></ul></div>
 
 </div>
-<a class="sitemap-main-link" href="#motion-graphics">Explore Motion</a>
+<a class="sitemap-main-link" href="#motion-graphics">Explore Motion Graphics</a>
 </div>
 </article>
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Websites.</span></h2><span class="sitemap-number">4</span></div>
+<div class="sitemap-card-top"><h2><span>Websites &amp; Landing Pages.</span></h2><span class="sitemap-number">4</span></div>
 <div class="sitemap-service-copy">
-<p class="sitemap-summary">Distinctive, responsive websites built around your story with clear hierarchy, strong visual identity, organized content layout and packages everything together.</p>
-<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>landing pages</li><li>portfolio sites</li><li>small business websites</li><li>interactive websites</li><li>microsites</li><li>responsive/mobile design</li><li>website redesigns</li><li>scrollytelling pages</li><li>prototypes</li><li>front-end implementation</li></ul></div>
+<p class="sitemap-summary">Unique and responsive websites built around your story with clear hierarchy, a strong visual identity and an organized content layout.</p>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>landing pages</li><li>portfolio sites</li><li>small business websites</li><li>responsive/mobile design</li><li>website redesigns</li></ul></div>
 
 </div>
-<a class="sitemap-main-link" href="#web-design">Explore Websites</a>
+<a class="sitemap-main-link" href="#web-design">Explore Websites &amp; Landing Pages</a>
 </div>
 </article>
 </div>
@@ -436,21 +489,21 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </section>
 <section class="work-section" id="branding-logos">
 <div class="container">
-<h2 class="section-title">Branding.</h2>
+<h2 class="section-title">Branding, Logos &amp; Icons.</h2>
 <div class="feature-layout">
 <div class="feature-card branding-system-feature-card">
 <span class="dog-ear">Featured</span>
 <div aria-label="Aerowander three-logo system collage" class="branding-system-collage logo-system-three">
 <div class="branding-system-item layout-primary"><span class="branding-system-label">PRIMARY</span><img alt="Aerowander primary logo" src="assets/branding/aerowander-system/01-primary-horizontal.svg"/></div>
-<div class="branding-system-item layout-inverse"><span class="branding-system-label">INVERSE/LIGHT</span><img alt="Aerowander inverse light logo" src="assets/branding/aerowander-system/05-inverse-light.svg"/></div>
+<div class="branding-system-item layout-inverse"><span class="branding-system-label">INVERSE/LIGHT</span><img alt="Aerowander inverse light logo" src="assets/branding/aerowander-system/05-inverse-light.svg" data-theme-light-src="assets/branding/aerowander-system/05-inverse-light-lightmode.svg" data-theme-dark-src="assets/branding/aerowander-system/05-inverse-light.svg"/></div>
 <div class="branding-system-item layout-mono"><span class="branding-system-label">MONOCHROME/BLACK</span><img alt="Aerowander monochrome black logo" src="assets/branding/aerowander-system/06-monochrome-black.svg"/></div>
 </div>
 </div>
 <div class="landing-feature-info">
-<div class="caption">BRANDING</div>
+<div class="caption">BRANDING, LOGOS &amp; ICONS</div>
 <h2>Logo System</h2>
 <p class="feature-description">A 3-logo system to fit your various needs.</p>
-<a class="btn section-action landing-feature-explore" href="design/branding-logos.html">Explore All Branding</a>
+<a class="btn section-action landing-feature-explore" href="design/branding-logos.html">Explore All Branding, Logos &amp; Icons</a>
 </div>
 </div>
 </div>
@@ -459,10 +512,13 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 <div class="container">
 <h2 class="section-title">User Interfaces.</h2>
 <div class="feature-layout">
-<div class="feature-card landing-airport-network-card">
+<div class="feature-card landing-airport-network-card" id="landingAirportMapTile">
 <span class="dog-ear">Featured</span>
+<button class="map-fullscreen-control map-fullscreen-control-under-dogear" type="button" data-map-fullscreen-target="landingAirportMapTile" aria-label="Open Interactive Airport Network full screen" title="Open full screen">
+<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4H4v4M16 4h4v4M20 16v4h-4M4 16v4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 <div class="landing-airport-network-wrap">
-<iframe class="landing-airport-network-frame" loading="eager" scrolling="no" src="assets/projects/wanderports/map/index.html" title="Interactive Airport Network"></iframe>
+<iframe allow="fullscreen" allowfullscreen class="landing-airport-network-frame" loading="eager" scrolling="no" src="assets/projects/wanderports/map/index.html" title="Interactive Airport Network"></iframe>
 </div>
 </div>
 <div class="landing-feature-info wanderports-ui-caption">
@@ -477,7 +533,7 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 <!-- Motion Graphics featured works use the actual examples named in motion-graphics(5).html. -->
 <section class="work-section" id="motion-graphics">
 <div class="container">
-<h2 class="section-title">Motion.</h2>
+<h2 class="section-title">Motion Graphics.</h2>
 <div class="feature-layout">
 <div class="feature-card">
 <span class="dog-ear">Featured</span>
@@ -755,17 +811,17 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </div>
 </div>
 <div class="landing-feature-info">
-<div class="caption">MOTION</div>
+<div class="caption">MOTION GRAPHICS</div>
 <h2>Turntable</h2>
 <p class="motion-description">A web-ready SVG record player concept using SVG, CSS animation, JavaScript, and audio. Use the start control on the turntable to spin the record and move the tonearm.</p>
-<a class="btn section-action landing-feature-explore" href="design/motion-graphics.html">Explore All Motion</a>
+<a class="btn section-action landing-feature-explore" href="design/motion-graphics.html">Explore All Motion Graphics</a>
 </div>
 </div>
 </div>
 </section>
 <section class="work-section" id="web-design">
 <div class="container">
-<h2 class="section-title">Websites.</h2>
+<h2 class="section-title">Websites &amp; Landing Pages.</h2>
 <div class="feature-layout">
 <div class="feature-card">
 <span class="dog-ear">Featured</span>
@@ -777,11 +833,11 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </div>
 <div class="landing-feature-info">
 <div class="info-title-action-row">
-<div class="info-title-copy"><div class="caption">WEBSITES</div><h2>Airport Photo Hub</h2></div>
+<div class="info-title-copy"><div class="caption">WEBSITES &amp; LANDING PAGES</div><h2>Airport Photo Hub</h2></div>
 <a aria-label="Open Airport Photo Hub landing-page preview in a new tab" class="btn popout-action" href="assets/projects/airport-photo-hub/index.html?demo=1" rel="noopener" target="_blank" title="Open in new tab"><span class="btn-arrow"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M7 17L17 7M10 7h7v7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"></path></svg></span></a>
 </div>
 <p class="feature-description">A responsive photography storefront concept organizing airport imagery into clear Airside, Terminal, Landside, and Other collections. Responsive landing page, Collection-based navigation, Portfolio and print storefront foundation.</p>
-<a class="btn section-action landing-feature-explore" href="design/web-design.html">Explore All Websites</a>
+<a class="btn section-action landing-feature-explore" href="design/web-design.html">Explore All Websites &amp; Landing Pages</a>
 </div>
 </div>
 </div>
@@ -882,7 +938,7 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </label>
 <label class="contact-field">
 <span class="contact-field-label">Project type</span>
-<span class="contact-input-shell"><select id="briefProjectType" name="projectType" required><option value="">Choose one</option><option>Branding</option><option>User Interfaces</option><option>Motion</option><option>Websites</option><option>Other</option></select><span aria-hidden="true" class="field-check">✓</span></span>
+<span class="contact-input-shell"><select id="briefProjectType" name="projectType" required><option value="">Choose one</option><option>Branding, Logos &amp; Icons</option><option>User Interfaces</option><option>Motion Graphics</option><option>Websites &amp; Landing Pages</option><option>Other</option></select><span aria-hidden="true" class="field-check">✓</span></span>
 </label>
 <label class="contact-field">
 <span class="contact-field-label">Timeline</span>
@@ -913,11 +969,11 @@ html[data-header-style="alt"] #web-design .popout-action .btn-arrow svg {
 </div>
 <footer class="cta-footer">
 <div class="footer-inner">
-<div class="footer-main">© 2026 Madhi Studio | Crafted with Intention | <a href="sitemap.html">Sitemap</a></div>
+<div class="footer-main">© 2026 Madhi Studio | Crafted with Intention</div>
 </div>
 </footer>
 </section>
 </main>
-<script src="js/site.js?v=20260910-5"></script>
+<script src="js/site.js?v=20260911-1"></script>
 </body>
 </html>

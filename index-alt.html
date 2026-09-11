@@ -2,6 +2,18 @@
 
 <html lang="en" data-page="home" data-header-style="default">
 <head>
+<script id="madhi-theme-bootstrap">
+(() => {
+  try {
+    const queryTheme = new URLSearchParams(window.location.search).get('theme');
+    const savedTheme = localStorage.getItem('madhi-theme');
+    const theme = (queryTheme === 'dark' || queryTheme === 'light')
+      ? queryTheme
+      : ((savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'dark');
+    document.documentElement.dataset.theme = theme;
+  } catch (_) {}
+})();
+</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Madhi Studio | Web Design, Branding, UI &amp; Motion Design</title>
@@ -49,13 +61,13 @@
 <div class="sitemap-grid">
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Branding.</span></h2><span class="sitemap-number">1</span></div>
+<div class="sitemap-card-top"><h2><span>Branding, Logos &amp; Icons.</span></h2><span class="sitemap-number">1</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Strong branding concepts and charismatic, fitting logos reflective of a business’ identity and visual direction, and representative of its products and services.</p>
 <p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>logo design, wordmarks, brand identity, typography, color palettes, icon systems, brand guidelines, social graphics, naming/visual concepts</em></p>
 
 </div>
-<a class="sitemap-main-link" href="#branding-logos">Explore Branding</a>
+<a class="sitemap-main-link" href="#branding-logos">Explore Branding, Logos &amp; Icons</a>
 </div>
 </article>
 <article class="sitemap-card">
@@ -63,7 +75,7 @@
 <div class="sitemap-card-top"><h2><span>User Interfaces.</span></h2><span class="sitemap-number">2</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Interfaces that guide people through a task with responsive behavior, feedback states, reusable components, and purposeful interaction.</p>
-<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>custom icons, ui components, buttons, cards, menus, dashboards, app/web interface concepts, maps and interactive tools, design systems, infographics that behave like interfaces</em></p>
+<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>custom icons, ui components, buttons, cards, menus, dashboards, app/web interface concepts, maps and interactive tools, infographics that behave like interfaces</em></p>
 
 </div>
 <a class="sitemap-main-link" href="#ui-icons">Explore User Interfaces</a>
@@ -71,24 +83,24 @@
 </article>
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Motion.</span></h2><span class="sitemap-number">3</span></div>
+<div class="sitemap-card-top"><h2><span>Motion Graphics.</span></h2><span class="sitemap-number">3</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Subtle animation, movement and visual feedback that add clarity, pace, and personality without getting in the way of the experience.</p>
 <p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>logo animation, animated svg, web animation, kinetic typography, short promotional clips, animated infographics, social media motion, intro/outro sequences, scrollytelling animation</em></p>
 
 </div>
-<a class="sitemap-main-link" href="#motion-graphics">Explore Motion</a>
+<a class="sitemap-main-link" href="#motion-graphics">Explore Motion Graphics</a>
 </div>
 </article>
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Websites.</span></h2><span class="sitemap-number">4</span></div>
+<div class="sitemap-card-top"><h2><span>Websites &amp; Landing Pages.</span></h2><span class="sitemap-number">4</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Distinctive, responsive websites built around your story with clear hierarchy, strong visual identity, organized content layout and packages everything together.</p>
-<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>landing pages, portfolio sites, small business websites, interactive websites, microsites, responsive/mobile design, website redesigns, scrollytelling pages, prototypes, front-end implementation</em></p>
+<p class="sitemap-includes-line"><span class="sitemap-includes-label">This service includes:</span> <em>landing pages, portfolio sites, small business websites, interactive websites, responsive/mobile design, website redesigns, scrollytelling pages, prototypes</em></p>
 
 </div>
-<a class="sitemap-main-link" href="#web-design">Explore Websites</a>
+<a class="sitemap-main-link" href="#web-design">Explore Websites &amp; Landing Pages</a>
 </div>
 </article>
 </div>
@@ -96,7 +108,7 @@
 </section>
 <section class="work-section" id="branding-logos">
 <div class="container">
-<h2 class="section-title">Branding.</h2>
+<h2 class="section-title">Branding, Logos &amp; Icons.</h2>
 <div class="feature-layout">
 <div class="feature-card branding-system-feature-card">
 <span class="dog-ear">Featured</span>
@@ -110,10 +122,10 @@
 </div>
 </div>
 <div class="landing-feature-info">
-<div class="caption">BRANDING</div>
+<div class="caption">BRANDING, LOGOS &amp; ICONS</div>
 <h2>Logo System</h2>
 <p class="feature-description">A 6-icon system to fit your various needs.</p>
-<a class="btn section-action landing-feature-explore" href="design/branding-logos.html">Explore All Branding</a>
+<a class="btn section-action landing-feature-explore" href="design/branding-logos.html">Explore All Branding, Logos &amp; Icons</a>
 </div>
 </div>
 </div>
@@ -140,7 +152,7 @@
 <!-- Motion Graphics featured works use the actual examples named in motion-graphics(5).html. -->
 <section class="work-section" id="motion-graphics">
 <div class="container">
-<h2 class="section-title">Motion.</h2>
+<h2 class="section-title">Motion Graphics.</h2>
 <div class="feature-layout">
 <div class="feature-card">
 <span class="dog-ear">Featured</span>
@@ -418,17 +430,17 @@
 </div>
 </div>
 <div class="landing-feature-info">
-<div class="caption">MOTION</div>
+<div class="caption">MOTION GRAPHICS</div>
 <h2>Turntable</h2>
 <p class="motion-description">A web-ready SVG record player concept using SVG, CSS animation, JavaScript, and audio. Use the start control on the turntable to spin the record and move the tonearm.</p>
-<a class="btn section-action landing-feature-explore" href="design/motion-graphics.html">Explore All Motion</a>
+<a class="btn section-action landing-feature-explore" href="design/motion-graphics.html">Explore All Motion Graphics</a>
 </div>
 </div>
 </div>
 </section>
 <section class="work-section" id="web-design">
 <div class="container">
-<h2 class="section-title">Websites.</h2>
+<h2 class="section-title">Websites &amp; Landing Pages.</h2>
 <div class="feature-layout">
 <div class="feature-card">
 <span class="dog-ear">Featured</span>
@@ -440,11 +452,11 @@
 </div>
 <div class="landing-feature-info">
 <div class="info-title-action-row">
-<div class="info-title-copy"><div class="caption">WEBSITES</div><h2>Airport Photo Hub</h2></div>
+<div class="info-title-copy"><div class="caption">WEBSITES &amp; LANDING PAGES</div><h2>Airport Photo Hub</h2></div>
 <a aria-label="Open Airport Photo Hub landing-page preview in a new tab" class="btn popout-action" href="assets/projects/airport-photo-hub/index.html?demo=1" rel="noopener" target="_blank" title="Open in new tab"><span class="btn-arrow"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M7 17L17 7M10 7h7v7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"></path></svg></span></a>
 </div>
 <p class="feature-description">A responsive photography storefront concept organizing airport imagery into clear Airside, Terminal, Landside, and Other collections. Responsive landing page, Collection-based navigation, Portfolio and print storefront foundation.</p>
-<a class="btn section-action landing-feature-explore" href="design/web-design.html">Explore All Websites</a>
+<a class="btn section-action landing-feature-explore" href="design/web-design.html">Explore All Websites &amp; Landing Pages</a>
 </div>
 </div>
 </div>
@@ -545,7 +557,7 @@
 </label>
 <label class="contact-field">
 <span class="contact-field-label">Project type</span>
-<span class="contact-input-shell"><select id="briefProjectType" name="projectType" required><option value="">Choose one</option><option>Branding</option><option>User Interfaces</option><option>Motion</option><option>Websites</option><option>Other</option></select><span aria-hidden="true" class="field-check">✓</span></span>
+<span class="contact-input-shell"><select id="briefProjectType" name="projectType" required><option value="">Choose one</option><option>Branding, Logos &amp; Icons</option><option>User Interfaces</option><option>Motion Graphics</option><option>Websites &amp; Landing Pages</option><option>Other</option></select><span aria-hidden="true" class="field-check">✓</span></span>
 </label>
 <label class="contact-field">
 <span class="contact-field-label">Timeline</span>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-page="service" data-header-style="alt">
+<head>
+<script id="madhi-theme-bootstrap">
+(() => {
+  try {
+    const queryTheme = new URLSearchParams(window.location.search).get('theme');
+    const savedTheme = localStorage.getItem('madhi-theme');
+    const theme = (queryTheme === 'dark' || queryTheme === 'light')
+      ? queryTheme
+      : ((savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'dark');
+    document.documentElement.dataset.theme = theme;
+  } catch (_) {}
+})();
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UI Design &amp; Interactive Interfaces | Madhi Studio</title>
+<meta name="description" content="Explore Madhi Studio UI design, custom icons, dashboards, interactive maps and interface concepts built for clear, engaging digital experiences."/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<link rel="canonical" href="https://madhistudio.com/design/ui-icons.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Madhi Studio"/>
+<meta property="og:title" content="UI Design &amp; Interactive Interfaces | Madhi Studio"/>
+<meta property="og:description" content="Explore Madhi Studio UI design, custom icons, dashboards, interactive maps and interface concepts built for clear, engaging digital experiences."/>
+<meta property="og:url" content="https://madhistudio.com/design/ui-icons.html"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="UI Design &amp; Interactive Interfaces | Madhi Studio"/>
+<meta name="twitter:description" content="Explore Madhi Studio UI design, custom icons, dashboards, interactive maps and interface concepts built for clear, engaging digital experiences."/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link href="../css/site.css?v=20260911-1" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/service-shell.css">
+
+<style>
+/* PAGE */
+.page-section {
+  padding: 110px 0 40px;
+}
+
+.page-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 22px;
+}
+
+.page-intro {
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.collection {
+  padding: 16px 0 110px;
+}
+
+/* gap here applies to desktop version only. */
+.print-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+.print-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
+  gap: 36px;
+  align-items: stretch;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.print-row.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT / CARD COLUMN */
+.info-panel {
+  padding-top: 6px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0.92;
+  align-self: stretch;
+  justify-content: flex-start;
+}
+
+.info-panel h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.72);
+  letter-spacing: -0.3px;
+}
+
+.caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: -15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.info-panel p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.meta-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.meta-list li {
+  font-size: 14px;
+  color: rgba(0,0,0,0.54);
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.vector-card-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  align-items: stretch;
+}
+
+.vector-info-card {
+  width: 100%;
+  min-height: 150px;
+  background: #eef3f9;
+  border: none;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.035);
+  display: flex;
+  flex-direction: column;
+}
+
+.vector-info-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(93, 93, 93, 0.72);
+  margin-bottom: 8px;
+}
+
+.vector-info-card p {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.soccer-demo {
+  width: 100%;
+  margin-top: 12px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.soccer-demo button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 190px;
+  text-align: center;
+}
+
+.soccer-demo button.is-active {
+  background: #d62828;
+  color: #fff;
+}
+
+/* SVG CARD */
+.image-card {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  box-shadow: none;
+}
+
+.a380-row .image-card {
+  aspect-ratio: 16 / 7;
+  min-height: 220px;
+}
+
+.soccer-pitch-row .image-card {
+  aspect-ratio: 4 / 3;
+  min-height: 520px;
+}
+
+.soccer-pitch-object {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.svg-artwork {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* for the SVG itself to appear bigger inside the card, change object-fit to "cover". */
+.svg-artwork svg,
+.svg-artwork object,
+.svg-artwork img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* CRAFT */
+.section-label {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.craft-section {
+  padding: 90px 10%;
+  text-align: center;
+}
+
+.craft-section h2 {
+  font-size: 34px;
+  letter-spacing: -0.4px;
+  font-weight: 600;
+}
+
+.craft-section p {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.craft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.craft-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 26px;
+  text-align: left;
+}
+
+.craft-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.craft-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* WANDERPORTS WORLD MAP UI FEATURE */
+.wanderports-ui-row {
+  grid-template-columns: minmax(0, 2.2fr) minmax(260px, 0.58fr);
+  gap: 28px;
+}
+
+.wanderports-ui-row .image-card {
+  width: 100%;
+  height: 455px;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: #DDF4FF;
+  overflow: hidden;
+}
+
+.wanderports-map-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  margin: 0;
+  background: #DDF4FF;
+}
+
+.wanderports-ui-caption {
+  max-width: 100%;
+  padding-top: 6px;
+}
+
+.wanderports-ui-caption .vector-card-stack {
+  grid-template-columns: 1fr;
+}
+
+.wanderports-ui-caption .vector-info-card {
+  min-height: 112px;
+}
+
+@media (max-width: 950px) {
+  .wanderports-ui-row {
+    grid-template-columns: 1fr;
+  }
+
+  .wanderports-ui-row .image-card {
+    height: min(600px, 68vw);
+    min-height: 380px;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .print-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .info-panel { padding-top: 0; }
+
+  .vector-card-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .vector-info-card {
+    width: 100%;
+  }
+
+  .craft-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .collection,
+  .craft-section {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  /* gap here applies to mobile version only. */
+  .print-list { gap: 70px; }
+}
+
+
+/* AOE interactive project additions */
+.aerowordsmith-row .image-card {
+  background: #ffffff;
+  position: relative;
+}
+
+.aerowordsmith-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #ffffff;
+}
+
+.aoe-learning-row .image-card {
+  background: #DDF4FF;
+  position: relative;
+}
+
+.aoe-learning-replay,
+.aerowordsmith-fullscreen {
+  position: absolute;
+  right: 18px;
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0,0,0,.10);
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.aoe-learning-replay {
+  bottom: 18px;
+}
+
+.aerowordsmith-fullscreen {
+  bottom: 18px;
+}
+
+.aoe-learning-replay:hover,
+.aerowordsmith-fullscreen:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.aoe-learning-replay svg,
+.aerowordsmith-fullscreen svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.aoe-learning-artwork {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aoe-learning-artwork object,
+.aoe-learning-artwork img {
+  width: 70%;
+  height: 70%;
+  display: block;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.aerowordsmith-row .vector-card-stack {
+  grid-template-columns: 1fr;
+}
+
+.aerowordsmith-row .vector-info-card {
+  min-height: 0;
+}
+
+
+.aerowordsmith-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.aerowordsmith-actions button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: rgba(0,0,0,.72);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.aerowordsmith-actions button:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.aerowordsmith-actions .primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.aerowordsmith-how-list {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 11px;
+  line-height: 1.42;
+  color: var(--muted);
+}
+
+.aerowordsmith-how-list li + li { margin-top: 3px; }
+
+@media (max-width: 950px) {
+  .aoe-learning-artwork object,
+.aoe-learning-artwork img {
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.runway-inspection-row .image-card {
+  background: #f5f6f7;
+}
+
+.runway-inspection-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #f5f6f7;
+  overflow: hidden;
+}
+
+.runway-inspection-row .vector-card-stack {
+  grid-template-columns: 1fr;
+  width: min(100%, 340px);
+  max-width: 340px;
+  margin-top: 8px;
+  justify-self: start;
+}
+
+.runway-inspection-row .vector-info-card {
+  width: 100%;
+  max-width: 340px;
+  min-height: 0;
+  align-self: flex-start;
+}
+
+.runway-inspection-row .vector-info-card p {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+</style>
+<link rel="stylesheet" href="../css/service-pages.css">
+<style>
+/* Runway Marking Inspection: keep the interaction card inside the info-column width. */
+.runway-inspection-row .info-panel {
+  min-width: 0;
+}
+
+.runway-inspection-row .info-panel > p {
+  width: 100%;
+  max-width: 100%;
+}
+
+.runway-inspection-row .vector-card-stack {
+  grid-template-columns: 1fr !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-top: 8px !important;
+  justify-self: stretch !important;
+}
+
+.runway-inspection-row .vector-info-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  min-height: 128px !important;
+  padding: 16px !important;
+}
+
+.runway-inspection-row .vector-info-card p {
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+</style>
+
+</head>
+
+<body class="section-green">
+
+<div id="site-nav"></div>  
+
+<main>
+<section class="page-section">
+  <div class="container">
+    <h1 class="page-title">User Interfaces.</h1>
+
+    <div class="section-divider"></div>
+  </div>
+</section>
+
+<section class="collection">
+  <div class="print-list">
+
+    <article class="print-row reveal wanderports-ui-row">
+      <div class="image-card" id="serviceAirportMapTile">
+        <iframe
+          class="wanderports-map-frame"
+          src="../assets/projects/wanderports/map/index.html"
+          title="Interactive Airport Network"
+          loading="eager"
+          allow="fullscreen"
+          allowfullscreen>
+        </iframe>
+        <button class="map-fullscreen-control" type="button" data-map-fullscreen-target="serviceAirportMapTile" aria-label="Open Interactive Airport Network full screen" title="Open full screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 4H4v4M16 4h4v4M20 16v4h-4M4 16v4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="info-panel wanderports-ui-caption">
+        <div class="caption">USER INTERFACES</div>
+        <h2>Interactive Airport Network</h2>
+        <p>An interactive airport network visualization combining major U.S. and international airport locations, airport-code cross-highlighting, and visual airport browsing. Hover airport dots or airport codes to cross-highlight locations. The streamlined demo uses 10 U.S. and 10 international airports; hover the image reel to pause it.</p>
+      </div>
+    </article>
+
+    <article class="print-row reveal aerowordsmith-row">
+      <div class="image-card">
+        <iframe
+          id="aerowordsmithFrame"
+          class="aerowordsmith-frame"
+          src="../assets/projects/aerowordsmith/aerowordsmith.html"
+          title="AeroWordsmith airport word-search game"
+          loading="eager">
+        </iframe>
+        <button class="aerowordsmith-fullscreen" id="aerowordsmithFullscreen" type="button" aria-label="Open AeroWordsmith full screen" title="Open full screen">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M8 4H4v4M16 4h4v4M20 16v4h-4M4 16v4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="info-panel">
+        <div class="caption">USER INTERFACES</div>
+        <h2>AeroWordsmith</h2>
+        <p>This game teaches kids the A to Z of airports while building their vocabulary, improving pattern recognition and spelling. Find all 26 hidden A to Z airport words in the grid. 
+            Drag across each word, or tap its first and last letters. 
+            Words may run forward, backward, vertical, horizontal or diagonal. 
+            Correct words highlight and cross off automatically. Good luck!</p>
+      </div>
+    </article>
+
+    <article class="print-row reveal runway-inspection-row">
+      <div class="image-card">
+        <iframe
+          class="runway-inspection-frame"
+          src="../assets/projects/runway-marking-inspection/runway-marking-inspection.html"
+          title="Runway Marking Inspection interactive prototype"
+          loading="eager"
+          allow="fullscreen"
+          allowfullscreen
+          scrolling="no">
+        </iframe>
+      </div>
+
+      <div class="info-panel">
+        <div class="caption">USER INTERFACES</div>
+        <h2>Runway Marking Inspection</h2>
+        <p>An interactive runway inspection prototype with a moving detailed viewport and synchronized full-runway overview. Start the runway check, pause or reset the inspection, follow progress in the runway overview, and use the built-in full-screen control for a larger inspection view.</p>
+      </div>
+    </article>
+
+    <article class="print-row reveal aoe-learning-row">
+      <div class="image-card">
+        <div class="aoe-learning-artwork">
+          <img
+            id="aoeLearningObject"
+            data-src="../assets/ui/aoe-explainers-games-activities.svg"
+            alt="Animated Airport Operations Explained learning concept with explainers, games, and activities">
+        </div>
+        <button class="aoe-learning-replay" id="aoeLearningReplay" type="button" aria-label="Replay AOE learning animation" title="Replay animation">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 11a8 8 0 1 0-2.34 5.66" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 4v7h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="info-panel">
+        <div class="caption">USER INTERFACES</div>
+        <h2>AOE Learning Concept</h2>
+        <p>
+          A visual learning system that turns real airport ideas into age-friendly explainers, games, and activities, moving kids from curiosity to understanding through active exploration.
+        </p>
+      </div>
+    </article>
+
+
+    <article class="print-row reveal soccer-pitch-row has-tight-info">
+  <div class="image-card">
+    <div class="svg-artwork">
+      <div id="soccerPitchInline" class="soccer-pitch-inline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 493 277" width="493" height="277">
+  <defs>
+    <pattern id="grass" width="48" height="277" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="24" height="277" fill="#39b85a"/>
+      <rect x="24" y="0" width="24" height="277" fill="#34b256"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="493" height="277" fill="url(#grass)"/>
+
+  <!-- Pitch markings -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Outer pitch lines -->
+    <line x1="16" y1="7" x2="477" y2="7"/>
+    <line x1="16" y1="262" x2="477" y2="262"/>
+    <line x1="16" y1="7" x2="16" y2="262"/>
+    <line x1="477" y1="7" x2="477" y2="262"/>
+
+    <!-- Halfway line -->
+    <line x1="246.5" y1="7" x2="246.5" y2="262"/>
+
+    <!-- Centre circle + spot -->
+    <circle cx="246.5" cy="134.5" r="30"/>
+    <circle cx="246.5" cy="134.5" r="1.4" fill="#ffffff" stroke="none"/>
+
+    <!-- Left penalty area -->
+    <rect x="16" y="73" width="54" height="119"/>
+    <rect x="16" y="103" width="20" height="59"/>
+    <rect x="9" y="119" width="7" height="28"/>
+    <circle cx="52" cy="134.5" r="1.4" fill="#ffffff" stroke="none"/>
+    <path d="M70 114 A24 24 0 0 1 70 155"/>
+
+    <!-- Right penalty area -->
+    <rect x="423" y="73" width="54" height="119"/>
+    <rect x="457" y="103" width="20" height="59"/>
+    <rect x="477" y="119" width="7" height="28"/>
+    <circle cx="441" cy="134.5" r="1.4" fill="#ffffff" stroke="none"/>
+    <path d="M423 114 A24 24 0 0 0 423 155"/>
+
+  </g>
+</svg></div>
+    </div>
+  </div>
+
+      <div class="info-panel">
+        <div class="caption">USER INTERFACES</div>
+        <h2>Soccer Team Formations</h2>
+        <p>SVG web-ready vector for websites, dashboards, signage, presentations, icons, maps, diagrams, interface elements, and digital storytelling. Clean, flexible, lightweight, responsive, reusable, and crisp at any size or on any screen.</p>
+
+        <div class="soccer-demo button-only-demo">
+          <button id="soccerPitchStartButton">Blow Whistle</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/site.js?v=20260911-1"></script>
+</body>
+</html>

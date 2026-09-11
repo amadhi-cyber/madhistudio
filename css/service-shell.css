@@ -1,0 +1,134 @@
+/* Service-page spacing and footer adjustments.
+   Header/nav/logo styling now comes exclusively from css/nav.css so every page shares one global header. */
+:root {
+  --service-header-height: 119px;
+  --service-header-divider: rgba(17,17,17,0.10);
+}
+
+body {
+  padding-top: var(--service-header-height) !important;
+}
+
+html {
+  scroll-padding-top: var(--service-header-height) !important;
+}
+
+footer {
+  background: #000 !important;
+  color: #fff !important;
+  border-top-color: #000 !important;
+}
+
+footer .footer-main,
+footer .footer-main a {
+  color: #fff !important;
+}
+
+footer .footer-site-links,
+footer .footer-site-link,
+footer .footer-site-links a {
+  color: #9b9b9b !important;
+}
+
+footer .footer-divider {
+  background: #777 !important;
+  opacity: 0.8 !important;
+}
+
+footer .footer-main a:hover {
+  color: #fff !important;
+  opacity: 0.82;
+}
+
+footer .footer-site-link:hover,
+footer .footer-site-links a:hover {
+  color: #c2c2c2 !important;
+}
+
+@media (max-width: 760px) {
+  body { padding-top: 0 !important; }
+}
+
+
+/* =========================================================
+   SEPT 2 — SHARED LIGHT PANEL + LIGHTER SERVICE-PAGE LINES
+========================================================= */
+:root {
+  --madhi-light-panel: #DDF4FF;
+  --madhi-light-line: rgba(0,0,0,0.05);
+}
+
+/* Match the landing page's lighter panel system. */
+.vector-info-card,
+.city-demo,
+.evacuation-demo {
+  background: var(--madhi-light-panel) !important;
+}
+
+/* Lighten neutral card/divider linework without changing geometry. */
+.image-card,
+.section-divider,
+.city-controls input,
+.meta-list li {
+  border-color: var(--madhi-light-line) !important;
+}
+
+.section-divider {
+  background: var(--madhi-light-line) !important;
+}
+
+/* =========================================================
+   SEPT 2 — SERVICE-PAGE DIVIDERS + SIMPLE FOOTER
+========================================================= */
+:root {
+  --madhi-light-line: var(--service-header-divider);
+}
+
+/* Match service-page card/divider linework to the header divider. */
+.image-card,
+.section-divider,
+.city-controls input,
+.meta-list li {
+  border-color: var(--service-header-divider) !important;
+}
+
+.section-divider {
+  background: var(--service-header-divider) !important;
+}
+
+/* One-line footer only: transparent, no divider/fill. */
+#site-footer footer,
+footer {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: rgba(17,17,17,0.68) !important;
+  min-height: 0 !important;
+  padding: 16px 24px 18px !important;
+}
+
+#site-footer .footer-inner,
+footer .footer-inner {
+  gap: 0 !important;
+}
+
+#site-footer .footer-main,
+#site-footer .footer-main a,
+footer .footer-main,
+footer .footer-main a {
+  color: rgba(17,17,17,0.68) !important;
+}
+
+#site-footer .footer-site-links,
+#site-footer .footer-divider,
+footer .footer-site-links,
+footer .footer-divider {
+  display: none !important;
+}
+
+#site-footer .footer-main a:hover,
+footer .footer-main a:hover {
+  color: #111 !important;
+  opacity: 1 !important;
+}
+

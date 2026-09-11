@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 5 982 243" width="100%" height="100%" role="img" aria-labelledby="title desc">
+  <title id="title">Madhi Studio logo inverse light</title>
+  <desc id="desc">Outlined MADHI wordmark with white MADHI lines and white vertically rotated STUDIO text.</desc>
+
+  <defs>
+    <style>
+      .line {
+        fill: none;
+        stroke: #ffffff;
+        stroke-width: 3;
+        stroke-linejoin: miter;
+        stroke-linecap: butt;
+        stroke-miterlimit: 10;
+      }
+
+      .brand-sub {
+        fill: #ffffff;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: 20px;
+      }
+    </style>
+  </defs>
+
+  <!-- M -->
+  <g id="letter-M">
+    <!-- left vertical set -->
+    <line class="line" x1="7"  y1="7" x2="7"  y2="246" />
+    <line class="line" x1="15" y1="7" x2="15" y2="246" />
+    <line class="line" x1="23" y1="7" x2="23" y2="246" />
+    <line class="line" x1="31" y1="7" x2="31" y2="246" />
+    <line class="line" x1="39" y1="7" x2="39" y2="246" />
+
+    <!-- descending diagonal set -->
+    <line class="line" x1="7"  y1="7" x2="86"  y2="246" />
+    <line class="line" x1="15" y1="7" x2="92"  y2="246" />
+    <line class="line" x1="23" y1="7" x2="98"  y2="246" />
+    <line class="line" x1="31" y1="7" x2="104" y2="246" />
+    <line class="line" x1="39" y1="7" x2="110" y2="246" />
+
+    <!-- ascending diagonal set -->
+    <line class="line" x1="86"  y1="246" x2="166" y2="7" />
+    <line class="line" x1="92"  y1="246" x2="174" y2="7" />
+    <line class="line" x1="98"  y1="246" x2="182" y2="7" />
+    <line class="line" x1="104" y1="246" x2="190" y2="7" />
+    <line class="line" x1="110" y1="246" x2="198" y2="7" />
+
+    <!-- right vertical set -->
+    <line class="line" x1="166" y1="7" x2="166" y2="246" />
+    <line class="line" x1="174" y1="7" x2="174" y2="246" />
+    <line class="line" x1="182" y1="7" x2="182" y2="246" />
+    <line class="line" x1="190" y1="7" x2="190" y2="246" />
+    <line class="line" x1="198" y1="7" x2="198" y2="246" />
+  </g>
+
+  <!-- A -->
+  <g id="letter-A">
+    <!-- left leg -->
+    <line class="line" x1="230" y1="246" x2="309" y2="7" />
+    <line class="line" x1="238" y1="246" x2="317" y2="7" />
+    <line class="line" x1="246" y1="246" x2="325" y2="7" />
+    <line class="line" x1="254" y1="246" x2="333" y2="7" />
+    <line class="line" x1="262" y1="246" x2="341" y2="7" />
+
+    <!-- right leg -->
+    <line class="line" x1="309" y1="7" x2="389" y2="246" />
+    <line class="line" x1="317" y1="7" x2="397" y2="246" />
+    <line class="line" x1="325" y1="7" x2="405" y2="246" />
+    <line class="line" x1="333" y1="7" x2="413" y2="246" />
+    <line class="line" x1="341" y1="7" x2="421" y2="246" />
+
+    <!-- crossbar -->
+    <line class="line" x1="296" y1="143" x2="355" y2="143" />
+    <line class="line" x1="293" y1="151" x2="358" y2="151" />
+    <line class="line" x1="291" y1="159" x2="361" y2="159" />
+    <line class="line" x1="288" y1="167" x2="364" y2="167" />
+    <line class="line" x1="286" y1="175" x2="367" y2="175" />
+  </g>
+
+  <!-- D -->
+  <g id="letter-D">
+    <!-- stem -->
+    <line class="line" x1="453" y1="5.5" x2="453" y2="247.5" />
+    <line class="line" x1="461" y1="5.5" x2="461" y2="247.5" />
+    <line class="line" x1="469" y1="5.5" x2="469" y2="247.5" />
+    <line class="line" x1="477" y1="5.5" x2="477" y2="247.5" />
+    <line class="line" x1="485" y1="5.5" x2="485" y2="247.5" />
+
+    <!-- rounded bowl -->
+    <path class="line" d="M485 7 H526 C592 7 645 60 645 126.5 C645 193 592 246 526 246 H485" />
+    <path class="line" d="M485 15 H526 C588 15 637 64 637 126.5 C637 189 588 238 526 238 H485" />
+    <path class="line" d="M485 23 H526 C583 23 629 69 629 126.5 C629 184 583 230 526 230 H485" />
+    <path class="line" d="M485 31 H526 C579 31 621 73 621 126.5 C621 180 579 222 526 222 H485" />
+    <path class="line" d="M485 39 H526 C574 39 613 78 613 126.5 C613 175 574 214 526 214 H485" />
+  </g>
+
+  <!-- H -->
+  <g id="letter-H">
+    <!-- left stem -->
+    <line class="line" x1="676" y1="7" x2="676" y2="246" />
+    <line class="line" x1="684" y1="7" x2="684" y2="246" />
+    <line class="line" x1="692" y1="7" x2="692" y2="246" />
+    <line class="line" x1="700" y1="7" x2="700" y2="246" />
+    <line class="line" x1="708" y1="7" x2="708" y2="246" />
+
+    <!-- right stem -->
+    <line class="line" x1="835" y1="7" x2="835" y2="246" />
+    <line class="line" x1="843" y1="7" x2="843" y2="246" />
+    <line class="line" x1="851" y1="7" x2="851" y2="246" />
+    <line class="line" x1="859" y1="7" x2="859" y2="246" />
+    <line class="line" x1="867" y1="7" x2="867" y2="246" />
+
+    <!-- center bar -->
+    <line class="line" x1="708" y1="110" x2="835" y2="110" />
+    <line class="line" x1="708" y1="118" x2="835" y2="118" />
+    <line class="line" x1="708" y1="126" x2="835" y2="126" />
+    <line class="line" x1="708" y1="134" x2="835" y2="134" />
+    <line class="line" x1="708" y1="142" x2="835" y2="142" />
+  </g>
+
+  <!-- I -->
+  <g id="letter-I">
+    <line class="line" x1="908" y1="7" x2="908" y2="246" />
+    <line class="line" x1="916" y1="7" x2="916" y2="246" />
+    <line class="line" x1="924" y1="7" x2="924" y2="246" />
+    <line class="line" x1="933" y1="7" x2="933" y2="246" />
+    <line class="line" x1="942" y1="7" x2="942" y2="246" />
+  </g>
+
+  <!-- STUDIO, rotated to read bottom-to-top -->
+  <text id="studio" class="brand-sub" x="0" y="0" transform="translate(985 245) rotate(-90)">STUDIO</text>
+</svg>
