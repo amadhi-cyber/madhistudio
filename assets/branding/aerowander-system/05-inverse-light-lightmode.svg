@@ -33,6 +33,6 @@
   </svg>
 
   <text class="aerowander-word" x="304" y="200" font-size="122">
-    <tspan fill="#8EDBFF">aero</tspan><tspan fill="#EDEDED">wander</tspan>
+    <tspan fill="#8EDBFF">aero</tspan><tspan fill="#D3D3D3">wander</tspan>
   </text>
 </svg>

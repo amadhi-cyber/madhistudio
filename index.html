@@ -6,10 +6,9 @@
 (() => {
   try {
     const queryTheme = new URLSearchParams(window.location.search).get('theme');
-    const savedTheme = localStorage.getItem('madhi-theme');
     const theme = (queryTheme === 'dark' || queryTheme === 'light')
       ? queryTheme
-      : ((savedTheme === 'dark' || savedTheme === 'light') ? savedTheme : 'dark');
+      : 'dark';
     document.documentElement.dataset.theme = theme;
   } catch (_) {}
 })();
@@ -29,10 +28,11 @@
 <meta name="twitter:title" content="Madhi Studio | Web Design, Branding, UI &amp; Motion Design"/>
 <meta name="twitter:description" content="Madhi Studio creates custom websites, branding, interactive UI, icons and motion design for small businesses and distinctive digital projects."/>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Soria";src:url("https://static.wfonts.com/data/2016/07/04/soria/soria-font.ttf") format("truetype");font-display:swap;}</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/shadows-into-light@5.3.0/index.min.css">
 <link href="css/home.css" rel="stylesheet"/>
 <link href="css/design.css" rel="stylesheet"/>
@@ -86,6 +86,10 @@ html[data-header-style="alt"] .site-nav-global .nav-links > a.active:hover,
 html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active,
 html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a.active:hover {
   border-color: transparent !important;
+}
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:not(.active):hover {
+  color: #fff !important;
+  border-color: #0AC92B !important;
 }
 html[data-header-style="alt"] body > main,
 html[data-header-style="alt"] body > main > :first-child {
@@ -202,7 +206,7 @@ html[data-header-style="alt"] #home .hero-static-title {
   margin: 0 auto 36px !important;
   text-align: center !important;
   font-family: "Shadows Into Light", cursive !important;
-  font-size: clamp(81.6px, 6.24vw, 124.8px) !important;
+  font-size: clamp(65.28px, 4.992vw, 99.84px) !important;
   font-weight: 400 !important;
   line-height: .96 !important;
   letter-spacing: -.045em !important;
@@ -218,7 +222,7 @@ html[data-header-style="alt"] #home .hero-static-byline {
   margin: 0 auto !important;
   color: var(--muted) !important;
   font-family: "Inter", Arial, sans-serif !important;
-  font-size: clamp(14.4px, .972vw, 18.9px) !important;
+  font-size: clamp(17.28px, 1.1664vw, 22.68px) !important;
   line-height: 1.48 !important;
   font-style: normal !important;
   font-weight: 400 !important;
@@ -277,7 +281,7 @@ html[data-header-style="alt"] .hero-service-separator {
 }
 @media (max-width: 900px) {
   html[data-header-style="alt"] #home .hero-static-title {
-    font-size: clamp(57.6px, 12vw, 91.2px) !important;
+    font-size: clamp(46.08px, 9.6vw, 72.96px) !important;
   }
   html[data-header-style="alt"] #home .hero-static-title > span {
     white-space: normal !important;
@@ -400,20 +404,48 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 #home .hero-static-title > span,
 #contact-message .cta-static-title,
 #contact-message .cta-static-title > span {
-  font-family: "Shadows Into Light", cursive !important;
+  font-family: "Manrope", Arial, sans-serif !important;
   font-weight: 400 !important;
 }
 #home .hero-static-title,
 #contact-message .cta-static-title {
-  font-size: clamp(81.6px, 6.24vw, 124.8px) !important;
+  font-size: clamp(65.28px, 4.992vw, 99.84px) !important;
   line-height: .96 !important;
   letter-spacing: -.045em !important;
 }
 @media (max-width: 900px) {
   #home .hero-static-title,
   #contact-message .cta-static-title {
-    font-size: clamp(57.6px, 12vw, 91.2px) !important;
+    font-size: clamp(46.08px, 9.6vw, 72.96px) !important;
   }
+}
+html[data-theme="light"] #home .hero-static-title,
+html[data-theme="light"] #home .hero-static-title > span,
+html[data-theme="light"] #contact-message .cta-static-title,
+html[data-theme="light"] #contact-message .cta-static-title > span {
+  color: #32a8f7 !important;
+}
+html[data-theme="dark"] #home .hero-static-title,
+html[data-theme="dark"] #home .hero-static-title > span,
+html[data-theme="dark"] #contact-message .cta-static-title,
+html[data-theme="dark"] #contact-message .cta-static-title > span {
+  color: #32a8f7 !important;
+}
+</style>
+
+<style id="madhi-sept12-character-spacing-match">
+/* Match the character spacing used by the How I Work titles (Define / Design / Build / Launch). */
+html[data-header-style="alt"] #services .sitemap-card h2,
+html[data-header-style="alt"] #services .sitemap-card h2 > span {
+  letter-spacing: -2px !important;
+  font-weight: 600 !important;
+}
+
+html[data-header-style="alt"] #home .hero-static-title,
+html[data-header-style="alt"] #home .hero-static-title > span,
+html[data-header-style="alt"] #contact-message .cta-static-title,
+html[data-header-style="alt"] #contact-message .cta-static-title > span {
+  letter-spacing: -2px !important;
 }
 </style>
 </head>
@@ -464,10 +496,10 @@ html[data-header-style="alt"] #services .sitemap-card h2 > span {
 </article>
 <article class="sitemap-card">
 <div class="sitemap-card-content">
-<div class="sitemap-card-top"><h2><span>Motion Graphics.</span></h2><span class="sitemap-number">3</span></div>
+<div class="sitemap-card-top"><h2><span>Motion<br/>Graphics.</span></h2><span class="sitemap-number">3</span></div>
 <div class="sitemap-service-copy">
 <p class="sitemap-summary">Subtle animation, movement and visual feedback that add clarity, pace, and personality without getting in the way of the experience.</p>
-<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>animated logos &amp; icons</li><li>animated infographics</li><li>promotional clips</li><li>kinetic typography</li><li>social media motion</li><li>intro/outro sequences</li><li>scrollytelling animation</li></ul></div>
+<div class="sitemap-includes-block"><div class="sitemap-includes-label">This service includes:</div><ul class="sitemap-includes-list"><li>animated logos, icons &amp; infographics</li><li>scrollytelling animation</li><li>promotional clips</li><li>kinetic typography</li><li>social media motion</li><li>intro/outro sequences</li></ul></div>
 
 </div>
 <a class="sitemap-main-link" href="#motion-graphics">Explore Motion Graphics</a>

@@ -2093,11 +2093,15 @@ html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a
 }
 
 /* Hover = green pill border, white type. */
-html[data-header-style="alt"] .site-nav-global .nav-links > a:hover,
-html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:hover {
+html[data-header-style="alt"] .site-nav-global .nav-links > a:hover {
   color: var(--madhi-alt-header-white) !important;
   background: transparent !important;
   border: 2px solid var(--madhi-alt-header-white) !important;
+}
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:hover {
+  color: var(--madhi-alt-header-white) !important;
+  background: transparent !important;
+  border: 2px solid var(--madhi-alt-header-green) !important;
 }
 
 /* Current landing section = white 2px border, white type. */
@@ -2117,6 +2121,12 @@ html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a
   background: var(--madhi-alt-header-green) !important;
   border: 2px solid var(--madhi-alt-header-white) !important;
   box-shadow: 0 4px 10px rgba(0,0,0,.10) !important;
+}
+
+/* Dark mode: hovering any non-active header title keeps white type and turns only the border green. */
+html[data-header-style="alt"][data-theme="dark"] .site-nav-global .nav-links > a:not(.active):hover {
+  color: var(--madhi-alt-header-white) !important;
+  border-color: var(--madhi-alt-header-green) !important;
 }
 
 html[data-header-style="alt"] .site-nav-global .nav-divider,
@@ -3415,7 +3425,7 @@ html[data-theme="dark"] .map-fullscreen-control {
 .map-fullscreen-control:focus-visible,
 html[data-theme="dark"] .map-fullscreen-control:hover,
 html[data-theme="dark"] .map-fullscreen-control:focus-visible {
-  border-color: var(--accent) !important;
+  border-color: transparent !important;
   background: var(--accent) !important;
   background-color: var(--accent) !important;
   color: #ffffff !important;
@@ -3987,7 +3997,7 @@ html[data-theme="dark"] .contact-field-label {
     width: auto !important;
     max-width: calc(100% - 50px) !important;
     min-width: 0 !important;
-    font-size: clamp(24px, 1.72vw, 28px) !important;
+    font-size: clamp(21.6px, 1.548vw, 25.2px) !important;
     line-height: 1.02 !important;
     letter-spacing: -1.55px !important;
     text-wrap: balance;
@@ -4054,19 +4064,19 @@ html[data-theme="dark"] #backToTop {
   min-width: 42px !important;
   min-height: 42px !important;
   padding: 0 !important;
-  border: 2px solid var(--accent) !important;
-  border-color: var(--accent) !important;
+  border: none !important;
+  border-color: transparent !important;
   border-radius: 999px !important;
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-  color: var(--accent) !important;
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
   box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
   overflow: visible !important;
   transform: none !important;
 }
 #backToTop:is(:hover, :focus-visible),
 html[data-theme="dark"] #backToTop:is(:hover, :focus-visible) {
-  border-color: var(--accent) !important;
+  border-color: transparent !important;
   background: var(--accent) !important;
   background-color: var(--accent) !important;
   color: #ffffff !important;
@@ -4112,7 +4122,13 @@ html[data-motion="off"] #backToTop .back-to-top-arrow { animation: none !importa
   text-align: center !important;
 }
 #contact-message .cta-static-title,
-#contact-message .cta-static-title > span,
+#contact-message .cta-static-title > span {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
 #contact-message .cta-static-byline {
   width: 100% !important;
   max-width: 980px !important;
@@ -4268,4 +4284,421 @@ html[data-motion="off"] #backToTop .back-to-top-arrow { animation: none !importa
   .contact-form-viewport .contact-brief-form { padding: 20px 18px !important; }
 
   #contact-message .cta-static-title { font-size: clamp(46px, 12vw, 64px) !important; }
+}
+
+/* =========================================================
+   SEPT 12 — CONTACT LABEL ALIGNMENT + REQUESTED ACCENT TEXT
+   ========================================================= */
+
+/* Contact field names: uppercase and aligned with the straight top edge
+   of each rounded input rather than the beginning of the corner curve. */
+.contact-field-label {
+  padding-inline-start: 16px !important;
+  text-transform: uppercase !important;
+}
+.contact-field-label .contact-recommended {
+  text-transform: none !important;
+  color: inherit !important;
+}
+
+/* Email address accent only. */
+html[data-theme="light"] .contact-email-note-below-submit a {
+  color: #32a8f7 !important;
+}
+html[data-theme="dark"] .contact-email-note-below-submit a {
+  color: #0AC92B !important;
+}
+
+/* Card-title accents. Keep service-card number badges unchanged. */
+html[data-theme="light"] #services .sitemap-card h2,
+html[data-theme="light"] #services .sitemap-card h2 > span {
+  color: #32a8f7 !important;
+}
+html[data-theme="dark"] #services .sitemap-card h2,
+html[data-theme="dark"] #services .sitemap-card h2 > span {
+  color: #32a8f7 !important;
+}
+
+html[data-theme="light"] .approach-viewport .studio-card-title-main,
+html[data-theme="light"] .client-viewport .studio-card-title-main {
+  color: #32a8f7 !important;
+}
+html[data-theme="dark"] .approach-viewport .studio-card-title-main,
+html[data-theme="dark"] .client-viewport .studio-card-title-main {
+  color: #32a8f7 !important;
+}
+
+/* =========================================================
+   SEPT 12 — HEADER LOGO / BLUE TITLES / ARROW REFINEMENT
+   Requested changes only.
+========================================================= */
+
+/* Reduce the Madhi Studio header logo consistently in light and dark modes by
+   giving it more breathing room above, below, and on the left. */
+@media (min-width: 1101px) {
+  html[data-header-style="alt"] .site-nav-global .logo a,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo a {
+    box-sizing: border-box !important;
+    padding: 18px 0 18px 12px !important;
+  }
+  html[data-header-style="alt"] .site-nav-global .logo img,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo img {
+    width: auto !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 87px !important;
+    object-position: left center !important;
+  }
+}
+@media (max-width: 1100px) {
+  html[data-header-style="alt"] .site-nav-global .logo a,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo a {
+    box-sizing: border-box !important;
+    padding: 12px 0 12px 8px !important;
+  }
+  html[data-header-style="alt"] .site-nav-global .logo img,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo img {
+    width: auto !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 60px !important;
+    object-position: left center !important;
+  }
+}
+@media (max-width: 700px) {
+  html[data-header-style="alt"] .site-nav-global .logo a,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo a {
+    padding: 11px 0 11px 7px !important;
+  }
+  html[data-header-style="alt"] .site-nav-global .logo img,
+  html[data-header-style="alt"][data-theme="dark"] .site-nav-global .logo img {
+    max-height: 54px !important;
+  }
+}
+
+/* Form field titles use the same header blue in both themes. */
+html[data-theme="light"] .contact-field-label,
+html[data-theme="dark"] .contact-field-label {
+  color: #32a8f7 !important;
+}
+
+/* Hero service row: 10% larger. In dark mode use the requested pale aqua;
+   links turn green on hover/focus. */
+html[data-header-style="alt"] #home .hero-service-pills a {
+  font-size: clamp(15.84px, 1.0692vw, 20.79px) !important;
+}
+html[data-header-style="alt"] #home .hero-service-separator {
+  font-size: clamp(15.84px, 1.0692vw, 20.79px) !important;
+}
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-pills a,
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-separator {
+  color: #b3ecec !important;
+}
+html[data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible),
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible) {
+  color: var(--accent) !important;
+}
+
+/* Back-to-top control: white circle with one large, wide green chevron.
+   Same appearance in light and dark modes. */
+#backToTop,
+html[data-theme="light"] #backToTop,
+html[data-theme="dark"] #backToTop,
+#backToTop:is(:hover, :focus-visible),
+html[data-theme="light"] #backToTop:is(:hover, :focus-visible),
+html[data-theme="dark"] #backToTop:is(:hover, :focus-visible) {
+  border: none !important;
+  border-color: transparent !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+#backToTop .back-to-top-arrow,
+#backToTop.is-attention:not(:hover):not(:focus-visible) .back-to-top-arrow {
+  position: relative !important;
+  display: block !important;
+  width: 30px !important;
+  height: 20px !important;
+  margin: 0 auto !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  color: var(--accent) !important;
+  background: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Single broad upward chevron. It is drawn upward directly so it never flips. */
+#backToTop .back-to-top-arrow::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 28px !important;
+  height: 17px !important;
+  background: var(--accent) !important;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%, 80% 100%, 50% 38%, 20% 100%) !important;
+  transform: translate(-50%, -50%) !important;
+  transform-origin: center !important;
+  animation: none !important;
+}
+
+#backToTop .back-to-top-arrow::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   SEPT 12 — BACK-TO-TOP FINAL ARROW BEHAVIOR
+   ========================================================= */
+
+/* The arrow always remains upright. */
+#backToTop .back-to-top-arrow,
+#backToTop:hover .back-to-top-arrow,
+#backToTop:focus-visible .back-to-top-arrow {
+  transform: none !important;
+  transform-origin: center !important;
+}
+
+/* No hover/focus visual behavior on the control or arrow. */
+#backToTop:hover,
+#backToTop:focus,
+#backToTop:focus-visible,
+html[data-theme="light"] #backToTop:hover,
+html[data-theme="light"] #backToTop:focus-visible,
+html[data-theme="dark"] #backToTop:hover,
+html[data-theme="dark"] #backToTop:focus-visible {
+  border: none !important;
+  border-color: transparent !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14) !important;
+  transform: none !important;
+  outline: none !important;
+}
+
+/* Remove the hover tooltip entirely. */
+#backToTop .back-to-top-tooltip,
+#backToTop:hover .back-to-top-tooltip,
+#backToTop:focus-visible .back-to-top-tooltip {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* After the first viewport, blink by appearing and disappearing while staying upright. */
+#backToTop.is-attention .back-to-top-arrow {
+  animation: madhiBackTopViewportBlink 1.35s ease-in-out infinite !important;
+}
+
+@keyframes madhiBackTopViewportBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+/* =========================================================
+   SEPT 12 — BACK-TO-TOP ARROW CENTER / BLINK / HOVER
+   ========================================================= */
+#backToTop .back-to-top-arrow {
+  top: -2px !important;
+  opacity: 1;
+}
+
+/* Blink only after the first viewport. Do not let prior !important opacity rules suppress it. */
+#backToTop.is-attention:not(:hover):not(:focus-visible) .back-to-top-arrow {
+  animation: madhiBackTopViewportBlink 1.15s ease-in-out infinite !important;
+}
+
+@keyframes madhiBackTopViewportBlink {
+  0%, 42%, 100% { opacity: 1; }
+  58%, 84% { opacity: 0; }
+}
+
+/* Hover/focus reversal: green circle, white upward arrow. */
+#backToTop:hover,
+#backToTop:focus-visible,
+html[data-theme="light"] #backToTop:hover,
+html[data-theme="light"] #backToTop:focus-visible,
+html[data-theme="dark"] #backToTop:hover,
+html[data-theme="dark"] #backToTop:focus-visible {
+  background: var(--accent) !important;
+  background-color: var(--accent) !important;
+  border: none !important;
+}
+#backToTop:hover .back-to-top-arrow,
+#backToTop:focus-visible .back-to-top-arrow {
+  animation: none !important;
+  opacity: 1 !important;
+}
+#backToTop:hover .back-to-top-arrow::before,
+#backToTop:focus-visible .back-to-top-arrow::before {
+  background: #ffffff !important;
+}
+
+/* =========================================================
+   SEPT 12 — GREEN CONTACT / CTA CENTER / BUTTON SCALE / HERO SERVICE SCALE
+   ========================================================= */
+
+/* Contact form accent text: green in both light and dark modes. */
+html[data-theme="light"] .contact-field-label,
+html[data-theme="dark"] .contact-field-label,
+html[data-theme="light"] .contact-field-label .contact-recommended,
+html[data-theme="dark"] .contact-field-label .contact-recommended,
+html[data-theme="light"] .contact-email-note-below-submit a,
+html[data-theme="dark"] .contact-email-note-below-submit a,
+html[data-theme="light"] .attachment-browse,
+html[data-theme="dark"] .attachment-browse {
+  color: var(--accent) !important;
+}
+
+/* Keep the final CTA composition centered to the full main content width. */
+#contact-message .cta-static-message {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+#contact-message .cta-static-title,
+#contact-message .cta-static-title > span,
+#contact-message .cta-static-byline {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+#contact-message .cta-static-title,
+#contact-message .cta-static-title > span {
+  width: 100% !important;
+  max-width: none !important;
+}
+#contact-message .cta-static-byline {
+  width: min(100%, 980px) !important;
+}
+#contact-message .cta-contact-button {
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Increase every page button label by 10% from the established 14.4px scale. */
+:is(
+  a.btn,
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .preview-popout,
+  .popout-action,
+  .aerowordsmith-fullscreen,
+  .aoe-learning-replay,
+  input[type="submit"],
+  input[type="button"],
+  button:not(#themeToggle):not(#motionToggle):not(.nav-toggle)
+) {
+  font-size: 15.84px !important;
+}
+
+/* Hero service/section labels use the same type size as the paragraph directly above. */
+html[data-header-style="alt"] #home .hero-service-pills a,
+html[data-header-style="alt"] #home .hero-service-separator {
+  font-size: clamp(17.28px, 1.1664vw, 22.68px) !important;
+}
+
+/* Dark mode: remove exterior borders from the matching informational tiles. */
+html[data-theme="dark"] :is(
+  #services .sitemap-card,
+  .approach-viewport .studio-info-card,
+  .client-viewport .studio-info-card,
+  .contact-guide-card
+) {
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+
+/* =========================================================
+   SEPT 12 — REQUESTED CONTACT / APPROACH / LIGHT TILE FINISH
+   Targeted changes only.
+========================================================= */
+
+/* Contact form field titles stay Madhi green in dark mode, matching light mode. */
+html[data-theme="dark"] .contact-field-label,
+html[data-theme="dark"] .contact-field-label .contact-recommended {
+  color: var(--accent) !important;
+}
+
+/* How I Work connectors: use the same broad chevron language as the
+   back-to-top arrow, rotated to point right. */
+@media (min-width: 1101px) {
+  html[data-header-style="alt"] .approach-viewport .studio-info-card:not(:last-child)::after {
+    width: 28px !important;
+    height: 17px !important;
+    background: var(--accent) !important;
+    clip-path: polygon(0 0, 38% 0, 100% 50%, 38% 100%, 0 100%, 62% 50%) !important;
+  }
+}
+@media (max-width: 1100px) {
+  html[data-header-style="alt"] .approach-viewport .studio-info-card:not(:last-child)::after {
+    width: 28px !important;
+    height: 17px !important;
+    background: var(--accent) !important;
+    clip-path: polygon(0 0, 38% 0, 100% 50%, 38% 100%, 0 100%, 62% 50%) !important;
+  }
+}
+
+/* Light mode: featured Branding and Motion tiles use the same neutral fill as
+   the How I Work cards, with no exterior border. Apply the same treatment on
+   their corresponding service pages. */
+html[data-theme="light"] #branding-logos .branding-system-feature-card,
+html[data-theme="light"] #branding-logos .branding-system-collage.logo-system-three,
+html[data-theme="light"] #motion-graphics .feature-card,
+html[data-theme="light"] #motion-graphics .landing-turntable-artwork,
+html[data-theme="light"] body.section-green .branding-feature-row .image-card,
+html[data-theme="light"] body.section-green .branding-feature-row .branding-system-collage.logo-system-three,
+html[data-theme="light"] .turntable-row .image-card,
+html[data-theme="light"] .turntable-row .svg-artwork {
+  background: #F5F5F5 !important;
+  background-color: #F5F5F5 !important;
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+/* The turntable SVG has its own full-canvas background; match it to the tile. */
+html[data-theme="light"] #motion-graphics .turntable-bg,
+html[data-theme="light"] .turntable-row .turntable-bg {
+  fill: #F5F5F5 !important;
+}
+
+/* Section headings use one consistent weight in both themes. */
+html[data-theme="light"] .section-title,
+html[data-theme="dark"] .section-title,
+html[data-theme="light"] .studio-info-title,
+html[data-theme="dark"] .studio-info-title {
+  font-weight: 700 !important;
+}
+
+/* Hero service/section labels: same neutral light gray in both themes;
+   preserve the existing green hover/focus cue. */
+html[data-theme="light"][data-header-style="alt"] #home .hero-service-pills a,
+html[data-theme="light"][data-header-style="alt"] #home .hero-service-separator,
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-pills a,
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-separator {
+  color: #D3D3D3 !important;
+}
+html[data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible),
+html[data-theme="dark"][data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible),
+html[data-theme="light"][data-header-style="alt"] #home .hero-service-pills a:is(:hover, :focus-visible) {
+  color: var(--accent) !important;
 }

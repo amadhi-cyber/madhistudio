@@ -35,7 +35,7 @@
     } catch (_) { return null; }
   };
 
-  const savedTheme = readUrlTheme() || read(THEME_KEY) || readWindowTheme();
+  const savedTheme = readUrlTheme() || root.dataset.theme || 'dark';
   const savedMotion = read(MOTION_KEY);
   root.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
   write(THEME_KEY, root.dataset.theme);
@@ -140,7 +140,7 @@
   window.addEventListener('madhi:shellready', syncThemeToInternalLinks);
 
   window.addEventListener('pageshow', () => {
-    const persisted = readUrlTheme() || read(THEME_KEY) || readWindowTheme();
+    const persisted = readUrlTheme() || root.dataset.theme || 'dark';
     if (persisted === 'dark' || persisted === 'light') {
       applyTheme(persisted, false);
     }
@@ -1645,8 +1645,10 @@ document.addEventListener('click', (event) => {
       window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     });
     const syncAttention = () => {
-      const threshold = Math.max(window.innerHeight * .9, 420);
-      backToTop.classList.toggle('is-attention', window.scrollY > threshold);
+      // Begin blinking once the first (hero) viewport has been passed.
+      const firstViewport = document.getElementById('home');
+      const threshold = firstViewport ? Math.max(1, firstViewport.offsetHeight - 8) : Math.max(1, window.innerHeight - 8);
+      backToTop.classList.toggle('is-attention', window.scrollY >= threshold);
     };
     syncAttention();
     window.addEventListener('scroll', syncAttention, { passive: true });

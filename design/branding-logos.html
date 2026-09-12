@@ -122,17 +122,21 @@ html[data-theme="dark"] .a380-row .a380-artwork-dark { display: block; }
   grid-template-columns: 1fr !important;
   grid-template-rows: repeat(3, minmax(0, 1fr)) !important;
   gap: 0 !important;
-  padding: 22px 28px !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  inset: 0 !important;
+  transform: none !important;
+  padding: 2px 8px !important;
   background: #3b424c !important;
 }
 .branding-feature-row .branding-system-collage.logo-system-three .branding-system-item {
-  padding: 8px 18px !important;
+  padding: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   min-width: 0 !important;
   min-height: 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   background: transparent !important;
   border: 0 !important;
 }
@@ -141,25 +145,32 @@ html[data-theme="dark"] .a380-row .a380-artwork-dark { display: block; }
 }
 .branding-feature-row .branding-system-collage.logo-system-three .branding-system-item img {
   position: static !important;
-  width: 94% !important;
-  height: auto !important;
-  max-width: 94% !important;
-  max-height: 88% !important;
+  width: auto !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
   object-fit: contain !important;
   object-position: center !important;
-  transform: none !important;
+  transform: scale(1.12) !important;
   background: transparent !important;
+  outline: 2px solid #ff0000 !important; /* TEMP: delete this line after sizing is approved */
+  outline-offset: 2px !important;           /* TEMP: delete this line with the red box */
 }
 .branding-feature-row .branding-system-collage.logo-system-three .layout-primary { grid-column: 1 !important; grid-row: 1 !important; }
 .branding-feature-row .branding-system-collage.logo-system-three .layout-inverse { grid-column: 1 !important; grid-row: 2 !important; }
 .branding-feature-row .branding-system-collage.logo-system-three .layout-mono { grid-column: 1 !important; grid-row: 3 !important; }
 @media (max-width: 950px) {
   .branding-feature-row .branding-system-collage.logo-system-three {
-    padding: 16px 18px !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    padding: 4px 8px !important;
   }
   .branding-feature-row .branding-system-collage.logo-system-three .branding-system-item img {
-    width: 96% !important;
-    max-width: 96% !important;
+    width: auto !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    transform: scale(1.08) !important;
   }
 }
 
