@@ -1,0 +1,207 @@
+:root {
+  --header-bg: #ffffff;
+  --footer-bg: #ffffff;
+  --main-bg: #8dcef9;
+  --panel: #ffffff;
+  --text: #111111;
+  --muted: rgba(0, 0, 0, 0.50);
+  --soft-muted: rgba(0, 0, 0, 0.42);
+  --accent: #fff200;
+  --accent-shadow: rgba(255, 242, 0, 0.18);
+  --border: rgba(0, 0, 0, 0.10);
+  --border-strong: rgba(0, 0, 0, 0.22);
+  --site-max: 1600px;
+  --site-gutter: max(24px, calc((100vw - var(--site-max)) / 2));
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  background: var(--main-bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background: var(--main-bg);
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.container {
+  max-width: var(--site-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-section {
+  padding: 82px 0 34px;
+}
+
+.page-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 500;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 18px;
+  color: rgba(0, 0, 0, 0.36);
+}
+
+.page-intro {
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.section {
+  padding: 72px var(--site-gutter) 56px;
+}
+
+.section-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(42px, 5vw, 62px);
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 0.95;
+  color: rgba(0, 0, 0, 0.34);
+  margin-bottom: 30px;
+}
+
+.btn,
+.checkout-btn,
+.add-btn,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #111;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition: opacity 0.18s ease, filter 0.18s ease;
+}
+
+.btn:hover,
+.checkout-btn:hover,
+.add-btn:hover,
+.button:hover {
+  background: var(--accent);
+  border-color: transparent;
+  color: #111;
+  font-weight: 400;
+  opacity: 0.9;
+  filter: saturate(1.05);
+}
+
+.site-footer,
+footer {
+  min-height: 98px;
+  padding: 12px var(--site-gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  text-align: center;
+  background: var(--footer-bg);
+  color: var(--soft-muted);
+  font-size: 13px;
+  border-top: 1px solid rgba(0, 0, 0, 0.035);
+}
+
+.simple-copy {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 90px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.simple-copy strong { color: rgba(0, 0, 0, 0.76); }
+
+.status-page {
+  min-height: calc(100vh - 140px);
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  text-align: center;
+  padding: 72px 24px;
+}
+
+.status-page h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(44px, 7vw, 82px);
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 0.95;
+}
+
+.status-page p {
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  :root { --site-gutter: 18px; }
+
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .page-section {
+    padding-top: 58px;
+  }
+
+  .section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .site-footer,
+  footer {
+    min-height: 68px;
+    padding: 10px 18px;
+  }
+}

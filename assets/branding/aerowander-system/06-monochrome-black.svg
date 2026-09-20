@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1088" height="332" viewBox="0 0 1088 332" role="img" aria-labelledby="title-06-monochrome-black desc-06-monochrome-black">
+  <title id="title-06-monochrome-black">Aerowander Monochrome Black Logo</title>
+  <desc id="desc-06-monochrome-black">Single-color black aerowander logo for print, stamps, engraving, and one-color production.</desc>
+  <defs>
+    <style>
+      .aerowander-word { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: -4px; }
+    </style>
+  </defs>
+
+  <svg x="14" y="8" width="246" height="318" viewBox="32 32 336 436" overflow="visible" aria-hidden="true">
+    <defs>
+      <clipPath id="06-monochrome-black-window-clip">
+        <rect x="70" y="70" width="260" height="360" rx="130" />
+      </clipPath>
+    </defs>
+
+    <rect x="37" y="34" width="326" height="429" rx="163" fill="none" stroke="#000000" stroke-width="10"/>
+
+    <g clip-path="url(#06-monochrome-black-window-clip)">
+      
+
+      <path d="M 334 328 L 170 255 L 133 180 L 121 175 L 150 265 L 294 412 Z" fill="#000000"/>
+      <path d="M 206 310 L 148 314 C 140 315, 140 321, 148 322 L 250 340 Z" fill="#000000"/>
+      <path d="M 248 362 L 170 365 C 162 366, 162 372, 170 373 L 278 392 Z" fill="#000000"/>
+    </g>
+
+    <path d="M 116.93 100 A 130 130 0 0 0 70 200 L 70 300 A 130 130 0 0 0 330 300 L 330 200 A 130 130 0 0 0 283.07 100" fill="none" stroke="#000000" stroke-width="3"/>
+
+    <line x1="170" y1="85" x2="230" y2="85" stroke="#000000" stroke-width="3" stroke-linecap="round"/>
+    <line x1="117" y1="99.75" x2="282.75" y2="99.75" stroke="#000000" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+
+  <text class="aerowander-word" x="304" y="200" font-size="122">
+    <tspan fill="#000000">aero</tspan><tspan fill="#000000">wander</tspan>
+  </text>
+</svg>
