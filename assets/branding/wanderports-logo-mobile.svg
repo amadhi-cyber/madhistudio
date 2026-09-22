@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="100%" role="img" aria-labelledby="title desc" style="background:transparent">
+  <title id="title">WanderPorts mobile logo</title>
+  <desc id="desc">Mobile version of the WanderPorts logo with a transparent lower area, green Wander wordmark, blue Ports wordmark, a city skyline, and travel tagline.</desc>
+  <style>
+    .wander { font-family: 'Questrial', 'Trebuchet MS', sans-serif; font-size: 128px; font-weight: 400; fill: #98FB98; letter-spacing: -2px; }
+    .ports { font-family: 'Source Sans 3', 'Trebuchet MS', sans-serif; font-size: 128px; font-style: italic; font-weight: 400; fill: #14A8F1; letter-spacing: -2px; }
+    .tag-main { font-family: 'Source Sans 3', 'Trebuchet MS', sans-serif; font-size: 22px; font-weight: 400; fill: #30328F; letter-spacing: 8px; }
+    .tag-sub { font-family: 'Source Sans 3', 'Trebuchet MS', sans-serif; font-size: 18px; font-style: italic; font-weight: 300; fill: #A7ADB6; letter-spacing: 3px; }
+  </style>
+  <g opacity="0.22" transform="translate(126 84)">
+    <rect x="0" y="80" width="28" height="120" fill="#8A8F98"/><rect x="40" y="110" width="24" height="90" fill="#9C9C9C"/><rect x="96" y="42" width="42" height="158" fill="#6F737A"/><rect x="154" y="76" width="34" height="124" fill="#A7ADB6"/><rect x="204" y="24" width="58" height="176" fill="#8A8F98"/><rect x="282" y="94" width="28" height="106" fill="#6F737A"/><rect x="330" y="130" width="24" height="70" fill="#A7ADB6"/><rect x="394" y="64" width="46" height="136" fill="#8A8F98"/><rect x="458" y="108" width="30" height="92" fill="#9C9C9C"/><rect x="510" y="38" width="52" height="162" fill="#6F737A"/><rect x="578" y="86" width="36" height="114" fill="#8A8F98"/><rect x="628" y="58" width="30" height="142" fill="#A7ADB6"/>
+  </g>
+  <g text-anchor="middle"><text x="352" y="210" class="wander">Wander</text><text x="624" y="210" class="ports">Ports</text></g>
+  <path d="M150 244 C 286 352 614 352 750 244" fill="none" stroke="#14A8F1" stroke-width="5.5" stroke-linecap="round"/>
+  <g transform="translate(130 234) scale(0.46)"><path d="M224.49219,159.5 254.42187,124 239.95312,116.39063 211.55469,128.57813 180.5,116.48437 251.4375,52.4375 232,44 124.875,99.0625 57.9375,77.3125 c-3.109731,-1.010445 -9.54123,0.302443 -12,8.1875 -2.441014,7.828116 2.157629,12.817628 4.125,13.5 z" transform="translate(-42.432631,-42.6875)" fill="#B8BDC2" fill-rule="evenodd"/></g>
+  <g transform="translate(714 226) scale(-0.46 0.46)"><path d="M224.49219,159.5 254.42187,124 239.95312,116.39063 211.55469,128.57813 180.5,116.48437 251.4375,52.4375 232,44 124.875,99.0625 57.9375,77.3125 c-3.109731,-1.010445 -9.54123,0.302443 -12,8.1875 -2.441014,7.828116 2.157629,12.817628 4.125,13.5 z" transform="translate(-42.432631,-42.6875)" fill="#B8BDC2" fill-rule="evenodd"/></g>
+  <g transform="translate(420 276)"><circle cx="28" cy="18" r="12" fill="#3B3FD1"/><path d="M28 34 L28 56 M28 42 L12 52 M28 42 L44 52 M28 56 L16 74 M28 56 L40 74" stroke="#3B3FD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+  <text x="450" y="312" class="tag-main" text-anchor="middle">DISCOVER THE WORLD</text>
+  <text x="450" y="346" class="tag-sub" text-anchor="middle">Between Flights</text>
+</svg>

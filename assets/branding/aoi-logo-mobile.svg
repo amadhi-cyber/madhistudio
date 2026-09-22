@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 470" width="100%" height="100%" role="img" aria-labelledby="title desc" style="background:transparent">
+  <title id="title">Airport Operations Intelligence stacked mobile logo</title>
+  <desc id="desc">Mobile stacked version of the AOI logo with the mark above the wordmark.</desc>
+  <style>
+    .text-main { font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 600; fill: #98FB98; text-anchor: middle; }
+    .text-sub { font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 600; fill: #0B6623; text-anchor: middle; }
+  </style>
+  <g transform="translate(52 42) scale(0.95)">
+    <polygon points="70,20 118,135 102,135 70,60 38,135 22,135" fill="#98FB98"/>
+    <polygon points="47,135 70,84 93,135" fill="#0B6623"/>
+    <circle cx="182" cy="80" r="47" stroke="#98FB98" stroke-width="10" fill="none"/>
+    <circle cx="182" cy="80" r="12" fill="#0B6623"/>
+    <rect x="244" y="100" width="16" height="35" fill="#0B6623"/>
+    <rect x="266" y="66" width="16" height="69" fill="#0B6623"/>
+    <rect x="288" y="32" width="16" height="103" fill="#0B6623"/>
+  </g>
+  <text class="text-main" x="210" y="232">AIRPORT</text>
+  <text class="text-main" x="210" y="276">OPERATIONS</text>
+  <text class="text-sub" x="210" y="320">INTELLIGENCE</text>
+</svg>
