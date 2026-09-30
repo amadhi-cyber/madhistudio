@@ -1,0 +1,649 @@
+/* Photography — category landing and filterable gallery. */
+.photography-page main {
+  position: relative;
+}
+
+.photography-page .photography-category-section,
+.photography-page .photography-gallery-section {
+  background: #000000;
+}
+
+.photography-page .photography-category-section {
+  padding: 40px 0 64px;
+}
+
+.photography-page .photography-gallery-section {
+  padding: 40px 0 110px;
+}
+
+.photography-page .photography-category-section[hidden],
+.photography-page .photography-gallery-section[hidden] {
+  display: none;
+}
+
+/* The Photography title belongs to the category landing only. */
+.photography-page.photography-gallery-open .page-section {
+  display: none !important;
+}
+
+/* Desktop title and first-content rhythm matches the other service pages. */
+@media (min-width: 951px) {
+  .photography-page .page-section {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 20 !important;
+    padding: 22px 0 0 !important;
+    pointer-events: none !important;
+  }
+
+  .photography-page .page-section .page-title {
+    margin: 0 0 18px !important;
+  }
+
+  .photography-page .page-section .section-divider {
+    margin: 0 !important;
+  }
+
+  .photography-page .photography-category-section,
+  .photography-page .photography-gallery-section {
+    padding-top: 86px;
+  }
+
+  .photography-page.photography-gallery-open .photography-gallery-section {
+    padding-top: 40px;
+  }
+}
+
+/* Landing category tiles remain inside the standard service container. */
+.photography-page .photography-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  width: 100%;
+  margin: 0;
+}
+
+.photography-page .photography-category-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 2.65;
+  border: 0;
+  border-radius: 4px;
+  background: #eeeeee;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.photography-page .photography-category-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  border-radius: 4px;
+  filter: grayscale(100%);
+  transition: filter 0.35s ease;
+}
+
+.photography-page .photography-category-card:hover img,
+.photography-page .photography-category-card:focus-visible img {
+  filter: grayscale(0%);
+}
+
+.photography-page .photography-category-card:focus-visible {
+  outline: 2px solid #ffbf00;
+  outline-offset: 3px;
+}
+
+.photography-page .photography-category-card span {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 3px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #111111;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Controls live outside the main photo canvas. On desktop the control rail
+   mirrors the width of the faint Madhi Studio watermark rail on the left. */
+.photography-page .photography-controls {
+  position: fixed;
+  top: calc(var(--site-header-height) + 51px);
+  right: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 150px;
+  padding-right: var(--photography-controls-right, 52px);
+  box-sizing: border-box;
+  color: #ffffff;
+  text-align: right;
+}
+
+.photography-page .photography-filter-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  width: 100%;
+}
+
+.photography-page .photography-filter-button {
+  display: block;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font-size: 15.6px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: right;
+  cursor: pointer;
+}
+
+.photography-page .photography-filter-button:first-child {
+  margin-bottom: 5px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.photography-page .photography-filter-button:hover,
+.photography-page .photography-filter-button:focus-visible,
+.photography-page .photography-filter-button.is-active {
+  color: #ffbf00;
+}
+
+.photography-page .photography-filter-button:focus-visible,
+.photography-page .photography-view-button:focus-visible,
+.photography-page .photography-single-arrow:focus-visible {
+  outline: 2px solid #3fa7d6;
+  outline-offset: 3px;
+}
+
+.photography-page .photography-view-controls {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.photography-page .photography-view-button {
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 0;
+  background: #20242c;
+  color: #ffffff;
+  font-size: 15.6px;
+  font-weight: 400;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.photography-page .photography-view-button:hover,
+.photography-page .photography-view-button:focus-visible,
+.photography-page .photography-view-button.is-active {
+  background: #ffbf00;
+  color: #000000;
+}
+
+@keyframes photography-thumbnail-attention {
+  0%, 100% {
+    background: #ffbf00;
+    color: #000000;
+  }
+  50% {
+    background: #20242c;
+    color: #ffffff;
+  }
+}
+
+.photography-page .photography-view-button.is-thumbnail-attention {
+  animation: photography-thumbnail-attention 2.4s ease-in-out infinite;
+}
+
+.photography-page .photography-photo-entry[hidden] {
+  display: none !important;
+}
+
+.photography-page .photography-photo-media,
+.photography-page .photography-photo-media img {
+  border: 0;
+  border-radius: 0;
+}
+
+.photography-page .photography-photo-media {
+  overflow: hidden;
+  background: #000000;
+}
+
+.photography-page .photography-photo-media img {
+  display: block;
+}
+
+/* Thumbnail view: natural-aspect-ratio masonry, like the supplied reference. */
+.photography-page .photography-gallery.is-thumbnails {
+  width: 100%;
+  columns: 3;
+  column-gap: 9px;
+}
+
+.photography-page .photography-gallery.is-thumbnails .photography-photo-entry {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 9px;
+  break-inside: avoid;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.photography-page .photography-gallery.is-thumbnails .photography-photo-entry:focus-visible {
+  outline: 2px solid #ffbf00;
+  outline-offset: 3px;
+}
+
+.photography-page .photography-gallery.is-thumbnails .photography-photo-media {
+  width: 100%;
+}
+
+.photography-page .photography-gallery.is-thumbnails .photography-photo-media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.photography-page .photography-gallery.is-thumbnails .photography-photo-caption,
+.photography-page .photography-gallery.is-thumbnails .photography-single-navigation {
+  display: none;
+}
+
+/* 1-by-1 view: one enlarged photo, bounded by the same vertical rhythm as the
+   standard section title / featured-tile area, with caption to the right. */
+.photography-page .photography-gallery.is-single {
+  display: block;
+  width: 100%;
+}
+
+.photography-page .photography-gallery.is-single .photography-photo-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 980px) minmax(0, 348px);
+  grid-template-areas: "media caption";
+  grid-template-rows: 620px;
+  column-gap: 24px;
+  row-gap: 0;
+  align-items: start;
+  min-height: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.photography-page .photography-gallery.is-single .photography-photo-media {
+  grid-area: media;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 980px;
+  max-width: 100%;
+  height: 620px;
+}
+
+.photography-page .photography-gallery.is-single .photography-photo-media img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+}
+
+.photography-page .photography-single-navigation {
+  display: none;
+}
+
+.photography-page .photography-gallery.is-single .photography-single-navigation {
+  grid-area: media;
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 980px;
+  max-width: 100%;
+  height: 620px;
+  pointer-events: none;
+}
+
+.photography-page .photography-single-arrow {
+  position: absolute;
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 84px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #333333;
+  font-size: 0;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.photography-page .photography-single-arrow[hidden] {
+  display: none !important;
+}
+
+.photography-page .photography-single-arrow::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+}
+
+.photography-page .photography-single-arrow-prev {
+  left: 14px;
+}
+
+.photography-page .photography-single-arrow-prev::before {
+  border-right: 28px solid currentColor;
+}
+
+.photography-page .photography-single-arrow-next {
+  right: 14px;
+}
+
+.photography-page .photography-single-arrow-next::before {
+  border-left: 28px solid currentColor;
+}
+
+.photography-page .photography-single-arrow:hover,
+.photography-page .photography-single-arrow:focus-visible {
+  color: #ffbf00;
+}
+
+.photography-page .photography-single-counter {
+  display: none;
+}
+
+.photography-page .photography-gallery.is-single .photography-single-counter {
+  display: block;
+  width: auto;
+  max-width: none;
+  margin: 4px 0 0;
+  color: #c4c4c4;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.photography-page .photography-photo-caption {
+  color: #ffffff;
+}
+
+.photography-page .photography-gallery.is-single .photography-photo-caption {
+  grid-area: caption;
+  width: 348px;
+  max-width: 348px;
+  padding-top: 6px;
+  text-align: left;
+}
+
+.photography-page .photography-photo-caption h2 {
+  margin: 0;
+  color: #ffbf00;
+  font-size: 19.2px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.photography-page .photography-photo-caption p {
+  margin: 4px 0 0;
+  color: #c4c4c4;
+  font-size: 15.6px;
+  line-height: 1.4;
+}
+
+.photography-page .photography-empty-state {
+  width: 100%;
+  margin: 0;
+  color: #c4c4c4;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Photography desktop shell: compact navigation, balanced side rails, and
+   a full-width central photo canvas. Tablet/mobile behavior stays unchanged. */
+@media (min-width: 1101px) {
+  .photography-page {
+    --photography-side-rail: var(--service-side-rail, clamp(165px, 11.25vw, 220px));
+    --photography-content-gutter: var(--service-content-gutter, clamp(10px, 0.9vw, 16px));
+    --photography-controls-right: clamp(16px, 1.25vw, 24px);
+    --photography-single-caption-width: clamp(230px, 16vw, 320px);
+    --photography-single-media-height: calc(100svh - var(--site-header-height) - 44px);
+  }
+
+  .photography-page .mobile-brand-watermark {
+    display: flex;
+    position: fixed;
+    top: var(--site-header-height);
+    left: 0;
+    z-index: 3;
+    width: var(--photography-side-rail);
+    height: calc(100svh - var(--site-header-height));
+    align-items: flex-start;
+    overflow: hidden;
+    opacity: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .photography-page .mobile-brand-logo {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100% - 10px);
+    max-height: 100%;
+    margin: 5px 0;
+    padding: 0;
+    object-fit: contain;
+    object-position: left top;
+    opacity: 1;
+    filter: brightness(0) invert(10.588%);
+  }
+
+  .photography-page .page-section > .container,
+  .photography-page .photography-category-section > .container,
+  .photography-page .photography-gallery-section > .container {
+    width: calc(100% - (2 * var(--photography-side-rail)));
+    max-width: none;
+    margin-right: var(--photography-side-rail);
+    margin-left: var(--photography-side-rail);
+    padding-right: var(--photography-content-gutter);
+    padding-left: var(--photography-content-gutter);
+    box-sizing: border-box;
+  }
+
+  .photography-page .photography-category-section {
+    min-height: calc(100svh - var(--site-header-height) - 58px);
+    box-sizing: border-box;
+  }
+
+  .photography-page .photography-gallery-section {
+    min-height: calc(100svh - var(--site-header-height));
+    box-sizing: border-box;
+  }
+
+  .photography-page .photography-controls {
+    top: calc(var(--site-header-height) + 28px);
+    width: var(--photography-side-rail);
+  }
+
+  .photography-page.photography-gallery-open .photography-gallery-section {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .photography-page.photography-gallery-open.photography-thumbnail-view .photography-gallery-section {
+    padding-top: 86px;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-entry {
+    grid-template-columns: minmax(0, 1fr) var(--photography-single-caption-width);
+    grid-template-rows: var(--photography-single-media-height);
+    column-gap: clamp(20px, 2vw, 34px);
+    row-gap: 0;
+    padding-bottom: 0;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-media {
+    width: 100%;
+    max-width: none;
+    height: var(--photography-single-media-height);
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-media img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-single-navigation {
+    width: 100%;
+    max-width: none;
+    height: var(--photography-single-media-height);
+  }
+
+
+  .photography-page .photography-gallery.is-single .photography-photo-caption {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .photography-page .photography-controls {
+    position: static;
+    width: calc(100% - 32px);
+    max-width: 520px;
+    margin: 18px auto 24px;
+    padding: 0;
+  }
+
+  .photography-page .photography-category-grid,
+  .photography-page .photography-gallery.is-thumbnails,
+  .photography-page .photography-empty-state {
+    width: 100%;
+  }
+
+  .photography-page .photography-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photography-page .photography-gallery.is-thumbnails {
+    columns: 2;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-entry {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-media,
+  .photography-page .photography-gallery.is-single .photography-single-navigation,
+  .photography-page .photography-gallery.is-single .photography-photo-caption {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .photography-page .photography-category-section,
+  .photography-page .photography-gallery-section,
+  .photography-page.photography-gallery-open .photography-gallery-section {
+    padding: 18px 0 100px;
+  }
+
+  .photography-page .photography-category-section > .container,
+  .photography-page .photography-gallery-section > .container {
+    width: calc(100% - 32px) !important;
+    max-width: 520px !important;
+    margin-inline: auto !important;
+    padding-inline: 0 !important;
+  }
+
+  .photography-page .photography-controls {
+    margin-top: 12px;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "caption";
+    grid-template-rows: auto auto;
+    gap: 10px;
+    min-height: 0;
+    padding: 0 0 72px;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-media {
+    width: 100%;
+    height: auto;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-media img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-single-navigation {
+    width: 100%;
+    height: 100%;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-caption {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .photography-page .photography-gallery.is-single .photography-photo-caption {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .photography-page .photography-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photography-page .photography-gallery.is-thumbnails {
+    columns: 1;
+  }
+}
+
+

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html class="photography-root" data-theme="dark" data-header-style="alt" data-page="service" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Photography | Madhi Studio</title>
+<meta content="noindex,follow,max-image-preview:large" name="robots"/>
+<link href="https://madhistudio.com/design/photography.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Madhi Studio" property="og:site_name"/>
+<meta content="Photography | Madhi Studio" property="og:title"/>
+<meta content="https://madhistudio.com/design/photography.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Photography | Madhi Studio" name="twitter:title"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../css/service-core-dark.css?v=20260929-requested-polish-v2" rel="stylesheet"/>
+<link href="../css/service-shell-dark.css?v=20260929-requested-polish-v2" rel="stylesheet"/>
+<link href="../css/photography-dark.css?v=20260929-requested-polish-v2" rel="stylesheet"/>
+</head>
+<body class="section-green photography-page">
+<div id="site-nav"></div>
+<main>
+<section class="page-section"><div class="container"><h1 class="page-title">Photography</h1><div class="section-divider"></div></div></section>
+
+<aside class="photography-controls" aria-label="Photography gallery controls">
+  <div class="photography-filter-list" role="group" aria-label="Filter photographs by category">
+    <button class="photography-filter-button is-active" type="button" data-photo-filter="all" aria-pressed="true">ALL</button>
+    <button class="photography-filter-button" type="button" data-photo-filter="aviation" aria-pressed="false">Aviation</button>
+    <button class="photography-filter-button" type="button" data-photo-filter="street" aria-pressed="false">Street</button>
+    <button class="photography-filter-button" type="button" data-photo-filter="nature" aria-pressed="false">Nature</button>
+    <button class="photography-filter-button" type="button" data-photo-filter="people" aria-pressed="false">People</button>
+    <button class="photography-filter-button" type="button" data-photo-filter="travel" aria-pressed="false">Travel</button>
+  </div>
+  <div class="photography-view-controls" role="group" aria-label="Photography view">
+    <button class="photography-view-button is-active" type="button" data-photo-view="thumbnails" aria-pressed="true">Thumbnails</button>
+    <button class="photography-view-button" type="button" data-photo-view="single" aria-pressed="false">1 by 1</button>
+  </div>
+</aside>
+
+<section class="photography-category-section" id="photography-categories" aria-label="Photography categories">
+  <div class="container">
+    <div class="photography-category-grid">
+      <button class="photography-category-card" type="button" data-photo-filter="aviation" aria-label="Show Aviation photography">
+        <img src="../assets/projects/airport-photo-hub/images/airside.webp" alt="Aviation photography"/>
+        <span>Aviation</span>
+      </button>
+      <button class="photography-category-card" type="button" data-photo-filter="street" aria-label="Show Street photography">
+        <img src="../assets/photography/a-shadow-never-gone.webp" alt="Street photography"/>
+        <span>Street</span>
+      </button>
+      <button class="photography-category-card" type="button" data-photo-filter="nature" aria-label="Show Nature photography">
+        <img src="../assets/photography/the-last-warm-light.webp" alt="Nature photography"/>
+        <span>Nature</span>
+      </button>
+      <button class="photography-category-card" type="button" data-photo-filter="people" aria-label="Show People photography">
+        <img src="../assets/photography/road-trip-with-road-dog.webp" alt="Road Trip with Road Dog — People photography"/>
+        <span>People</span>
+      </button>
+      <button class="photography-category-card" type="button" data-photo-filter="travel" aria-label="Show Travel photography">
+        <img src="../assets/photography/the-far-side-of-calm.webp" alt="Travel photography"/>
+        <span>Travel</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="photography-gallery-section" id="photography-gallery-section" aria-label="Photography gallery" hidden>
+  <div class="container">
+    <div class="photography-gallery is-thumbnails" id="photography-gallery">
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open A Monumental Win in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-monumental-win.webp" alt="A seagull perched on the head of a monument against a blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Monumental Win</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open The Bird and the Bard in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-bird-and-the-bard.webp" alt="A bird perched on a statue"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Bird and the Bard</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Higher Learning in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/higher-learning.webp" alt="A vaulted stone university corridor with repeating arches"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Higher Learning</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Shelling Out for Waterfront in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/shelling-out-for-waterfront.webp" alt="Turtles lined along a fallen log in the water"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Shelling Out for Waterfront</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Swan and Sun as One in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/swan-and-sun-as-one.webp" alt="A swan on reflective water at sunset"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Swan and Sun as One</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open A Different Corner in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-different-corner.webp" alt="A colorful street corner with a storefront and passing city traffic"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Different Corner</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open A Life of Chapters in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-life-of-chapters.webp" alt="An older man seated against a pale wall"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Life of Chapters</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open A Place Between Places in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-place-between-places.webp" alt="An airport terminal and control tower beneath a broad sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Place Between Places</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open A Season Worth Repeating in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-season-worth-repeating.webp" alt="Autumn trees reflected across calm water"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Season Worth Repeating</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open A Shadow Never Gone in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-shadow-never-gone.webp" alt="A remembrance mural beside outdoor steps on a city street"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Shadow Never Gone</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Above It All in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/above-it-all.webp" alt="View from an aircraft wing above clouds and coastline"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Above It All</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open And Then, Light in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/and-then,-light.webp" alt="A commercial aircraft on a wet airport apron beneath dramatic clouds"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>And Then, Light</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Between What Is and What Could Be in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/between-what-is-and-what-could-be.webp" alt="Aircraft parked on an airport apron under an open sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Between What Is and What Could Be</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Calm Has a Color in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/calm-has-a-color.webp" alt="A tranquil waterfront with blue water and distant buildings"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Calm Has a Color</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open Carved in Culture in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/carved-in-culture.webp" alt="A man standing before an ornate carved wooden doorway"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Carved in Culture</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Color and Concrete in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/color-and-concrete.webp" alt="Bright storefront graphics and pedestrians against an urban brick wall"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Color and Concrete</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Column by Column in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/column-by-column.webp" alt="A dramatic upward view of a tall city building at night"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Column by Column</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Comfort Zone in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/comfort-zone.webp" alt="A dog resting indoors with its face close to the floor"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Comfort Zone</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Island Noir in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/island-noir.webp" alt="A dimly lit tropical beachfront scene at night"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Island Noir</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Lake Royalty in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/lake-royalty.webp" alt="A swan gliding across reflective water"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Lake Royalty</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Late Plates in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/late-plates.webp" alt="A late-night beachside dining scene lit by warm lights"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Late Plates</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Local Exposure in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/local-exposure.webp" alt="A colorful neighborhood photography shop and street scene"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Local Exposure</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open One of One in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/one-of-one.webp" alt="A woman in colorful clothing seated against a street-side wall"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>One of One</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Council Requests Rain in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/council-requests-rain.webp" alt="Three pigeons gathered on a stone planter"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Council Requests Rain</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Peak Perspective in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/peak-perspective.webp" alt="View from an airplane wing toward a mountain above the clouds"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Peak Perspective</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Platform to Possibility in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/platform-to-possibility.webp" alt="A transit platform with floor markings and a passing pedestrian"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Platform to Possibility</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Somewhere Starts Here in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/somewhere-starts-here.webp" alt="A bright tropical beach with clear water and boats offshore"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Somewhere Starts Here</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Still Ahead of Us in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/still-ahead-of-us.webp" alt="A sculptural monument standing in an urban plaza beneath blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Still Ahead of Us</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Stillness in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/stillness.webp" alt="A small boat floating on clear blue coastal water"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Stillness</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Stone, Sky and Coffee in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/stone-sky-and-coffee.webp" alt="A historic waterside building beneath a vivid blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Stone, Sky and Coffee</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Sunday Energy in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/sunday-energy.webp" alt="A dog resting indoors and looking toward the camera"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Sunday Energy</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open The Architecture of Flight in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-architecture-of-flight.webp" alt="A large passenger aircraft viewed head-on at an airport gate"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Architecture of Flight</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Burden We Buy in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-burden-we-buy.webp" alt="A painted animal mural along a colorful urban wall"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Burden We Buy</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open The Far Side of Calm in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-far-side-of-calm.webp" alt="A lone person walking along a bright tropical beach"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Far Side of Calm</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open The Fine Print in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-fine-print.webp" alt="Tattooed forearms and hands resting together"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Fine Print</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Glow Must Go On in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-glow-must-go-on.webp" alt="A vivid neon sign glowing through a dark storefront window"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Glow Must Go On</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Last Warm Light in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-last-warm-light.webp" alt="A wooded path beside a lake in warm autumn light"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Last Warm Light</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Man Who Drew Tomorrow in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-man-who-drew-tomorrow.webp" alt="A seated bronze statue against a clear blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Man Who Drew Tomorrow</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Mane Attraction in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-mane-attraction.webp" alt="A light-colored horse looking over a stable door"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Mane Attraction</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Observer in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-observer.webp" alt="A heron standing among trees and undergrowth"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Observer</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Persuasion in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-persuasion.webp" alt="A dog leaning over a surface and looking toward the camera"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Persuasion</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Soft Side of Wild in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-soft-side-of-wild.webp" alt="Green foliage in focus with a building softly blurred behind it"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Soft Side of Wild</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Tall and the Taller in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-tall-and-the-taller.webp" alt="A blue geometric street sculpture framed by tall city buildings"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Tall and the Taller</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Water Swallowed the Day in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-water-swallowed-the-day.webp" alt="A dark lake scene with sunlight breaking above silhouetted trees"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Water Swallowed the Day</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Weight of Want in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-weight-of-want.webp" alt="A painted animal mural along a pale urban wall"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Weight of Want</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open Road Trip with Road Dog in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/road-trip-with-road-dog.webp" alt="A dog and a child seated together in the back seat of a car"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Road Trip with Road Dog</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open The Welcome in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-welcome.webp" alt="Three people smiling together beside a carved wooden doorway"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Welcome</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Window to the World in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/window-to-the-world.webp" alt="View from an airplane wing across coastline and mountains far below"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Window to the World</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open The Golden Glide in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-golden-glide.webp" alt="A white swan gliding across reflective golden water"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Golden Glide</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Urban Grandeur in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/urban-grandeur.webp" alt="Historic urban architecture rising beside a bright blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Urban Grandeur</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Heavy Metal in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/heavy-metal.webp" alt="A British Airways Boeing 747 on an airport taxiway beneath a clear blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Heavy Metal</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Joy in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/joy.webp" alt="A black dog resting beside a tennis ball outdoors"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Joy</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Night Fin in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/night-fin.webp" alt="An American Airlines tail silhouetted against a deep blue airport night sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Night Fin</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Northbound in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/northbound.webp" alt="An Icelandair wing and tail against a vivid blue sky"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Northbound</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open Sunset Service in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/sunset-service.webp" alt="A United Airlines aircraft being serviced on the ramp at sunset"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Sunset Service</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open The Hidden Choreography in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-hidden-choreography.webp" alt="Ground crews, baggage carts and aircraft arranged across a busy airport ramp"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Hidden Choreography</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+    </div>
+    <p class="photography-empty-state" id="photography-empty-state" hidden>No photographs in this category yet.</p>
+  </div>
+</section>
+</main>
+<div id="site-footer"></div>
+<script src="../js/site.js?v=20260929-requested-polish-v2"></script>
+<script>
+(() => {
+  const page = document.body;
+  const categorySection = document.getElementById('photography-categories');
+  const gallerySection = document.getElementById('photography-gallery-section');
+  const gallery = document.getElementById('photography-gallery');
+  const emptyState = document.getElementById('photography-empty-state');
+  const entries = Array.from(gallery.querySelectorAll('.photography-photo-entry'));
+  const filterTriggers = Array.from(document.querySelectorAll('[data-photo-filter]'));
+  const sidebarFilterButtons = Array.from(document.querySelectorAll('.photography-filter-button'));
+  const viewButtons = Array.from(document.querySelectorAll('.photography-view-button'));
+  const thumbnailButton = document.querySelector('[data-photo-view="thumbnails"]');
+
+  let currentFilter = 'all';
+  let currentView = 'thumbnails';
+  let singleIndex = 0;
+
+  const matchingEntries = () => entries.filter((entry) =>
+    currentFilter === 'all' || entry.dataset.photoCategory === currentFilter
+  );
+
+  const syncControlAlignment = () => {
+    if (window.innerWidth <= 1100) {
+      document.documentElement.style.removeProperty('--photography-controls-right');
+      return;
+    }
+
+    const contactLink = document.querySelector('#site-nav [data-nav="contact"]');
+    if (!contactLink) return;
+
+    const rightOffset = Math.max(0, window.innerWidth - contactLink.getBoundingClientRect().right);
+    document.documentElement.style.setProperty('--photography-controls-right', `${rightOffset}px`);
+  };
+
+  const syncFilterButtons = () => {
+    sidebarFilterButtons.forEach((button) => {
+      const active = button.dataset.photoFilter === currentFilter;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  const syncViewButtons = () => {
+    viewButtons.forEach((button) => {
+      const active = button.dataset.photoView === currentView;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  const renderEntries = () => {
+    const matches = matchingEntries();
+    if (singleIndex >= matches.length) singleIndex = Math.max(0, matches.length - 1);
+
+    entries.forEach((entry) => {
+      const isMatch = matches.includes(entry);
+      const visible = currentView === 'single'
+        ? isMatch && entry === matches[singleIndex]
+        : isMatch;
+      entry.hidden = !visible;
+      entry.tabIndex = currentView === 'thumbnails' && visible ? 0 : -1;
+
+      if (currentView === 'single' && visible) {
+        const prevButton = entry.querySelector('[data-photo-prev]');
+        const nextButton = entry.querySelector('[data-photo-next]');
+        const counter = entry.querySelector('[data-photo-counter]');
+
+        if (prevButton) prevButton.hidden = singleIndex === 0;
+        if (nextButton) nextButton.hidden = singleIndex === matches.length - 1;
+        if (counter) counter.textContent = `${singleIndex + 1} of ${matches.length}`;
+      }
+    });
+
+    emptyState.hidden = matches.length !== 0;
+  };
+
+  const applyFilter = (filter) => {
+    currentFilter = filter;
+    singleIndex = 0;
+    syncFilterButtons();
+    renderEntries();
+  };
+
+  const applyView = (view, preserveIndex = false) => {
+    currentView = view;
+    if (!preserveIndex) singleIndex = 0;
+    const single = view === 'single';
+    gallery.classList.toggle('is-thumbnails', !single);
+    gallery.classList.toggle('is-single', single);
+    page.classList.toggle('photography-thumbnail-view', !single);
+    page.classList.toggle('photography-single-view', single);
+    syncViewButtons();
+    renderEntries();
+  };
+
+  const openGallery = ({ scroll = true } = {}) => {
+    categorySection.hidden = true;
+    gallerySection.hidden = false;
+    page.classList.add('photography-gallery-open');
+    if (scroll) requestAnimationFrame(() => gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
+
+  const openEntryInSingleView = (entry) => {
+    const matches = matchingEntries();
+    const index = matches.indexOf(entry);
+    if (index < 0) return;
+    singleIndex = index;
+    applyView('single', true);
+    openGallery({ scroll: false });
+    gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const moveSingle = (direction) => {
+    const matches = matchingEntries();
+    if (!matches.length) return;
+
+    const nextIndex = singleIndex + direction;
+    if (nextIndex < 0 || nextIndex >= matches.length) return;
+
+    singleIndex = nextIndex;
+    renderEntries();
+  };
+
+  filterTriggers.forEach((button) => {
+    button.addEventListener('click', () => {
+      applyFilter(button.dataset.photoFilter);
+      openGallery();
+    });
+  });
+
+  viewButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (button === thumbnailButton) button.classList.remove('is-thumbnail-attention');
+      applyView(button.dataset.photoView);
+      openGallery();
+    });
+  });
+
+  entries.forEach((entry) => {
+    entry.addEventListener('click', (event) => {
+      if (event.target.closest('.photography-single-arrow')) return;
+      if (currentView === 'thumbnails') openEntryInSingleView(entry);
+    });
+
+    entry.addEventListener('keydown', (event) => {
+      if (currentView !== 'thumbnails' || (event.key !== 'Enter' && event.key !== ' ')) return;
+      event.preventDefault();
+      openEntryInSingleView(entry);
+    });
+  });
+
+  gallery.addEventListener('click', (event) => {
+    const arrow = event.target.closest('.photography-single-arrow');
+    if (!arrow) return;
+    event.stopPropagation();
+    moveSingle(arrow.hasAttribute('data-photo-prev') ? -1 : 1);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (gallerySection.hidden || currentView !== 'single') return;
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+    const matches = matchingEntries();
+    const canMoveLeft = event.key === 'ArrowLeft' && singleIndex > 0;
+    const canMoveRight = event.key === 'ArrowRight' && singleIndex < matches.length - 1;
+    if (!canMoveLeft && !canMoveRight) return;
+
+    event.preventDefault();
+    moveSingle(event.key === 'ArrowLeft' ? -1 : 1);
+  });
+
+  applyFilter(currentFilter);
+  applyView(currentView);
+  thumbnailButton?.classList.add('is-thumbnail-attention');
+  syncControlAlignment();
+  requestAnimationFrame(syncControlAlignment);
+  document.fonts?.ready.then(syncControlAlignment);
+  window.addEventListener('resize', syncControlAlignment);
+  window.addEventListener('madhi:shellready', syncControlAlignment);
+})();
+</script>
+</body>
+</html>
