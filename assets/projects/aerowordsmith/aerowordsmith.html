@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AeroWordsmith | Airport Word Game</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}
+.game-shell{width:100%;height:100%;display:grid;place-items:center;background:#fff}
+#aeroWordsmithArt{width:100%;height:100%;display:block;border:0;background:#fff}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+<main class="game-shell" aria-label="AeroWordsmith airport word-search game">
+<object id="aeroWordsmithArt" type="image/svg+xml" data="aero-wordsmith.svg?v=20260930-score-v5" aria-label="AeroWordsmith A to Z airport word search"></object>
+<div id="wordStatus" class="sr-only" aria-live="polite">Find the A to Z airport words.</div>
+</main>
+<script>
+(()=>{
+'use strict';
+const WORDS=[
+['A','AIRPORT',2,0,2,6],['B','BAGGAGE',14,0,8,0],['C','CONTROL TOWER',11,13,11,2],['D','DEICING',7,8,7,14],['E','ENGINE',1,14,6,14],['F','FIRE TRUCK',3,8,3,0],['G','GATE',3,10,3,13],['H','HELICOPTER',13,3,13,12],['I','INFORMATION DESK',4,14,4,0],['J','JET BRIDGE',12,12,12,4],['K','KID PLAYSTATION',5,13,5,0],['L','LIGHT',2,10,2,6],['M','MOVING WALKWAY',1,1,1,13],['N','NOSE',9,1,12,1],['O','OPERATIONS',10,5,10,14],['P','PROPELLER',14,3,14,11],['Q','QUEUE',0,0,0,4],['R','RUNWAY',0,10,0,5],['S','SNOW PLOW',8,10,8,3],['T','TUG',8,11,8,13],['U','UNIFORM',9,8,9,2],['V','VEST',0,11,0,14],['W','WINDSOCK',7,0,7,7],['X','X-RAY MACHINE',6,11,6,1],['Y','YELLOW',9,14,9,9],['Z','ZULU',14,14,11,14]
+].map((w,index)=>({letter:w[0],label:w[1],r1:w[2],c1:w[3],r2:w[4],c2:w[5],index,key:w[1].replace(/[^A-Z]/g,'')}));
+const GREEN_HUES=['#3BB143','#0B6623','#9DC183','#708238','#C7EA46','#3F704D','#00A86B','#8F9779','#4F7942','#29AB87','#A9BA9D','#8A9A5B','#98FB98','#01796F','#D0F0C0','#4B5320','#50C878','#4CBB17','#043927','#2E8B57'];
+const NS='http://www.w3.org/2000/svg';
+const X0=92,Y0=92,STEP=48.6,SIZE=15;
+const art=document.getElementById('aeroWordsmithArt');
+const status=document.getElementById('wordStatus');
+const found=new Set();
+let anchor=null, dragging=false, moved=false, tap=null;
+
+function samePoint(a,b){return a&&b&&a.r===b.r&&a.c===b.c}
+function pathBetween(a,b){
+  const dr=b.r-a.r,dc=b.c-a.c;
+  if(!(dr===0||dc===0||Math.abs(dr)===Math.abs(dc))) return [];
+  const steps=Math.max(Math.abs(dr),Math.abs(dc));
+  const sr=steps?dr/steps:0,sc=steps?dc/steps:0,out=[];
+  for(let i=0;i<=steps;i++) out.push({r:a.r+sr*i,c:a.c+sc*i});
+  return out;
+}
+function sig(path){return path.map(p=>`${p.r},${p.c}`).join('|')}
+function wordPath(w){return pathBetween({r:w.r1,c:w.c1},{r:w.r2,c:w.c2})}
+function findWord(path){
+  if(path.length<2) return null;
+  const a=sig(path),b=sig([...path].reverse());
+  return WORDS.find(w=>{const p=sig(wordPath(w));return p===a||p===b})||null;
+}
+function pointToCell(svg,evt){
+  const pt=svg.createSVGPoint();pt.x=evt.clientX;pt.y=evt.clientY;
+  const ctm=svg.getScreenCTM();if(!ctm)return null;
+  const local=pt.matrixTransform(ctm.inverse());
+  const c=Math.round((local.x-X0)/STEP),r=Math.round((local.y-Y0)/STEP);
+  if(r<0||r>=SIZE||c<0||c>=SIZE)return null;
+  if(Math.abs(local.x-(X0+c*STEP))>STEP*.55||Math.abs(local.y-(Y0+r*STEP))>STEP*.55)return null;
+  return {r,c};
+}
+function setup(){
+  const doc=art.contentDocument;if(!doc)return;
+  const svg=doc.documentElement;
+  const letters=[...svg.querySelectorAll('.letter')];
+  const wordNodes=[...svg.querySelectorAll('.word')];
+  const scoreText=svg.querySelector('#scoreText');
+  if(letters.length!==225||wordNodes.length<26)return;
+  svg.style.touchAction='none';svg.style.userSelect='none';svg.style.cursor='default';
+  wordNodes.forEach(node=>node.style.transition='opacity .18s ease, fill .18s ease');
+  svg.querySelectorAll('.highlight').forEach(n=>n.remove());
+  letters.forEach((node,i)=>{node.dataset.r=Math.floor(i/SIZE);node.dataset.c=i%SIZE;node.style.cursor='pointer'});
+
+  const firstLetter=letters[0];
+  const foundLayer=doc.createElementNS(NS,'g');foundLayer.setAttribute('id','foundHighlights');
+  const previewLayer=doc.createElementNS(NS,'g');previewLayer.setAttribute('id','selectionPreview');
+  firstLetter.parentNode.insertBefore(foundLayer,firstLetter);
+  firstLetter.parentNode.insertBefore(previewLayer,firstLetter);
+  const preview=doc.createElementNS(NS,'line');
+  preview.setAttribute('stroke','#b8bec6');preview.setAttribute('stroke-width','46');preview.setAttribute('stroke-linecap','round');preview.setAttribute('opacity','.38');preview.style.display='none';
+  previewLayer.appendChild(preview);
+
+  function showPreview(a,b){
+    const path=pathBetween(a,b);if(!path.length){preview.style.display='none';return}
+    preview.setAttribute('x1',X0+a.c*STEP);preview.setAttribute('y1',Y0+a.r*STEP);
+    preview.setAttribute('x2',X0+b.c*STEP);preview.setAttribute('y2',Y0+b.r*STEP);
+    preview.style.display='block';
+  }
+  function hidePreview(){preview.style.display='none'}
+  function markFound(w){
+    if(found.has(w.key)){status.textContent=`${w.label} is already found.`;return}
+    found.add(w.key);
+    const line=doc.createElementNS(NS,'line');
+    line.setAttribute('x1',X0+w.c1*STEP);line.setAttribute('y1',Y0+w.r1*STEP);
+    line.setAttribute('x2',X0+w.c2*STEP);line.setAttribute('y2',Y0+w.r2*STEP);
+    line.setAttribute('stroke',GREEN_HUES[w.index%GREEN_HUES.length]);
+    line.setAttribute('stroke-width','46');line.setAttribute('stroke-linecap','round');line.setAttribute('opacity','.78');
+    foundLayer.appendChild(line);
+    const wordNode=wordNodes[w.index];
+    if(wordNode){
+      wordNode.style.textDecoration='line-through';
+      wordNode.style.textDecorationThickness='2px';
+      wordNode.style.fill=GREEN_HUES[w.index%GREEN_HUES.length];
+      wordNode.style.opacity='.62';
+    }
+    if(scoreText)scoreText.textContent=`SCORE ${found.size} / 26`;
+    status.textContent=`Found ${w.label}. ${found.size} of 26 found.`;
+  }
+  function submit(a,b){const w=findWord(pathBetween(a,b));if(w)markFound(w);else status.textContent='That is not one of the airport words.'}
+
+  svg.addEventListener('pointerdown',evt=>{
+    const p=pointToCell(svg,evt);if(!p)return;
+    dragging=true;moved=false;anchor=p;showPreview(p,p);
+    try{svg.setPointerCapture(evt.pointerId)}catch(e){}
+    evt.preventDefault();
+  });
+  svg.addEventListener('pointermove',evt=>{
+    if(!dragging||!anchor)return;
+    const p=pointToCell(svg,evt);if(!p)return;
+    if(!samePoint(p,anchor))moved=true;
+    showPreview(anchor,p);evt.preventDefault();
+  });
+  svg.addEventListener('pointerup',evt=>{
+    if(!dragging||!anchor)return;
+    const end=pointToCell(svg,evt)||anchor;
+    hidePreview();dragging=false;
+    if(moved){submit(anchor,end);tap=null}else if(!tap){tap=anchor;showPreview(tap,tap);status.textContent='Choose the last letter.'}else{hidePreview();submit(tap,end);tap=null}
+    anchor=null;moved=false;evt.preventDefault();
+  });
+  svg.addEventListener('pointercancel',()=>{dragging=false;moved=false;anchor=null;tap=null;hidePreview()});
+}
+art.addEventListener('load',setup);
+})();
+</script>
+</body>
+</html>
