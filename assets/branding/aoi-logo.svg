@@ -1,0 +1,25 @@
+<svg preserveAspectRatio="xMidYMid meet" style="background:transparent" xmlns="http://www.w3.org/2000/svg" viewBox="49.5 37.5 361.5 373.5" width="100%" height="100%" role="img" aria-labelledby="title desc">
+  <title id="title">Airport Operations Intelligence Logo Vertical</title>
+  <desc id="desc">AOI symbol stacked above the Airport Operations Intelligence wordmark.</desc>
+  <rect width="460" height="520" fill="transparent"/>
+  <style>
+    .text-light{font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;font-weight:600;fill:#98FB98;text-anchor:middle}
+    .text-dark{font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;font-weight:600;fill:#0B6623;text-anchor:middle}
+  </style>
+  <g transform="translate(52 40)">
+    <g transform="scale(1.35)">
+      <g transform="translate(-99 -85)">
+        <polygon points="143,85 187,190 173,190 143,122 113,190 99,190" fill="#98FB98"/>
+        <polygon points="122,190 143,143 164,190" fill="#0B6623"/>
+        <circle cx="245" cy="140" r="42" stroke="#98FB98" stroke-width="9" fill="none"/>
+        <circle cx="245" cy="140" r="11" fill="#0B6623"/>
+        <rect x="312" y="158" width="13" height="32" fill="#0B6623"/>
+        <rect x="331" y="128" width="13" height="62" fill="#0B6623"/>
+        <rect x="350" y="98" width="13" height="92" fill="#0B6623"/>
+      </g>
+    </g>
+  </g>
+  <text x="230" y="292" class="text-light">AIRPORT</text>
+  <text x="230" y="350" class="text-light">OPERATIONS</text>
+  <text x="230" y="408" class="text-dark">INTELLIGENCE</text>
+</svg>
