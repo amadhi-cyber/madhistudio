@@ -1286,6 +1286,15 @@ to{transform: rotate(360deg);}}
 
 /* 2026-09-29 motion-page artwork sizing. */
 @media (min-width:1101px){
+  /* Keep the Write Message tile's bottom edge while exposing its rounded top corners. */
+  html[data-page="service"] .madhi-hero-row .image-card{
+    height:calc(var(--service-media-height) - 14px) !important;
+    min-height:calc(var(--service-media-height) - 14px) !important;
+    margin-top:14px !important;
+    border-radius:14px !important;
+    overflow:hidden !important;
+  }
+
   /* Taxi animation uses a shorter canvas while keeping the aircraft centered vertically. */
   html[data-page="service"] .taxi-plane-row .image-card{
     height:560px !important;

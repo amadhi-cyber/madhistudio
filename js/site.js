@@ -829,9 +829,9 @@ if (projectBriefForm) {
       #turntableScene.is-playing #platterSpin,#turntableScene.is-starting #platterSpin{animation:madhiRecordSpin 2.4s linear infinite}
       @keyframes madhiRecordSpin{to{transform:rotate(360deg)}}
       #turntableScene #tonearm{transform-origin:465px 163px;transform-box:view-box;transition:transform 1.35s cubic-bezier(.22,.8,.22,1)}
-      #turntableScene .button-face{fill:#18d73e!important;filter:drop-shadow(0 0 6px rgba(24,215,62,.82)) drop-shadow(0 0 12px rgba(24,215,62,.42));animation:madhiButtonBlink 1.1s ease-in-out infinite}
+      #turntableScene .button-face{fill:#00ff45!important;filter:drop-shadow(0 0 9px rgba(0,255,69,.95)) drop-shadow(0 0 20px rgba(0,255,69,.72));animation:madhiButtonBlink .62s ease-in-out infinite}
       #turntableScene.is-playing .button-face,#turntableScene.is-starting .button-face{fill:#ff8a1f!important;filter:drop-shadow(0 0 6px rgba(255,138,31,.86)) drop-shadow(0 0 12px rgba(255,138,31,.46))}
-      @keyframes madhiButtonBlink{0%,100%{opacity:1}50%{opacity:.55}}
+      @keyframes madhiButtonBlink{0%,100%{opacity:1}50%{opacity:.24}}
       #turntableScene.arm-lifted #tonearm{transform:translateY(-12px) rotate(0deg)}
       #turntableScene.arm-over #tonearm{transform:translateY(-12px) rotate(24deg)}
       #turntableScene.arm-dropped #tonearm{transform:translateY(0) rotate(24deg)}

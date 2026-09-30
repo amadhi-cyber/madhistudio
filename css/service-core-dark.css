@@ -854,8 +854,8 @@ html body .popout-action .btn-arrow, html body .popout-action .btn-arrow svg{wid
   text-underline-offset: .14em !important;}
 .landing-airport-network-card, .wanderports-ui-row .image-card{position: relative !important;}
 .map-fullscreen-control{position: absolute !important;
-  top: 18px !important;
-  right: 18px !important;
+  top: 10px !important;
+  right: 10px !important;
   z-index: 30 !important;
   width: 42px !important;
   height: 42px !important;
