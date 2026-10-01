@@ -143,10 +143,10 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.5px;
+  gap: 5px;
   text-align: center;
   background: var(--footer-bg);
-  color: var(--soft-muted);
+  color: #d8d8d8;
   font-size: 13px;
   border-top: 1px solid rgba(0, 0, 0, 0.035);
 }

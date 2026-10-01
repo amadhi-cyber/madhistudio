@@ -14,8 +14,13 @@
     }
     .aoe-sub {
       fill: #e4a0f7;
-      font-size: 58px;
+      font-size: 43.5px;
       font-weight: 700;
+      animation: explainedGlow 1.7s ease-in-out infinite alternate;
+    }
+    @keyframes explainedGlow {
+      from { filter: drop-shadow(0 0 1px rgba(228,160,247,.25)); }
+      to { filter: drop-shadow(0 0 10px rgba(228,160,247,.95)); }
     }
   </style>
 

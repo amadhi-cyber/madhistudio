@@ -40,6 +40,11 @@
   object-position: left center;
 }
 
+html.madhi-portfolio-preview .logo img {
+  transform: scale(1.18);
+  transform-origin: left center;
+}
+
 .nav-links {
   width: 48%;
   height: var(--aph-header-height);
@@ -111,7 +116,7 @@
     height: var(--aph-header-height);
   }
 
-  .logo {
+  html:not(.madhi-portfolio-preview) .logo {
     width: 42%;
     height: var(--aph-header-height);
     flex-basis: 42%;
@@ -121,7 +126,7 @@
     height: var(--aph-header-height);
   }
 
-  .nav-links {
+  html:not(.madhi-portfolio-preview) .nav-links {
     width: 58%;
     height: var(--aph-header-height);
     flex-basis: 58%;
@@ -141,14 +146,14 @@
 }
 
 @media (max-width: 760px) {
-  .site-nav {
+  html:not(.madhi-portfolio-preview) .site-nav {
     height: auto;
     min-height: 68px;
     padding: 12px 18px;
     overflow: visible;
   }
 
-  .nav-inner {
+  html:not(.madhi-portfolio-preview) .nav-inner {
     width: 100%;
     height: auto;
     flex-direction: column;
@@ -157,20 +162,20 @@
     overflow: visible;
   }
 
-  .logo {
+  html:not(.madhi-portfolio-preview) .logo {
     width: 100%;
     height: 70px;
     flex-basis: auto;
   }
 
-  .logo img {
+  html:not(.madhi-portfolio-preview) .logo img {
     width: 260px;
     height: 70px;
     object-fit: contain;
     object-position: left center;
   }
 
-  .nav-links {
+  html:not(.madhi-portfolio-preview) .nav-links {
     width: 100%;
     height: auto;
     flex-basis: auto;
@@ -182,7 +187,7 @@
     white-space: normal;
   }
 
-  .nav-divider {
+  html:not(.madhi-portfolio-preview) .nav-divider {
     height: 16px;
   }
 }

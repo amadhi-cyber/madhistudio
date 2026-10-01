@@ -6,7 +6,7 @@
     .text-light{font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;font-weight:600;fill:#98FB98;text-anchor:middle}
     .text-dark{font-family:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;font-weight:600;fill:#0B6623;text-anchor:middle}
   </style>
-  <g transform="translate(52 40)">
+  <g transform="translate(52 52)">
     <g transform="scale(1.35)">
       <g transform="translate(-99 -85)">
         <polygon points="143,85 187,190 173,190 143,122 113,190 99,190" fill="#98FB98"/>
@@ -20,6 +20,6 @@
     </g>
   </g>
   <text x="230" y="292" class="text-light">AIRPORT</text>
-  <text x="230" y="350" class="text-light">OPERATIONS</text>
-  <text x="230" y="408" class="text-dark">INTELLIGENCE</text>
+  <text x="230" y="333" class="text-light">OPERATIONS</text>
+  <text x="230" y="374" class="text-dark">INTELLIGENCE</text>
 </svg>

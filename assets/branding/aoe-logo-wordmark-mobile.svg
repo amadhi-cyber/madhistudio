@@ -4,7 +4,8 @@
   <style>
     .aoe-wordmark { font-family: "Quicksand", Arial, sans-serif; text-anchor: middle; }
     .aoe-main { fill: #D7FFFF; font-size: 41px; font-weight: 600; letter-spacing: -0.6px; }
-    .aoe-sub { fill: #20242C; font-size: 34.4px; font-weight: 700; }
+    .aoe-sub { fill: #20242C; font-size: 25.8px; font-weight: 700; animation: explainedGlow 1.7s ease-in-out infinite alternate; }
+    @keyframes explainedGlow { from { filter: drop-shadow(0 0 1px rgba(228,160,247,.25)); } to { filter: drop-shadow(0 0 8px rgba(228,160,247,.95)); } }
   </style>
   <defs>
     <clipPath id="window-clip-mobile"><rect x="50" y="36" width="320" height="210" rx="28" /></clipPath>
