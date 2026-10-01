@@ -202,19 +202,13 @@
   color: #000000;
 }
 
-@keyframes photography-thumbnail-attention {
-  0%, 100% {
-    background: #ffbf00;
-    color: #000000;
-  }
-  50% {
-    background: #20242c;
-    color: #ffffff;
-  }
+.photography-page .photography-view-button.is-attention {
+  animation: photographyThumbnailAttention 1.8s ease-in-out infinite;
 }
 
-.photography-page .photography-view-button.is-thumbnail-attention {
-  animation: photography-thumbnail-attention 2.4s ease-in-out infinite;
+@keyframes photographyThumbnailAttention {
+  0%, 100% { background: #ffbf00; color: #000000; }
+  50% { background: #20242c; color: #ffffff; }
 }
 
 .photography-page .photography-photo-entry[hidden] {
@@ -578,6 +572,58 @@
 }
 
 @media (max-width: 700px) {
+  .photography-page .photography-view-controls {
+    display: none !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked {
+    display: flex !important;
+    flex-direction: column !important;
+    columns: auto !important;
+    gap: calc(var(--mobile-feature-row-separation, 200px) / 2) !important;
+    width: 100% !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-entry {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    break-inside: auto !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-media,
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-media img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-single-navigation {
+    display: none !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-caption {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-top: 10px !important;
+    text-align: left !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-caption h2 {
+    color: #ffbf00 !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-caption > p:not(.photography-single-counter) {
+    color: #ffffff !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-single-counter {
+    display: none !important;
+  }
+
   .photography-page .photography-category-section,
   .photography-page .photography-gallery-section,
   .photography-page.photography-gallery-open .photography-gallery-section {

@@ -1217,6 +1217,7 @@ footer .footer-site-link:hover, footer .footer-site-links a:hover{color: var(--b
   min-height: 0 !important;
   padding: 16px 24px 18px !important;}
 #site-footer .footer-inner, footer .footer-inner{gap: 0 !important;}
+#site-footer .footer-main, footer .footer-main{opacity:.5;}
 #site-footer .footer-main, #site-footer .footer-main a, footer .footer-main, footer .footer-main a{color: color-mix(in srgb, var(--brand-deep) 68%, transparent);}
 #site-footer .footer-site-links, #site-footer .footer-divider, footer .footer-site-links, footer .footer-divider{display: none !important;}
 #site-footer .footer-main a:hover, footer .footer-main a:hover{color: var(--brand-deep);

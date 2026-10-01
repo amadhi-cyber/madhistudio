@@ -778,6 +778,8 @@ html[data-page="service"] .info-panel, html[data-page="service"] .print-row.has-
 html[data-page="service"] .info-panel :is(h2,p,.feature-description,.motion-description){margin-top:0 !important;margin-bottom:0 !important;}
 html[data-page="service"] .orientation-note{display:block !important; margin:0 !important; font-size:12.5px !important; line-height:1.4 !important; font-style:italic !important;}}
 @media (max-width: 700px){
+html[data-page="service"] .taxi-plane-row .image-card{height:300px !important;min-height:300px !important;aspect-ratio:auto !important;overflow:hidden !important;}
+html[data-page="service"] .taxi-plane-row .taxi-plane-frame{width:100% !important;height:100% !important;}
 html[data-page="service"] .camera-row .image-card{height:auto !important;min-height:0 !important;aspect-ratio:auto !important;overflow:visible !important;}
 html[data-page="service"] .print-row.camera-row{gap:2px !important;}
 html[data-page="service"] .camera-row .svg-artwork .motion-svg-object{width:90% !important;max-width:90% !important;height:auto !important;}
@@ -1288,9 +1290,9 @@ to{transform: rotate(360deg);}}
 @media (min-width:1101px){
   /* Keep the Write Message tile's bottom edge while exposing its rounded top corners. */
   html[data-page="service"] .madhi-hero-row .image-card{
-    height:calc(var(--service-media-height) - 14px) !important;
-    min-height:calc(var(--service-media-height) - 14px) !important;
-    margin-top:14px !important;
+    height:560px !important;
+    min-height:560px !important;
+    margin-top:18px !important;
     border-radius:14px !important;
     overflow:hidden !important;
   }
@@ -1323,12 +1325,13 @@ to{transform: rotate(360deg);}}
     height:100% !important;
     align-items:center !important;
     justify-content:center !important;
+    padding-top:0 !important;
     background:transparent !important;
   }
   html[data-page="service"] .aoe-learning-row .aoe-learning-artwork img{
     display:block !important;
-    width:37.5% !important;
-    max-width:37.5% !important;
+    width:36.5625% !important;
+    max-width:36.5625% !important;
     height:auto !important;
     max-height:none !important;
     margin:0 auto !important;
@@ -1368,5 +1371,11 @@ to{transform: rotate(360deg);}}
   }
   html[data-page="service"] .turntable-row .turntableSvg .turntable-bg{
     fill:transparent !important;
+  }
+
+  /* Strong center seam for the desktop split-flap board. */
+  html[data-page="service"] .splitflap-row :is(.solari-half.top,.solari-motion.top,.solari-signal-half.top),
+  html[data-page="service"] .splitflap-row .solari-stair-spacer::before{
+    border-bottom:3px solid #363737 !important;
   }
 }

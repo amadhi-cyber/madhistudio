@@ -15,8 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="../css/service-core-dark.css?v=20260929-requested-polish-v2" rel="stylesheet"/>
-<link href="../css/service-shell-dark.css?v=20260929-requested-polish-v2" rel="stylesheet"/>
-<link href="../css/photography-dark.css?v=20260929-requested-polish-v2" rel="stylesheet"/>
+<link href="../css/service-shell-dark.css?v=20260930-mobile-v10" rel="stylesheet"/>
+<link href="../css/photography-dark.css?v=20260930-mobile-v10" rel="stylesheet"/>
 </head>
 <body class="section-green photography-page">
 <div id="site-nav"></div>
@@ -27,13 +27,13 @@
   <div class="photography-filter-list" role="group" aria-label="Filter photographs by category">
     <button class="photography-filter-button is-active" type="button" data-photo-filter="all" aria-pressed="true">ALL</button>
     <button class="photography-filter-button" type="button" data-photo-filter="aviation" aria-pressed="false">Aviation</button>
-    <button class="photography-filter-button" type="button" data-photo-filter="street" aria-pressed="false">Street</button>
     <button class="photography-filter-button" type="button" data-photo-filter="nature" aria-pressed="false">Nature</button>
     <button class="photography-filter-button" type="button" data-photo-filter="people" aria-pressed="false">People</button>
+    <button class="photography-filter-button" type="button" data-photo-filter="street" aria-pressed="false">Street</button>
     <button class="photography-filter-button" type="button" data-photo-filter="travel" aria-pressed="false">Travel</button>
   </div>
   <div class="photography-view-controls" role="group" aria-label="Photography view">
-    <button class="photography-view-button is-active" type="button" data-photo-view="thumbnails" aria-pressed="true">Thumbnails</button>
+    <button class="photography-view-button is-active is-attention" type="button" data-photo-view="thumbnails" aria-pressed="true">Thumbnails</button>
     <button class="photography-view-button" type="button" data-photo-view="single" aria-pressed="false">1 by 1</button>
   </div>
 </aside>
@@ -45,10 +45,6 @@
         <img src="../assets/projects/airport-photo-hub/images/airside.webp" alt="Aviation photography"/>
         <span>Aviation</span>
       </button>
-      <button class="photography-category-card" type="button" data-photo-filter="street" aria-label="Show Street photography">
-        <img src="../assets/photography/a-shadow-never-gone.webp" alt="Street photography"/>
-        <span>Street</span>
-      </button>
       <button class="photography-category-card" type="button" data-photo-filter="nature" aria-label="Show Nature photography">
         <img src="../assets/photography/the-last-warm-light.webp" alt="Nature photography"/>
         <span>Nature</span>
@@ -56,6 +52,10 @@
       <button class="photography-category-card" type="button" data-photo-filter="people" aria-label="Show People photography">
         <img src="../assets/photography/road-trip-with-road-dog.webp" alt="Road Trip with Road Dog — People photography"/>
         <span>People</span>
+      </button>
+      <button class="photography-category-card" type="button" data-photo-filter="street" aria-label="Show Street photography">
+        <img src="../assets/photography/a-shadow-never-gone.webp" alt="Street photography"/>
+        <span>Street</span>
       </button>
       <button class="photography-category-card" type="button" data-photo-filter="travel" aria-label="Show Travel photography">
         <img src="../assets/photography/the-far-side-of-calm.webp" alt="Travel photography"/>
@@ -516,13 +516,245 @@
         </div>
         <div class="photography-photo-caption"><h2>The Hidden Choreography</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
       </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open A Beacon For The Curious in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-beacon-for-the-curious.webp" alt="A Beacon For The Curious photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Beacon For The Curious</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open A Slice Of Night in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/a-slice-of-night.webp" alt="A Slice Of Night photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>A Slice Of Night</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Branches Of Thought in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/branches-of-thought.webp" alt="Branches Of Thought photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Branches Of Thought</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Central Park, Center Stage in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/central-park,-center-stage.webp" alt="Central Park, Center Stage photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Central Park, Center Stage</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open Conversation Is Currency in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/conversation-is-currency.webp" alt="Conversation Is Currency photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Conversation Is Currency</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Crowned By The Crowd in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/crowned-by-the-crowd.webp" alt="Crowned By The Crowd photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Crowned By The Crowd</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Framed By Centuries in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/framed-by-centuries.webp" alt="Framed By Centuries photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Framed By Centuries</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Guarding Paradise in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/guarding-paradise.webp" alt="Guarding Paradise photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Guarding Paradise</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Honky Tonk After Hours in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/honky-tonk-after-hours.webp" alt="Honky Tonk After Hours photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Honky Tonk After Hours</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Memory Never Checked Out in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/memory-never-checked-out.webp" alt="Memory Never Checked Out photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Memory Never Checked Out</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Memory Never Checked Out in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/memory-never-checked-out-2.webp" alt="Memory Never Checked Out photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Memory Never Checked Out</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Memphis In Six Strings in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/memphis-in-six-strings.webp" alt="Memphis In Six Strings photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Memphis In Six Strings</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="aviation" tabindex="0" aria-label="Open On Course in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/on-course.webp" alt="On Course photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>On Course</h2><p>Aviation</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Palm Over Deco in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/palm-over-deco.webp" alt="Palm Over Deco photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Palm Over Deco</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open Road Trip With My Road Dog in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/road-trip-with-my-road-dog.webp" alt="Road Trip With My Road Dog photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Road Trip With My Road Dog</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Six Chords. One City in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/six-chords.-one-city..webp" alt="Six Chords. One City photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Six Chords. One City</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Six Strings To The Sky in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/six-strings-to-the-sky.webp" alt="Six Strings To The Sky photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Six Strings To The Sky</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open Sunshine With A Side Of Wind in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/sunshine-with-a-side-of-wind.webp" alt="Sunshine With A Side Of Wind photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Sunshine With A Side Of Wind</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open The Bird Above The Badge in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-bird-above-the-badge.webp" alt="The Bird Above The Badge photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Bird Above The Badge</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Corner Between Rounds in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-corner-between-rounds.webp" alt="The Corner Between Rounds photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Corner Between Rounds</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Edge Of Hope in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-edge-of-hope.webp" alt="The Edge Of Hope photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Edge Of Hope</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open The Etiquette Of Rebellion in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-etiquette-of-rebellion.webp" alt="The Etiquette Of Rebellion photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Etiquette Of Rebellion</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open The Poetry Of Stairs in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-poetry-of-stairs.webp" alt="The Poetry Of Stairs photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Poetry Of Stairs</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="people" tabindex="0" aria-label="Open The Store Is His Story in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-store-is-his-story.webp" alt="The Store Is His Story photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Store Is His Story</h2><p>People</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="travel" tabindex="0" aria-label="Open The Walls Outlived Kings in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/the-walls-outlived-kings.webp" alt="The Walls Outlived Kings photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>The Walls Outlived Kings</h2><p>Travel</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Untamed Elegance in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/untamed-elegance.webp" alt="Untamed Elegance photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Untamed Elegance</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Where Good Dogs Go To Ponder in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/where-good-dogs-go-to-ponder.webp" alt="Where Good Dogs Go To Ponder photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Where Good Dogs Go To Ponder</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="street" tabindex="0" aria-label="Open Where The Blues Glow in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/where-the-blues-glow.webp" alt="Where The Blues Glow photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Where The Blues Glow</h2><p>Street</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
+      <article class="photography-photo-entry" data-photo-category="nature" tabindex="0" aria-label="Open Where The Branches Bow in single-photo view">
+        <div class="photography-photo-media"><img src="../assets/photography/where-the-branches-bow.webp" alt="Where The Branches Bow photograph"/></div>
+        <div class="photography-single-navigation" aria-label="Photograph navigation">
+          <button class="photography-single-arrow photography-single-arrow-prev" type="button" data-photo-prev aria-label="Previous photograph"></button>
+          <button class="photography-single-arrow photography-single-arrow-next" type="button" data-photo-next aria-label="Next photograph"></button>
+        </div>
+        <div class="photography-photo-caption"><h2>Where The Branches Bow</h2><p>Nature</p><p class="photography-single-counter" data-photo-counter aria-live="polite"></p></div>
+      </article>
     </div>
     <p class="photography-empty-state" id="photography-empty-state" hidden>No photographs in this category yet.</p>
   </div>
 </section>
 </main>
 <div id="site-footer"></div>
-<script src="../js/site.js?v=20260929-requested-polish-v2"></script>
+<script src="../js/site.js?v=20260930-cleanedit-v8"></script>
 <script>
 (() => {
   const page = document.body;
@@ -534,10 +766,10 @@
   const filterTriggers = Array.from(document.querySelectorAll('[data-photo-filter]'));
   const sidebarFilterButtons = Array.from(document.querySelectorAll('.photography-filter-button'));
   const viewButtons = Array.from(document.querySelectorAll('.photography-view-button'));
-  const thumbnailButton = document.querySelector('[data-photo-view="thumbnails"]');
 
   let currentFilter = 'all';
   let currentView = 'thumbnails';
+  const isMobileStacked = () => window.matchMedia('(max-width: 700px)').matches;
   let singleIndex = 0;
 
   const matchingEntries = () => entries.filter((entry) =>
@@ -579,13 +811,16 @@
 
     entries.forEach((entry) => {
       const isMatch = matches.includes(entry);
-      const visible = currentView === 'single'
-        ? isMatch && entry === matches[singleIndex]
-        : isMatch;
+      const mobileStacked = isMobileStacked();
+      const visible = mobileStacked
+        ? isMatch
+        : currentView === 'single'
+          ? isMatch && entry === matches[singleIndex]
+          : isMatch;
       entry.hidden = !visible;
-      entry.tabIndex = currentView === 'thumbnails' && visible ? 0 : -1;
+      entry.tabIndex = !mobileStacked && currentView === 'thumbnails' && visible ? 0 : -1;
 
-      if (currentView === 'single' && visible) {
+      if (!mobileStacked && currentView === 'single' && visible) {
         const prevButton = entry.querySelector('[data-photo-prev]');
         const nextButton = entry.querySelector('[data-photo-next]');
         const counter = entry.querySelector('[data-photo-counter]');
@@ -607,12 +842,14 @@
   };
 
   const applyView = (view, preserveIndex = false) => {
-    currentView = view;
+    const mobileStacked = isMobileStacked();
+    currentView = mobileStacked ? 'stacked' : view;
     if (!preserveIndex) singleIndex = 0;
-    const single = view === 'single';
-    gallery.classList.toggle('is-thumbnails', !single);
+    const single = !mobileStacked && view === 'single';
+    gallery.classList.toggle('is-mobile-stacked', mobileStacked);
+    gallery.classList.toggle('is-thumbnails', !mobileStacked && !single);
     gallery.classList.toggle('is-single', single);
-    page.classList.toggle('photography-thumbnail-view', !single);
+    page.classList.toggle('photography-thumbnail-view', !mobileStacked && !single);
     page.classList.toggle('photography-single-view', single);
     syncViewButtons();
     renderEntries();
@@ -655,7 +892,9 @@
 
   viewButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      if (button === thumbnailButton) button.classList.remove('is-thumbnail-attention');
+      if (button.dataset.photoView === 'thumbnails') {
+        button.classList.remove('is-attention');
+      }
       applyView(button.dataset.photoView);
       openGallery();
     });
@@ -663,12 +902,13 @@
 
   entries.forEach((entry) => {
     entry.addEventListener('click', (event) => {
+      if (isMobileStacked()) return;
       if (event.target.closest('.photography-single-arrow')) return;
       if (currentView === 'thumbnails') openEntryInSingleView(entry);
     });
 
     entry.addEventListener('keydown', (event) => {
-      if (currentView !== 'thumbnails' || (event.key !== 'Enter' && event.key !== ' ')) return;
+      if (isMobileStacked() || currentView !== 'thumbnails' || (event.key !== 'Enter' && event.key !== ' ')) return;
       event.preventDefault();
       openEntryInSingleView(entry);
     });
@@ -696,7 +936,7 @@
 
   applyFilter(currentFilter);
   applyView(currentView);
-  thumbnailButton?.classList.add('is-thumbnail-attention');
+  window.matchMedia('(max-width: 700px)').addEventListener?.('change', () => applyView('thumbnails'));
   syncControlAlignment();
   requestAnimationFrame(syncControlAlignment);
   document.fonts?.ready.then(syncControlAlignment);

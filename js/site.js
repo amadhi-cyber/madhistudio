@@ -1178,6 +1178,7 @@ document.querySelectorAll('[data-aerowordsmith-action]').forEach(button => {
   // Compact visual page scrollbar: keeps the same green visual language while
   // using a shorter thumb that tracks page position.
   function madhiCompactScrollbar() {
+    if (document.querySelector('.copywriting-main')) return;
     if (document.getElementById('madhiScrollTrack')) return;
     const track = document.createElement('div');
     track.id = 'madhiScrollTrack';
@@ -1641,6 +1642,23 @@ function preserveMobileDisclosureAnchor(anchor, update) {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyMobileState, { once: true });
   else applyMobileState();
   mobileQuery.addEventListener?.('change', applyMobileState);
+})();
+
+/* Preview launch controls: blink only while their preview viewport is on screen. */
+(() => {
+  const setupPreviewAttention = () => {
+    const buttons = [...document.querySelectorAll('.preview-popout, .landing-preview-popout')];
+    if (!buttons.length || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const button = entry.target.querySelector('.preview-popout, .landing-preview-popout') || entry.target;
+        button.classList.toggle('is-attention-active', entry.isIntersecting && entry.intersectionRatio >= .35);
+      });
+    }, { threshold: [0, .35, .7] });
+    buttons.forEach(button => observer.observe(button.closest('.web-feature-row, #web-design, .work-section') || button));
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupPreviewAttention, { once: true });
+  else setupPreviewAttention();
 })();
 
 /* How I Work: sequential arrows. Desktop loops continuously at a measured pace; mobile keeps the existing stop-on-interaction behavior. */
