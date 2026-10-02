@@ -131,7 +131,7 @@ function mountSiteShell() {
 
   if (footerMount) {
     footerMount.innerHTML = `
-      <footer>
+      <footer class="cta-footer">
         <div class="footer-inner">
           <div class="footer-main">© 2026 Madhi Studio | <span class="footer-craft">Crafted with Intention</span></div>
         </div>
@@ -1453,10 +1453,13 @@ function preserveMobileDisclosureAnchor(anchor, update) {
 /* Desktop landing service explorer: one viewport, folder-style service tabs, existing featured work. */
 (() => {
   const desktopQuery = window.matchMedia('(min-width: 1101px)');
-  const ids = ['branding-logos', 'ui-icons', 'motion-graphics', 'web-design'];
+  const ids = ['branding-logos', 'ui-icons', 'motion-graphics', 'web-design', 'photography', 'copywriting'];
   const sectionMarkers = new Map();
   let explorer = null;
   let panels = null;
+  let includesRail = null;
+  let includesList = null;
+  let exploreAllLink = null;
   let gridMarker = null;
   let activeIndex = 0;
 
@@ -1471,6 +1474,19 @@ function preserveMobileDisclosureAnchor(anchor, update) {
       card.querySelector('.sitemap-card-top')?.setAttribute('aria-selected', String(active));
     });
     panelEls.forEach((panel, panelIndex) => panel.classList.toggle('is-active', panelIndex === activeIndex));
+
+    const activeCard = cards[activeIndex];
+    if (activeCard && includesList && exploreAllLink) {
+      const items = [...activeCard.querySelectorAll('.sitemap-includes-list li')];
+      includesList.replaceChildren(...items.map(item => {
+        const li = document.createElement('li');
+        li.textContent = item.textContent.trim();
+        return li;
+      }));
+      const panel = panelEls[activeIndex];
+      const target = panel?.querySelector('.landing-feature-explore')?.getAttribute('href') || '#';
+      exploreAllLink.setAttribute('href', target);
+    }
   }
 
   function restoreDesktopExplorer() {
@@ -1502,6 +1518,9 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     explorer.remove();
     explorer = null;
     panels = null;
+    includesRail = null;
+    includesList = null;
+    exploreAllLink = null;
     document.body.classList.remove('desktop-service-explorer-ready');
     if (window.matchMedia('(max-width: 700px)').matches) {
       window.dispatchEvent(new CustomEvent('madhi:desktop-service-restored'));
@@ -1534,7 +1553,21 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     explorer.className = 'desktop-service-explorer';
     panels = document.createElement('div');
     panels.className = 'desktop-service-panels';
-    explorer.append(grid, panels);
+
+    includesRail = document.createElement('aside');
+    includesRail.className = 'desktop-service-includes';
+    includesRail.setAttribute('aria-label', 'Included services');
+    const includesTitle = document.createElement('div');
+    includesTitle.className = 'desktop-service-includes-title';
+    includesTitle.textContent = 'INCLUDES';
+    includesList = document.createElement('ul');
+    includesList.className = 'desktop-service-includes-list';
+    exploreAllLink = document.createElement('a');
+    exploreAllLink.className = 'desktop-service-explore';
+    exploreAllLink.textContent = 'Explore All';
+    includesRail.append(includesTitle, includesList, exploreAllLink);
+
+    explorer.append(grid, panels, includesRail);
     container.append(explorer);
 
     ids.forEach((id, index) => {
