@@ -749,13 +749,6 @@ html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-syst
 html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-wordmark img{width: 78% !important; max-width: 78% !important;}
 html[data-header-style="alt"] #branding-logos .branding-system-collage.logo-system-six .layout-stacked img{width: 44% !important; max-width: 44% !important;}}
 #motionToggle{display: none !important;}
-.soccer-demo button:not(.is-active){background: var(--brand-aqua);
-  color: var(--brand-deep);
-  border: 2px solid var(--accent);
-  transition: background .18s ease, color .18s ease, border-color .18s ease !important;}
-.soccer-demo button:not(.is-active):hover, .soccer-demo button:not(.is-active):focus-visible{background: var(--accent);
-  color: var(--brand-aqua);
-  border-color: transparent;}
 .sitemap-number, .hub-number, .card-number{font-family: "Playfair Display", Georgia, serif !important;
   font-weight: 400 !important;}
 .preview-popout, .popout-action, .preview-popout svg, .popout-action svg, .preview-popout .btn-arrow, .popout-action .btn-arrow{color: var(--brand-deep);}
@@ -933,24 +926,6 @@ html::-webkit-scrollbar{width: 0 !important;
   text-decoration-color: currentColor;
   text-underline-offset: .15em !important;}
 .contact-field-label{font-size: 14.5px !important;}
-:is(
-  button,
-  .btn,
-  .btn.primary,
-  .section-action,
-  .landing-feature-explore,
-  .sitemap-main-link,
-  .hub-main-link,
-  .card-main-link,
-  .aviation-main-link,
-  .contact-submit,
-  .cta-contact-button,
-  .preview-popout,
-  .landing-preview-popout,
-  .popout-action,
-  input[type="submit"],
-  input[type="button"]
-){font-weight: 700 !important;}
 #services .sitemap-number, .sitemap-card-top .sitemap-number{font-family: inherit !important;
   font-weight: 500 !important;}
 .map-fullscreen-control, html[data-theme="dark"] .map-fullscreen-control{border: 0;}
@@ -977,24 +952,6 @@ html::-webkit-scrollbar{width: 0 !important;
   display: block !important;}
 .splitflap-row .city-demo, .splitflap-row .city-demo-controls-only{border: 1px solid var(--border);}
 #services .sitemap-number, .sitemap-card-top .sitemap-number, .hub-card-top .hub-number, .card-top .card-number{font-weight: 700 !important;}
-:is(
-  button,
-  .btn,
-  .btn.primary,
-  .section-action,
-  .landing-feature-explore,
-  .sitemap-main-link,
-  .hub-main-link,
-  .card-main-link,
-  .aviation-main-link,
-  .contact-submit,
-  .cta-contact-button,
-  .preview-popout,
-  .landing-preview-popout,
-  .popout-action,
-  input[type="submit"],
-  input[type="button"]
-){font-weight: 600 !important;}
 .attachment-browse{font-weight: 400 !important;}
 .branding-feature-row .branding-system-collage.logo-system-three .branding-system-item{display: flex !important;
   align-items: center !important;

@@ -169,7 +169,7 @@ main{position: relative;}
 .turntable-row .turntableSvg .turntable-bg{fill:transparent !important;}
 .turntable-row .turntableSvg .turntable-body-fill{fill:#FFFFFF !important;}
 .turntable-row .turntableSvg .turntable-handle-fill{fill:#FFFFFF !important;}
-.splitflap-row .solari-board{justify-content:flex-start !important;padding-top:20px !important;box-sizing:border-box !important;}
+.splitflap-row .solari-board{justify-content:flex-start !important;padding-top:20px !important;box-sizing:border-box !important;height:514px !important;max-height:514px !important;}
 .camera-row{display:none !important;}
 }
 :root{--service-title-top: 51px;
@@ -251,8 +251,7 @@ main{position: relative;}
     height: var(--service-media-height) !important;}
 .web-feature-row .web-preview-frame{width: 161.2903226% !important;
     height: 161.2903226% !important;}}
-:root{--service-row-top: 124px;
-  --service-footer-height: 56px;}
+:root{--service-footer-height: 56px;}
 .print-row, .print-row:first-child{padding-top: var(--service-row-top) !important;
   padding-bottom: 0 !important;
   align-items: start !important;
@@ -372,7 +371,7 @@ body .print-row.print-row .info-panel{width: 348px !important;
   margin: 0 !important;}
 .splitflap-row .image-card{height: 455px !important;
   min-height: 455px !important;
-  background: var(--brand-deep);}
+  background: transparent;}
 @media (min-width: 951px){.splitflap-row.has-tight-info{grid-template-columns: var(--service-media-width) 310px !important;
     gap: 22px !important;
     justify-content: start !important;}
@@ -385,8 +384,8 @@ body .print-row.print-row .info-panel{width: 348px !important;
   max-width: none !important;
   max-height: none !important;
   margin: 0 !important;}
-.splitflap-row .image-card{background: #20242C;
-  overflow: hidden !important;
+.splitflap-row .image-card{background: transparent;
+  overflow: visible !important;
   border-radius: 0 !important;}
 @media (min-width: 951px){body .splitflap-row.has-tight-info{grid-template-columns: var(--service-media-width) 348px !important;
     gap: 24px !important;
@@ -401,8 +400,8 @@ body .splitflap-row.has-tight-info .info-panel{width: 348px !important;
     max-width: 348px !important;
     min-width: 0 !important;
     align-self: start !important;}
-.splitflap-row .city-demo{width: 326px !important;
-    max-width: 326px !important;
+.splitflap-row .city-demo{width: 264px !important;
+    max-width: 264px !important;
     box-sizing: border-box !important;}}
 @media (max-width: 950px){.splitflap-row .image-card{width: 100% !important;
     max-width: 100% !important;
@@ -442,13 +441,13 @@ body .splitflap-row.has-tight-info .info-panel{width: 348px !important;
     height: var(--service-media-height) !important;
     min-height: var(--service-media-height) !important;
     border-radius: 0 !important;
-    overflow: hidden !important;}}
+    overflow: visible !important;}}
 @media (max-width: 950px){.a380-row .vector-card-stack.stack-format-first, .soccer-pitch-row .vector-card-stack.stack-format-first{width: 100% !important;
     max-width: 348px !important;}}
 .splitflap-row .image-card{position: relative !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   border-radius: 0 !important;
-  background: var(--brand-deep);}
+  background: transparent;}
 .splitflap-row .svg-artwork{position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
@@ -470,7 +469,8 @@ body .splitflap-row.has-tight-info .image-card{width: var(--service-media-width)
     aspect-ratio: auto !important;}
 body .splitflap-row.has-tight-info .info-panel{width: 348px !important;
     max-width: 348px !important;
-    min-width: 0 !important;}}
+    min-width: 0 !important;
+    transform:translateX(24px) !important;}}
 @media (min-width: 951px){body .splitflap-row.has-tight-info{display: grid !important;
     grid-template-columns: var(--service-media-width) 348px !important;
     column-gap: 24px !important;
@@ -489,9 +489,17 @@ body .splitflap-row.has-tight-info .info-panel{grid-column: 2 !important;
     min-width: 0 !important;
     align-self: start !important;
     padding-top: 6px !important;}
-body .splitflap-row.has-tight-info .city-demo{width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px !important;
+body .splitflap-row.has-tight-info .portfolio-work-caption{
+    width:264px !important;
+    max-width:264px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
+body .splitflap-row.has-tight-info .city-demo{width: 264px !important;
+    max-width: 264px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 20px 12px !important;
     box-sizing: border-box !important;}}
 .info-panel .vector-info-card{width: max-content !important;
   min-width: 0 !important;
@@ -858,43 +866,48 @@ html[data-page="service"] .splitflap-row .solari-dot{width:6px !important; heigh
   color: var(--muted);
   max-width: 520px;
   margin-top: 8px;}
-.city-demo{margin-top: 18px;
-  padding: 20px;
+.city-demo{margin: 24px auto 0;
+  padding: 24px 16px;
   background: #20242C;
   border: 0;
   border-radius: 0;
-  box-shadow: none;}
+  box-shadow: none;
+  font-family: "Inter",Arial,sans-serif;
+  font-size: 15.6px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;}
 .city-demo label{display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #FFFFFF;
-  margin-bottom: 10px;}
+  margin: 0 0 10px;
+  color: #FFBF00;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;}
 .city-controls{display: flex;
-  gap: 10px;}
-.city-controls input{flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;}
+.city-controls input{width: 232px;
+  max-width: 100%;
+  align-self: center;
   min-width: 0;
+  box-sizing: border-box;
   padding: 9px 16px;
   border-radius: 999px;
   border: 0;
   background: #000000;
   color: #FFFFFF;
-  font-size: 14px;
+  font: inherit;
   outline: none;}
+.city-controls button{align-self:center;
+  font-family: "Inter",Arial,sans-serif !important;
+  font-size: 15.6px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
+  padding: 8px 12px !important;}
 .city-controls input:focus{outline: 2px solid #FFBF00;
   outline-offset: 1px;}
-.city-controls button, .city-demo button{border: 0;
-  background: #000000;
-  color: #FFFFFF;
-  padding: 9px 16px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;}
-.city-controls button:is(:hover,:focus-visible), .city-demo button:is(:hover,:focus-visible){background:#FFBF00;
-  color:#351e10;
-  border:0;
-  outline:none;}
 .hint{margin-top: 10px;
   font-size: 12px !important;
   line-height: 1.5;
@@ -935,7 +948,7 @@ body.debug .motion-svg-object{outline: 3px dashed red;
   aspect-ratio: auto;
   height: 630px;
   min-height: 0;}
-.splitflap-row{--tile-background:#20242C; --tile-border:1px solid var(--site-header-divider);}
+.splitflap-row{--tile-background:transparent; --tile-border:0; --service-tile-radius:0;}
 .splitflap-row .image-card{width: 100%;
   height: 560px;
   min-height: 0;
@@ -1060,29 +1073,44 @@ html[data-page="service"] :is(.svg-artwork,.motion-inline-svg){padding-top:0 !im
 }
 .taxi-plane-card{background:var(--brand-aqua);}
 .taxi-plane-frame{width:100%; height:100%; display:block; border:0; background:var(--brand-aqua);}
-.splitflap-row .image-card{background: #20242C;}
+.splitflap-row .image-card{background: transparent;}
 .splitflap-row .svg-artwork{position: absolute;
   inset: 0;
   padding: 0 !important;
-  background: #000000;}
+  background: transparent;}
 .solari-demo{width: 100%;
   height: 100%;
   display: flex;
   align-items: stretch;
   justify-content: stretch;
-  background: #20242C;}
-.solari-board{width: 100%;
+  background: transparent;}
+.solari-board{position: relative;
+  width: 100%;
   height: 100%;
   max-height: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  box-sizing: border-box;
   border: 0;
-  border-radius: inherit;
+  border-radius: 0;
   background: var(--brand-deep);
   color: #FFFFFF;
   font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;}
+.solari-board::before{content:"";
+  position:absolute;
+  z-index:25;
+  top:66px;
+  right:0;
+  bottom:0;
+  left:0;
+  box-sizing:border-box;
+  border-left:1px solid var(--brand-gold);
+  border-right:1px solid var(--brand-gold);
+  border-bottom:1px solid var(--brand-gold);
+  pointer-events:none;}
+.solari-board::after{content:none;}
 .solari-grid-row{position: relative;
   display: grid;
   grid-template-columns: 13fr 13fr 3fr;
@@ -1301,19 +1329,20 @@ to{transform: rotate(360deg);}}
   html[data-page="service"] .taxi-plane-row .image-card{
     height:560px !important;
     min-height:560px !important;
-    margin-top:18px !important;
+    margin-top:0 !important;
     aspect-ratio:auto !important;
   }
 
   /* AOE learning blocks moved here from User Interfaces; no outer tile. */
   html[data-page="service"] .aoe-learning-row .image-card{
+    --tile-background:transparent;
     width:75% !important;
     max-width:75% !important;
-    height:calc(var(--service-page-viewport) - var(--service-row-top)) !important;
+    height:calc(var(--service-page-viewport) - var(--service-row-top) - 34px) !important;
     min-height:0 !important;
     aspect-ratio:auto !important;
     justify-self:start !important;
-    align-self:center !important;
+    align-self:start !important;
     background:transparent !important;
     border:0 !important;
     border-radius:0 !important;
@@ -1348,6 +1377,7 @@ to{transform: rotate(360deg);}}
     overflow:visible !important;
   }
   html[data-page="service"] .turntable-row .image-card{
+    --tile-background:transparent;
     width:auto !important;
     max-width:var(--service-media-width) !important;
     height:660px !important;
@@ -1373,9 +1403,20 @@ to{transform: rotate(360deg);}}
     fill:transparent !important;
   }
 
-  /* Strong center seam for the desktop split-flap board. */
+  /* Split-flap canvas ends at the yellow rule below Seattle; no outer white frame. */
+  html[data-page="service"] .splitflap-row .image-card,
+  html[data-page="service"] .splitflap-row .svg-artwork,
+  html[data-page="service"] .splitflap-row .solari-demo,
+  html[data-page="service"] .splitflap-row .solari-board{
+    height:514px !important;
+    min-height:514px !important;
+    max-height:514px !important;
+  }
+  html[data-page="service"] .splitflap-row .solari-board{
+    border:0 !important;
+  }
   html[data-page="service"] .splitflap-row :is(.solari-half.top,.solari-motion.top,.solari-signal-half.top),
   html[data-page="service"] .splitflap-row .solari-stair-spacer::before{
-    border-bottom:3px solid #363737 !important;
+    border-bottom:3px solid #000000 !important;
   }
 }

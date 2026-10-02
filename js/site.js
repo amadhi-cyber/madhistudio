@@ -402,53 +402,99 @@ const attachmentFileList = document.getElementById('attachmentFileList');
 const contactSuccessPopup = document.getElementById('contactSuccessPopup');
 
 if (projectBriefForm) {
-  const requiredBriefFields = [...projectBriefForm.querySelectorAll('[required]')];
+  const validationFields = [...projectBriefForm.querySelectorAll(
+    'input:not([type="hidden"]):not([type="file"]), select, textarea'
+  )];
   const submitButton = projectBriefForm.querySelector('.contact-submit');
   let selectedAttachments = [];
   let successTimer = 0;
+
+  const exitValidatedIds = new Set(['briefName', 'briefEmail', 'briefOrganization']);
+  const briefEmail = document.getElementById('briefEmail');
+  const briefWebsiteUrl = document.getElementById('briefWebsiteUrl');
+  const websitePattern = /^www\.(?:[a-z0-9-]+\.)*[a-z0-9-]+\.[a-z]{3}(?:[/?#][^\s]*)?$/i;
+
+  function syncEmailValidity() {
+    if (!briefEmail) return;
+    briefEmail.setCustomValidity('');
+    if (briefEmail.value.trim() && briefEmail.validity.typeMismatch) {
+      briefEmail.setCustomValidity('Enter a valid email address including @, for example name@example.com.');
+    }
+  }
+
+  function syncWebsiteValidity() {
+    if (!briefWebsiteUrl) return;
+    const value = briefWebsiteUrl.value.trim();
+    briefWebsiteUrl.setCustomValidity('');
+    if (value && !websitePattern.test(value)) {
+      briefWebsiteUrl.setCustomValidity('Enter a website beginning with www. and ending in a three-letter extension, for example www.example.com.');
+    }
+  }
 
   function fieldHasValidValue(field) {
     if (!String(field.value || '').trim()) return false;
     return field.checkValidity();
   }
 
-  function updateBriefFieldState(field) {
+  function updateBriefFieldState(field, options = {}) {
     const wrapper = field.closest('.contact-field');
     if (!wrapper) return;
-    wrapper.classList.toggle('is-valid', fieldHasValidValue(field));
+    const waitsForExit = exitValidatedIds.has(field.id);
+    const mayShowTick = options.force || !waitsForExit || field.dataset.validationExited === 'true';
+    wrapper.classList.toggle('is-valid', mayShowTick && fieldHasValidValue(field));
   }
 
-  requiredBriefFields.forEach(field => {
-    ['input', 'change', 'blur'].forEach(eventName => {
+  validationFields.forEach(field => {
+    if (field === briefWebsiteUrl) return;
+    const waitsForExit = exitValidatedIds.has(field.id);
+
+    if (waitsForExit) {
+      field.addEventListener('focus', () => {
+        field.dataset.validationExited = 'false';
+        field.closest('.contact-field')?.classList.remove('is-valid');
+      });
+      field.addEventListener('input', () => {
+        if (field === briefEmail) syncEmailValidity();
+        field.closest('.contact-field')?.classList.remove('is-valid');
+      });
+      field.addEventListener('blur', () => {
+        if (field === briefEmail) syncEmailValidity();
+        field.dataset.validationExited = 'true';
+        updateBriefFieldState(field);
+        if (String(field.value || '').trim() && !field.checkValidity()) field.reportValidity();
+      });
+      return;
+    }
+
+    ['input', 'change'].forEach(eventName => {
       field.addEventListener(eventName, () => updateBriefFieldState(field));
+    });
+    field.addEventListener('blur', () => {
+      updateBriefFieldState(field);
+      if (String(field.value || '').trim() && !field.checkValidity()) field.reportValidity();
     });
     updateBriefFieldState(field);
   });
 
-  const briefEmail = document.getElementById('briefEmail');
-  if (briefEmail) {
-    const syncEmailValidity = () => {
-      briefEmail.setCustomValidity('');
-      if (briefEmail.value.trim() && briefEmail.validity.typeMismatch) {
-        briefEmail.setCustomValidity('Enter a valid email address including @, for example name@example.com.');
+  if (briefWebsiteUrl) {
+    briefWebsiteUrl.addEventListener('focus', () => {
+      if (!briefWebsiteUrl.value.trim()) {
+        briefWebsiteUrl.value = 'www.';
+        briefWebsiteUrl.setSelectionRange(briefWebsiteUrl.value.length, briefWebsiteUrl.value.length);
       }
-    };
-
-    briefEmail.addEventListener('input', syncEmailValidity);
-    briefEmail.addEventListener('blur', () => {
-      syncEmailValidity();
-      if (briefEmail.value.trim() && !briefEmail.checkValidity()) briefEmail.reportValidity();
+      syncWebsiteValidity();
+      updateBriefFieldState(briefWebsiteUrl);
+    });
+    briefWebsiteUrl.addEventListener('input', () => {
+      syncWebsiteValidity();
+      updateBriefFieldState(briefWebsiteUrl);
+    });
+    briefWebsiteUrl.addEventListener('blur', () => {
+      syncWebsiteValidity();
+      updateBriefFieldState(briefWebsiteUrl);
+      if (briefWebsiteUrl.value.trim() && !briefWebsiteUrl.checkValidity()) briefWebsiteUrl.reportValidity();
     });
   }
-
-  projectBriefForm
-    .querySelectorAll('input:not([type="hidden"]):not([type="file"]), textarea')
-    .forEach(field => {
-      if (field === briefEmail) return;
-      field.addEventListener('blur', () => {
-        if (String(field.value || '').trim() && !field.checkValidity()) field.reportValidity();
-      });
-    });
 
   function buildProjectBrief() {
     const value = id => document.getElementById(id)?.value?.trim() || '';
@@ -562,7 +608,7 @@ if (projectBriefForm) {
 
   projectBriefForm.addEventListener('submit', async event => {
     event.preventDefault();
-    requiredBriefFields.forEach(updateBriefFieldState);
+    validationFields.forEach(field => updateBriefFieldState(field, { force: true }));
 
     if (!projectBriefForm.checkValidity()) {
       projectBriefForm.reportValidity();
@@ -591,9 +637,14 @@ if (projectBriefForm) {
       if (briefFormStatus) briefFormStatus.textContent = '';
       showSuccessPopup();
       projectBriefForm.reset();
+      validationFields.forEach(field => {
+        delete field.dataset.validationExited;
+        field.closest('.contact-field')?.classList.remove('is-valid');
+      });
+      briefEmail?.setCustomValidity('');
+      briefWebsiteUrl?.setCustomValidity('');
       selectedAttachments = [];
       renderAttachments();
-      requiredBriefFields.forEach(updateBriefFieldState);
     } catch (error) {
       if (briefFormStatus) briefFormStatus.textContent = 'Unable to send. Please email info@madhistudio.com directly.';
     } finally {

@@ -281,35 +281,6 @@ html[data-theme="dark"] :is(
   .contact-email-note-below-submit,
   .contact-email-note-below-submit a
 ){color: #FFFFFF;}
-html[data-theme="dark"] :is(
-  .btn,
-  .btn.primary,
-  .section-action,
-  .landing-feature-explore,
-  .sitemap-main-link,
-  .hub-main-link,
-  .card-main-link,
-  .aviation-main-link,
-  .contact-submit,
-  .cta-contact-button
-){background: transparent;
-  color: #FFFFFF;
-  border-color: transparent;
-  border-radius:999px;}
-html[data-theme="dark"] :is(
-  .btn,
-  .btn.primary,
-  .section-action,
-  .landing-feature-explore,
-  .sitemap-main-link,
-  .hub-main-link,
-  .card-main-link,
-  .aviation-main-link,
-  .contact-submit,
-  .cta-contact-button
-):is(:hover, :focus-visible){background:#FFBF00 !important;
-  color: #351e10 !important;
-  border-color:transparent !important;}
 html[data-theme] #backToTop{border-color: #F4F4F4;}
 html[data-theme] #backToTop:is(:hover, :focus-visible){background:#FFBF00;
   color: #351e10;
@@ -323,7 +294,7 @@ html[data-theme="dark"] :is(.landing-feature-info, .info-panel, .vector-info-car
   border-color: transparent !important;
   box-shadow: none !important;}
 html[data-theme="dark"] :is(.landing-feature-info, .info-panel, .vector-info-card) :is(h1,h2,h3,h4,p,li,span,strong,em,.caption,.aviation-kicker){background: transparent !important;}
-html[data-theme="dark"] :is(.feature-card, .image-card, .branding-system-feature-card, .branding-system-collage, .landing-turntable-artwork, .web-preview-stage){background-color: var(--tile-background, var(--tile-charcoal)) !important;
+html[data-theme="dark"] :is(.feature-card, .image-card:not(.landing-web-preview-card), .branding-system-feature-card, .branding-system-collage, .landing-turntable-artwork, .web-preview-stage){background-color: var(--tile-background, var(--tile-charcoal)) !important;
   border: var(--tile-border, 0) !important;}
 html[data-theme="dark"] .svg-artwork{background-color: var(--tile-background, var(--tile-charcoal)) !important;
   border: 0 !important;}
@@ -333,7 +304,8 @@ html[data-theme="dark"] :is(.contact-field input, .contact-field select, .contac
 html[data-theme="dark"] .attachment-dropzone{border-radius:4px !important;}
 html[data-theme="dark"] :is(.contact-field input, .contact-field select, .contact-field textarea, .attachment-dropzone):is(:focus, :focus-visible), html[data-theme="dark"] .attachment-dropzone.is-dragover{border-color: var(--brand-jade) !important;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-jade) 30%, transparent) !important;}
-html[data-theme="dark"] footer, html[data-theme="dark"] footer a, html[data-theme="dark"] .footer-main, html[data-theme="dark"] .footer-main a{color: var(--brand-jade) !important;}
+html[data-theme="dark"] footer, html[data-theme="dark"] footer a, html[data-theme="dark"] .footer-main, html[data-theme="dark"] .footer-main a{color:#FFFFFF !important;}
+html[data-theme="dark"] .footer-craft{color:#FFBF00 !important;}
 html[data-theme] #madhiScrollThumb{background: var(--brand-jade) !important;}
 html[data-theme] #madhiScrollTrack{background: color-mix(in srgb, var(--brand-jade) 14%, transparent) !important;}
 html[data-theme] .turntableSvg :is(.turntable-bg, .label-fill, .white-fill, .button-face){fill: #FFFFFF !important;}
@@ -389,31 +361,6 @@ html[data-theme] :is(
   .approach-viewport .studio-card-title-main,
   .client-viewport .studio-card-title-main
 ){color:#3FA7D6 !important;}
-html[data-theme] :is(
-  .btn,
-  .btn.primary,
-  .section-action,
-  .landing-feature-explore,
-  .hub-main-link,
-  .card-main-link,
-  .aviation-main-link
-):not(.popout-action):not(.cta-contact-button):not(.contact-submit){background:#FFBF00 !important;
-  color:#351e10 !important;
-  border-color:transparent !important;
-  border-radius:999px !important;
-  font-weight:700 !important;}
-html[data-theme] :is(
-  .btn,
-  .btn.primary,
-  .section-action,
-  .landing-feature-explore,
-  .hub-main-link,
-  .card-main-link,
-  .aviation-main-link
-):not(.popout-action):not(.cta-contact-button):not(.contact-submit):is(:hover,:focus-visible){background:#FFBF00 !important;
-  color:#351e10 !important;
-  border-color:transparent !important;
-  border-radius:999px !important;}
 html[data-theme] #services .sitemap-main-link{background:#FFBF00 !important;
   color:#351e10 !important;
   border:0 !important;
@@ -422,15 +369,6 @@ html[data-theme] #services .sitemap-main-link{background:#FFBF00 !important;
 html[data-theme] #services .sitemap-main-link:is(:hover,:focus-visible){background:#FFBF00 !important;
   color:#351e10 !important;
   border:0 !important;}
-html[data-theme] :is(.cta-contact-button,.contact-submit){background:#FFBF00 !important;
-  color:#351e10 !important;
-  border:0 !important;
-  border-radius:999px !important;
-  font-weight:700 !important;}
-html[data-theme] :is(.cta-contact-button,.contact-submit):is(:hover,:focus-visible){background:#FFBF00 !important;
-  color:#351e10 !important;
-  border:0 !important;
-  border-radius:999px !important;}
 html[data-theme] :is(.preview-popout,.landing-preview-popout,.popout-action){background:#20242C !important;
   color:#FFFFFF !important;
   border-width:2px !important;
@@ -540,13 +478,6 @@ html[data-theme] .turntableSvg .turntable-body-fill{fill:#FFFFFF !important;}
 html[data-theme] .turntableSvg :is(.label-fill,.white-fill,.button-face){fill:#FFFFFF !important;}
 html[data-theme] .attachment-dropzone{--attachment-dash:transparent !important;}
 html[data-theme] .attachment-dropzone:is(:focus,:focus-visible,:focus-within), html[data-theme] .attachment-dropzone.is-dragover{--attachment-dash:#FFBF00 !important;}
-html[data-theme] .soccer-demo button, html[data-theme] .soccer-demo button:not(.is-active), html[data-theme] .soccer-demo button.is-active{background:#20242C !important;
-  color:#FFFFFF !important;
-  border:0 !important;
-  font-weight:700 !important;}
-html[data-theme] .soccer-demo button:is(:hover,:focus-visible){background:#FFBF00 !important;
-  color:#351e10 !important;
-  border:0 !important;}
 html[data-theme] :is(.landing-feature-info,.info-panel,.vector-info-card,.work-section .card-caption){background:transparent !important;
   border:0 !important;
   box-shadow:none !important;}
@@ -855,6 +786,94 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
 }
 .copywriting-main .service-coming-soon{margin:0;text-align:center;color:#5b5b5b;}
 
+/* Shared work title/byline — one source of truth for Branding, UI, Motion and Web work captions. */
+html[data-theme][data-page="service"] .portfolio-work-caption{width:100%;margin:0 0 12px;text-align:left;}
+html[data-theme][data-page="service"] .portfolio-work-caption .portfolio-work-heading{
+  margin:0;
+  color:#FFBF00 !important;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:19.2px;
+  font-weight:600;
+  line-height:1.35;
+  letter-spacing:0;
+}
+html[data-theme][data-page="service"] .portfolio-work-caption .portfolio-work-byline{
+  margin:4px 0 0;
+  color:#C4C4C4 !important;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:15.6px;
+  font-style:normal;
+  font-weight:400;
+  line-height:1.45;
+  letter-spacing:0;
+  text-wrap:pretty;
+}
+html[data-theme][data-page="service"] .copywriting-main .service-coming-soon{
+  color:#5B5B5B;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:23.4px;
+  font-style:normal;
+  font-weight:400;
+  line-height:1.2;
+}
+
+/* Shared text-action button — matches the Photography "Thumbnails" control. */
+html[data-theme][data-page="service"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .soccer-demo button,
+  .city-controls button,
+  .city-demo button
+){
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:fit-content;
+  min-height:0;
+  padding:7px 11px;
+  border:1px solid #FFFFFF !important;
+  border-radius:0 !important;
+  background:#20242C !important;
+  color:#FFFFFF !important;
+  box-shadow:none !important;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:15.6px;
+  font-weight:400;
+  line-height:1.45;
+  text-align:center;
+  text-decoration:none;
+  animation:none !important;
+  cursor:pointer;
+}
+html[data-theme][data-page="service"] :is(
+  .btn,
+  .btn.primary,
+  .section-action,
+  .landing-feature-explore,
+  .sitemap-main-link,
+  .hub-main-link,
+  .card-main-link,
+  .aviation-main-link,
+  .contact-submit,
+  .cta-contact-button,
+  .soccer-demo button,
+  .city-controls button,
+  .city-demo button
+):is(:hover,:focus-visible){
+  background:#FFBF00 !important;
+  color:#000000 !important;
+  border-color:transparent !important;
+  font-weight:400;
+}
+
 
 @media (min-width:1101px){
   :root{
@@ -863,7 +882,13 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
     --service-page-max-width:calc(100vw - (2 * var(--service-side-rail)));
     --service-media-width:calc(var(--service-page-max-width) - 366px);
     --service-media-height:clamp(590px,42vw,690px);
+  }
+  html[data-page="service"]{
     --service-row-top:86px;
+    --service-title-top-desktop:22px;
+  }
+  html[data-page="service"] .collection{
+    padding-top:0 !important;
   }
   html[data-page="service"] .page-section .container,
   html[data-page="service"] .collection > .print-list{
@@ -876,17 +901,38 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
     box-sizing:border-box !important;
   }
   html[data-page="service"]:not(.photography-root) .page-section{
-    padding-top:var(--service-title-top-desktop,22px) !important;
-    padding-bottom:18px !important;
+    position:absolute !important;
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    z-index:20 !important;
+    padding-top:var(--service-title-top-desktop) !important;
+    padding-bottom:0 !important;
+    pointer-events:none !important;
   }
   html[data-page="service"]:not(.photography-root) .page-section .page-title{
     margin-top:0 !important;
     margin-bottom:18px !important;
   }
+  html[data-page="service"]:not(.photography-root) .page-section .section-divider{
+    margin:0 !important;
+  }
   html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row{
     grid-template-columns:minmax(0,1fr) minmax(300px,330px) !important;
     gap:18px !important;
     justify-content:start !important;
+    align-items:start !important;
+    align-content:start !important;
+    min-height:calc(100svh - var(--site-header-height)) !important;
+    padding-top:var(--service-row-top) !important;
+    padding-bottom:34px !important;
+    box-sizing:border-box !important;
+  }
+  html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row:first-child{
+    padding-top:var(--service-row-top) !important;
+  }
+  html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row:first-child .image-card{
+    margin-top:0 !important;
   }
   html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row .image-card{
     width:100% !important;
@@ -895,18 +941,33 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
   html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row .info-panel{
     width:100% !important;
     max-width:330px !important;
+    align-self:start !important;
+    justify-self:start !important;
+    padding-top:0 !important;
+    margin-top:0 !important;
   }
+  html[data-page="service"] .branding-showcase-card .portfolio-work-caption{
+    margin-top:34px !important;
+    align-self:start !important;
+  }
+  html[data-page="service"] .branding-showcase-grid{
+    padding-top:var(--service-row-top) !important;
+    box-sizing:border-box !important;
+  }
+  html[data-page="service"] .branding-showcase-card .portfolio-work-caption{
+    justify-self:center !important;
+  }
+
   html[data-page="service"] .service-coming-soon{display:block;}
-  html[data-page="service"] .splitflap-row{--tile-border:0;}
   html[data-page="service"] :is(
-    .image-card,.feature-card,.branding-system-feature-card,.branding-system-collage,
-    .branding-system-item,.web-preview-card,.web-preview-stage,.web-preview-shell,
+    .image-card:not(.landing-web-preview-card),.feature-card,.branding-system-feature-card,.branding-system-collage,
+    .branding-system-item,.web-preview-card:not(.landing-web-preview-card),.web-preview-stage,.web-preview-shell,
     .vector-info-card,.svg-artwork,.taxi-plane-card,.madhi-hero-card,.city-demo,
     .solari-demo,.solari-board
   ){border-radius:4px !important;}
   html[data-page="service"] .info-panel :is(p,.feature-description,.motion-description){
-    font-size:13.5px !important;
-    line-height:1.42 !important;
+    font-size:15.6px !important;
+    line-height:1.45 !important;
   }
   html[data-page="service"] .dog-ear{
     padding:11px 35px;
@@ -1303,6 +1364,13 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
   html[data-page="service"] :is(.btn,.section-action,.contact-submit){width:fit-content !important;max-width:calc(100% - 24px) !important;padding-left:22px !important;padding-right:22px !important;}
   html[data-page="service"] .copywriting-main{min-height:calc(100svh - var(--site-header-height) - 58px) !important;}
   html[data-page="service"] .copywriting-main .service-coming-soon{display:block !important;}
+
+  /* Footer matches the landing-page mobile copyright treatment. */
+  html[data-page="service"] #site-footer{height:auto !important;min-height:0 !important;margin-top:var(--mobile-feature-row-separation) !important;}
+  html[data-page="service"] #site-footer footer{width:100% !important;height:auto !important;min-height:0 !important;padding:0 16px 8px !important;display:flex !important;align-items:center !important;justify-content:center !important;background:transparent !important;border:0 !important;box-shadow:none !important;}
+  html[data-page="service"] #site-footer .footer-inner{width:100% !important;align-items:center !important;justify-content:center !important;gap:0 !important;padding:0 !important;text-align:center !important;}
+  html[data-page="service"] #site-footer .footer-main{width:100% !important;margin:0 !important;color:#FFFFFF !important;font-size:12.1px !important;text-align:center !important;opacity:.75 !important;}
+  html[data-page="service"] #site-footer .footer-craft{color:#FFBF00 !important;}
 }
 
 
@@ -1320,10 +1388,9 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
 
   /* A consistent radius for artwork tiles; dog ears follow the same geometry. */
   html[data-page="service"] :is(
-    .image-card,.feature-card,.branding-system-feature-card,.branding-system-collage,
-    .branding-system-item,.web-preview-card,.web-preview-stage,.web-preview-shell,
-    .vector-info-card,.svg-artwork,.taxi-plane-card,.madhi-hero-card,.city-demo,
-    .solari-demo,.solari-board
+    .image-card:not(.landing-web-preview-card),.feature-card,.branding-system-feature-card,.branding-system-collage,
+    .branding-system-item,.web-preview-card:not(.landing-web-preview-card),.web-preview-stage,.web-preview-shell,
+    .vector-info-card,.svg-artwork,.taxi-plane-card,.madhi-hero-card,.city-demo
   ){border-radius:var(--service-tile-radius) !important;}
 
   html[data-page="service"] .dog-ear{
@@ -1350,8 +1417,12 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
     padding:0 24px 6px !important;
     display:flex !important;
     align-items:flex-end !important;
-    justify-content:flex-end !important;
+    justify-content:center !important;
     box-sizing:border-box;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    font-size:13px !important;
   }
   html[data-page="service"] #site-footer .footer-inner{
     width:100%;
@@ -1364,7 +1435,7 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
     width:auto !important;
     margin:0 !important;
     color:#FFFFFF !important;
-    font-size:11px !important;
+    font-size:13px !important;
     text-align:right !important;
     opacity:.75;
   }

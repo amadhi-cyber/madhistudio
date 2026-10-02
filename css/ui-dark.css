@@ -101,7 +101,6 @@ main{position: relative;}
     max-width: 372px !important;}
 .turntable-row .city-demo{width: 350px !important;
     max-width: 350px !important;}}
-.wanderports-ui-row .image-card{height: 600px !important;}
 .taxi-plane-row .image-card, .turntable-row .image-card{height: 600px !important;}
 .splitflap-row .image-card{height: 520px !important;}
 .soccer-pitch-row .image-card{width: 100% !important;
@@ -159,7 +158,7 @@ main{position: relative;}
     gap: 24px !important;}
 .wanderports-ui-row .info-panel, .turntable-row.has-tight-info .info-panel{width: 348px !important;
     max-width: 348px !important;}}
-.wanderports-ui-row .image-card, .turntable-row .image-card{width: var(--service-media-width) !important;
+.turntable-row .image-card{width: var(--service-media-width) !important;
   max-width: 100% !important;
   height: var(--service-media-height) !important;
   min-height: 0 !important;
@@ -192,8 +191,9 @@ main{position: relative;}
     align-self: start !important;}
 .wanderports-ui-row .image-card{width: var(--service-media-width) !important;
     max-width: var(--service-media-width) !important;
-    height: var(--service-media-height) !important;
-    min-height: var(--service-media-height) !important;
+    height:auto !important;
+    min-height:0 !important;
+    aspect-ratio:16 / 8.1 !important;
     border-radius:16px !important;
     align-self:start !important;
     margin-top:12px !important;}
@@ -255,8 +255,7 @@ main{position: relative;}
     height: var(--service-media-height) !important;}
 .web-feature-row .web-preview-frame{width: 161.2903226% !important;
     height: 161.2903226% !important;}}
-:root{--service-row-top: 124px;
-  --service-footer-height: 56px;}
+:root{--service-footer-height: 56px;}
 .print-row, .print-row:first-child{padding-top: var(--service-row-top) !important;
   padding-bottom: 0 !important;
   align-items: start !important;
@@ -319,7 +318,7 @@ main{position: relative;}
 @media (min-width: 951px){body .print-row.print-row{grid-template-columns: var(--service-media-width) 348px !important;
     gap: 24px !important;
     justify-content: start !important;}
-body .print-row.print-row .image-card{width: var(--service-media-width) !important;
+body .print-row.print-row:not(.wanderports-ui-row) .image-card{width: var(--service-media-width) !important;
     max-width: var(--service-media-width) !important;
     height: var(--service-media-height) !important;
     min-height: var(--service-media-height) !important;
@@ -665,19 +664,6 @@ html[data-theme="dark"] :is(.info-panel, .vector-info-card){background: transpar
   display: flex;
   justify-content: center;
   align-items: center;}
-.soccer-demo button{border: none;
-  background: var(--accent);
-  color: var(--brand-aqua);
-  padding: 13px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  min-width: 190px;
-  text-align: center;}
-.soccer-demo button.is-active{background: var(--brand-gold);
-  color: var(--brand-aqua);}
 .image-card{background: transparent;
   border: 1px solid var(--border);
   border-radius: 0;
@@ -859,6 +845,7 @@ body .print-row.print-row.aerowordsmith-row .image-card{
 .runway-inspection-row{height:var(--service-page-viewport) !important;min-height:var(--service-page-viewport) !important;overflow:hidden;}
 .runway-inspection-row .image-card{height:720px !important;min-height:720px !important;}
 }
+.runway-inspection-row{--tile-background:transparent;}
 .runway-inspection-row .image-card{background: transparent;}
 .runway-inspection-frame{width: 100%;
   height: 100%;
