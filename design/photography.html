@@ -13,10 +13,10 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Photography | Madhi Studio" name="twitter:title"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Londrina+Outline&amp;display=swap" rel="stylesheet"/>
 <link href="../css/service-core-dark.css?v=20261001-clean-v3" rel="stylesheet"/>
-<link href="../css/service-shell-dark.css?v=20261001-align-v3" rel="stylesheet"/>
-<link href="../css/photography-dark.css?v=20261001-type-v1" rel="stylesheet"/>
+<link href="../css/service-shell-dark.css?v=20261003-final-v8" rel="stylesheet"/>
+<link href="../css/photography-dark.css?v=20261003-fix20" rel="stylesheet"/>
 </head>
 <body class="section-green photography-page">
 <div id="site-nav"></div>
@@ -25,7 +25,7 @@
 
 <aside class="photography-controls" aria-label="Photography gallery controls">
   <div class="photography-filter-list" role="group" aria-label="Filter photographs by category">
-    <button class="photography-filter-button is-active" type="button" data-photo-filter="all" aria-pressed="true">ALL</button>
+    <button class="photography-filter-button is-active is-attention" type="button" data-photo-filter="all" aria-pressed="true">ALL</button>
     <button class="photography-filter-button" type="button" data-photo-filter="aviation" aria-pressed="false">Aviation</button>
     <button class="photography-filter-button" type="button" data-photo-filter="nature" aria-pressed="false">Nature</button>
     <button class="photography-filter-button" type="button" data-photo-filter="people" aria-pressed="false">People</button>
@@ -37,6 +37,8 @@
     <button class="photography-view-button" type="button" data-photo-view="single" aria-pressed="false">1 by 1</button>
   </div>
 </aside>
+
+<div class="photography-mobile-feature-label service-mobile-feature-label">FEATURED WORK</div>
 
 <section class="photography-category-section" id="photography-categories" aria-label="Photography categories">
   <div class="container">
@@ -60,6 +62,9 @@
       <button class="photography-category-card" type="button" data-photo-filter="travel" aria-label="Show Travel photography">
         <img src="../assets/photography/the-far-side-of-calm.webp" alt="Travel photography"/>
         <span>Travel</span>
+      </button>
+      <button class="photography-category-card photography-category-card-all" type="button" data-photo-filter="all" aria-label="Show all photography">
+        <span>ALL</span>
       </button>
     </div>
   </div>
@@ -874,7 +879,7 @@
 </section>
 </main>
 <div id="site-footer"></div>
-<script src="../js/site.js?v=20261001-clean-v6"></script>
+<script src="../js/site.js?v=20261003-accordion-v3"></script>
 <script>
 (() => {
   const page = document.body;
@@ -886,6 +891,7 @@
   const filterTriggers = Array.from(document.querySelectorAll('[data-photo-filter]'));
   const sidebarFilterButtons = Array.from(document.querySelectorAll('.photography-filter-button'));
   const viewButtons = Array.from(document.querySelectorAll('.photography-view-button'));
+  const categoryCards = Array.from(document.querySelectorAll('.photography-category-card'));
 
   let currentFilter = 'all';
   let currentView = 'thumbnails';
@@ -924,6 +930,25 @@
       button.setAttribute('aria-pressed', String(active));
     });
   };
+
+  const setLinkedHover = (filter, active) => {
+    if (!filter) return;
+    sidebarFilterButtons
+      .filter((button) => button.dataset.photoFilter === filter)
+      .forEach((button) => button.classList.toggle('is-linked-hover', active));
+    categoryCards
+      .filter((card) => card.dataset.photoFilter === filter)
+      .forEach((card) => card.classList.toggle('is-linked-hover', active));
+  };
+
+  [...sidebarFilterButtons, ...categoryCards].forEach((control) => {
+    const filter = control.dataset.photoFilter;
+    if (!filter) return;
+    control.addEventListener('pointerenter', () => setLinkedHover(filter, true));
+    control.addEventListener('pointerleave', () => setLinkedHover(filter, false));
+    control.addEventListener('focus', () => setLinkedHover(filter, true));
+    control.addEventListener('blur', () => setLinkedHover(filter, false));
+  });
 
   const renderEntries = () => {
     const matches = matchingEntries();
@@ -1005,6 +1030,7 @@
 
   filterTriggers.forEach((button) => {
     button.addEventListener('click', () => {
+      sidebarFilterButtons.forEach((filterButton) => filterButton.classList.remove('is-attention'));
       applyFilter(button.dataset.photoFilter);
       openGallery();
     });

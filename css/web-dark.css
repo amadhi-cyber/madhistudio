@@ -1,10 +1,14 @@
 /* Madhi Studio — web service styles (dark only) */
 .page-section{padding: 110px 0 40px;}
-.page-title{font-size: clamp(32px, 4vw, 48px);
-  font-weight: 600;
-  letter-spacing: -2px;
-  line-height: .95;
-  margin-bottom: 22px;}
+.page-title{font-family:"Londrina Outline",sans-serif;
+  font-size:64px;
+  font-weight:400;
+  letter-spacing:0;
+  line-height:1;
+  color:#FFBF00;
+  -webkit-text-stroke:1.1px currentColor;
+  text-shadow:0 0 7px rgba(255,191,0,.48),0 0 14px rgba(255,191,0,.18);
+  margin-bottom:22px;}
 .collection{padding: 16px 0 110px;}
 .print-list{max-width: var(--service-page-max-width);
   margin: 0 auto;
@@ -86,14 +90,14 @@
   border-radius: 14px;
   overflow: hidden;
   background: transparent;}
-.landing-web-preview{width: 161.2903226%;
-  height: 161.2903226%;
+.landing-web-preview{width: 100%;
+  height: 100%;
   max-width: none;
   max-height: none;
   display: block;
   border: 0;
   background: transparent;
-  transform: scale(.62);
+  transform: none;
   transform-origin: top left;}
 .preview-popout{position: absolute;
   z-index: 8;
@@ -594,12 +598,12 @@ main{position: relative;}
   overflow: hidden !important;
   background: transparent;
   border-radius: 14px !important;}
-.web-feature-row .web-preview-frame{width:125% !important;
-  height:125% !important;
+.web-feature-row .web-preview-frame{width:100% !important;
+  height:100% !important;
   max-width:none !important;
   max-height:none !important;
   margin:0 !important;
-  transform:scale(.8) !important;
+  transform:none !important;
   transform-origin:top left !important;
   background:transparent;
   border:0;}

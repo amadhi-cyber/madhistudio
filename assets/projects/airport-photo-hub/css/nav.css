@@ -41,8 +41,9 @@
 }
 
 html.madhi-portfolio-preview .logo img {
-  transform: scale(1.18);
-  transform-origin: left center;
+  transform:none;
+  object-fit:cover;
+  object-position:left center;
 }
 
 .nav-links {

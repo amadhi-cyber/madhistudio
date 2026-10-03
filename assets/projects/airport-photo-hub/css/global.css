@@ -146,7 +146,7 @@ footer {
   gap: 5px;
   text-align: center;
   background: var(--footer-bg);
-  color: #d8d8d8;
+  color: #bdbdbd;
   font-size: 13px;
   border-top: 1px solid rgba(0, 0, 0, 0.035);
 }

@@ -1397,7 +1397,7 @@ function preserveMobileDisclosureAnchor(anchor, update) {
 /* Mobile landing flow: interleave each service heading with its existing featured work and use disclosure toggles. */
 (() => {
   const mobileQuery = window.matchMedia('(max-width: 700px)');
-  const ids = ['branding-logos', 'ui-icons', 'motion-graphics', 'web-design'];
+  const ids = ['branding-logos', 'ui-icons', 'motion-graphics', 'web-design', 'photography', 'copywriting'];
   const placeholders = new Map();
   const wrappers = new Map();
   const accordionReady = new WeakSet();
@@ -1441,7 +1441,6 @@ function preserveMobileDisclosureAnchor(anchor, update) {
         return;
       }
       preserveMobileDisclosureAnchor(heading, () => {
-        closeOtherMobileDisclosurePanels(wrapper);
         setExpanded(true);
       });
     });
@@ -1671,62 +1670,7 @@ function preserveMobileDisclosureAnchor(anchor, update) {
   desktopQuery.addEventListener?.('change', setupDesktopExplorer);
 })();
 
-/* Mobile accordions for How I Work and The Right Client. */
-(() => {
-  const mobileQuery = window.matchMedia('(max-width: 700px)');
-  const chevronSvg = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M5 8.5 12 15.5 19 8.5"></path></svg>';
-
-  function setupCard(card) {
-    if (!card || card.dataset.mobileAccordionReady === 'true') return;
-    const heading = card.querySelector('h3');
-    const body = card.querySelector('p');
-    if (!heading || !body) return;
-
-    body.classList.add('studio-accordion-body');
-    body.hidden = false;
-    body.setAttribute('aria-hidden', 'true');
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'mobile-disclosure-toggle';
-    button.setAttribute('aria-expanded', 'false');
-    button.setAttribute('aria-label', `Reveal ${heading.textContent.replace(/\s+/g, ' ').trim()} details`);
-    button.innerHTML = chevronSvg;
-    card.append(button);
-
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') !== 'true';
-      const applyState = () => {
-        if (expanded) closeOtherMobileDisclosurePanels(card);
-        button.setAttribute('aria-expanded', String(expanded));
-        card.classList.toggle('is-expanded', expanded);
-        body.setAttribute('aria-hidden', String(!expanded));
-      };
-      if (expanded) preserveMobileDisclosureAnchor(heading, applyState);
-      else applyState();
-    });
-
-    card.dataset.mobileAccordionReady = 'true';
-  }
-
-  function applyMobileState() {
-    document.querySelectorAll('.approach-viewport .studio-info-card, .client-viewport .studio-info-card').forEach(card => {
-      if (mobileQuery.matches) {
-        setupCard(card);
-      } else {
-        const body = card.querySelector('.studio-accordion-body');
-        if (body) body.removeAttribute('aria-hidden');
-        card.classList.remove('is-expanded');
-        card.querySelector('.mobile-disclosure-toggle')?.remove();
-        delete card.dataset.mobileAccordionReady;
-      }
-    });
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyMobileState, { once: true });
-  else applyMobileState();
-  mobileQuery.addEventListener?.('change', applyMobileState);
-})();
+/* How I Work and The Right Client remain fully visible on mobile. */
 
 /* Preview launch controls: blink only while their preview viewport is on screen. */
 (() => {

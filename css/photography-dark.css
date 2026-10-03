@@ -28,6 +28,11 @@
 
 /* Desktop title and first-content rhythm matches the other service pages. */
 @media (min-width: 951px) {
+  .photography-page .photography-category-card,
+  .photography-page .photography-category-card img {
+    border-radius: 0 !important;
+  }
+
   .photography-page .page-section {
     position: absolute !important;
     top: 0 !important;
@@ -64,6 +69,10 @@
   gap: 9px;
   width: 100%;
   margin: 0;
+}
+
+.photography-page .photography-category-card-all {
+  display: none;
 }
 
 .photography-page .photography-category-card {
@@ -170,8 +179,23 @@
 .photography-page .photography-filter-button:focus-visible,
 .photography-page .photography-view-button:focus-visible,
 .photography-page .photography-single-arrow:focus-visible {
-  outline: 2px solid #3fa7d6;
+  outline: 2px solid #FFBF00;
   outline-offset: 3px;
+}
+
+@media (max-width:700px){
+  .photography-page .photography-filter-button.is-linked-hover {color:#ffbf00;}
+  .photography-page .photography-category-card:hover,
+  .photography-page .photography-category-card:focus-visible,
+  .photography-page .photography-category-card.is-linked-hover {box-shadow:inset 0 0 0 2px #ff7f00;}
+  .photography-page .photography-category-card.is-linked-hover img {filter:grayscale(0%);}
+  .photography-page .photography-filter-button.is-attention {animation:photographyFilterAttention .9s ease-in-out infinite;}
+  .photography-page.photography-gallery-open .photography-mobile-feature-label{display:none !important;}
+}
+
+@keyframes photographyFilterAttention {
+  0%, 100% { color:#ffbf00; opacity:1; }
+  50% { color:#ffffff; opacity:.55; }
 }
 
 .photography-page .photography-view-controls {
@@ -578,7 +602,7 @@
     color:#FFFFFF !important;
     font-size:13px !important;
     text-align:right !important;
-    opacity:.75 !important;
+    opacity:1 !important;
   }
 
   .photography-page #site-footer .footer-craft{color:#FFBF00 !important;}
@@ -644,8 +668,46 @@
 }
 
 @media (max-width: 700px) {
+  .photography-page .page-section,
+  .photography-page .photography-mobile-feature-label,
+  .photography-page .photography-filter-list,
   .photography-page .photography-view-controls {
     display: none !important;
+  }
+
+  .photography-page .photography-controls {
+    display: none !important;
+  }
+
+  .photography-page .photography-category-card-all {
+    display: grid;
+    place-items: center;
+    background: #20242C;
+    transition: background-color .2s ease;
+  }
+
+  .photography-page .photography-category-card-all span {
+    position: static;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 15.6px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-align: center;
+  }
+
+  .photography-page .photography-category-card-all:hover,
+  .photography-page .photography-category-card-all:focus-visible {
+    background: #FFBF00;
+    box-shadow: none;
+  }
+
+  .photography-page .photography-category-card-all:hover span,
+  .photography-page .photography-category-card-all:focus-visible span {
+    color: #000000;
   }
 
   .photography-page .photography-gallery.is-mobile-stacked {
@@ -702,6 +764,27 @@
     padding: 18px 0 100px;
   }
 
+  .photography-page .photography-mobile-feature-label{
+    width:calc(100% - 32px);
+    max-width:520px;
+  }
+
+  .photography-page .photography-category-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+
+  .photography-page .photography-category-card{
+    aspect-ratio:4 / 2.5;
+  }
+
+  .photography-page .photography-category-card span{
+    top:8px;
+    left:8px;
+    padding:2px 7px;
+    font-size:11px;
+  }
+
   .photography-page .photography-category-section > .container,
   .photography-page .photography-gallery-section > .container {
     width: calc(100% - 32px) !important;
@@ -756,7 +839,7 @@
 
 @media (max-width: 520px) {
   .photography-page .photography-category-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .photography-page .photography-gallery.is-thumbnails {
@@ -765,3 +848,135 @@
 }
 
 
+
+@media (max-width:700px) and (prefers-reduced-motion:reduce){.photography-page .photography-filter-button.is-attention{animation:none;}}
+
+
+/* 2026-10-03 — ALL tile is a first-class final category on desktop and mobile. */
+.photography-page .photography-category-card-all{
+  display:grid !important;
+  place-items:center !important;
+  background:#20242C !important;
+  transition:background-color .2s ease !important;
+}
+.photography-page .photography-category-card-all span{
+  position:static !important;
+  inset:auto !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  color:#FFFFFF !important;
+  font-size:clamp(64px,9vw,136px) !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.02em !important;
+  text-align:center !important;
+}
+.photography-page .photography-category-card-all:hover,
+.photography-page .photography-category-card-all:focus-visible{
+  background:#FFBF00 !important;
+  box-shadow:none !important;
+}
+.photography-page .photography-category-card-all:hover span,
+.photography-page .photography-category-card-all:focus-visible span{color:#000000 !important;}
+
+@media (max-width:700px){
+  .photography-page .photography-category-card:not(.photography-category-card-all) span{
+    left:auto !important;
+    right:8px !important;
+    text-align:right !important;
+  }
+  .photography-page .photography-category-card-all span{
+    font-size:clamp(52px,17vw,74px) !important;
+  }
+}
+
+/* 2026-10-03 v6 — desktop footer + slightly lighter mobile footer. */
+.photography-page #site-footer .footer-main{color:#FFFFFF !important;opacity:1 !important;}
+.photography-page #site-footer .footer-craft{color:#FFBF00 !important;}
+@media (max-width:700px){
+  .photography-page #site-footer .footer-main{color:#707070 !important;opacity:1 !important;}
+  .photography-page #site-footer .footer-craft{color:#A57B00 !important;}
+}
+
+/* 2026-10-03 v8 — Photography uses the same outlined service-title system. */
+@media (min-width:1101px){
+  .photography-page .page-section{padding-top:20px !important;}
+  .photography-page .page-section .page-title{
+    font-family:"Londrina Outline",sans-serif !important;
+    font-size:57.6px !important;
+    font-weight:400 !important;
+    line-height:1 !important;
+    letter-spacing:0 !important;
+    color:#FFBF00 !important;
+    -webkit-text-stroke:1px currentColor !important;
+    text-shadow:0 0 6.3px rgba(255,191,0,.48),0 0 12.6px rgba(255,191,0,.18) !important;
+  }
+  .photography-page .photography-category-section,
+  .photography-page.photography-thumbnail-view .photography-gallery-section{
+    padding-top:120px !important;
+  }
+  .photography-page .photography-controls{top:calc(var(--site-header-height) + 25px) !important;}
+}
+
+
+/* =========================================================
+   2026-10-03 v10 — requested Photography interaction refinements.
+   ========================================================= */
+.photography-page .photography-category-card{
+  border:1px solid transparent !important;
+  box-sizing:border-box !important;
+}
+.photography-page .photography-category-card:is(:hover,:focus-visible,.is-linked-hover){
+  border-color:#FFBF00 !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+.photography-page .photography-filter-button.is-linked-hover{
+  color:#FFBF00 !important;
+}
+
+/* Thumbnail / 1-by-1 controls are neutral at rest and gold only on hover/focus. */
+.photography-page .photography-view-button,
+.photography-page .photography-view-button.is-active,
+.photography-page .photography-view-button.is-attention{
+  background:#20242C !important;
+  color:#FFFFFF !important;
+  border-color:#FFFFFF !important;
+  animation:none !important;
+  font-weight:400 !important;
+}
+.photography-page .photography-view-button:is(:hover,:focus-visible){
+  background:#FFBF00 !important;
+  color:#000000 !important;
+  border-color:#FFBF00 !important;
+}
+
+/* ALL: further 40% desktop reduction from the current size; white control text at rest. */
+.photography-page .photography-category-card-all span{
+  font-size:clamp(18.72px,2.6325vw,39.78px) !important;
+}
+.photography-page .photography-filter-button[data-photo-filter="all"],
+.photography-page .photography-filter-button[data-photo-filter="all"].is-active{
+  color:#FFFFFF !important;
+}
+.photography-page .photography-filter-button[data-photo-filter="all"]:is(:hover,:focus-visible,.is-linked-hover){
+  color:#FFBF00 !important;
+}
+.photography-page .photography-category-card-all{border-color:#FFFFFF !important;}
+.photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover){
+  background:#FFBF00 !important;
+  border-color:#FFBF00 !important;
+}
+.photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover) span{
+  color:#000000 !important;
+}
+@media (max-width:700px){
+  .photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover) span{
+    color:#FFBF00 !important;
+  }
+  .photography-page .photography-category-card-all span{
+    font-size:clamp(39px,12.75vw,55.5px) !important;
+  }
+}

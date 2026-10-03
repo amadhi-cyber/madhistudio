@@ -453,10 +453,16 @@ body .splitflap-row.has-tight-info .info-panel{width: 348px !important;
   width: 100% !important;
   height: 100% !important;
   padding: 0 !important;}
-.splitflap-row .solari-demo, .splitflap-row .solari-board{width: 100% !important;
+.splitflap-row .solari-demo{width: 100% !important;
   height: 100% !important;
   max-width: none !important;
   max-height: none !important;}
+.splitflap-row .solari-board{width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  border:1px solid #FFBF00 !important;
+  box-sizing:border-box !important;}
 @media (min-width: 951px){body .splitflap-row.has-tight-info{display: grid !important;
     grid-template-columns: var(--service-media-width) 348px !important;
     gap: 24px !important;
@@ -488,7 +494,7 @@ body .splitflap-row.has-tight-info .info-panel{grid-column: 2 !important;
     max-width: 348px !important;
     min-width: 0 !important;
     align-self: start !important;
-    padding-top: 6px !important;}
+    padding-top: 0 !important;}
 body .splitflap-row.has-tight-info .portfolio-work-caption{
     width:264px !important;
     max-width:264px !important;
@@ -788,8 +794,10 @@ html[data-page="service"] .orientation-note{display:block !important; margin:0 !
 @media (max-width: 700px){
 html[data-page="service"] .taxi-plane-row .image-card{height:300px !important;min-height:300px !important;aspect-ratio:auto !important;overflow:hidden !important;}
 html[data-page="service"] .taxi-plane-row .taxi-plane-frame{width:100% !important;height:100% !important;}
-html[data-page="service"] .camera-row .image-card{height:auto !important;min-height:0 !important;aspect-ratio:auto !important;overflow:visible !important;}
+html[data-page="service"] .camera-row .image-card{height:auto !important;min-height:0 !important;aspect-ratio:auto !important;overflow:visible !important;background:transparent !important;border:0 !important;}
+html[data-page="service"] .camera-row .svg-artwork{background:transparent !important;border:0 !important;}
 html[data-page="service"] .print-row.camera-row{gap:2px !important;}
+html[data-page="service"] .camera-row .motion-camera-picture{display:flex !important;align-items:center !important;justify-content:center !important;width:100% !important;height:auto !important;}
 html[data-page="service"] .camera-row .svg-artwork .motion-svg-object{width:90% !important;max-width:90% !important;height:auto !important;}
 html[data-page="service"] .camera-row .info-panel{margin-top:4px !important;}
 html[data-page="service"] .turntable-row .image-card{aspect-ratio:594 / 500 !important;height:auto !important;min-height:0 !important;overflow:visible !important;}
@@ -1098,18 +1106,7 @@ html[data-page="service"] :is(.svg-artwork,.motion-inline-svg){padding-top:0 !im
   background: var(--brand-deep);
   color: #FFFFFF;
   font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;}
-.solari-board::before{content:"";
-  position:absolute;
-  z-index:25;
-  top:66px;
-  right:0;
-  bottom:0;
-  left:0;
-  box-sizing:border-box;
-  border-left:1px solid var(--brand-gold);
-  border-right:1px solid var(--brand-gold);
-  border-bottom:1px solid var(--brand-gold);
-  pointer-events:none;}
+.solari-board::before{content:none;}
 .solari-board::after{content:none;}
 .solari-grid-row{position: relative;
   display: grid;
@@ -1418,5 +1415,24 @@ to{transform: rotate(360deg);}}
   html[data-page="service"] .splitflap-row :is(.solari-half.top,.solari-motion.top,.solari-signal-half.top),
   html[data-page="service"] .splitflap-row .solari-stair-spacer::before{
     border-bottom:3px solid #000000 !important;
+  }
+}
+
+
+/* 2026-10-03 — motion-page requested cleanup. */
+.city-demo label{font-weight:400 !important;}
+@media (max-width:700px){
+  html[data-page="service"] .splitflap-row{display:none !important;}
+  html[data-page="service"] :is(.aoe-learning-row .image-card,.aoe-learning-row .aoe-learning-artwork){
+    background:transparent !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+  }
+  html[data-page="service"] :is(.camera-row .image-card,.camera-row .svg-artwork,.camera-row .motion-camera-picture){
+    background:transparent !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
   }
 }

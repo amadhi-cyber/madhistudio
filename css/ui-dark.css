@@ -76,6 +76,7 @@ main{position: relative;}
   margin-left: auto !important;
   margin-right: auto !important;
   object-position: center center !important;}
+.soccer-pitch-row .info-panel{padding-top:0 !important;align-self:start !important;}
 .soccer-pitch-row .soccer-demo{width: 100% !important;
   margin-top: 14px !important;
   padding: 0 !important;
