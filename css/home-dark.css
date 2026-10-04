@@ -550,6 +550,39 @@ footer .footer-inner, footer .footer-main, footer .footer-site-links, footer a, 
   align-items: stretch;
   justify-content: flex-start;
   padding: 54px 0 22px;}
+.about-madhi-viewport{
+  min-height: calc(100svh - var(--site-header-height));
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 54px 0 22px;
+  background: #000000;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+.about-madhi-container{width: 100%;}
+.about-madhi-title{
+  margin: 0 0 22px !important;
+  color: #FFBF00 !important;
+  font-family: "Londrina Outline", sans-serif !important;
+  font-size: 64px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  -webkit-text-stroke: 1.1px currentColor;
+  text-shadow: 0 0 7px rgba(255,191,0,.48), 0 0 14px rgba(255,191,0,.18);
+}
+.about-madhi-byline{
+  width: 100%;
+  margin: 0;
+  color: #FFFFFF;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
 .services-container{width: 100%;}
 .desktop-only-service{display:none;}
 .services-title{font-size: 41.4px !important;
@@ -1398,19 +1431,29 @@ footer .footer-main a:hover, .cta-footer .footer-main a:hover{color: var(--brand
     --tile-background:transparent;
   }
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="web-design"] .feature-card{
-    width:95% !important;
-    max-width:95% !important;
-    height:551px !important;
-    min-height:551px !important;
-    aspect-ratio:auto !important;
+    width:min(1120px,100%) !important;
+    max-width:1120px !important;
+    height:auto !important;
+    min-height:0 !important;
+    aspect-ratio:16 / 9 !important;
     justify-self:start !important;
     background:transparent !important;
     --tile-background:transparent;
   }
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="web-design"] .landing-web-preview-wrap,
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="web-design"] .landing-web-preview-shell{
+    width:100% !important;
+    height:100% !important;
     border-radius:14px !important;
     overflow:hidden !important;
+  }
+  html[data-page="home"] #services .desktop-service-panel[data-service-panel="web-design"] .landing-web-preview{
+    width:100% !important;
+    height:100% !important;
+    max-width:none !important;
+    max-height:none !important;
+    transform:none !important;
+    transform-origin:top left !important;
   }
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="branding-logos"] .feature-layout{
     gap:7px !important;
@@ -1462,11 +1505,12 @@ footer .footer-main a:hover, .cta-footer .footer-main a:hover{color: var(--brand
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="photography"] .photography-feature-title{
     position:absolute;
     left:50%;
-    top:18px;
+    top:auto;
+    bottom:18px;
     transform:translateX(-50%);
     width:calc(100% - 44px);
     color:#FFFFFF;
-    font-family:"Marck Script",cursive;
+    font-family:"Allura",cursive;
     font-size:clamp(62px,5.45vw,98px);
     font-style:normal;
     font-weight:400 !important;
@@ -1501,9 +1545,9 @@ footer .footer-main a:hover, .cta-footer .footer-main a:hover{color: var(--brand
   }
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="copywriting"] .copywriting-feature-card p{
     margin:0;
-    color:#5B5B5B;
+    color:#232323;
     font-family:"Inter",Arial,sans-serif;
-    font-size:62px;
+    font-size:162.24px;
     line-height:1.45;
     text-align:center;
   }
@@ -4854,9 +4898,24 @@ html[data-page="home"] .site-nav-global.mobile-open .nav-toggle::after{left:8px;
     opacity:1;
     transform:rotate(-45deg);}}
 @media (max-width:700px){
+  html[data-page="home"] .about-madhi-viewport{
+    min-height:calc(100svh - var(--site-header-height));
+    padding:var(--mobile-section-separation) 0 27px;
+  }
+  html[data-page="home"] .about-madhi-title{
+    margin-bottom:10px !important;
+    font-size:48px !important;
+    line-height:1 !important;
+    -webkit-text-stroke:1.1px currentColor !important;
+    text-shadow:0 0 7px rgba(255,191,0,.52),0 0 14px rgba(255,191,0,.22) !important;
+  }
+  html[data-page="home"] .about-madhi-byline{font-size:15px;line-height:1.45;}
+}
+
+@media (max-width:700px){
   /* Mobile homepage — single editorial flow inspired by high-end studio portfolios. */
   html[data-page="home"],html[data-page="home"] body{scroll-snap-type:none;}
-  html[data-page="home"] :is(.services-viewport,.work-section,.studio-info-viewport,.contact-form-viewport,#contact-message){scroll-snap-align:none;scroll-snap-stop:normal;}
+  html[data-page="home"] :is(.about-madhi-viewport,.services-viewport,.work-section,.studio-info-viewport,.contact-form-viewport,#contact-message){scroll-snap-align:none;scroll-snap-stop:normal;}
   html[data-page="home"] .container{width:calc(100% - 32px) !important;max-width:520px !important;margin-inline:auto !important;padding-inline:0 !important;}
 
   /* Services: title → concise scope → featured work → action. */
@@ -4955,7 +5014,7 @@ html[data-page="home"] .site-nav-global.mobile-open .nav-toggle::after{left:8px;
   html[data-page="home"] #photography .feature-layout{width:100% !important;align-items:stretch !important;}
   html[data-page="home"] #photography .photography-feature-card{position:relative !important;display:block !important;width:100% !important;max-width:100% !important;min-height:240px !important;height:auto !important;aspect-ratio:4 / 3 !important;margin:0 !important;overflow:hidden !important;}
   html[data-page="home"] #photography .photography-feature-card > img{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;max-width:none !important;max-height:none !important;padding:0 !important;transform:none !important;object-fit:cover !important;object-position:center !important;}
-  html[data-page="home"] #photography .photography-feature-title{display:block !important;position:absolute !important;top:18px !important;left:50% !important;z-index:2 !important;width:calc(100% - 24px) !important;margin:0 !important;transform:translateX(-50%) !important;color:#FFFFFF !important;font-family:"Marck Script",cursive !important;font-size:clamp(26px,7.5vw,34px) !important;font-style:normal !important;font-weight:400 !important;line-height:1.08 !important;letter-spacing:0 !important;text-align:center !important;white-space:nowrap !important;text-shadow:none !important;}
+  html[data-page="home"] #photography .photography-feature-title{display:block !important;position:absolute !important;top:auto !important;bottom:14px !important;left:50% !important;z-index:2 !important;width:calc(100% - 24px) !important;margin:0 !important;transform:translateX(-50%) !important;color:#FFFFFF !important;font-family:"Allura",cursive !important;font-size:clamp(26px,7.5vw,34px) !important;font-style:normal !important;font-weight:400 !important;line-height:1.08 !important;letter-spacing:0 !important;text-align:center !important;white-space:nowrap !important;text-shadow:none !important;}
   html[data-page="home"] #photography .photography-feature-title-emphasis{font:inherit !important;text-decoration:none !important;}
 
   /* Copywriting has no artwork yet, so keep the coming-soon line directly under Featured Work. */
@@ -5003,7 +5062,7 @@ html[data-page="home"] .site-nav-global.mobile-open .nav-toggle::after{left:8px;
   html[data-page="home"] #contact-message .cta-contact-button{display:none !important;}
 
   /* Contact form: single-column, thumb-friendly, no compressed labels. */
-  html[data-page="home"] .contact-form-viewport{display:flex !important;flex-direction:column !important;align-items:stretch !important;padding:var(--mobile-section-gap) 0 0 !important;margin:0 !important;}
+  html[data-page="home"] .contact-form-viewport{display:flex !important;flex-direction:column !important;align-items:stretch !important;padding:16px 0 0 !important;margin:0 !important;scroll-margin-top:0 !important;}
   html[data-page="home"] .contact-form-container{width:calc(100% - 32px) !important;max-width:520px !important;margin-inline:auto !important;padding:0 !important;}
   html[data-page="home"] .contact-form-viewport .contact-content-grid{gap:12px !important;}
   html[data-page="home"] .contact-form-viewport .contact-brief-form .contact-form-grid > *{margin:0 !important;}
@@ -5061,6 +5120,9 @@ html[data-page="home"] body{background: #000000;}
 .mobile-feature-label{display:none;}
 .landing-preview-popout-mobile{display:none !important;}
 #branding-logos .mobile-aerowander-service-card{display:none;}
+.mobile-branding-carousel{display:none;}
+.mobile-service-swipe,.mobile-swipe-slide{display:contents;}
+.mobile-swipe-caption,.mobile-only-swipe-slide{display:none;}
 .mobile-home-byline,
 .hero-title-mobile,
 .mobile-brand-services{display:none;}
@@ -5475,7 +5537,7 @@ html[data-page="home"] :is(.contact-desktop-intro-emphasis,.contact-mobile-intro
   font-style:normal !important;
   font-weight:400 !important;
 }
-html[data-page="home"] .copywriting-feature-card > p{color:#5B5B5B !important;font-size:62.4px !important;}
+html[data-page="home"] .copywriting-feature-card > p{color:#232323 !important;font-size:220px !important;}
 
 html[data-page="home"] :is(
   .btn.section-action,
@@ -5920,10 +5982,12 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     object-position:center top !important;
   }
   html[data-page="home"] #services .desktop-service-panel[data-service-panel="photography"] .photography-feature-title{
-    top:clamp(24px,2.25vw,38px) !important;
-    width:calc(100% - 56px) !important;
+    top:auto !important;
+    bottom:clamp(9px,.875vw,15px) !important;
+    width:calc(100% - 20px) !important;
     color:#D9E7F3 !important;
-    font-size:clamp(49px,4.2vw,76px) !important;
+    font-family:"Allura",cursive !important;
+    font-size:clamp(64px,5.9vw,108px) !important;
     font-weight:400 !important;
     letter-spacing:-0.01em !important;
     opacity:0.96 !important;
@@ -5951,17 +6015,18 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
 }
 
 @media (max-width:700px){
-  /* Major outlined section headings: double the former 15.6px mobile treatment. */
+  /* Mobile landing section headings match the 48px service-page title treatment. */
   html[data-page="home"][data-theme] :is(
+    .about-madhi-title,
     #services .services-title,
     .approach-viewport .studio-info-title,
     .client-viewport .studio-info-title,
     .contact-form-viewport .studio-info-title
   ){
     font-family:"Londrina Outline",sans-serif !important;
-    font-size:31.2px !important;
+    font-size:96px !important;
     font-weight:400 !important;
-    line-height:1 !important;
+    line-height:.92 !important;
     letter-spacing:0 !important;
     color:#FFBF00 !important;
     -webkit-text-stroke:1.1px currentColor !important;
@@ -6003,9 +6068,9 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
   /* Deliberate separator before FEATURED WORK; label sits directly above the work. */
   html[data-page="home"] body.mobile-service-flow #services .mobile-feature-label{
     width:100% !important;
-    margin:8px 0 4px !important;
-    padding:10px 0 0 !important;
-    border-top:1px solid #2E2E2E !important;
+    margin:18px 0 4px !important;
+    padding:0 !important;
+    border-top:0 !important;
     font-family:"Inter",Arial,sans-serif !important;
     font-size:15.6px !important;
     font-style:normal !important;
@@ -6100,6 +6165,207 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     object-position:center !important;
   }
 
+  /* Mobile service work decks: swipe horizontally, one project per screen-width card. */
+  html[data-page="home"] #services .mobile-service-swipe{
+    order:2 !important;
+    display:flex !important;
+    width:100% !important;
+    max-width:100% !important;
+    gap:16px !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  html[data-page="home"] #services .mobile-service-swipe::-webkit-scrollbar{display:none;}
+  html[data-page="home"] #services .mobile-swipe-slide{
+    display:flex !important;
+    flex:0 0 100% !important;
+    width:100% !important;
+    min-width:100% !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    margin:0 !important;
+    padding:0 !important;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+  html[data-page="home"] #services .mobile-only-swipe-slide{display:flex !important;}
+  html[data-page="home"] #services .mobile-swipe-caption{
+    display:block !important;
+    width:100% !important;
+    margin:18px 0 0 !important;
+    padding:0 !important;
+    text-align:left !important;
+  }
+  html[data-page="home"] #services .mobile-swipe-caption .portfolio-work-heading{
+    margin:0 !important;
+    color:#FFBF00 !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15.6px !important;
+    font-weight:700 !important;
+    line-height:1.45 !important;
+  }
+  html[data-page="home"] #services .mobile-swipe-caption .portfolio-work-byline{
+    margin:4px 0 0 !important;
+    color:#FFFFFF !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15.6px !important;
+    font-weight:400 !important;
+    line-height:1.45 !important;
+  }
+  html[data-page="home"] #services .mobile-swipe-art{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    min-height:300px !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden !important;
+    background:transparent !important;
+  }
+  html[data-page="home"] #services .mobile-swipe-art :is(img,svg){
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    max-height:72svh !important;
+    object-fit:contain !important;
+  }
+  html[data-page="home"] #services .mobile-iframe-art,
+  html[data-page="home"] #services .mobile-web-preview-art{height:64svh !important;min-height:430px !important;}
+  html[data-page="home"] #services .mobile-iframe-art iframe,
+  html[data-page="home"] #services .mobile-web-preview-art iframe{display:block !important;width:100% !important;height:100% !important;border:0 !important;background:transparent !important;}
+  html[data-page="home"] #services .mobile-photo-art{height:auto !important;min-height:0 !important;aspect-ratio:4 / 3 !important;}
+  html[data-page="home"] #services .mobile-photo-art img{width:100% !important;height:100% !important;object-fit:cover !important;max-height:none !important;}
+  html[data-page="home"] #services .mobile-soccer-preview{height:70svh !important;min-height:430px !important;}
+  html[data-page="home"] #services .mobile-soccer-preview svg{width:auto !important;height:100% !important;max-height:100% !important;}
+  html[data-page="home"] #services .mobile-splitflap-preview{
+    min-height:300px !important;
+    padding:20px !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    gap:5px !important;
+    background:#111 !important;
+    border:1px solid #2E2E2E !important;
+  }
+  html[data-page="home"] #services .splitflap-preview-row{display:grid !important;grid-template-columns:1.5fr 1.2fr .45fr !important;gap:4px !important;width:100% !important;}
+  html[data-page="home"] #services .splitflap-preview-row span{display:block !important;padding:8px 6px !important;background:#1D1D1D !important;color:#F4F4F4 !important;font-family:monospace !important;font-size:12px !important;line-height:1 !important;text-align:center !important;}
+  html[data-page="home"] #services .splitflap-preview-head span{color:#FFBF00 !important;}
+  html[data-page="home"] #services :is(#ui-icons,#motion-graphics,#web-design) .landing-feature-info > p{display:none !important;}
+  html[data-page="home"] #services :is(#ui-icons,#motion-graphics,#web-design,#photography) .landing-feature-explore{margin-top:22px !important;}
+
+  /* Re-enable the UI examples that were formerly mutually exclusive on mobile. */
+  html[data-page="home"] #services #ui-icons .mobile-service-swipe .landing-airport-network-card,
+  html[data-page="home"] #services #ui-icons .mobile-service-swipe .landing-runway-inspection-card{
+    display:block !important;
+    width:100% !important;
+    height:70svh !important;
+    min-height:430px !important;
+    max-height:620px !important;
+    aspect-ratio:auto !important;
+    overflow:hidden !important;
+  }
+  html[data-page="home"] #services #ui-icons .mobile-service-swipe :is(.landing-airport-network-wrap,.landing-airport-network-frame,.landing-runway-inspection-frame){width:100% !important;height:100% !important;}
+
+  /* Existing motion, web and photography feature cards become the first swipe slide. */
+  html[data-page="home"] #services #motion-graphics .mobile-service-swipe .feature-card,
+  html[data-page="home"] #services #web-design .mobile-service-swipe .feature-card,
+  html[data-page="home"] #services #photography .mobile-service-swipe .feature-card{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+  }
+
+  /* Branding mobile featured work: full-width horizontal swipe deck. */
+  html[data-page="home"] #branding-logos .mobile-aerowander-service-card{display:none !important;}
+  html[data-page="home"] #branding-logos .mobile-branding-carousel{
+    order:2 !important;
+    display:flex !important;
+    width:100% !important;
+    max-width:100% !important;
+    gap:16px !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-carousel::-webkit-scrollbar{display:none;}
+  html[data-page="home"] #branding-logos .mobile-branding-slide{
+    flex:0 0 100% !important;
+    width:100% !important;
+    min-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-slide-art{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100% !important;
+    height:300px !important;
+    margin:0 !important;
+    padding:12px 0 0 !important;
+    overflow:hidden !important;
+    background:transparent !important;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-slide-art > img{
+    display:block !important;
+    width:86% !important;
+    max-width:86% !important;
+    max-height:250px !important;
+    height:auto !important;
+    object-fit:contain !important;
+    object-position:center !important;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-aerowander-art{
+    height:330px !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    padding-top:8px !important;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-aerowander-art > img{
+    width:88% !important;
+    max-width:88% !important;
+    max-height:96px !important;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-slide .portfolio-work-caption{
+    width:100% !important;
+    margin:18px 0 0 !important;
+    padding:0 !important;
+    text-align:left !important;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-slide .portfolio-work-heading{
+    margin:0 !important;
+    color:#FFBF00 !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15.6px !important;
+    font-weight:700 !important;
+    line-height:1.45 !important;
+  }
+  html[data-page="home"] #branding-logos .mobile-branding-slide .portfolio-work-byline{
+    margin:4px 0 0 !important;
+    color:#FFFFFF !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15.6px !important;
+    font-weight:400 !important;
+    line-height:1.45 !important;
+  }
+  html[data-page="home"] #branding-logos .landing-feature-explore{margin-top:22px !important;}
+
   /* Copywriting: no artificial canvas between the coming-soon line and its action. */
   html[data-page="home"] #copywriting .feature-layout{gap:0 !important;}
   html[data-page="home"] #copywriting .mobile-feature-label{margin-bottom:4px !important;}
@@ -6115,6 +6381,16 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     padding:0 !important;
   }
   html[data-page="home"] #copywriting .landing-feature-explore{margin-top:8px !important;}
+
+  /* Standard mobile subsection separation after Explore buttons; Copywriting is the final service. */
+  html[data-page="home"] #services :is(#branding-logos,#ui-icons,#motion-graphics,#web-design,#photography) .landing-feature-explore{
+    margin-bottom:calc(var(--mobile-feature-row-separation) / 2) !important;
+  }
+
+  /* Put the same section rhythm before Contact without pushing the Contact anchor/title down. */
+  html[data-page="home"] .client-viewport{
+    padding-bottom:calc(var(--mobile-feature-row-separation) / 2) !important;
+  }
 
   /* Mobile contact form: equal side margins and the original neutral-grey resting border. */
   html[data-page="home"] .contact-form-viewport .contact-content-grid,
@@ -6157,13 +6433,14 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     text-align:center !important;
   }
 
-  /* Slightly lighter mobile footer while preserving the muted resting-logo feel. */
+  /* Mobile footer at full visibility. */
   html[data-page="home"] :is(.cta-footer,footer) .footer-main{
-    color:#707070 !important;
+    color:#FFFFFF !important;
     opacity:1 !important;
   }
   html[data-page="home"] :is(.cta-footer,footer) .footer-craft{
-    color:#A57B00 !important;
+    color:#FFBF00 !important;
+    opacity:1 !important;
   }
 }
 
@@ -6172,6 +6449,23 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
    Uses real component dimensions (no root zoom/transform) so viewport math,
    scroll snapping, fixed navigation and full-screen sections remain native.
    ========================================================= */
+@media (min-width:1101px){
+  html[data-page="home"] .about-madhi-viewport{
+    height:calc(100svh - var(--site-header-height));
+    min-height:calc(100svh - var(--site-header-height));
+    padding:23px 0 22px;
+    overflow:hidden;
+    scroll-snap-align:start !important;
+    scroll-snap-stop:always !important;
+  }
+  html[data-page="home"] .about-madhi-title{
+    margin-bottom:16px !important;
+    font-size:57.6px !important;
+    -webkit-text-stroke:1px currentColor !important;
+    text-shadow:0 0 6.3px rgba(255,191,0,.48),0 0 12.6px rgba(255,191,0,.18) !important;
+  }
+}
+
 @media (min-width:1101px){
   :root{
     --site-header-height:65px;

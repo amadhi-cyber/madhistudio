@@ -187,6 +187,22 @@ if (document.getElementById("site-nav") || document.getElementById("site-footer"
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open navigation');
     };
+    const contactLink = links.querySelector('[data-nav="contact"]');
+    const alignContactToTop = () => {
+      if (document.documentElement.dataset.page !== 'home' || window.innerWidth > 700) return;
+      const contact = document.getElementById('contact');
+      if (!contact) return;
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+        contact.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }));
+    };
+    contactLink?.addEventListener('click', event => {
+      if (document.documentElement.dataset.page !== 'home' || window.innerWidth > 700) return;
+      event.preventDefault();
+      closeMenu();
+      history.replaceState(null, '', '#contact');
+      alignContactToTop();
+    });
     toggle.addEventListener('click', () => {
       const willOpen = !nav.classList.contains('mobile-open');
       nav.classList.toggle('mobile-open', willOpen);
@@ -1492,6 +1508,10 @@ function preserveMobileDisclosureAnchor(anchor, update) {
       }
     });
     document.body.classList.toggle('mobile-service-flow', mobileQuery.matches);
+    if (mobileQuery.matches && window.location.hash === '#contact') {
+      const contact = document.getElementById('contact');
+      if (contact) window.requestAnimationFrame(() => window.requestAnimationFrame(() => contact.scrollIntoView({ behavior: 'auto', block: 'start' })));
+    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrangeMobileServices, { once: true });

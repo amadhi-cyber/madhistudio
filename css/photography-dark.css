@@ -772,6 +772,13 @@
   .photography-page .photography-category-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:8px;
+    width:calc(100% - 24px) !important;
+    margin-left:auto !important;
+    margin-right:0 !important;
+  }
+
+  .photography-page .photography-gallery.is-mobile-stacked .photography-photo-entry[hidden]{
+    display:none !important;
   }
 
   .photography-page .photography-category-card{
@@ -896,8 +903,8 @@
 .photography-page #site-footer .footer-main{color:#FFFFFF !important;opacity:1 !important;}
 .photography-page #site-footer .footer-craft{color:#FFBF00 !important;}
 @media (max-width:700px){
-  .photography-page #site-footer .footer-main{color:#707070 !important;opacity:1 !important;}
-  .photography-page #site-footer .footer-craft{color:#A57B00 !important;}
+  .photography-page #site-footer .footer-main{color:#FFFFFF !important;opacity:1 !important;}
+  .photography-page #site-footer .footer-craft{color:#FFBF00 !important;opacity:1 !important;}
 }
 
 /* 2026-10-03 v8 — Photography uses the same outlined service-title system. */
@@ -925,7 +932,7 @@
    2026-10-03 v10 — requested Photography interaction refinements.
    ========================================================= */
 .photography-page .photography-category-card{
-  border:1px solid transparent !important;
+  border:2px solid #FFFFFF !important;
   box-sizing:border-box !important;
 }
 .photography-page .photography-category-card:is(:hover,:focus-visible,.is-linked-hover){
@@ -955,7 +962,7 @@
 
 /* ALL: further 40% desktop reduction from the current size; white control text at rest. */
 .photography-page .photography-category-card-all span{
-  font-size:clamp(18.72px,2.6325vw,39.78px) !important;
+  font-size:clamp(30px,4vw,60px) !important;
 }
 .photography-page .photography-filter-button[data-photo-filter="all"],
 .photography-page .photography-filter-button[data-photo-filter="all"].is-active{
@@ -964,19 +971,68 @@
 .photography-page .photography-filter-button[data-photo-filter="all"]:is(:hover,:focus-visible,.is-linked-hover){
   color:#FFBF00 !important;
 }
-.photography-page .photography-category-card-all{border-color:#FFFFFF !important;}
+.photography-page .photography-category-card-all{
+  border-color:#FFFFFF !important;
+  background:#20242C !important;
+  isolation:isolate;
+}
+.photography-page .photography-category-card-all::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:url("../assets/photography/all-category.webp") center / cover no-repeat;
+  filter:grayscale(100%);
+  transition:filter .35s ease;
+}
+.photography-page .photography-category-card-all span{
+  position:relative !important;
+  z-index:1;
+  color:#FFFFFF !important;
+}
 .photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover){
-  background:#FFBF00 !important;
+  background:#20242C !important;
   border-color:#FFBF00 !important;
 }
+.photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover)::before{
+  filter:grayscale(0%);
+}
 .photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover) span{
-  color:#000000 !important;
+  color:#FFFFFF !important;
 }
 @media (max-width:700px){
   .photography-page .photography-category-card-all:is(:hover,:focus-visible,.is-linked-hover) span{
-    color:#FFBF00 !important;
+    color:#FFFFFF !important;
   }
   .photography-page .photography-category-card-all span{
-    font-size:clamp(39px,12.75vw,55.5px) !important;
+    font-size:clamp(26px,7vw,42px) !important;
+  }
+
+  /* Mobile Photography category landing: one tall right-hand column, alphabetical with ALL last. */
+  .photography-page .photography-category-section{
+    min-height:calc(100svh - var(--site-header-height, 52px) - 34px) !important;
+    padding:12px 0 12px !important;
+  }
+  .photography-page .photography-category-section > .container{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:0 14px 0 0 !important;
+  }
+  .photography-page .photography-category-grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    width:min(48vw,195px) !important;
+    margin-left:auto !important;
+    margin-right:0 !important;
+    gap:8px !important;
+  }
+  .photography-page .photography-category-card,
+  .photography-page .photography-category-card img{
+    border-radius:0 !important;
+  }
+  .photography-page .photography-category-card{
+    width:100% !important;
+    aspect-ratio:4 / 2.5 !important;
   }
 }
