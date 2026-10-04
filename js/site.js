@@ -223,7 +223,6 @@ if (document.getElementById("site-nav") || document.getElementById("site-footer"
   const root = document.documentElement;
   if (root.dataset.page !== 'home') return;
   const brand = document.querySelector('.mobile-brand-watermark');
-  const hero = document.getElementById('home');
   const mobileQuery = window.matchMedia('(max-width: 700px)');
   if (!brand) return;
 
@@ -233,8 +232,7 @@ if (document.getElementById("site-nav") || document.getElementById("site-footer"
     brand.classList.add('is-page-watermark');
     if (!mobileQuery.matches || introBypassed) return;
 
-    const firstViewportHeight = hero ? hero.offsetHeight : window.innerHeight;
-    if (window.scrollY >= Math.max(1, firstViewportHeight - 8)) {
+    if (window.scrollY > 2) {
       introBypassed = true;
       root.classList.add('skip-mobile-hero-intro');
     }

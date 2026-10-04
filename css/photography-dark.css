@@ -940,6 +940,15 @@
   box-shadow:none !important;
   outline:none !important;
 }
+@media (min-width:701px){
+  .photography-page .photography-category-card{
+    border-width:4px !important;
+  }
+  .photography-page .photography-category-card:is(:hover,:focus-visible,.is-linked-hover){
+    border-width:4px !important;
+    border-color:#FFBF00 !important;
+  }
+}
 .photography-page .photography-filter-button.is-linked-hover{
   color:#FFBF00 !important;
 }
@@ -1008,24 +1017,33 @@
     font-size:clamp(26px,7vw,42px) !important;
   }
 
-  /* Mobile Photography category landing: one tall right-hand column, alphabetical with ALL last. */
+  /* Mobile Photography category landing: reveal Madhi background, one tall right-hand column, alphabetical with ALL last. */
+  .photography-page .photography-category-section,
+  .photography-page .photography-gallery-section{
+    background:transparent !important;
+  }
   .photography-page .photography-category-section{
-    min-height:calc(100svh - var(--site-header-height, 52px) - 34px) !important;
-    padding:12px 0 12px !important;
+    height:calc(100svh - var(--site-header-height, 78px) - 38px) !important;
+    min-height:0 !important;
+    padding:0 0 4px !important;
+    box-sizing:border-box !important;
   }
   .photography-page .photography-category-section > .container{
     width:100% !important;
     max-width:none !important;
+    height:100% !important;
     margin:0 !important;
     padding:0 14px 0 0 !important;
   }
   .photography-page .photography-category-grid{
     display:grid !important;
     grid-template-columns:1fr !important;
-    width:min(48vw,195px) !important;
+    grid-template-rows:repeat(6,minmax(0,1fr)) !important;
+    width:min(46vw,180px) !important;
+    height:100% !important;
     margin-left:auto !important;
     margin-right:0 !important;
-    gap:8px !important;
+    gap:5px !important;
   }
   .photography-page .photography-category-card,
   .photography-page .photography-category-card img{
@@ -1033,6 +1051,8 @@
   }
   .photography-page .photography-category-card{
     width:100% !important;
-    aspect-ratio:4 / 2.5 !important;
+    height:100% !important;
+    min-height:0 !important;
+    aspect-ratio:auto !important;
   }
 }
