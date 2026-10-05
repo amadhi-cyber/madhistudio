@@ -4968,7 +4968,7 @@ html[data-page="home"] .site-nav-global.mobile-open .nav-toggle::after{left:8px;
   html[data-page="home"] body.mobile-service-flow #services .landing-feature-info > p:first-of-type::before,
   html[data-page="home"] body.mobile-service-flow #services .landing-feature-info .feature-description::before,
   html[data-page="home"] body.mobile-service-flow #services .landing-feature-info .motion-description::before{content:none !important;}
-  html[data-page="home"] body.mobile-service-flow #services .mobile-feature-label{display:block !important;order:1 !important;margin:0 0 10px !important;padding-inline:0 !important;color:#FFBF00 !important;font-size:15.6px !important;font-style:normal !important;font-weight:700 !important;line-height:1.45 !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important;}
+  html[data-page="home"] body.mobile-service-flow #services .mobile-feature-label{display:block !important;order:1 !important;margin:0 0 10px !important;padding-inline:0 !important;color:#FFBF00 !important;font-size:15.6px !important;font-style:normal !important;font-weight:700 !important;line-height:1.45 !important;letter-spacing:0 !important;text-transform:none !important;text-align:center !important;}
   html[data-page="home"] body.mobile-service-flow #services .landing-feature-explore{order:4 !important;display:inline-flex !important;width:fit-content !important;max-width:100% !important;min-height:0 !important;margin:16px auto 0 !important;padding:7px 11px !important;align-items:center !important;justify-content:center !important;border:1px solid #FFFFFF !important;border-radius:0 !important;background:#20242C !important;color:#FFFFFF !important;font-size:15.6px !important;font-weight:400 !important;line-height:1.45 !important;}
   html[data-page="home"] body.mobile-service-flow #services .landing-feature-explore:hover,
   html[data-page="home"] body.mobile-service-flow #services .landing-feature-explore:focus-visible{background:#FFBF00 !important;color:#000000 !important;border-color:transparent !important;}
@@ -5439,6 +5439,7 @@ html[data-page="home"] #home .home-hero-title{top:3.5%;
     animation:mobileHeroCopyIn 1.8s ease 11.2s forwards;}
 html[data-page="home"] #home .home-hero-title .hero-title-desktop{display:none;}
 html[data-page="home"] #home .home-hero-title .hero-title-mobile{display:block;width:100%;margin:0;padding:0;font-family:"Bevan",Georgia,serif;line-height:1;background:transparent;}
+html[data-page="home"] #home .home-hero-title .hero-title-period{font-size:136.6875%;line-height:1;}
 html[data-page="home"] #home .home-hero-byline{display:none;}
 html[data-page="home"] #home .hero-photo-credit{display:none;}
 }
@@ -5508,9 +5509,10 @@ html[data-page="home"] #home .hero-photo-credit{position:absolute;
 html[data-page="home"] #home .hero-photo-credit .photo-credit-label{font-style:normal;}
 @media (max-width:700px){html[data-page="home"] #home .hero-photo-credit{display:block;
     left:auto;
-    right:24px;
+    right:16px;
     bottom:22px;
-    width:min(82vw, 320px);
+    width:calc(100vw - 32px);
+    max-width:none;
     margin:0;
     color:transparent;
     font-size:0;
@@ -5521,6 +5523,7 @@ html[data-page="home"] #home .hero-photo-credit .photo-credit-label{font-style:n
     animation:mobileHeroCaptionReveal 1.2s ease 11.1s forwards;}
 html[data-page="home"] #home .hero-photo-credit::before{content:"February 10, 2025\A Philadelphia Museum of Art\A On the night of Eagles' Super Bowl LIX victory";
     display:block;
+    width:100%;
     white-space:pre;
     color:#8da38f;
     font-family:"Inter",Arial,sans-serif;
@@ -5930,7 +5933,6 @@ html[data-page="home"] footer .footer-craft{
   html[data-page="home"] body.mobile-service-flow #services :is(
     .landing-indexed-heading,
     .sitemap-service-copy,
-    .mobile-feature-label,
     .landing-feature-info p,
     .portfolio-work-caption,
     .portfolio-work-heading,
@@ -6146,8 +6148,8 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     max-width:100% !important;
     max-height:none !important;
     aspect-ratio:526 / 500 !important;
-    margin:0 !important;
-    transform:none !important;
+    margin:0 0 -50px !important;
+    transform:translateY(-50px) !important;
   }
 
   /* Use the Branding-page Aerowander geometry on the landing page. */
@@ -6247,6 +6249,8 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     font-weight:400 !important;
     line-height:1.45 !important;
   }
+  html[data-page="home"] #services #motion-graphics .mobile-service-swipe{margin-bottom:-84px !important;}
+  html[data-page="home"] #services #motion-graphics .mobile-swipe-caption{margin:24px 0 0 !important;}
   html[data-page="home"] #services .mobile-swipe-title-row{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;width:100% !important;}
   html[data-page="home"] #services #web-design .mobile-swipe-title-row .landing-preview-popout-mobile{display:none !important;}
   html[data-page="home"] #services .mobile-swipe-art{
@@ -6270,6 +6274,7 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
   }
   html[data-page="home"] #services .mobile-iframe-art,
   html[data-page="home"] #services .mobile-web-preview-art{height:64svh !important;min-height:430px !important;}
+  html[data-page="home"] #services #motion-graphics .mobile-iframe-art{height:auto !important;min-height:0 !important;aspect-ratio:526 / 500 !important;}
   html[data-page="home"] #services .mobile-iframe-art iframe,
   html[data-page="home"] #services .mobile-web-preview-art iframe{display:block !important;width:100% !important;height:100% !important;border:0 !important;background:transparent !important;}
   html[data-page="home"] #services .mobile-photo-art{height:auto !important;min-height:0 !important;aspect-ratio:4 / 3 !important;}
@@ -6397,7 +6402,7 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
   html[data-page="home"] #branding-logos .landing-feature-explore{margin-top:22px !important;}
 
   /* Copywriting: no artificial canvas between the coming-soon line and its action. */
-  html[data-page="home"] #copywriting .feature-layout{gap:0 !important;min-height:0 !important;height:auto !important;}
+  html[data-page="home"] #copywriting .feature-layout{gap:0 !important;min-height:0 !important;height:auto !important;justify-content:flex-start !important;margin-bottom:0 !important;}
   html[data-page="home"] #copywriting .mobile-feature-label{margin-bottom:18px !important;}
   html[data-page="home"] #copywriting .copywriting-feature-card{
     height:auto !important;
@@ -6411,7 +6416,10 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     padding:0 !important;
     color:#FFFFFF !important;
   }
-  html[data-page="home"] #copywriting .landing-feature-explore{margin-top:8px !important;}
+  html[data-page="home"] #copywriting .landing-feature-info{margin:-220px 0 0 !important;padding:0 !important;}
+  html[data-page="home"] #copywriting .landing-feature-explore{margin-top:0 !important;}
+  html[data-page="home"] #motion-graphics .landing-feature-explore{margin-top:0 !important;}
+  html[data-page="home"] #motion-graphics .landing-feature-info{margin-top:-62px !important;padding:0 !important;}
 
   /* Standard mobile subsection separation after Explore buttons; Copywriting is the final service. */
   html[data-page="home"] #services :is(#branding-logos,#ui-icons,#motion-graphics,#web-design,#photography) .landing-feature-explore{
@@ -6914,7 +6922,7 @@ html[data-page="home"] :is(.landing-runway-inspection-card,.landing-runway-inspe
 
   /* Copywriting: reduce space above Explore button by 75%. */
   html[data-page="home"] #copywriting .landing-feature-explore{
-    margin-top:2px !important;
+    margin-top:0 !important;
   }
 
   /* Contact invitation: 20% larger than pass11. */
@@ -6929,26 +6937,36 @@ html[data-page="home"] :is(.landing-runway-inspection-card,.landing-runway-inspe
    ========================================================= */
 @media (max-width:700px){
   /* Website Design preview pop-out sits inside the preview header, top-right. */
+  html[data-page="home"] #web-design .landing-feature-info .preview-popout{
+    display:none !important;
+  }
   html[data-page="home"] #web-design .feature-card .landing-preview-popout-mobile{
     display:grid !important;
     position:absolute !important;
     top:10px !important;
     right:10px !important;
     z-index:40 !important;
-    width:32px !important;
-    height:32px !important;
-    min-width:32px !important;
-    min-height:32px !important;
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+    min-height:36px !important;
     margin:0 !important;
     padding:2px !important;
     border:0 !important;
     border-radius:0 !important;
     background:transparent !important;
     box-shadow:none !important;
+    color:#1b0276 !important;
   }
   html[data-page="home"] #web-design .feature-card .landing-preview-popout-mobile .external-link-icon{
-    width:28px !important;
-    height:28px !important;
+    width:32px !important;
+    height:32px !important;
+  }
+  html[data-page="home"] #web-design .feature-card .landing-preview-popout-mobile:is(:hover,:focus-visible){
+    color:#FFBF00 !important;
+  }
+  html[data-page="home"] #web-design .feature-card .landing-preview-popout-mobile:is(:hover,:focus-visible) :is(.external-link-frame,.external-link-arrow){
+    stroke-width:3.4px !important;
   }
 
   /* Footer text requested grey. */
@@ -7001,6 +7019,28 @@ html[data-page="home"] :is(.landing-runway-inspection-card,.landing-runway-inspe
    ========================================================= */
 @media (max-width:700px){
   html[data-page="home"] .contact-form-viewport .contact-form-kicker{
-    font-size:40.365px !important;
+    font-size:54.493px !important;
   }
+}
+
+
+/* =========================================================
+   2026-10-05 pass17 — runway inspection tile transparency fix
+   ========================================================= */
+html[data-page="home"] #ui-icons :is(.feature-card,.landing-runway-inspection-card,.landing-runway-inspection-frame){
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+
+/* =========================================================
+   2026-10-05 pass18 — runway inspection tile: panels-only transparency fix
+   ========================================================= */
+html[data-page="home"] #ui-icons :is(.feature-card,.landing-runway-inspection-card,.landing-runway-inspection-frame){
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  overflow:hidden !important;
 }

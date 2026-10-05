@@ -1,6 +1,6 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="110 120 370 55"
+  viewBox="98 120 382 55"
   height="171"
   width="450">
   <defs>
@@ -24,7 +24,7 @@
 
       .airplane path,
       .airplane circle {
-        stroke: #d6d6d0 !important;
+        stroke: #a8a8a2 !important;
         stroke-width: 2.4px !important;
       }
 
@@ -207,7 +207,7 @@
     </g>
   </g>
 
-  <g transform="translate(116 126.35) scale(0.055)">
+  <g transform="translate(109 126.35) scale(0.055)">
     <path d="M90 710 Q45 710 45 665 L45 245 Q45 190 100 190 L270 190 Q325 190 350 140 L395 60 Q415 25 460 25 L735 25 Q780 25 800 60 L845 140 Q870 190 925 190 L1100 190 Q1155 190 1155 245 L1155 665 Q1155 710 1110 710 Z" fill="url(#cameraBody)"/>
     <path d="M150 160 L150 125 Q150 105 170 105 L260 105 Q280 105 280 125 L280 160 Z" fill="#070707"/>
     <circle cx="600" cy="430" r="215" fill="#ffffff"/>
@@ -217,7 +217,7 @@
     <circle class="yellow-light" cx="820" cy="215" r="22"/>
   </g>
 
-  <g transform="translate(190 127.725)">
+  <g transform="translate(183 127.725)">
     <path class="viewfinder" d="M0 10.8 V0 H12.2 M48.85 0 H61.05 V10.8 M61.05 26.875 V37.675 H48.85 M12.2 37.675 H0 V26.875"/>
     <g class="brand-wordmark">
       <text x="8.4" y="10.5">AIRPORT</text>
