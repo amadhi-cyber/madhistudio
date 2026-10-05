@@ -168,7 +168,7 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
     .map-wrap{height:auto;min-height:0;background:var(--water);overflow:hidden}
     .map-wrap>svg{width:100%;max-width:none;height:100%;display:block;background:var(--water);transform:none;transform-origin:center center;animation:none;will-change:auto}
     .airport-scroller{display:none}
-    .mobile-airport-note{display:block;position:absolute;top:10px;left:12px;z-index:29;max-width:calc(100% - 72px);padding:0;color:#fff;background:transparent;text-align:left;text-shadow:0 1px 5px rgba(0,0,0,.65);pointer-events:none}
+    .mobile-airport-note{display:block;position:absolute;top:10px;left:12px;z-index:29;width:fit-content;max-width:calc(100% - 72px);padding:0;color:#000;background:transparent;font:500 18px/1.15 Arial,Helvetica,sans-serif;text-align:left;text-shadow:0 0 4px #fff,0 0 4px #fff;pointer-events:none}
     .mobile-airport-display{display:block;position:static;width:100%;height:170px;padding:0;background:#20242c;z-index:28}
     .mobile-airport-screen{height:170px;min-height:170px;border-top:0;border-bottom:0}
     .mobile-airport-code{font-size:64px}
@@ -209,11 +209,12 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
     font-weight:800 !important;
     letter-spacing:0 !important;
     text-align:center !important;
-    color:transparent !important;
-    -webkit-text-fill-color:transparent !important;
+    color:#00A86B !important;
+    -webkit-text-fill-color:currentColor !important;
+    -webkit-text-stroke:0 !important;
   }
-  .mobile-airport-code.is-us{-webkit-text-stroke:2.3px #00A86B !important;}
-  .mobile-airport-code.is-intl{-webkit-text-stroke:2.3px #0B6623 !important;}
+  .mobile-airport-code.is-us{color:#00A86B !important;}
+  .mobile-airport-code.is-intl{color:#0B6623 !important;}
   .mobile-airport-type{display:none !important;}
   .mobile-airport-name{
     margin:0 !important;
