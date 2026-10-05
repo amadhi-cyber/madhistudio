@@ -103,7 +103,7 @@ function mountSiteShell() {
         <div class="nav-inner">
           <div class="logo">
             <a href="${landingHomeHref}" aria-label="Madhi Studio home">
-              <img src="${siteUrl("assets/madhi-studio-logo-inverse.svg?v=20260919-2")}" alt="Madhi Studio">
+              <img src="${siteUrl("assets/madhi-studio-logo-inverse.svg?v=20261005-pass7-v1")}" alt="Madhi Studio">
             </a>
           </div>
           <div class="nav-links" id="primaryNavLinks">
@@ -118,6 +118,7 @@ function mountSiteShell() {
             <span class="nav-divider nav-divider--contact" aria-hidden="true"></span>
             <a href="${landingContactHref}" data-nav="contact">Contact</a>
           </div>
+          ${onLandingPage ? "" : '<button class="mobile-back-control" type="button" aria-label="Go back"><span class="mobile-back-arrow" aria-hidden="true">←</span><span class="mobile-back-label">BACK</span></button>'}
           <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNavLinks">
             <span></span><span></span><span></span>
           </button>
@@ -128,6 +129,12 @@ function mountSiteShell() {
         <button class="preference-toggle" id="motionToggle" type="button" aria-pressed="true" aria-label="Turn motion off" title="Motion on" hidden disabled tabindex="-1" aria-hidden="true"><span class="preference-glyph" aria-hidden="true"></span></button>
       </div>`;
   }
+
+  const mobileBackControl = navMount?.querySelector('.mobile-back-control');
+  mobileBackControl?.addEventListener('click', () => {
+    if (window.history.length > 1) window.history.back();
+    else window.location.href = siteUrl(landingFile);
+  });
 
   if (footerMount) {
     footerMount.innerHTML = `
@@ -143,7 +150,7 @@ function mountSiteShell() {
     const watermark = document.createElement("div");
     watermark.className = "mobile-brand-watermark is-page-watermark";
     watermark.setAttribute("aria-hidden", "true");
-    watermark.innerHTML = `<img src="${siteUrl("assets/madhi-studio-logo-mobile.svg?v=20260921-v1")}" alt="" class="mobile-brand-logo">`;
+    watermark.innerHTML = `<img src="${siteUrl("assets/madhi-studio-logo-mobile.svg?v=20261005-pass7-v1")}" alt="" class="mobile-brand-logo">`;
     const main = document.querySelector("main");
     if (main) document.body.insertBefore(watermark, main);
     else document.body.appendChild(watermark);
@@ -223,16 +230,22 @@ if (document.getElementById("site-nav") || document.getElementById("site-footer"
   const root = document.documentElement;
   if (root.dataset.page !== 'home') return;
   const brand = document.querySelector('.mobile-brand-watermark');
+  const hero = document.getElementById('home');
   const mobileQuery = window.matchMedia('(max-width: 700px)');
-  if (!brand) return;
+  if (!brand || !hero) return;
 
   let introBypassed = root.classList.contains('skip-mobile-hero-intro');
 
   const syncMobileBrandState = () => {
-    brand.classList.add('is-page-watermark');
-    if (!mobileQuery.matches || introBypassed) return;
+    if (!mobileQuery.matches) {
+      brand.classList.remove('is-page-watermark');
+      return;
+    }
 
-    if (window.scrollY > 2) {
+    const heroBottom = Math.max(1, hero.offsetTop + hero.offsetHeight - 2);
+    brand.classList.toggle('is-page-watermark', window.scrollY >= heroBottom);
+
+    if (!introBypassed && window.scrollY > 2) {
       introBypassed = true;
       root.classList.add('skip-mobile-hero-intro');
     }

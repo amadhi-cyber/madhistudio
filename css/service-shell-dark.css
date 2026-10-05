@@ -553,6 +553,7 @@ nav.site-nav-global::before, nav.site-nav-global::after{content: none;}
   transform: none;
   filter: none;
   opacity: 1;}
+.mobile-back-control{display:none;}
 .site-nav-global .nav-links{min-width: 0;
   width: 100%;
   height: 100%;
@@ -790,7 +791,7 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
 html[data-theme][data-page="service"] .portfolio-work-caption{width:100%;margin:0 0 12px;text-align:left;}
 html[data-theme][data-page="service"] .portfolio-work-caption .portfolio-work-heading{
   margin:0;
-  color:#FFBF00 !important;
+  color:#FFFFFF !important;
   font-family:"Inter",Arial,sans-serif;
   font-size:19.2px;
   font-weight:600;
@@ -1000,7 +1001,7 @@ html[data-theme][data-page="service"] :is(
     object-fit:contain;
     object-position:left top;
     opacity:1;
-    filter:brightness(0) invert(14%);
+    filter:brightness(0) invert(14.9%);
     transition:filter .2s ease;
   }
   html[data-page="service"]:not(.photography-root) .mobile-brand-logo{
@@ -1018,9 +1019,9 @@ html[data-theme][data-page="service"] :is(
   :root{
     --site-header-height:78px;
     --mobile-section-gap:100px;
-    --mobile-section-separation:100px;
+    --mobile-section-separation:150px;
     --mobile-feature-copy-gap:23px;
-    --mobile-feature-row-separation:200px;
+    --mobile-feature-row-separation:300px;
   }
 
   html[data-page="service"] body{background:#000000;}
@@ -1044,9 +1045,10 @@ html[data-theme][data-page="service"] :is(
     max-width:none;
     margin:0;
     padding:0;
-    opacity:.114;
-    filter:none;
+    opacity:1;
+    filter:brightness(0) invert(14.9%);
   }
+  html[data-page="service"] body > main{position:relative;z-index:5;}
   html[data-page="service"] main > section{position:relative;z-index:5;}
   html[data-page="service"] .wanderports-ui-row .map-fullscreen-control{background:#FFFFFF !important;color:#022B3A !important;border:0 !important;box-shadow:none !important;}
   html[data-page="service"] .wanderports-ui-row .map-fullscreen-control:is(:hover,:focus-visible){background:#FFFFFF !important;color:#022B3A !important;}
@@ -1054,6 +1056,88 @@ html[data-theme][data-page="service"] :is(
   html[data-page="service"] .site-nav-global{background:transparent;border-bottom:0;box-shadow:none;}
   html[data-page="service"] .site-nav-global .nav-inner{justify-content:flex-end;}
   html[data-page="service"] .site-nav-global .logo{display:none;}
+  html[data-page="service"] .mobile-back-control{
+    position:absolute;
+    top:3px;
+    right:62px;
+    z-index:2;
+    width:116px;
+    height:48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#FFFFFF;
+    font-family:"Inter",Arial,sans-serif;
+    font-size:18px;
+    font-weight:700;
+    line-height:1;
+    cursor:pointer;
+    isolation:isolate;
+  }
+  html[data-page="service"] .mobile-back-control::before{
+    content:"";
+    position:absolute;
+    top:calc(3px + clamp(5.5px,1.65vw,7px));
+    left:0;
+    z-index:0;
+    width:100%;
+    height:2px;
+    background:#262626;
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 #262626,0 clamp(12.6px,3.7vw,15.2px) 0 #262626,0 clamp(18.9px,5.55vw,22.8px) 0 #262626,0 clamp(25.2px,7.4vw,30.4px) 0 #262626;
+    pointer-events:none;
+  }
+  html[data-page="service"] .mobile-back-arrow,
+  html[data-page="service"] .mobile-back-label{
+    position:relative;
+    z-index:1;
+    display:inline-block;
+    color:#FFFFFF;
+    font-size:18px;
+    font-weight:700;
+    line-height:1;
+    text-shadow:0 0 3px #000000,0 0 3px #000000;
+  }
+  html[data-page="service"] .mobile-back-arrow{
+    flex:0 0 34px;
+    width:34px;
+    height:18px;
+    font-size:0;
+    color:#FFFFFF;
+    text-shadow:none;
+  }
+  html[data-page="service"] .mobile-back-arrow::before{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:7px;
+    width:32px;
+    height:4px;
+    background:currentColor;
+  }
+  html[data-page="service"] .mobile-back-arrow::after{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:11px;
+    height:11px;
+    border-left:4px solid currentColor;
+    border-bottom:4px solid currentColor;
+    transform:rotate(45deg);
+    transform-origin:center;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible){
+    outline:none;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible)::before{
+    background:rgba(255,255,255,.5);
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 rgba(255,255,255,.5),0 clamp(12.6px,3.7vw,15.2px) 0 rgba(255,255,255,.5),0 clamp(18.9px,5.55vw,22.8px) 0 rgba(255,255,255,.5),0 clamp(25.2px,7.4vw,30.4px) 0 rgba(255,255,255,.5);
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) :is(.mobile-back-arrow,.mobile-back-label){color:#FFBF00;}
   html[data-page="service"] .site-nav-global .nav-toggle{
     position:absolute;
     top:6px;
@@ -1112,14 +1196,17 @@ html[data-theme][data-page="service"] :is(
   }
   html[data-page="service"] .page-title{
     margin:0 !important;
-    font-family:"Londrina Outline",sans-serif !important;
-    font-size:clamp(38px,11vw,54px) !important;
-    font-weight:400 !important;
-    line-height:.95 !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15.6px !important;
+    font-style:normal !important;
+    font-weight:600 !important;
+    line-height:1.35 !important;
     letter-spacing:0 !important;
     text-align:left !important;
     color:#FFBF00 !important;
     background:transparent !important;
+    -webkit-text-stroke:0 !important;
+    text-shadow:none !important;
   }
   html[data-page="service"] .section-divider{display:none !important;}
 
@@ -1128,7 +1215,7 @@ html[data-theme][data-page="service"] :is(
     display:flex;
     justify-content:flex-start;
     width:100%;
-    margin:12px 0 0;
+    margin:4px 0 0;
     padding:0;
     background:transparent;
     border:0;
@@ -1151,7 +1238,7 @@ html[data-theme][data-page="service"] :is(
     display:flex;
     flex-direction:column;
     align-items:flex-start;
-    gap:6px;
+    gap:0;
     width:fit-content;
     margin:0;
     padding:0 0 0 1.1em;
@@ -1160,7 +1247,7 @@ html[data-theme][data-page="service"] :is(
     font-size:15.6px;
     font-style:normal;
     font-weight:400;
-    line-height:1.45;
+    line-height:1.35;
     text-align:left;
   }
   html[data-page="service"] .service-mobile-includes-list li{margin:0;padding:0;display:list-item !important;}
@@ -1175,21 +1262,23 @@ html[data-theme][data-page="service"] :is(
     width:100%;
     max-width:520px;
     margin:var(--mobile-section-separation) auto 0;
-    padding:0;
-    color:#FFBF00;
+    padding:8px 0;
+    color:#FFFFFF;
     font-size:15.6px;
-    font-weight:700;
+    font-weight:400;
     line-height:1.45;
     letter-spacing:0;
-    text-transform:none;
-    text-align:left;
+    text-transform:uppercase;
+    text-align:center;
+    border-top:1px solid #5d5d5d;
+    border-bottom:1px solid #5d5d5d;
   }
   html[data-page="service"] .portfolio-work-caption .portfolio-work-heading{
-    color:#FFBF00 !important;
+    color:#FFFFFF !important;
     font-size:15.6px !important;
     font-style:normal !important;
     font-weight:700 !important;
-    line-height:1.45 !important;
+    line-height:1.35 !important;
     text-align:left !important;
   }
   html[data-page="service"] .portfolio-work-caption .portfolio-work-byline{
@@ -1197,8 +1286,9 @@ html[data-theme][data-page="service"] :is(
     font-size:15.6px !important;
     font-style:normal !important;
     font-weight:400 !important;
-    line-height:1.45 !important;
+    line-height:1.35 !important;
     text-align:left !important;
+    margin-top:4px !important;
   }
   html[data-page="service"] .print-list{
     display:grid !important;
@@ -1249,6 +1339,7 @@ html[data-theme][data-page="service"] :is(
     box-shadow:none !important;
   }
   html[data-page="service"] .image-card{
+    order:1 !important;
     position:relative !important;
     width:100% !important;
     max-width:100% !important;
@@ -1261,6 +1352,7 @@ html[data-theme][data-page="service"] :is(
   }
   html[data-page="service"] .info-panel,
   html[data-page="service"] .print-row.has-tight-info .info-panel{
+    order:2 !important;
     display:block !important;
     width:100% !important;
     max-width:100% !important;
@@ -1379,6 +1471,12 @@ html[data-theme][data-page="service"] :is(
   html[data-page="service"] .web-feature-row{position:relative !important;}
   html[data-page="service"] .web-feature-row .info-panel{position:static !important;padding-right:0 !important;}
   html[data-page="service"] .web-feature-row .info-panel .preview-popout{position:absolute !important;top:12px !important;right:12px !important;bottom:auto !important;left:auto !important;z-index:30 !important;margin:0 !important;}
+  html[data-page="service"] .web-feature-row:first-child .preview-popout{
+    color:#1b0276 !important;
+  }
+  html[data-page="service"] .web-feature-row:first-child .preview-popout:is(:hover,:focus-visible){
+    color:#FFBF00 !important;
+  }
   html[data-page="service"] :is(.btn,.section-action,.contact-submit){width:fit-content !important;max-width:calc(100% - 24px) !important;padding-left:22px !important;padding-right:22px !important;}
   html[data-page="service"] .copywriting-main{min-height:0 !important;}
   html[data-page="service"] .copywriting-main .copywriting-coming-soon-stage{position:static !important;inset:auto !important;display:block !important;width:calc(100% - 32px) !important;max-width:520px !important;margin:0 auto !important;padding:0 0 calc(var(--mobile-feature-row-separation) / 2) !important;}
@@ -1532,8 +1630,15 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
 
 @media (max-width:700px){
   html[data-page="service"][data-theme] .page-title{
-    font-size:64px !important;
-    line-height:.95 !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15.6px !important;
+    font-style:normal !important;
+    font-weight:600 !important;
+    line-height:1.35 !important;
+    letter-spacing:0 !important;
+    color:#FFBF00 !important;
+    -webkit-text-stroke:0 !important;
+    text-shadow:none !important;
   }
   html[data-page="service"] .service-mobile-includes-list{
     gap:0 !important;
@@ -1541,26 +1646,27 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
     margin:0 !important;
     padding:0 !important;
     list-style:none !important;
-    font-style:italic !important;
+    font-style:normal !important;
     line-height:1.45 !important;
   }
   html[data-page="service"] .service-mobile-includes-list li{
     display:block !important;
     margin:0 !important;
     padding:0 !important;
-    font-style:italic !important;
+    font-style:normal !important;
   }
   html[data-page="service"] .service-mobile-includes-list li::marker{content:"" !important;}
   html[data-page="service"] .service-mobile-feature-label{
     font-family:"Inter",Arial,sans-serif !important;
+    color:#FFFFFF !important;
     font-weight:400 !important;
     text-transform:uppercase !important;
+    text-align:center !important;
   }
   html[data-page="service"] :is(
     .page-section .container,
     .service-mobile-overview,
     .service-mobile-includes,
-    .service-mobile-feature-label,
     .portfolio-work-caption,
     .portfolio-work-heading,
     .portfolio-work-byline,
@@ -1607,23 +1713,23 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
 }
 
 @media (max-width:700px){
-  /* Mobile service-page titles use the same doubled landing-page title standard. */
+  /* Mobile service-page titles use the same compact Inter treatment as Define / Design. */
   html[data-page="service"][data-theme] .page-title{
-    font-family:"Londrina Outline",sans-serif !important;
-    font-size:96px !important;
-    font-weight:400 !important;
-    line-height:.92 !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:19.5px !important;
+    font-style:normal !important;
+    font-weight:600 !important;
+    line-height:1.35 !important;
     letter-spacing:0 !important;
     color:#FFBF00 !important;
-    -webkit-text-stroke:1.1px currentColor !important;
-    text-shadow:0 0 7px rgba(255,191,0,.52),0 0 14px rgba(255,191,0,.22) !important;
+    -webkit-text-stroke:0 !important;
+    text-shadow:none !important;
   }
 
   /* Mobile service content aligns to one left edge with tighter single-spaced lists. */
   html[data-page="service"] .service-mobile-overview,
   html[data-page="service"] .service-mobile-includes,
-  html[data-page="service"] .service-mobile-includes-list,
-  html[data-page="service"] .service-mobile-feature-label{
+  html[data-page="service"] .service-mobile-includes-list{
     width:100% !important;
     margin-left:0 !important;
     margin-right:0 !important;
@@ -1636,29 +1742,34 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
     margin-top:0 !important;
     margin-bottom:0 !important;
     list-style:none !important;
-    font-style:italic !important;
-    line-height:1.25 !important;
+    font-style:normal !important;
+    line-height:1.35 !important;
   }
   html[data-page="service"] .service-mobile-includes-list li{
     display:block !important;
     margin:0 !important;
     padding:0 !important;
-    font-style:italic !important;
+    font-style:normal !important;
   }
   html[data-page="service"] .service-mobile-includes-list li::marker{content:"" !important;}
 
-  /* Double the mobile space before FEATURED WORK on service pages; Photography has its own landing layout. */
+  /* Standard mobile service rhythm: 36px before Featured Works, 18px to the work below. */
   html[data-page="service"] .service-mobile-feature-label{
-    margin-top:104px !important;
-    margin-bottom:4px !important;
-    padding-top:0 !important;
-    border-top:0 !important;
+    width:100% !important;
+    margin-top:36px !important;
+    margin-right:0 !important;
+    margin-bottom:18px !important;
+    margin-left:0 !important;
+    padding:8px 0 !important;
+    border-top:1px solid #5d5d5d !important;
+    border-bottom:1px solid #5d5d5d !important;
     font-family:"Inter",Arial,sans-serif !important;
     font-size:15.6px !important;
     font-style:normal !important;
-    font-weight:700 !important;
-    line-height:1.25 !important;
+    font-weight:400 !important;
+    line-height:1.35 !important;
     text-transform:uppercase !important;
+    text-align:center !important;
   }
 
   html[data-page="service"] .copywriting-main .service-coming-soon{
@@ -1742,8 +1853,9 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
     margin:0 auto !important;
   }
 
-  /* Split-flap demo is desktop/tablet only. */
-  html[data-page="service"] .splitflap-row{display:none !important;}
+  /* Split-flap and animated-camera demos are desktop/tablet only. */
+  html[data-page="service"] :is(.splitflap-row,.camera-row){display:none !important;}
+  html[data-page="service"] .turntable-row{order:99 !important;}
 
   /* Copywriting: no empty stage between the coming-soon line and the end of content. */
   html[data-page="service"] .copywriting-main .copywriting-coming-soon-stage{
@@ -2024,3 +2136,260 @@ html[data-page="service"] :is(.preview-popout,.landing-preview-popout,.popout-ac
   transform:none !important;
 }
 
+
+
+/* =========================================================
+   2026-10-05 — requested mobile/service refinements only
+   ========================================================= */
+@media (max-width:700px){
+  /* Keep the vertical Madhi Studio mark behind all mobile content. */
+  html[data-page="service"] .mobile-brand-watermark{z-index:0 !important;}
+  html[data-page="service"] body > main{position:relative;z-index:1 !important;}
+  html[data-page="service"] main > section,
+  html[data-page="service"] main > section > *{position:relative;z-index:1;}
+
+  /* Back control linework matches the menu icon line weight/spacing. */
+  html[data-page="service"] .mobile-back-control::before,
+  html[data-page="service"] .site-nav-global .nav-toggle::before{
+    height:2px !important;
+  }
+  html[data-page="service"] .mobile-back-control::before{
+    top:calc(3px + clamp(5.5px,1.65vw,7px)) !important;
+    background:#262626 !important;
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 #262626,0 clamp(12.6px,3.7vw,15.2px) 0 #262626,0 clamp(18.9px,5.55vw,22.8px) 0 #262626,0 clamp(25.2px,7.4vw,30.4px) 0 #262626 !important;
+  }
+  html[data-page="service"] .mobile-back-arrow,
+  html[data-page="service"] .mobile-back-label{
+    color:#FFFFFF !important;
+    text-shadow:none !important;
+  }
+  html[data-page="service"] .mobile-back-arrow{
+    flex:0 0 28px !important;
+    width:28px !important;
+    height:18px !important;
+  }
+  html[data-page="service"] .mobile-back-arrow::before{
+    left:3px !important;
+    top:7px !important;
+    width:25px !important;
+    height:4px !important;
+  }
+  html[data-page="service"] .mobile-back-arrow::after{
+    left:3px !important;
+    top:4px !important;
+    width:8px !important;
+    height:8px !important;
+    border-left:4px solid currentColor !important;
+    border-bottom:4px solid currentColor !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) .mobile-back-arrow,
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) .mobile-back-label{
+    color:#FFBF00 !important;
+  }
+
+  /* Restore the top divider and match the Featured Works divider thickness. */
+  html[data-page="service"] .section-divider{
+    display:block !important;
+    width:100% !important;
+    height:1px !important;
+    margin:0 0 36px !important;
+    background:#5d5d5d !important;
+    border:0 !important;
+  }
+
+  /* Increase spacing between featured works / sections by 50%. */
+  html[data-page="service"] .service-mobile-feature-label{margin:225px auto 0 !important;}
+  html[data-page="service"] .print-list{gap:225px !important;}
+
+  /* Runway viewer shell: transparent and square-cornered. */
+  html[data-page="service"] .runway-inspection-row :is(.image-card,.runway-inspection-frame){
+    background:transparent !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+  }
+
+  /* Final motion items stay hidden on mobile. */
+  html[data-page="service"] :is(.splitflap-row,.camera-row,.mobile-hidden-feature){display:none !important;}
+}
+
+/* =========================================================
+   2026-10-05 pass9 — requested mobile header/service refinements
+   ========================================================= */
+@media (max-width:700px){
+  /* Align BACK/menu line sets with the vertical logo's top line set. */
+  html[data-page="service"] .mobile-back-control{top:0 !important;}
+  html[data-page="service"] .site-nav-global .nav-toggle{top:2px !important;}
+
+  /* Lighter arrow; BACK still turns gold, while the arrow remains white. */
+  html[data-page="service"] .mobile-back-arrow::before{
+    height:3px !important;
+  }
+  html[data-page="service"] .mobile-back-arrow::after{
+    width:8px !important;
+    height:8px !important;
+    border-left-width:3px !important;
+    border-bottom-width:3px !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible)::before{
+    background:#FFFFFF !important;
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 #FFFFFF,0 clamp(12.6px,3.7vw,15.2px) 0 #FFFFFF,0 clamp(18.9px,5.55vw,22.8px) 0 #FFFFFF,0 clamp(25.2px,7.4vw,30.4px) 0 #FFFFFF !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) .mobile-back-arrow{color:#FFFFFF !important;}
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) .mobile-back-label{color:#FFBF00 !important;}
+
+  /* No divider beneath the page title; title and service list sit together. */
+  html[data-page="service"] .section-divider{display:none !important;}
+  html[data-page="service"] .page-title{margin-bottom:0 !important;}
+  html[data-page="service"] .service-mobile-overview{margin-top:0 !important;}
+
+  /* Give the first featured artwork more breathing room below FEATURED WORKS on every service page. */
+  html[data-page="service"] .service-mobile-feature-label{margin-bottom:36px !important;}
+}
+
+
+/* =========================================================
+   2026-10-05 pass10 — requested mobile-only refinements
+   ========================================================= */
+@media (max-width:700px){
+  /* Keep the grey Madhi Studio watermark visibly behind all service-page content. */
+  html[data-page="service"] .mobile-brand-watermark{z-index:2 !important;}
+  html[data-page="service"] body > main{position:relative;z-index:auto !important;background:transparent !important;}
+  html[data-page="service"] main > section{position:relative;z-index:auto !important;background:transparent !important;}
+  html[data-page="service"] main > section > *{position:relative;z-index:3 !important;}
+  html[data-page="service"] :is(
+    .page-section,.page-section .container,.collection,.print-list,.print-row,.info-panel,
+    .service-mobile-overview,.service-mobile-includes,.portfolio-work-caption,
+    .branding-showcase-grid,.branding-showcase-card,.branding-system-feature-card
+  ){
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+
+  /* BACK hover changes only the arrow and word; all horizontal guide lines stay unchanged. */
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible)::before{
+    background:#262626 !important;
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 #262626,0 clamp(12.6px,3.7vw,15.2px) 0 #262626,0 clamp(18.9px,5.55vw,22.8px) 0 #262626,0 clamp(25.2px,7.4vw,30.4px) 0 #262626 !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) .mobile-back-arrow,
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) .mobile-back-label{
+    color:#FFBF00 !important;
+  }
+
+  /* Halve the space after the service list before Featured Works, consistently on every service page. */
+  html[data-page="service"] .service-mobile-feature-label{
+    margin-top:112.5px !important;
+  }
+}
+
+/* pass10 visibility reinforcement: keep service content transparent over the persistent grey mark. */
+@media (max-width:700px){
+  html[data-page="service"] :is(
+    .page-section,.collection,.branding-showcase-grid,.branding-showcase-card,
+    .print-list,.print-row,.image-card,.info-panel,.portfolio-work-caption,
+    .service-mobile-overview,.service-mobile-includes,#site-footer,#site-footer footer
+  ){
+    background:transparent !important;
+  }
+}
+
+/* =========================================================
+   2026-10-05 pass11 — requested mobile finishing refinements
+   ========================================================= */
+@media (max-width:700px){
+  /* Copywriting coming-soon line sits lower beneath its divider. */
+  html[data-page="service"] .copywriting-main .copywriting-coming-soon-stage{
+    padding-top:16px !important;
+  }
+
+  /* Shorter BACK arrow shaft; guide lines do not change on hover. */
+  html[data-page="service"] .mobile-back-arrow{
+    flex-basis:18px !important;
+    width:18px !important;
+  }
+  html[data-page="service"] .mobile-back-arrow::before{
+    width:13px !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible)::before{
+    background:#262626 !important;
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 #262626,0 clamp(12.6px,3.7vw,15.2px) 0 #262626,0 clamp(18.9px,5.55vw,22.8px) 0 #262626,0 clamp(25.2px,7.4vw,30.4px) 0 #262626 !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible) :is(.mobile-back-arrow,.mobile-back-label){
+    color:#FFBF00 !important;
+  }
+
+  /* Portfolio preview pop-out controls: gold + bolder on hover/focus. */
+  html[data-page="service"] :is(.preview-popout,.landing-preview-popout,.popout-action):is(:hover,:focus-visible){
+    color:#FFBF00 !important;
+  }
+  html[data-page="service"] :is(.preview-popout,.landing-preview-popout,.popout-action):is(:hover,:focus-visible) :is(.external-link-frame,.external-link-arrow){
+    stroke-width:3.4px !important;
+  }
+
+  /* Footer: 15% larger and uniformly the resting Madhi mark grey. */
+  html[data-page="service"] #site-footer .footer-main,
+  html[data-page="service"] #site-footer .footer-main *,
+  html[data-page="service"] #site-footer .footer-craft,
+  html[data-page="service"] footer .footer-main,
+  html[data-page="service"] footer .footer-main *,
+  html[data-page="service"] footer .footer-craft{
+    color:#262626 !important;
+    font-size:13.9px !important;
+    opacity:1 !important;
+  }
+}
+
+
+/* =========================================================
+   2026-10-05 pass13 — requested mobile BACK/footer refinements only
+   ========================================================= */
+@media (max-width:700px){
+  /* Start the arrow at the left end of the grey guide lines and place its white shaft directly over the middle guide line. */
+  html[data-page="service"] .mobile-back-control{
+    justify-content:flex-start !important;
+  }
+  html[data-page="service"] .mobile-back-arrow{
+    flex:0 0 28px !important;
+    width:28px !important;
+    height:18px !important;
+  }
+  html[data-page="service"] .mobile-back-arrow::before{
+    left:0 !important;
+    top:9px !important;
+    width:28px !important;
+    height:2px !important;
+  }
+  html[data-page="service"] .mobile-back-arrow::after{
+    left:0 !important;
+    top:5px !important;
+    width:8px !important;
+    height:8px !important;
+    border-left-width:3px !important;
+    border-bottom-width:3px !important;
+  }
+  html[data-page="service"] .mobile-back-control:is(:hover,:focus-visible)::before{
+    background:#262626 !important;
+    box-shadow:0 clamp(6.3px,1.85vw,7.6px) 0 #262626,0 clamp(12.6px,3.7vw,15.2px) 0 #262626,0 clamp(18.9px,5.55vw,22.8px) 0 #262626,0 clamp(25.2px,7.4vw,30.4px) 0 #262626 !important;
+  }
+
+  /* Footer text requested grey. */
+  html[data-page="service"] #site-footer .footer-main,
+  html[data-page="service"] #site-footer .footer-main *,
+  html[data-page="service"] #site-footer .footer-craft,
+  html[data-page="service"] footer .footer-main,
+  html[data-page="service"] footer .footer-main *,
+  html[data-page="service"] footer .footer-craft{
+    color:#4b4b4b !important;
+  }
+}
+
+
+/* =========================================================
+   2026-10-05 pass16 — Motion Graphics mobile-only visibility
+   ========================================================= */
+@media (max-width:700px){
+  html[data-page="service"] .splitflap-row,
+  html[data-page="service"] .camera-row{
+    display:none !important;
+  }
+}

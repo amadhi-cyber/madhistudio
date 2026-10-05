@@ -1183,9 +1183,9 @@ html[data-theme="dark"] :is(
   }
   html[data-page="service"] :is(.branding-showcase-aoe,.branding-showcase-aoi) .branding-showcase-artwork img{
     display:block !important;
-    width:100% !important;
+    width:90% !important;
     height:auto !important;
-    max-width:100% !important;
+    max-width:90% !important;
     max-height:none !important;
     margin:0 auto !important;
     transform:none !important;
