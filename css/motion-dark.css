@@ -1423,6 +1423,12 @@ to{transform: rotate(360deg);}}
 .city-demo label{font-weight:400 !important;}
 @media (max-width:700px){
   html[data-page="service"] .splitflap-row{display:none !important;}
+  /* Mobile-only cleanup: remove the yellow rule above the Philadelphia / board rows. */
+  html[data-page="service"] .splitflap-row :is(.solari-half.top,.solari-motion.top,.solari-signal-half.top),
+  html[data-page="service"] .splitflap-row .solari-stair-spacer::before{
+    border-bottom:0 !important;
+  }
+
   html[data-page="service"] :is(.aoe-learning-row .image-card,.aoe-learning-row .aoe-learning-artwork){
     background:transparent !important;
     border:0 !important;
@@ -1436,3 +1442,23 @@ to{transform: rotate(360deg);}}
     box-shadow:none !important;
   }
 }
+
+
+/* =========================================================
+   2026-10-06 pass — requested Motion Graphics mobile refinements only
+   ========================================================= */
+@media (max-width:700px){
+  /* Remove the extra yellow rule segment around the editable Philadelphia row. */
+  html[data-page="service"] .splitflap-row .solari-data-row.is-editable :is(.solari-half.top,.solari-motion.top,.solari-signal-half.top),
+  html[data-page="service"] .splitflap-row .solari-data-row.is-editable .solari-stair-spacer::before{
+    border-bottom:0 !important;
+  }
+
+  /* Reduce animated camera size by 40% on mobile. */
+  html[data-page="service"] .camera-row .svg-artwork .motion-svg-object{
+    width:54% !important;
+    max-width:54% !important;
+    height:auto !important;
+  }
+}
+

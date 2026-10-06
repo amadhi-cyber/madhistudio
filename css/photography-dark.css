@@ -1056,3 +1056,43 @@
     aspect-ratio:auto !important;
   }
 }
+
+
+/* 2026-10-06 pass — footer color consistency. */
+.photography-page :is(#site-footer, footer) :is(.footer-main, .footer-main *, .footer-craft, .footer-site-links, .footer-site-links *, .footer-site-link){
+  color:#e7e7e7 !important;
+  opacity:1 !important;
+}
+@media (min-width:701px){
+  .photography-page #site-footer{
+    width:100% !important;
+    height:58px !important;
+    min-height:58px !important;
+    margin:0 !important;
+  }
+  .photography-page #site-footer footer{
+    width:100% !important;
+    height:58px !important;
+    min-height:58px !important;
+    padding:0 24px 6px !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:center !important;
+  }
+  .photography-page #site-footer .footer-inner{
+    width:100% !important;
+    align-items:flex-end !important;
+    justify-content:flex-end !important;
+    text-align:right !important;
+  }
+  .photography-page #site-footer .footer-main{
+    width:auto !important;
+    margin:0 !important;
+    font-size:13.9px !important;
+    text-align:right !important;
+    color:#e7e7e7 !important;
+    opacity:1 !important;
+  }
+  .photography-page #site-footer .footer-craft{color:#e7e7e7 !important;}
+}
+

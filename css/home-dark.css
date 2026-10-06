@@ -5562,7 +5562,12 @@ html[data-page="home"] :is(.contact-desktop-intro-emphasis,.contact-mobile-intro
   font-weight:400 !important;
 }
 @media (min-width:701px){
-html[data-page="home"] .copywriting-feature-card > p{color:#232323 !important;font-size:220px !important;}
+  html[data-page="home"] #services
+  .desktop-service-panel[data-service-panel="copywriting"]
+  .copywriting-feature-card > p{
+    color:#FFFFFF !important;
+    font-size:24px !important;
+  }
 }
 
 html[data-page="home"] :is(
@@ -6249,7 +6254,7 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     font-weight:400 !important;
     line-height:1.45 !important;
   }
-  html[data-page="home"] #services #motion-graphics .mobile-service-swipe{margin-bottom:-84px !important;}
+  html[data-page="home"] #services #motion-graphics .mobile-service-swipe{margin-bottom:-156px !important;}
   html[data-page="home"] #services #motion-graphics .mobile-swipe-caption{margin:24px 0 0 !important;}
   html[data-page="home"] #services .mobile-swipe-title-row{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;width:100% !important;}
   html[data-page="home"] #services #web-design .mobile-swipe-title-row .landing-preview-popout-mobile{display:none !important;}
@@ -6402,6 +6407,7 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
   html[data-page="home"] #branding-logos .landing-feature-explore{margin-top:22px !important;}
 
   /* Copywriting: no artificial canvas between the coming-soon line and its action. */
+  html[data-page="home"] #copywriting{min-height:auto !important;height:auto !important;}
   html[data-page="home"] #copywriting .feature-layout{gap:0 !important;min-height:0 !important;height:auto !important;justify-content:flex-start !important;margin-bottom:0 !important;}
   html[data-page="home"] #copywriting .mobile-feature-label{margin-bottom:18px !important;}
   html[data-page="home"] #copywriting .copywriting-feature-card{
@@ -6416,10 +6422,10 @@ html[data-page="home"] :is(.cta-footer,footer) .footer-craft{color:#FFBF00 !impo
     padding:0 !important;
     color:#FFFFFF !important;
   }
-  html[data-page="home"] #copywriting .landing-feature-info{margin:-220px 0 0 !important;padding:0 !important;}
-  html[data-page="home"] #copywriting .landing-feature-explore{margin-top:0 !important;}
+  html[data-page="home"] #copywriting .landing-feature-info{margin:0 !important;padding:0 !important;}
+  html[data-page="home"] #copywriting .landing-feature-explore{margin-top:32px !important;}
   html[data-page="home"] #motion-graphics .landing-feature-explore{margin-top:0 !important;}
-  html[data-page="home"] #motion-graphics .landing-feature-info{margin-top:-62px !important;padding:0 !important;}
+  html[data-page="home"] #motion-graphics .landing-feature-info{margin-top:-98px !important;padding:0 !important;}
 
   /* Standard mobile subsection separation after Explore buttons; Copywriting is the final service. */
   html[data-page="home"] #services :is(#branding-logos,#ui-icons,#motion-graphics,#web-design,#photography) .landing-feature-explore{
@@ -6848,7 +6854,7 @@ html[data-page="home"] :is(.landing-runway-inspection-card,.landing-runway-inspe
     font-weight:900 !important;
     text-decoration-line:underline !important;
     text-decoration-color:#FFBF00 !important;
-    text-decoration-thickness:2px !important;
+    text-decoration-thickness:3px !important;
     text-underline-offset:3px !important;
     text-decoration-skip-ink:auto !important;
   }
@@ -7019,7 +7025,7 @@ html[data-page="home"] :is(.landing-runway-inspection-card,.landing-runway-inspe
    ========================================================= */
 @media (max-width:700px){
   html[data-page="home"] .contact-form-viewport .contact-form-kicker{
-    font-size:54.493px !important;
+    font-size:70.841px !important;
   }
 }
 
@@ -7044,3 +7050,82 @@ html[data-page="home"] #ui-icons :is(.feature-card,.landing-runway-inspection-ca
   box-shadow:none !important;
   overflow:hidden !important;
 }
+
+
+/* =========================================================
+   2026-10-06 pass21 — mobile contact-form select arrows match service chevrons
+   ========================================================= */
+@media (max-width:700px){
+  html[data-page="home"] .contact-input-shell:has(> select)::after{
+    content:"";
+    position:absolute;
+    right:18px;
+    top:50%;
+    width:10px;
+    height:10px;
+    border-right:2.6px solid #FFFFFF;
+    border-bottom:2.6px solid #FFFFFF;
+    transform:translateY(-62%) rotate(45deg);
+    pointer-events:none;
+    transition:border-color .2s ease, transform .2s ease;
+    z-index:2;
+  }
+  html[data-page="home"] .contact-input-shell > select{
+    -webkit-appearance:none !important;
+    appearance:none !important;
+    background-image:none !important;
+    padding-right:48px !important;
+  }
+  html[data-page="home"] .contact-input-shell:has(> select:focus)::after,
+  html[data-page="home"] .contact-input-shell:has(> select:focus-visible)::after{
+    border-right-color:#FFBF00 !important;
+    border-bottom-color:#FFBF00 !important;
+  }
+}
+
+
+/* =========================================================
+   2026-10-06 pass — restore requested home desktop/mobile refinements only
+   ========================================================= */
+@media (min-width:701px){
+  /* Desktop landing-page copywriting placeholder: slightly smaller, white. */
+  html[data-page="home"] #services .desktop-service-panel[data-service-panel="copywriting"] .copywriting-feature-card > p,
+  html[data-page="home"] #copywriting .copywriting-feature-card > p{
+    color:#FFFFFF !important;
+    font-size:20px !important;
+  }
+}
+
+@media (max-width:700px){
+  /* Mobile landing-page copywriting: match Photography spacing above the action button. */
+  html[data-page="home"] #copywriting .feature-layout,
+  html[data-page="home"] #copywriting .landing-feature-info{
+    gap:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  html[data-page="home"] #copywriting .copywriting-feature-card{
+    display:block !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:auto !important;
+    flex:0 0 auto !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  html[data-page="home"] #copywriting .copywriting-feature-card > p{
+    margin:0 !important;
+    padding:0 !important;
+  }
+  html[data-page="home"] #copywriting .landing-feature-explore{
+    margin-top:16px !important;
+  }
+}
+
+/* Footer text color: consistent #e7e7e7 on home page, desktop and mobile. */
+html[data-page="home"] :is(.cta-footer, footer) :is(.footer-main, .footer-main *, .footer-craft, .footer-site-links, .footer-site-links *, .footer-site-link){
+  color:#e7e7e7 !important;
+  opacity:1 !important;
+}
+

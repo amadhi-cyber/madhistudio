@@ -1957,7 +1957,8 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
     font-size:17.3px !important;
   }
   html[data-page="service"] .copywriting-main .service-coming-soon{
-    font-size:31px !important;
+    font-size:18.6px !important;
+    color:#FFFFFF !important;
   }
 
   /* Branding: lower all three artwork/caption groups by one text line, evenly. */
@@ -2070,7 +2071,7 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
 
   /* Soccer pitch: align artwork top with the adjacent gold caption title. */
   html[data-page="service"] .soccer-pitch-row .image-card{
-    margin-top:34px !important;
+    margin-top:0 !important;
   }
 
   /* Split-flap: thin split line, full gold board outline, and board header aligned to caption top. */
@@ -2383,6 +2384,17 @@ html[data-page="service"] :is(.preview-popout,.landing-preview-popout,.popout-ac
   }
 }
 
+@media (min-width:701px){
+  html[data-page="service"] #site-footer .footer-main,
+  html[data-page="service"] #site-footer .footer-main *,
+  html[data-page="service"] #site-footer .footer-craft,
+  html[data-page="service"] footer .footer-main,
+  html[data-page="service"] footer .footer-main *,
+  html[data-page="service"] footer .footer-craft{
+    color:#4b4b4b !important;
+  }
+}
+
 
 /* =========================================================
    2026-10-05 pass16 — Motion Graphics mobile-only visibility
@@ -2393,3 +2405,234 @@ html[data-page="service"] :is(.preview-popout,.landing-preview-popout,.popout-ac
     display:none !important;
   }
 }
+
+/* =========================================================
+   Soccer pitch — one SVG per breakpoint
+   ========================================================= */
+
+/* DESKTOP — show horizontal pitch only */
+@media (min-width:951px){
+  html[data-page="service"] .soccer-pitch-svg-desktop{
+    display:block !important;
+  }
+
+  html[data-page="service"] .soccer-pitch-svg-mobile{
+    display:none !important;
+  }
+}
+
+/* MOBILE — show vertical pitch only */
+@media (max-width:950px){
+  html[data-page="service"] .soccer-pitch-svg-desktop{
+    display:none !important;
+  }
+
+  html[data-page="service"] .soccer-pitch-svg-mobile{
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+  }
+}
+
+/* =========================================================
+   UI page — soccer final viewport + footer
+   ========================================================= */
+@media (min-width:951px){
+
+  html[data-page="service"]{
+    --soccer-footer-height:56px;
+  }
+
+  html[data-page="service"] .soccer-pitch-row:last-child{
+    height:calc(
+      var(--service-page-viewport) - var(--soccer-footer-height)
+    ) !important;
+
+    min-height:calc(
+      var(--service-page-viewport) - var(--soccer-footer-height)
+    ) !important;
+
+    max-height:calc(
+      var(--service-page-viewport) - var(--soccer-footer-height)
+    ) !important;
+
+    box-sizing:border-box !important;
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  html[data-page="service"] #site-footer{
+    height:var(--soccer-footer-height) !important;
+    min-height:var(--soccer-footer-height) !important;
+    margin:0 !important;
+  }
+
+  html[data-page="service"] #site-footer footer{
+    height:var(--soccer-footer-height) !important;
+    min-height:var(--soccer-footer-height) !important;
+    padding:0 24px 8px !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    box-sizing:border-box !important;
+  }
+}
+
+
+/* =========================================================
+   2026-10-06 pass — restore requested service-page refinements only
+   ========================================================= */
+/* Footer text color: consistent #e7e7e7 on all service pages, desktop and mobile. */
+html[data-page="service"] :is(#site-footer, footer) :is(.footer-main, .footer-main *, .footer-craft, .footer-site-links, .footer-site-links *, .footer-site-link){
+  color:#e7e7e7 !important;
+  opacity:1 !important;
+}
+
+/* Desktop footer uses the exact landing-page footprint and typography. */
+@media (min-width:701px){
+  html[data-page="service"]{--service-footer-height:58px !important;}
+  html[data-page="service"] #site-footer{
+    width:100% !important;
+    height:58px !important;
+    min-height:58px !important;
+    margin:0 !important;
+  }
+  html[data-page="service"] #site-footer footer{
+    width:100% !important;
+    height:58px !important;
+    min-height:58px !important;
+    padding:0 24px 6px !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+    background:transparent !important;
+    border:0 !important;
+  }
+  html[data-page="service"] #site-footer .footer-inner{
+    width:100% !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:flex-end !important;
+    gap:0 !important;
+    padding:0 !important;
+    text-align:right !important;
+  }
+  html[data-page="service"] #site-footer .footer-main{
+    width:auto !important;
+    margin:0 !important;
+    font-size:13.9px !important;
+    text-align:right !important;
+    color:#e7e7e7 !important;
+    opacity:1 !important;
+  }
+  html[data-page="service"] #site-footer .footer-craft{color:#e7e7e7 !important;}
+}
+
+/* Mobile Motion Graphics restores the visible board/camera presentation. */
+@media (max-width:700px){
+  html[data-page="service"] .splitflap-row,
+  html[data-page="service"] .camera-row{
+    display:grid !important;
+  }
+
+  /* Split-flap: restore the larger mobile board proportions and top alignment. */
+  html[data-page="service"] .splitflap-row .image-card,
+  html[data-page="service"] .splitflap-row .svg-artwork,
+  html[data-page="service"] .splitflap-row .motion-inline-svg,
+  html[data-page="service"] .splitflap-row .solari-demo,
+  html[data-page="service"] .splitflap-row .solari-board{
+    width:100% !important;
+    height:306px !important;
+    min-height:306px !important;
+    max-height:306px !important;
+    aspect-ratio:auto !important;
+    margin:0 !important;
+    padding-top:0 !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+  }
+  html[data-page="service"] .splitflap-row .solari-grid-row,
+  html[data-page="service"] .splitflap-row .solari-header-row,
+  html[data-page="service"] .splitflap-row .solari-field,
+  html[data-page="service"] .splitflap-row .solari-cell,
+  html[data-page="service"] .splitflap-row .solari-signal-card,
+  html[data-page="service"] .splitflap-row .solari-stair-spacer{
+    height:34px !important;
+    min-height:34px !important;
+    flex-basis:34px !important;
+  }
+  html[data-page="service"] .splitflap-row .solari-header-row{font-size:10px !important;}
+  html[data-page="service"] .splitflap-row .solari-glyph{font-size:10.5px !important;line-height:34px !important;}
+  html[data-page="service"] .splitflap-row .solari-dot{width:8px !important;height:8px !important;border-width:1px !important;}
+
+  /* Keep only the single intended rule above the Philadelphia row. */
+  html[data-page="service"] .splitflap-row .solari-data-row.is-editable :is(.solari-half.top,.solari-motion.top,.solari-signal-half.top),
+  html[data-page="service"] .splitflap-row .solari-data-row.is-editable .solari-stair-spacer::before{
+    border-bottom:0 !important;
+  }
+
+  /* Animated camera: 40% smaller than the prior 90% mobile treatment. */
+  html[data-page="service"] .camera-row .motion-camera-picture{
+    display:flex !important;
+    width:100% !important;
+    justify-content:center !important;
+  }
+  html[data-page="service"] .camera-row .svg-artwork .motion-svg-object{
+    width:54% !important;
+    max-width:54% !important;
+    height:auto !important;
+    margin:0 auto !important;
+  }
+}
+
+/* Ensure exactly one soccer-pitch SVG is visible per breakpoint. */
+@media (min-width:701px){
+  html[data-page="service"] .soccer-pitch-row .soccer-pitch-inline{
+    position:relative !important;
+  }
+  html[data-page="service"] .soccer-pitch-row .soccer-pitch-svg-desktop{
+    display:block !important;
+    visibility:visible !important;
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    max-width:100% !important;
+    max-height:none !important;
+  }
+  html[data-page="service"] .soccer-pitch-row .soccer-pitch-svg-mobile{
+    display:none !important;
+    visibility:hidden !important;
+    position:absolute !important;
+    width:0 !important;
+    height:0 !important;
+    max-width:0 !important;
+    max-height:0 !important;
+    overflow:hidden !important;
+    pointer-events:none !important;
+    opacity:0 !important;
+  }
+}
+@media (max-width:700px){
+  html[data-page="service"] .soccer-pitch-row .soccer-pitch-svg-desktop{
+    display:none !important;
+    visibility:hidden !important;
+    position:absolute !important;
+    width:0 !important;
+    height:0 !important;
+    max-width:0 !important;
+    max-height:0 !important;
+    overflow:hidden !important;
+    pointer-events:none !important;
+    opacity:0 !important;
+  }
+  html[data-page="service"] .soccer-pitch-row .soccer-pitch-svg-mobile{
+    display:block !important;
+    visibility:visible !important;
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    max-width:100% !important;
+    opacity:1 !important;
+  }
+}
+

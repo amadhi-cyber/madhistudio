@@ -1026,12 +1026,17 @@ if (projectBriefForm) {
     };
     const addLabel=(layer,item,color,size='20')=>{
       const t=mkText(item.x,item.y,item.text,'middle',size,color,'1');
-      t.setAttribute('stroke','#ffffff');
-      t.setAttribute('stroke-width','0.9');
-      t.setAttribute('paint-order','stroke fill');
-      t.setAttribute('stroke-linejoin','round');
       layer.appendChild(t);
     };
+
+    const artwork=host.closest('.svg-artwork');
+    if(artwork && !artwork.querySelector('.soccer-formation-rail')){
+      const rail=document.createElement('div');
+      rail.className='soccer-formation-rail';
+      rail.setAttribute('aria-hidden','true');
+      rail.innerHTML='<span class="soccer-formation-label soccer-formation-red">4-3-3</span><span class="soccer-formation-vs">vs</span><span class="soccer-formation-label soccer-formation-blue">3-5-2</span>';
+      artwork.appendChild(rail);
+    }
 
     const pitches=svgs.map(svg=>{
       const mobile=svg.classList.contains('soccer-pitch-svg-mobile');
@@ -1057,23 +1062,9 @@ if (projectBriefForm) {
       addTeam('blue','#2563eb',formations.blue);
 
       if(mobile){
-        addLabel(layer,{x:226,y:53,text:'4-3-3'},'#ff3b3b','22');
-        addLabel(layer,{x:226,y:454,text:'3-5-2'},'#2563eb','22');
-      }else{
-        [
-          {x:88,y:21,text:'4'},
-          {x:119,y:21,text:'-'},
-          {x:150,y:21,text:'3'},
-          {x:180,y:21,text:'-'},
-          {x:210,y:21,text:'3'}
-        ].forEach(item=>addLabel(layer,item,'#ff3b3b'));
-        [
-          {x:288,y:21,text:'2'},
-          {x:317,y:21,text:'-'},
-          {x:346,y:21,text:'5'},
-          {x:375,y:21,text:'-'},
-          {x:404,y:21,text:'3'}
-        ].forEach(item=>addLabel(layer,item,'#2563eb'));
+        /* Mobile: place both formation labels on the right side around the halfway line. */
+        addLabel(layer,{x:223,y:239,text:'4-3-3'},'#ff3b3b','22');
+        addLabel(layer,{x:223,y:271,text:'3-5-2'},'#2563eb','22');
       }
 
       return {mobile,players};
