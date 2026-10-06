@@ -22,8 +22,8 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
 .airport-card{position:relative;display:block;flex:0 0 197px;width:197px;height:118px;aspect-ratio:16/9;overflow:hidden;border:0;background:transparent;padding:0;margin:0;cursor:pointer}
 .airport-card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .25s ease}
 .airport-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.28));transition:background .18s ease, box-shadow .18s ease}
-.airport-card span{position:absolute;z-index:2;inset:0;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.8);display:block;pointer-events:none}
-.airport-card b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:68px;line-height:1;font-weight:700;letter-spacing:.04em;opacity:.78}
+.airport-card span{position:absolute;z-index:2;inset:0;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.8);display:block;pointer-events:none;text-align:left}
+.airport-card b{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-start;font-size:60.8px;line-height:1;font-weight:700;letter-spacing:.02em;opacity:.78;text-align:left;padding:0 7px}
 .airport-card small{display:block;position:absolute;left:7px;right:7px;bottom:6px;font-size:12.5px;line-height:1.08;font-weight:700;text-align:left}
 .airport-card:hover img,.airport-card:focus-visible img,.airport-card.is-linked-active img{transform:scale(1.04);filter:brightness(1.22) saturate(.88)}
 .airport-card:focus-visible{outline:3px solid #fff;outline-offset:-4px}
@@ -33,7 +33,7 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
  .airport-card.us-airport.is-linked-active::after{background:rgba(0,168,107,.64)}
  .airport-card.intl-airport.is-linked-active::after{background:rgba(11,102,35,.68)}
 .mobile-airport-display{display:none;width:100%;padding:0;background:transparent;border-top:0;flex:0 0 auto}
-.mobile-airport-screen{display:grid;grid-template-columns:minmax(0,58%) minmax(0,42%);gap:0;align-items:stretch;width:100%;min-height:170px;background:#20242c;border-top:2px solid var(--water);border-bottom:2px solid var(--water);border-radius:0;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.28)}
+.mobile-airport-screen{display:grid;grid-template-columns:minmax(0,58%) minmax(0,42%);gap:0;align-items:stretch;width:100%;min-height:170px;background:#20242c;border:0;border-radius:0;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.28)}
 .mobile-airport-thumb{width:100%;height:100%;min-height:0;object-fit:cover;display:block;background:#111}
 .mobile-airport-meta{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:14px 12px;color:#fff;background:#20242c}
 .mobile-airport-code{width:100%;margin:0 0 6px;font-size:64px;line-height:.84;font-weight:800;letter-spacing:.035em;color:#00A86B}
@@ -197,10 +197,12 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
     min-height:170px !important;
     padding:12px 10px !important;
     justify-content:center !important;
-    background:#FFFFFF !important;
-    color:#111111 !important;
+    align-items:flex-start !important;
+    background:#00A86B !important;
+    color:#FFFFFF !important;
     overflow:hidden !important;
   }
+  .mobile-airport-meta.is-intl{background:#0B6623 !important;}
   .mobile-airport-code{
     width:100% !important;
     margin:0 0 8px !important;
@@ -208,13 +210,14 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
     line-height:.82 !important;
     font-weight:800 !important;
     letter-spacing:0 !important;
-    text-align:center !important;
-    color:#00A86B !important;
-    -webkit-text-fill-color:currentColor !important;
+    text-align:left !important;
+    align-self:flex-start !important;
+    color:#FFFFFF !important;
+    -webkit-text-fill-color:#FFFFFF !important;
     -webkit-text-stroke:0 !important;
   }
-  .mobile-airport-code.is-us{color:#00A86B !important;}
-  .mobile-airport-code.is-intl{color:#0B6623 !important;}
+  .mobile-airport-code.is-us{color:#FFFFFF !important;}
+  .mobile-airport-code.is-intl{color:#FFFFFF !important;}
   .mobile-airport-type{display:none !important;}
   .mobile-airport-name{
     margin:0 !important;
@@ -222,9 +225,9 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--sky);
     line-height:1.1 !important;
     font-weight:700 !important;
     text-align:left !important;
-    color:#00A86B !important;
+    color:#FFFFFF !important;
   }
-  .mobile-airport-code.is-intl ~ .mobile-airport-name{color:#0B6623 !important;}
+  .mobile-airport-code.is-intl ~ .mobile-airport-name{color:#FFFFFF !important;}
 }
 </style>
 
@@ -3021,8 +3024,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open MIA WanderPort guide">
-      <g class="airport-pin us" tabindex="0" role="img" aria-label="MIA — Miami International" data-code="MIA" transform="translate(274.12 196.11)">
-      <title>MIA — Miami International</title>
+      <g class="airport-pin us" tabindex="0" role="img" aria-label="MIA — Miami Int’l" data-code="MIA" transform="translate(274.12 196.11)">
+      <title>MIA — Miami Int’l</title>
       <circle class="pin-dot" fill="#00A86B" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="7" y="-7" text-anchor="start">MIA</text>
       </g>
@@ -3049,8 +3052,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open PDX WanderPort guide">
-      <g class="airport-pin us" tabindex="0" role="img" aria-label="PDX — Portland International" data-code="PDX" transform="translate(144.85 135.65)">
-      <title>PDX — Portland International</title>
+      <g class="airport-pin us" tabindex="0" role="img" aria-label="PDX — Portland Int’l" data-code="PDX" transform="translate(144.85 135.65)">
+      <title>PDX — Portland Int’l</title>
       <circle class="pin-dot" fill="#00A86B" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="7" y="-7" text-anchor="start">PDX</text>
       </g>
@@ -3105,8 +3108,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open TPA WanderPort guide">
-      <g class="airport-pin us" tabindex="0" role="img" aria-label="TPA — Tampa International" data-code="TPA" transform="translate(267.26 189.45)">
-      <title>TPA — Tampa International</title>
+      <g class="airport-pin us" tabindex="0" role="img" aria-label="TPA — Tampa Int’l" data-code="TPA" transform="translate(267.26 189.45)">
+      <title>TPA — Tampa Int’l</title>
       <circle class="pin-dot" fill="#00A86B" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="7" y="-7" text-anchor="start">TPA</text>
       </g>
@@ -3140,15 +3143,15 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open AUH WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="AUH — Abu Dhabi Zayed International" data-code="AUH" transform="translate(686.43 200.21)">
-      <title>AUH — Abu Dhabi Zayed International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="AUH — Abu Dhabi Zayed Int’l" data-code="AUH" transform="translate(686.43 200.21)">
+      <title>AUH — Abu Dhabi Zayed Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code left-label" style="opacity:0;visibility:hidden" x="-33" y="12" text-anchor="end">AUH</text>
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open BAH WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="BAH — Bahrain International" data-code="BAH" transform="translate(674.16 194.66)">
-      <title>BAH — Bahrain International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="BAH — Bahrain Int’l" data-code="BAH" transform="translate(674.16 194.66)">
+      <title>BAH — Bahrain Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code left-label" style="opacity:0;visibility:hidden" x="-31" y="-11" text-anchor="end">BAH</text>
       </g>
@@ -3189,8 +3192,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open CAI WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="CAI — Cairo International" data-code="CAI" transform="translate(615.39 182.92)">
-      <title>CAI — Cairo International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="CAI — Cairo Int’l" data-code="CAI" transform="translate(615.39 182.92)">
+      <title>CAI — Cairo Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="7" y="-7" text-anchor="start">CAI</text>
       </g>
@@ -3224,8 +3227,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open DOH WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="DOH — Hamad International" data-code="DOH" transform="translate(677.14 197.7)">
-      <title>DOH — Hamad International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="DOH — Hamad Int’l" data-code="DOH" transform="translate(677.14 197.7)">
+      <title>DOH — Hamad Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="8" y="13" text-anchor="start">DOH</text>
       </g>
@@ -3238,8 +3241,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open DXB WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="DXB — Dubai International" data-code="DXB" transform="translate(688.62 197.77)">
-      <title>DXB — Dubai International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="DXB — Dubai Int’l" data-code="DXB" transform="translate(688.62 197.77)">
+      <title>DXB — Dubai Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="8" y="-1" text-anchor="start">DXB</text>
       </g>
@@ -3280,8 +3283,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open HKG WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="HKG — Hong Kong International" data-code="HKG" transform="translate(867.53 206.76)">
-      <title>HKG — Hong Kong International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="HKG — Hong Kong Int’l" data-code="HKG" transform="translate(867.53 206.76)">
+      <title>HKG — Hong Kong Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="7" y="-7" text-anchor="start">HKG</text>
       </g>
@@ -3294,8 +3297,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open ICN WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="ICN — Incheon International" data-code="ICN" transform="translate(905.79 160.48)">
-      <title>ICN — Incheon International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="ICN — Incheon Int’l" data-code="ICN" transform="translate(905.79 160.48)">
+      <title>ICN — Incheon Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code left-label" style="opacity:0;visibility:hidden" x="-31" y="-10" text-anchor="end">ICN</text>
       </g>
@@ -3329,8 +3332,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open JRO WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="JRO — Kilimanjaro International" data-code="JRO" transform="translate(632.73 285.37)">
-      <title>JRO — Kilimanjaro International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="JRO — Kilimanjaro Int’l" data-code="JRO" transform="translate(632.73 285.37)">
+      <title>JRO — Kilimanjaro Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code right-label" style="opacity:0;visibility:hidden" x="8" y="-3" text-anchor="start">JRO</text>
       </g>
@@ -3343,8 +3346,8 @@ circle.highlight{
       </g>
     </a>
     <a class="airport-link" href="#" xlink:href="#" target="_top" aria-label="Open KIX WanderPort guide">
-      <g class="airport-pin intl" tabindex="0" role="img" aria-label="KIX — Kansai International" data-code="KIX" transform="translate(932.69 169.74)">
-      <title>KIX — Kansai International</title>
+      <g class="airport-pin intl" tabindex="0" role="img" aria-label="KIX — Kansai Int’l" data-code="KIX" transform="translate(932.69 169.74)">
+      <title>KIX — Kansai Int’l</title>
       <circle class="pin-dot" fill="#0B6623" stroke="#ffffff" stroke-width="0.85" cx="0" cy="0" r="2.8" />
       <text class="pin-label airport-code left-label" style="opacity:0;visibility:hidden" x="-32" y="12" text-anchor="end">KIX</text>
       </g>
@@ -3994,11 +3997,11 @@ circle.highlight{
 </svg></div>
   <div class="mobile-airport-display" id="mobileAirportDisplay" hidden>
     <div class="mobile-airport-screen">
-      <img class="mobile-airport-thumb" id="mobileAirportThumb" src="airports/atl.webp" alt="Hartsfield–Jackson Atlanta International Airport">
+      <img class="mobile-airport-thumb" id="mobileAirportThumb" src="airports/atl.webp" alt="Hartsfield–Jackson Atlanta Int’l Airport">
       <div class="mobile-airport-meta">
         <p class="mobile-airport-code" id="mobileAirportCode">ATL</p>
         <p class="mobile-airport-type" id="mobileAirportType">U.S. airport</p>
-        <p class="mobile-airport-name" id="mobileAirportName">Hartsfield–Jackson Atlanta International Airport</p>
+        <p class="mobile-airport-name" id="mobileAirportName">Hartsfield–Jackson Atlanta Int’l Airport</p>
       </div>
     </div>
   </div>
@@ -4016,11 +4019,11 @@ circle.highlight{
 <button class="airport-card" type="button" data-code="LAX"><img src="airports/lax.webp" alt="Los Angeles"><span><b>LAX</b><small>Los Angeles</small></span></button>
 <button class="airport-card" type="button" data-code="LGA"><img src="airports/lga.webp" alt="LaGuardia"><span><b>LGA</b><small>LaGuardia</small></span></button>
 <button class="airport-card" type="button" data-code="MDW"><img src="airports/mdw.webp" alt="Chicago Midway"><span><b>MDW</b><small>Chicago Midway</small></span></button>
-<button class="airport-card" type="button" data-code="MIA"><img src="airports/mia.webp" alt="Miami International"><span><b>MIA</b><small>Miami International</small></span></button>
+<button class="airport-card" type="button" data-code="MIA"><img src="airports/mia.webp" alt="Miami Int’l"><span><b>MIA</b><small>Miami Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="MSP"><img src="airports/msp.webp" alt="Minneapolis–Saint Paul"><span><b>MSP</b><small>Minneapolis–Saint Paul</small></span></button>
 <button class="airport-card" type="button" data-code="OAK"><img src="airports/oak.webp" alt="Oakland"><span><b>OAK</b><small>Oakland</small></span></button>
 <button class="airport-card" type="button" data-code="ORD"><img src="airports/ord.webp" alt="Chicago O’Hare"><span><b>ORD</b><small>Chicago O’Hare</small></span></button>
-<button class="airport-card" type="button" data-code="PDX"><img src="airports/pdx.webp" alt="Portland International"><span><b>PDX</b><small>Portland International</small></span></button>
+<button class="airport-card" type="button" data-code="PDX"><img src="airports/pdx.webp" alt="Portland Int’l"><span><b>PDX</b><small>Portland Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="PHL"><img src="airports/phl.webp" alt="Philadelphia"><span><b>PHL</b><small>Philadelphia</small></span></button>
 <button class="airport-card" type="button" data-code="PHX"><img src="airports/phx.webp" alt="Phoenix Sky Harbor"><span><b>PHX</b><small>Phoenix Sky Harbor</small></span></button>
 <button class="airport-card" type="button" data-code="PNE"><img src="airports/pne.webp" alt="Northeast Philadelphia"><span><b>PNE</b><small>Northeast Philadelphia</small></span></button>
@@ -4028,41 +4031,41 @@ circle.highlight{
 <button class="airport-card" type="button" data-code="SEA"><img src="airports/sea.webp" alt="Seattle–Tacoma"><span><b>SEA</b><small>Seattle–Tacoma</small></span></button>
 <button class="airport-card" type="button" data-code="SFO"><img src="airports/sfo.webp" alt="San Francisco"><span><b>SFO</b><small>San Francisco</small></span></button>
 <button class="airport-card" type="button" data-code="SNA"><img src="airports/sna.webp" alt="John Wayne"><span><b>SNA</b><small>John Wayne</small></span></button>
-<button class="airport-card" type="button" data-code="TPA"><img src="airports/tpa.webp" alt="Tampa International"><span><b>TPA</b><small>Tampa International</small></span></button>
+<button class="airport-card" type="button" data-code="TPA"><img src="airports/tpa.webp" alt="Tampa Int’l"><span><b>TPA</b><small>Tampa Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="ACC"><img src="airports/acc.webp" alt="Accra Kotoka"><span><b>ACC</b><small>Accra Kotoka</small></span></button>
 <button class="airport-card" type="button" data-code="ADD"><img src="airports/add.webp" alt="Addis Ababa Bole"><span><b>ADD</b><small>Addis Ababa Bole</small></span></button>
 <button class="airport-card" type="button" data-code="AMS"><img src="airports/ams.webp" alt="Amsterdam Schiphol"><span><b>AMS</b><small>Amsterdam Schiphol</small></span></button>
 <button class="airport-card" type="button" data-code="ARK"><img src="airports/ark.webp" alt="Arusha Airport"><span><b>ARK</b><small>Arusha Airport</small></span></button>
-<button class="airport-card" type="button" data-code="AUH"><img src="airports/auh.webp" alt="Abu Dhabi Zayed International"><span><b>AUH</b><small>Abu Dhabi Zayed International</small></span></button>
-<button class="airport-card" type="button" data-code="BAH"><img src="airports/bah.webp" alt="Bahrain International"><span><b>BAH</b><small>Bahrain International</small></span></button>
+<button class="airport-card" type="button" data-code="AUH"><img src="airports/auh.webp" alt="Abu Dhabi Zayed Int’l"><span><b>AUH</b><small>Abu Dhabi Zayed Int’l</small></span></button>
+<button class="airport-card" type="button" data-code="BAH"><img src="airports/bah.webp" alt="Bahrain Int’l"><span><b>BAH</b><small>Bahrain Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="BCN"><img src="airports/bcn.webp" alt="Barcelona El Prat"><span><b>BCN</b><small>Barcelona El Prat</small></span></button>
 <button class="airport-card" type="button" data-code="BKK"><img src="airports/bkk.webp" alt="Bangkok Suvarnabhumi"><span><b>BKK</b><small>Bangkok Suvarnabhumi</small></span></button>
 <button class="airport-card" type="button" data-code="BLR"><img src="airports/blr.webp" alt="Bengaluru Kempegowda"><span><b>BLR</b><small>Bengaluru Kempegowda</small></span></button>
 <button class="airport-card" type="button" data-code="BOG"><img src="airports/bog.webp" alt="Bogotá El Dorado"><span><b>BOG</b><small>Bogotá El Dorado</small></span></button>
 <button class="airport-card" type="button" data-code="BOM"><img src="airports/bom.webp" alt="Mumbai Chhatrapati Shivaji Maharaj"><span><b>BOM</b><small>Mumbai Chhatrapati Shivaji Maharaj</small></span></button>
-<button class="airport-card" type="button" data-code="CAI"><img src="airports/cai.webp" alt="Cairo International"><span><b>CAI</b><small>Cairo International</small></span></button>
+<button class="airport-card" type="button" data-code="CAI"><img src="airports/cai.webp" alt="Cairo Int’l"><span><b>CAI</b><small>Cairo Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="CDG"><img src="airports/cdg.webp" alt="Paris Charles de Gaulle"><span><b>CDG</b><small>Paris Charles de Gaulle</small></span></button>
 <button class="airport-card" type="button" data-code="CPH"><img src="airports/cph.webp" alt="Copenhagen Kastrup"><span><b>CPH</b><small>Copenhagen Kastrup</small></span></button>
 <button class="airport-card" type="button" data-code="DAR"><img src="airports/dar.webp" alt="Dar es Salaam"><span><b>DAR</b><small>Dar es Salaam</small></span></button>
 <button class="airport-card" type="button" data-code="DEL"><img src="airports/del.webp" alt="Delhi Indira Gandhi"><span><b>DEL</b><small>Delhi Indira Gandhi</small></span></button>
-<button class="airport-card" type="button" data-code="DOH"><img src="airports/doh.webp" alt="Hamad International"><span><b>DOH</b><small>Hamad International</small></span></button>
+<button class="airport-card" type="button" data-code="DOH"><img src="airports/doh.webp" alt="Hamad Int’l"><span><b>DOH</b><small>Hamad Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="DUB"><img src="airports/dub.webp" alt="Dublin"><span><b>DUB</b><small>Dublin</small></span></button>
-<button class="airport-card" type="button" data-code="DXB"><img src="airports/dxb.webp" alt="Dubai International"><span><b>DXB</b><small>Dubai International</small></span></button>
+<button class="airport-card" type="button" data-code="DXB"><img src="airports/dxb.webp" alt="Dubai Int’l"><span><b>DXB</b><small>Dubai Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="EDI"><img src="airports/edi.webp" alt="Edinburgh"><span><b>EDI</b><small>Edinburgh</small></span></button>
 <button class="airport-card" type="button" data-code="FCO"><img src="airports/fco.webp" alt="Rome Fiumicino Leonardo da Vinci"><span><b>FCO</b><small>Rome Fiumicino Leonardo da Vinci</small></span></button>
 <button class="airport-card" type="button" data-code="GLA"><img src="airports/gla.webp" alt="Glasgow"><span><b>GLA</b><small>Glasgow</small></span></button>
 <button class="airport-card" type="button" data-code="HEL"><img src="airports/hel.webp" alt="Helsinki"><span><b>HEL</b><small>Helsinki</small></span></button>
 <button class="airport-card" type="button" data-code="HGH"><img src="airports/hgh.webp" alt="Hangzhou Xiaoshan"><span><b>HGH</b><small>Hangzhou Xiaoshan</small></span></button>
-<button class="airport-card" type="button" data-code="HKG"><img src="airports/hkg.webp" alt="Hong Kong International"><span><b>HKG</b><small>Hong Kong International</small></span></button>
+<button class="airport-card" type="button" data-code="HKG"><img src="airports/hkg.webp" alt="Hong Kong Int’l"><span><b>HKG</b><small>Hong Kong Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="HND"><img src="airports/hnd.webp" alt="Tokyo Haneda"><span><b>HND</b><small>Tokyo Haneda</small></span></button>
-<button class="airport-card" type="button" data-code="ICN"><img src="airports/icn.webp" alt="Incheon International"><span><b>ICN</b><small>Incheon International</small></span></button>
+<button class="airport-card" type="button" data-code="ICN"><img src="airports/icn.webp" alt="Incheon Int’l"><span><b>ICN</b><small>Incheon Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="IST"><img src="airports/ist.webp" alt="Istanbul"><span><b>IST</b><small>Istanbul</small></span></button>
 <button class="airport-card" type="button" data-code="ITM"><img src="airports/itm.webp" alt="Osaka Itami"><span><b>ITM</b><small>Osaka Itami</small></span></button>
 <button class="airport-card" type="button" data-code="JED"><img src="airports/jed.webp" alt="Jeddah King Abdulaziz"><span><b>JED</b><small>Jeddah King Abdulaziz</small></span></button>
 <button class="airport-card" type="button" data-code="JNB"><img src="airports/jnb.webp" alt="Johannesburg O.R. Tambo"><span><b>JNB</b><small>Johannesburg O.R. Tambo</small></span></button>
-<button class="airport-card" type="button" data-code="JRO"><img src="airports/jro.webp" alt="Kilimanjaro International"><span><b>JRO</b><small>Kilimanjaro International</small></span></button>
+<button class="airport-card" type="button" data-code="JRO"><img src="airports/jro.webp" alt="Kilimanjaro Int’l"><span><b>JRO</b><small>Kilimanjaro Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="KEF"><img src="airports/kef.webp" alt="Reykjavík Keflavík"><span><b>KEF</b><small>Reykjavík Keflavík</small></span></button>
-<button class="airport-card" type="button" data-code="KIX"><img src="airports/kix.webp" alt="Kansai International"><span><b>KIX</b><small>Kansai International</small></span></button>
+<button class="airport-card" type="button" data-code="KIX"><img src="airports/kix.webp" alt="Kansai Int’l"><span><b>KIX</b><small>Kansai Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="KUL"><img src="airports/kul.webp" alt="Kuala Lumpur"><span><b>KUL</b><small>Kuala Lumpur</small></span></button>
 <button class="airport-card" type="button" data-code="LGW"><img src="airports/lgw.webp" alt="London Gatwick"><span><b>LGW</b><small>London Gatwick</small></span></button>
 <button class="airport-card" type="button" data-code="LHR"><img src="airports/lhr.webp" alt="London Heathrow"><span><b>LHR</b><small>London Heathrow</small></span></button>
@@ -4095,11 +4098,11 @@ circle.highlight{
 <button class="airport-card" type="button" data-code="LAX"><img src="airports/lax.webp" alt="Los Angeles"><span><b>LAX</b><small>Los Angeles</small></span></button>
 <button class="airport-card" type="button" data-code="LGA"><img src="airports/lga.webp" alt="LaGuardia"><span><b>LGA</b><small>LaGuardia</small></span></button>
 <button class="airport-card" type="button" data-code="MDW"><img src="airports/mdw.webp" alt="Chicago Midway"><span><b>MDW</b><small>Chicago Midway</small></span></button>
-<button class="airport-card" type="button" data-code="MIA"><img src="airports/mia.webp" alt="Miami International"><span><b>MIA</b><small>Miami International</small></span></button>
+<button class="airport-card" type="button" data-code="MIA"><img src="airports/mia.webp" alt="Miami Int’l"><span><b>MIA</b><small>Miami Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="MSP"><img src="airports/msp.webp" alt="Minneapolis–Saint Paul"><span><b>MSP</b><small>Minneapolis–Saint Paul</small></span></button>
 <button class="airport-card" type="button" data-code="OAK"><img src="airports/oak.webp" alt="Oakland"><span><b>OAK</b><small>Oakland</small></span></button>
 <button class="airport-card" type="button" data-code="ORD"><img src="airports/ord.webp" alt="Chicago O’Hare"><span><b>ORD</b><small>Chicago O’Hare</small></span></button>
-<button class="airport-card" type="button" data-code="PDX"><img src="airports/pdx.webp" alt="Portland International"><span><b>PDX</b><small>Portland International</small></span></button>
+<button class="airport-card" type="button" data-code="PDX"><img src="airports/pdx.webp" alt="Portland Int’l"><span><b>PDX</b><small>Portland Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="PHL"><img src="airports/phl.webp" alt="Philadelphia"><span><b>PHL</b><small>Philadelphia</small></span></button>
 <button class="airport-card" type="button" data-code="PHX"><img src="airports/phx.webp" alt="Phoenix Sky Harbor"><span><b>PHX</b><small>Phoenix Sky Harbor</small></span></button>
 <button class="airport-card" type="button" data-code="PNE"><img src="airports/pne.webp" alt="Northeast Philadelphia"><span><b>PNE</b><small>Northeast Philadelphia</small></span></button>
@@ -4107,41 +4110,41 @@ circle.highlight{
 <button class="airport-card" type="button" data-code="SEA"><img src="airports/sea.webp" alt="Seattle–Tacoma"><span><b>SEA</b><small>Seattle–Tacoma</small></span></button>
 <button class="airport-card" type="button" data-code="SFO"><img src="airports/sfo.webp" alt="San Francisco"><span><b>SFO</b><small>San Francisco</small></span></button>
 <button class="airport-card" type="button" data-code="SNA"><img src="airports/sna.webp" alt="John Wayne"><span><b>SNA</b><small>John Wayne</small></span></button>
-<button class="airport-card" type="button" data-code="TPA"><img src="airports/tpa.webp" alt="Tampa International"><span><b>TPA</b><small>Tampa International</small></span></button>
+<button class="airport-card" type="button" data-code="TPA"><img src="airports/tpa.webp" alt="Tampa Int’l"><span><b>TPA</b><small>Tampa Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="ACC"><img src="airports/acc.webp" alt="Accra Kotoka"><span><b>ACC</b><small>Accra Kotoka</small></span></button>
 <button class="airport-card" type="button" data-code="ADD"><img src="airports/add.webp" alt="Addis Ababa Bole"><span><b>ADD</b><small>Addis Ababa Bole</small></span></button>
 <button class="airport-card" type="button" data-code="AMS"><img src="airports/ams.webp" alt="Amsterdam Schiphol"><span><b>AMS</b><small>Amsterdam Schiphol</small></span></button>
 <button class="airport-card" type="button" data-code="ARK"><img src="airports/ark.webp" alt="Arusha Airport"><span><b>ARK</b><small>Arusha Airport</small></span></button>
-<button class="airport-card" type="button" data-code="AUH"><img src="airports/auh.webp" alt="Abu Dhabi Zayed International"><span><b>AUH</b><small>Abu Dhabi Zayed International</small></span></button>
-<button class="airport-card" type="button" data-code="BAH"><img src="airports/bah.webp" alt="Bahrain International"><span><b>BAH</b><small>Bahrain International</small></span></button>
+<button class="airport-card" type="button" data-code="AUH"><img src="airports/auh.webp" alt="Abu Dhabi Zayed Int’l"><span><b>AUH</b><small>Abu Dhabi Zayed Int’l</small></span></button>
+<button class="airport-card" type="button" data-code="BAH"><img src="airports/bah.webp" alt="Bahrain Int’l"><span><b>BAH</b><small>Bahrain Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="BCN"><img src="airports/bcn.webp" alt="Barcelona El Prat"><span><b>BCN</b><small>Barcelona El Prat</small></span></button>
 <button class="airport-card" type="button" data-code="BKK"><img src="airports/bkk.webp" alt="Bangkok Suvarnabhumi"><span><b>BKK</b><small>Bangkok Suvarnabhumi</small></span></button>
 <button class="airport-card" type="button" data-code="BLR"><img src="airports/blr.webp" alt="Bengaluru Kempegowda"><span><b>BLR</b><small>Bengaluru Kempegowda</small></span></button>
 <button class="airport-card" type="button" data-code="BOG"><img src="airports/bog.webp" alt="Bogotá El Dorado"><span><b>BOG</b><small>Bogotá El Dorado</small></span></button>
 <button class="airport-card" type="button" data-code="BOM"><img src="airports/bom.webp" alt="Mumbai Chhatrapati Shivaji Maharaj"><span><b>BOM</b><small>Mumbai Chhatrapati Shivaji Maharaj</small></span></button>
-<button class="airport-card" type="button" data-code="CAI"><img src="airports/cai.webp" alt="Cairo International"><span><b>CAI</b><small>Cairo International</small></span></button>
+<button class="airport-card" type="button" data-code="CAI"><img src="airports/cai.webp" alt="Cairo Int’l"><span><b>CAI</b><small>Cairo Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="CDG"><img src="airports/cdg.webp" alt="Paris Charles de Gaulle"><span><b>CDG</b><small>Paris Charles de Gaulle</small></span></button>
 <button class="airport-card" type="button" data-code="CPH"><img src="airports/cph.webp" alt="Copenhagen Kastrup"><span><b>CPH</b><small>Copenhagen Kastrup</small></span></button>
 <button class="airport-card" type="button" data-code="DAR"><img src="airports/dar.webp" alt="Dar es Salaam"><span><b>DAR</b><small>Dar es Salaam</small></span></button>
 <button class="airport-card" type="button" data-code="DEL"><img src="airports/del.webp" alt="Delhi Indira Gandhi"><span><b>DEL</b><small>Delhi Indira Gandhi</small></span></button>
-<button class="airport-card" type="button" data-code="DOH"><img src="airports/doh.webp" alt="Hamad International"><span><b>DOH</b><small>Hamad International</small></span></button>
+<button class="airport-card" type="button" data-code="DOH"><img src="airports/doh.webp" alt="Hamad Int’l"><span><b>DOH</b><small>Hamad Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="DUB"><img src="airports/dub.webp" alt="Dublin"><span><b>DUB</b><small>Dublin</small></span></button>
-<button class="airport-card" type="button" data-code="DXB"><img src="airports/dxb.webp" alt="Dubai International"><span><b>DXB</b><small>Dubai International</small></span></button>
+<button class="airport-card" type="button" data-code="DXB"><img src="airports/dxb.webp" alt="Dubai Int’l"><span><b>DXB</b><small>Dubai Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="EDI"><img src="airports/edi.webp" alt="Edinburgh"><span><b>EDI</b><small>Edinburgh</small></span></button>
 <button class="airport-card" type="button" data-code="FCO"><img src="airports/fco.webp" alt="Rome Fiumicino Leonardo da Vinci"><span><b>FCO</b><small>Rome Fiumicino Leonardo da Vinci</small></span></button>
 <button class="airport-card" type="button" data-code="GLA"><img src="airports/gla.webp" alt="Glasgow"><span><b>GLA</b><small>Glasgow</small></span></button>
 <button class="airport-card" type="button" data-code="HEL"><img src="airports/hel.webp" alt="Helsinki"><span><b>HEL</b><small>Helsinki</small></span></button>
 <button class="airport-card" type="button" data-code="HGH"><img src="airports/hgh.webp" alt="Hangzhou Xiaoshan"><span><b>HGH</b><small>Hangzhou Xiaoshan</small></span></button>
-<button class="airport-card" type="button" data-code="HKG"><img src="airports/hkg.webp" alt="Hong Kong International"><span><b>HKG</b><small>Hong Kong International</small></span></button>
+<button class="airport-card" type="button" data-code="HKG"><img src="airports/hkg.webp" alt="Hong Kong Int’l"><span><b>HKG</b><small>Hong Kong Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="HND"><img src="airports/hnd.webp" alt="Tokyo Haneda"><span><b>HND</b><small>Tokyo Haneda</small></span></button>
-<button class="airport-card" type="button" data-code="ICN"><img src="airports/icn.webp" alt="Incheon International"><span><b>ICN</b><small>Incheon International</small></span></button>
+<button class="airport-card" type="button" data-code="ICN"><img src="airports/icn.webp" alt="Incheon Int’l"><span><b>ICN</b><small>Incheon Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="IST"><img src="airports/ist.webp" alt="Istanbul"><span><b>IST</b><small>Istanbul</small></span></button>
 <button class="airport-card" type="button" data-code="ITM"><img src="airports/itm.webp" alt="Osaka Itami"><span><b>ITM</b><small>Osaka Itami</small></span></button>
 <button class="airport-card" type="button" data-code="JED"><img src="airports/jed.webp" alt="Jeddah King Abdulaziz"><span><b>JED</b><small>Jeddah King Abdulaziz</small></span></button>
 <button class="airport-card" type="button" data-code="JNB"><img src="airports/jnb.webp" alt="Johannesburg O.R. Tambo"><span><b>JNB</b><small>Johannesburg O.R. Tambo</small></span></button>
-<button class="airport-card" type="button" data-code="JRO"><img src="airports/jro.webp" alt="Kilimanjaro International"><span><b>JRO</b><small>Kilimanjaro International</small></span></button>
+<button class="airport-card" type="button" data-code="JRO"><img src="airports/jro.webp" alt="Kilimanjaro Int’l"><span><b>JRO</b><small>Kilimanjaro Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="KEF"><img src="airports/kef.webp" alt="Reykjavík Keflavík"><span><b>KEF</b><small>Reykjavík Keflavík</small></span></button>
-<button class="airport-card" type="button" data-code="KIX"><img src="airports/kix.webp" alt="Kansai International"><span><b>KIX</b><small>Kansai International</small></span></button>
+<button class="airport-card" type="button" data-code="KIX"><img src="airports/kix.webp" alt="Kansai Int’l"><span><b>KIX</b><small>Kansai Int’l</small></span></button>
 <button class="airport-card" type="button" data-code="KUL"><img src="airports/kul.webp" alt="Kuala Lumpur"><span><b>KUL</b><small>Kuala Lumpur</small></span></button>
 <button class="airport-card" type="button" data-code="LGW"><img src="airports/lgw.webp" alt="London Gatwick"><span><b>LGW</b><small>London Gatwick</small></span></button>
 <button class="airport-card" type="button" data-code="LHR"><img src="airports/lhr.webp" alt="London Heathrow"><span><b>LHR</b><small>London Heathrow</small></span></button>
@@ -4281,29 +4284,30 @@ circle.highlight{
     || document.querySelector(`.airport-card[data-code="${code}"]`);
   const airportName = code => firstCard(code)?.querySelector('img')?.alt || code;
   const airportFullNames = {
-    ATL:'Hartsfield–Jackson Atlanta International Airport',
-    DFW:'Dallas Fort Worth International Airport',
-    IAD:'Washington Dulles International Airport',
-    JFK:'John F. Kennedy International Airport',
-    LAX:'Los Angeles International Airport',
-    MIA:'Miami International Airport',
-    ORD:'Chicago O’Hare International Airport',
-    PHX:'Phoenix Sky Harbor International Airport',
-    SEA:'Seattle–Tacoma International Airport',
-    SFO:'San Francisco International Airport',
+    ATL:'Hartsfield–Jackson Atlanta Int’l Airport',
+    DFW:'Dallas Fort Worth Int’l Airport',
+    IAD:'Washington Dulles Int’l Airport',
+    JFK:'John F. Kennedy Int’l Airport',
+    LAX:'Los Angeles Int’l Airport',
+    MIA:'Miami Int’l Airport',
+    ORD:'Chicago O’Hare Int’l Airport',
+    PHX:'Phoenix Sky Harbor Int’l Airport',
+    SEA:'Seattle–Tacoma Int’l Airport',
+    SFO:'San Francisco Int’l Airport',
     CDG:'Paris Charles de Gaulle Airport',
-    DXB:'Dubai International Airport',
-    HKG:'Hong Kong International Airport',
+    DXB:'Dubai Int’l Airport',
+    HKG:'Hong Kong Int’l Airport',
     HND:'Tokyo Haneda Airport',
     IST:'Istanbul Airport',
-    JNB:'O. R. Tambo International Airport',
+    JNB:'O. R. Tambo Int’l Airport',
     LHR:'London Heathrow Airport',
     SIN:'Singapore Changi Airport',
     SYD:'Sydney Kingsford Smith Airport',
-    YVR:'Vancouver International Airport'
+    YVR:'Vancouver Int’l Airport'
   };
   const mobileDisplay = document.getElementById('mobileAirportDisplay');
   const mobileThumb = document.getElementById('mobileAirportThumb');
+  const mobileMeta = document.querySelector('.mobile-airport-meta');
   const mobileCode = document.getElementById('mobileAirportCode');
   const mobileType = document.getElementById('mobileAirportType');
   const mobileName = document.getElementById('mobileAirportName');
@@ -4312,15 +4316,19 @@ circle.highlight{
 
   function setMobileAirport(code) {
     const card = firstCard(code);
-    if (!card || !mobileDisplay || !mobileThumb || !mobileCode || !mobileType || !mobileName) return;
+    if (!card || !mobileDisplay || !mobileThumb || !mobileMeta || !mobileCode || !mobileType || !mobileName) return;
     const img = card.querySelector('img');
     const fullName = airportFullNames[code] || img?.getAttribute('alt') || code;
+    const isUS = US.includes(code);
+    const isIntl = INTL.includes(code);
     mobileThumb.src = img?.getAttribute('src') || '';
     mobileThumb.alt = fullName;
     mobileCode.textContent = code;
-    mobileCode.classList.toggle('is-us', US.includes(code));
-    mobileCode.classList.toggle('is-intl', INTL.includes(code));
-    mobileType.textContent = INTL.includes(code) ? 'International airport' : 'U.S. airport';
+    mobileCode.classList.toggle('is-us', isUS);
+    mobileCode.classList.toggle('is-intl', isIntl);
+    mobileMeta.classList.toggle('is-us', isUS);
+    mobileMeta.classList.toggle('is-intl', isIntl);
+    mobileType.textContent = isIntl ? 'Int’l airport' : 'U.S. airport';
     mobileName.textContent = fullName;
     mobileDisplay.hidden = !mobileQuery.matches;
   }

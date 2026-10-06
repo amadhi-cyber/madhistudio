@@ -22,12 +22,12 @@
 
   html,body{
     margin:0;
-    background:transparent;
+    background:var(--bg);
     font-family:Arial,Helvetica,sans-serif;
     color:var(--ink);
   }
 
-  body{min-height:100vh;overflow:hidden}
+  body{min-height:100vh;overflow:hidden;background:transparent !important;}
 
   .prototype-wrap{
     width:100%;
@@ -36,6 +36,7 @@
     padding:0;
     height:100vh;
     background:transparent;
+    overflow:hidden;
   }
 
   .title-row{
@@ -60,13 +61,12 @@
   .game-shell{
     display:grid;
     grid-template-columns:minmax(0,1fr) minmax(180px,16vw);
-    gap:12px;
+    gap:0;
     align-items:stretch;
     height:100vh;
     min-height:100vh;
     padding:0;
     background:transparent;
-    border-radius:0;
   }
 
   .main-card,
@@ -87,7 +87,6 @@
     inset:0;
     overflow:hidden;
     background:#151719;
-    border-radius:0;
   }
 
   #mainRunway{
@@ -218,10 +217,11 @@
     background:transparent;
     border:0;
     color:#fff;
-    padding:6px;
+    padding:0;
     display:flex;
     flex-direction:column;
     margin:0;
+    overflow:hidden;
   }
 
   .overview-head{
@@ -249,7 +249,7 @@
     position:relative;
     flex:1;
     min-height:0;
-    background:#7fa052;
+    background:#000000;
     border-radius:0;
     overflow:hidden;
     border:0;
@@ -311,7 +311,7 @@
   }
 
   .game-shell:fullscreen .main-card{
-    border-radius:18px;
+    border-radius:0;
   }
 
   .game-shell:fullscreen{
@@ -350,7 +350,7 @@
 
     .game-shell{
       grid-template-columns:minmax(0,1fr) minmax(104px,28vw);
-      gap:7px;
+      gap:0;
       height:100vh;
       min-height:0;
       margin:0;
@@ -361,21 +361,21 @@
     .main-card{
       height:auto;
       min-height:0;
-      border-width:2px;
-      border-radius:14px;
+      border-width:0;
+      border-radius:0;
     }
 
     .overview-card{
       height:auto;
       min-height:0;
-      padding:6px;
-      border-radius:14px;
+      padding:0;
+      border-radius:0;
       margin:0;
     }
 
     .vehicle{
       left:50%;
-      top:50%;
+      top:70%;
       transform:translate(-50%,-50%);
       width:116px;
       height:162px;
@@ -383,7 +383,7 @@
 
     .overview-head{top:9px;left:8px;right:8px;}
     .overview-head strong{font-size:9px;}
-    .overview-stage{min-height:0;border-radius:8px;}
+    .overview-stage{min-height:0;border-radius:0;border:0;}
     .north-badge,.progress-badge{font-size:8px;padding:5px 7px;}
     .north-badge{left:8px;top:8px;}
     .progress-badge{right:8px;top:8px;}
@@ -403,7 +403,7 @@
     height:100vh !important;
     min-height:100vh !important;
     align-items:stretch !important;
-    gap:6px !important;
+    gap:0 !important;
     background:transparent !important;
   }
   .main-card,
@@ -418,10 +418,10 @@
   .overview-card{
     margin:0 !important;
     padding:0 !important;
-    transform:translateX(-4px);
-    border-radius:0 !important;
+    transform:none !important;
+    width:100% !important;
+    margin-right:0 !important;
   }
-  .main-viewport{border-radius:0 !important;}
   .overview-stage{
     height:100% !important;
     min-height:0 !important;
@@ -436,6 +436,22 @@
 }
 </style>
 
+
+
+<style id="madhi-runway-gap-fix-20261006">
+html,body,.prototype-wrap,.game-shell,.main-card,.overview-card,.main-viewport,.overview-stage,#overviewWindow{border-radius:0 !important;}
+</style>
+
+<style id="madhi-runway-sharp-edges-20261006">
+html,body,.prototype-wrap,.game-shell,.main-card,.overview-card,.main-viewport,.overview-stage,#overviewWindow{border-radius:0 !important;}
+.game-shell:fullscreen .main-card,.game-shell:fullscreen .overview-card,.game-shell:fullscreen #overviewWindow{border-radius:0 !important;}
+</style>
+
+<style id="madhi-runway-desktop-sharp-no-title">
+.overview-head{display:none !important;}
+html,body,.prototype-wrap,.game-shell,.main-card,.overview-card,.main-viewport,.overview-stage,#overviewWindow{border-radius:0 !important;}
+.runway-inspection-frame,.image-card{border-radius:0 !important;}
+</style>
 </head>
 
 <body>
@@ -475,8 +491,8 @@
 <rect x="130" y="70" width="340" height="4860" fill="url(#asphalt)"/>
 
 <!-- runway edge lines -->
-<rect x="145" y="90" width="6" height="4820" fill="#fff"/>
-<rect x="449" y="90" width="6" height="4820" fill="#fff"/>
+
+
 
 <!-- north threshold: equal outer spacing + triple center gap -->
 <rect x="161" y="120" width="23.5" height="362" fill="#fff"/><rect x="194.5" y="120" width="23.5" height="362" fill="#fff"/><rect x="228" y="120" width="23.5" height="362" fill="#fff"/><rect x="261.5" y="120" width="23.5" height="362" fill="#fff"/><rect x="315" y="120" width="23.5" height="362" fill="#fff"/><rect x="348.5" y="120" width="23.5" height="362" fill="#fff"/><rect x="382" y="120" width="23.5" height="362" fill="#fff"/><rect x="415.5" y="120" width="23.5" height="362" fill="#fff"/>
@@ -604,9 +620,7 @@
 
     <aside class="overview-card" aria-label="Full runway progress overview">
 
-      <div class="overview-head">
-        <strong>Runway at a Glance</strong>
-      </div>
+      
 
       <div class="overview-stage" id="overviewStage">
 
@@ -617,9 +631,9 @@
           
 <defs>
   <linearGradient id="grass" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="#7fa052"/>
-    <stop offset=".5" stop-color="#7fa052"/>
-    <stop offset="1" stop-color="#7fa052"/>
+    <stop offset="0" stop-color="#000000"/>
+    <stop offset=".5" stop-color="#000000"/>
+    <stop offset="1" stop-color="#000000"/>
   </linearGradient>
   <linearGradient id="asphalt" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#2c2f31"/>
@@ -632,14 +646,14 @@
 <rect x="130" y="70" width="340" height="4860" fill="url(#asphalt)"/>
 
 <!-- runway edge lines -->
-<rect x="145" y="90" width="6" height="4820" fill="#fff"/>
-<rect x="449" y="90" width="6" height="4820" fill="#fff"/>
+
+
 
 <!-- north threshold: equal outer spacing + triple center gap -->
 <rect x="161" y="120" width="23.5" height="362" fill="#fff"/><rect x="194.5" y="120" width="23.5" height="362" fill="#fff"/><rect x="228" y="120" width="23.5" height="362" fill="#fff"/><rect x="261.5" y="120" width="23.5" height="362" fill="#fff"/><rect x="315" y="120" width="23.5" height="362" fill="#fff"/><rect x="348.5" y="120" width="23.5" height="362" fill="#fff"/><rect x="382" y="120" width="23.5" height="362" fill="#fff"/><rect x="415.5" y="120" width="23.5" height="362" fill="#fff"/>
 
 <!-- north runway-end bar — overview only -->
-<rect x="145" y="90" width="310" height="12" fill="#fff"/>
+
 
 <!-- 36 centered between the threshold and the nearest centerline stripe -->
 <text x="300" y="640"
@@ -674,7 +688,7 @@
       font-weight="800">18</text>
 
 <!-- south runway-end bar — overview only -->
-<rect x="145" y="4898" width="310" height="12" fill="#fff"/>
+
 
 <!-- south threshold: equal outer spacing + triple center gap -->
 <rect x="161" y="4580" width="23.5" height="300" fill="#fff"/><rect x="194.5" y="4580" width="23.5" height="300" fill="#fff"/><rect x="228" y="4580" width="23.5" height="300" fill="#fff"/><rect x="261.5" y="4580" width="23.5" height="300" fill="#fff"/><rect x="315" y="4580" width="23.5" height="300" fill="#fff"/><rect x="348.5" y="4580" width="23.5" height="300" fill="#fff"/><rect x="382" y="4580" width="23.5" height="300" fill="#fff"/><rect x="415.5" y="4580" width="23.5" height="300" fill="#fff"/>
@@ -719,7 +733,9 @@
   let lastTs = null;
 
   function updateVisuals() {
-    const y = START_Y + (END_Y - START_Y) * progress;
+    const isMobileMain = window.matchMedia('(max-width:900px)').matches;
+    const activeStartY = isMobileMain ? 3930 : START_Y;
+    const y = activeStartY + (END_Y - activeStartY) * progress;
     mainRunway.setAttribute('viewBox', `0 ${y.toFixed(2)} 600 ${VIEW_HEIGHT}`);
 
     const stageH = overviewStage.clientHeight || 1;

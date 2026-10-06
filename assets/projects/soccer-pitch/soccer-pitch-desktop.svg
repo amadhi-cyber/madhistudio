@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="248" viewBox="0 0 380 248" fill="none">
+  <defs>
+    <pattern id="grassDesktop" width="38" height="208" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="19" height="208" fill="#39b85a" />
+      <rect x="19" y="0" width="19" height="208" fill="#34b256" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="380" height="208" fill="url(#grassDesktop)" />
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1">
+    <line x1="12.3" y1="5.3" x2="367.7" y2="5.3" />
+    <line x1="12.3" y1="197.0" x2="367.7" y2="197.0" />
+    <line x1="12.3" y1="5.3" x2="12.3" y2="197.0" />
+    <line x1="367.7" y1="5.3" x2="367.7" y2="197.0" />
+    <line x1="190.0" y1="5.3" x2="190.0" y2="197.0" />
+    <circle cx="190.0" cy="101.0" r="22.5" />
+    <circle cx="190.0" cy="101.0" r="1.1" fill="#ffffff" stroke="none" />
+    <rect x="12.3" y="54.8" width="41.6" height="89.3" />
+    <rect x="12.3" y="77.4" width="15.4" height="44.3" />
+    <rect x="5.0" y="89.3" width="5.4" height="21.1" />
+    <circle cx="40.1" cy="101.0" r="1.1" fill="#ffffff" stroke="none" />
+    <path d="M53.9 70.2 A18.5 18.0 0 0 1 53.9 131.6" />
+    <rect x="326.1" y="54.8" width="41.6" height="89.3" />
+    <rect x="352.3" y="77.4" width="15.4" height="44.3" />
+    <rect x="367.7" y="89.3" width="5.4" height="21.1" />
+    <circle cx="339.9" cy="101.0" r="1.1" fill="#ffffff" stroke="none" />
+    <path d="M326.1 70.2 A18.5 18.0 0 0 0 326.1 131.6" />
+  </g>
+  <g class="formation-layer">
+    <circle cx="21.6" cy="100.6" r="7" fill="#e03131" stroke="white" stroke-width="1.6" />
+<text x="21.6" y="103.3" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="white">GK</text> <circle cx="67.8" cy="36.0" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="67.8" cy="78.1" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="67.8" cy="123.9" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="67.8" cy="165.9" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="115.6" cy="54.1" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="115.6" cy="100.6" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="115.6" cy="148.7" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="161.9" cy="46.6" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="161.9" cy="100.6" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="161.9" cy="156.2" r="6" fill="#e03131" stroke="white" stroke-width="1.6" /> <circle cx="358.4" cy="100.6" r="7" fill="#2563eb" stroke="white" stroke-width="1.6" />
+<text x="358.4" y="103.3" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="white">GK</text> <circle cx="311.4" cy="57.1" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="311.4" cy="100.6" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="311.4" cy="144.2" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="266.7" cy="31.5" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="266.7" cy="66.1" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="266.7" cy="100.6" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="266.7" cy="135.2" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="266.7" cy="169.7" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="222.0" cy="73.6" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" /> <circle cx="222.0" cy="129.2" r="6" fill="#2563eb" stroke="white" stroke-width="1.6" />
+  </g>
+  <rect x="0" y="208" width="380" height="40" fill="#0c0c0c" />
+  <g class="labels" font-family="Arial,sans-serif" font-weight="700" text-anchor="middle">
+    <text x="153" y="232" font-size="18" fill="#ff3b3b">4-3-3</text>
+    <text x="190" y="230" font-size="11" font-weight="800" fill="#ffffff">vs</text>
+    <text x="227" y="232" font-size="18" fill="#2563eb">3-5-2</text>
+  </g>
+  <line x1="0" y1="247.5" x2="380" y2="247.5" stroke="#ff0000" stroke-width="1" />
+</svg>
