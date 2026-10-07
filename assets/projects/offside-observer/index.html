@@ -27,15 +27,17 @@ footer{display:flex;align-items:flex-end;justify-content:center;color:#00ab41;fo
 @media(max-width:760px){
   html.madhi-portfolio-preview header{
     min-height:158px;
-    padding:3px 12px;
-    align-items:flex-start;
+    height:158px;
+    padding:1px 12px 1px 6px;
+    align-items:center;
+    overflow:hidden;
   }
   html.madhi-portfolio-preview .logo{
-    width:112%;
-    height:152px;
-    max-height:none;
-    max-width:112%;
-    transform:translateX(-3%);
+    width:100%;
+    height:156px;
+    max-height:156px;
+    max-width:100%;
+    transform:translateX(-14px);
     transform-origin:left center;
   }
   html.madhi-portfolio-preview main{
@@ -52,6 +54,12 @@ footer{display:flex;align-items:flex-end;justify-content:center;color:#00ab41;fo
 <script>
 if (new URLSearchParams(window.location.search).get('demo') === '3') {
   document.documentElement.classList.add('madhi-portfolio-preview');
+  if (window.matchMedia('(max-width:760px)').matches) {
+    window.addEventListener('DOMContentLoaded', () => {
+      const logo = document.querySelector('svg.logo');
+      if (logo) logo.setAttribute('viewBox', '15 0 285 150');
+    }, { once:true });
+  }
 }
 </script>
 </head>

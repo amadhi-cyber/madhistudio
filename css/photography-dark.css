@@ -127,16 +127,18 @@
 
 /* Controls live outside the main photo canvas. On desktop the control rail
    mirrors the width of the faint Madhi Studio watermark rail on the left. */
+.photography-page .photography-controls-label {display:none;}
 .photography-page .photography-controls {
   position: fixed;
   top: calc(var(--site-header-height) + 51px);
-  right: 0;
+  right: var(--photography-panel-scroll-safe, 12px);
   z-index: 30;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 150px;
-  padding-right: var(--photography-controls-right, 52px);
+  width: calc(150px - var(--photography-panel-scroll-safe, 12px));
+  padding-left: 4px;
+  padding-right: var(--photography-controls-right, 6px);
   box-sizing: border-box;
   color: #ffffff;
   text-align: right;
@@ -456,10 +458,13 @@
    a full-width central photo canvas. Tablet/mobile behavior stays unchanged. */
 @media (min-width: 1101px) {
   .photography-page {
-    --photography-side-rail: var(--service-side-rail, clamp(165px, 11.25vw, 220px));
-    --photography-content-gutter: var(--service-content-gutter, clamp(10px, 0.9vw, 16px));
-    --photography-controls-right: clamp(16px, 1.25vw, 24px);
-    --photography-single-caption-width: clamp(230px, 16vw, 320px);
+    --photography-left-rail: var(--service-left-rail, var(--madhi-nav-left-rail, clamp(150px, 11.78vw, 205px)));
+    --photography-side-rail: var(--service-side-rail, var(--madhi-nav-right-rail, clamp(165px, 12.54vw, 225px)));
+    --photography-content-gutter: var(--service-content-gutter, 0px);
+    --photography-main-right-gap: var(--service-main-right-gap, clamp(20px, 1.8vw, 28px));
+    --photography-panel-scroll-safe: var(--service-panel-scroll-safe, 12px);
+    --photography-controls-right: 6px;
+    --photography-single-caption-width: var(--service-caption-width, 330px);
     --photography-single-media-height: calc(100svh - var(--site-header-height) - 80px);
   }
 
@@ -469,7 +474,7 @@
     top: var(--site-header-height);
     left: 0;
     z-index: 3;
-    width: var(--photography-side-rail);
+    width: var(--photography-left-rail);
     height: calc(100svh - var(--site-header-height));
     align-items: flex-start;
     overflow: hidden;
@@ -495,10 +500,10 @@
   .photography-page .page-section > .container,
   .photography-page .photography-category-section > .container,
   .photography-page .photography-gallery-section > .container {
-    width: calc(100% - (2 * var(--photography-side-rail)));
+    width: calc(100% - var(--photography-left-rail) - var(--photography-side-rail) - var(--photography-main-right-gap));
     max-width: none;
-    margin-right: var(--photography-side-rail);
-    margin-left: var(--photography-side-rail);
+    margin-right: calc(var(--photography-side-rail) + var(--photography-main-right-gap));
+    margin-left: var(--photography-left-rail);
     padding-right: var(--photography-content-gutter);
     padding-left: var(--photography-content-gutter);
     box-sizing: border-box;
@@ -514,9 +519,21 @@
     box-sizing: border-box;
   }
 
+  .photography-page:not(.photography-gallery-open) .photography-controls {display:none;}
+  .photography-page.photography-gallery-open .photography-service-desktop-overview {display:none;}
   .photography-page .photography-controls {
     top: calc(var(--site-header-height) + 28px);
-    width: var(--photography-side-rail);
+    right: var(--photography-panel-scroll-safe);
+    width: calc(var(--photography-side-rail) - var(--photography-panel-scroll-safe));
+  }
+  .photography-page .photography-controls-label {
+    display:block;
+    width:100%;
+    margin:0 0 5px;
+    color:#FFFFFF;
+    font:400 14px/1.45 "Inter",Arial,sans-serif;
+    letter-spacing:.04em;
+    text-align:right;
   }
 
   .photography-page.photography-gallery-open .photography-gallery-section {

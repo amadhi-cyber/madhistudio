@@ -1462,3 +1462,18 @@ to{transform: rotate(360deg);}}
   }
 }
 
+
+/* 2026-10-07 — authoritative mobile hide for the two desktop-only Motion works.
+   High specificity intentionally beats older generic .print-row display overrides. */
+@media (max-width:700px){
+  html[data-page="service"] body .print-list > article.print-row.splitflap-row.mobile-hidden-feature,
+  html[data-page="service"] body .print-list > article.print-row.camera-row.mobile-hidden-feature{
+    display:none !important;
+    visibility:hidden !important;
+    height:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden !important;
+  }
+}

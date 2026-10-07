@@ -762,7 +762,8 @@ nav.site-nav-global{padding-inline: 10px;}
 .mobile-brand-watermark,
 .mobile-brand-logo,
 .service-mobile-overview,
-.service-mobile-feature-label{display:none;}
+.service-mobile-feature-label,
+.service-desktop-overview{display:none;}
 .soccer-pitch-inline > .soccer-pitch-svg-mobile{display:none !important;}
 html[data-page="service"] picture{display:block;width:100%;height:auto;}
 html[data-page="service"] picture img{display:block;width:100%;height:auto;}
@@ -791,7 +792,7 @@ html[data-page="service"] picture img{display:block;width:100%;height:auto;}
 html[data-theme][data-page="service"] .portfolio-work-caption{width:100%;margin:0 0 12px;text-align:left;}
 html[data-theme][data-page="service"] .portfolio-work-caption .portfolio-work-heading{
   margin:0;
-  color:#FFFFFF !important;
+  color:#FFBF00 !important;
   font-family:"Inter",Arial,sans-serif;
   font-size:19.2px;
   font-weight:600;
@@ -878,15 +879,97 @@ html[data-theme][data-page="service"] :is(
 
 @media (min-width:1101px){
   :root{
-    --service-side-rail:clamp(165px,11.25vw,220px);
-    --service-content-gutter:clamp(10px,.9vw,16px);
-    --service-page-max-width:calc(100vw - (2 * var(--service-side-rail)));
-    --service-media-width:calc(var(--service-page-max-width) - 366px);
+    --service-left-rail:var(--madhi-nav-left-rail,clamp(150px,11.78vw,205px));
+    --service-side-rail:var(--madhi-nav-right-rail,clamp(165px,12.54vw,225px));
+    --service-main-right-gap:clamp(20px,1.8vw,28px);
+    --service-panel-scroll-safe:12px;
+    --service-content-gutter:0px;
+    --service-caption-width:330px;
+    --service-page-max-width:calc(100vw - var(--service-left-rail) - var(--service-side-rail) - var(--service-main-right-gap));
+    --service-media-width:calc(var(--service-page-max-width) - (2 * var(--service-content-gutter)) - var(--service-caption-width) - 18px);
     --service-media-height:clamp(590px,42vw,690px);
   }
   html[data-page="service"]{
     --service-row-top:86px;
     --service-title-top-desktop:22px;
+  }
+  html[data-page="service"] .page-section .container{position:relative;}
+  html[data-page="service"] .service-desktop-overview{
+    position:fixed;
+    top:calc(var(--site-header-height) + 28px);
+    right:var(--service-panel-scroll-safe);
+    z-index:30;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    width:calc(var(--service-side-rail) - var(--service-panel-scroll-safe));
+    min-width:0;
+    padding-left:4px;
+    padding-right:6px;
+    box-sizing:border-box;
+    color:#FFFFFF;
+    font-family:"Inter",Arial,sans-serif;
+  }
+  html[data-page="service"] .service-desktop-headline{
+    margin:0;
+    color:#FFBF00;
+    font:600 21px/1.35 "Inter",Arial,sans-serif;
+    text-align:left;
+  }
+  html[data-page="service"] .service-desktop-copy{
+    margin:20px 0 0;
+    color:#FFFFFF;
+    font:400 16.2px/1.4 "Inter",Arial,sans-serif;
+    text-align:left;
+  }
+  html[data-page="service"] .service-desktop-includes{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    width:100%;
+    margin-top:20px;
+    color:#FFFFFF;
+    text-align:left;
+  }
+  html[data-page="service"] .service-desktop-includes-label{
+    margin:0 0 5px;
+    color:#FFFFFF;
+    font:400 14px/1.45 "Inter",Arial,sans-serif;
+    letter-spacing:.04em;
+    text-align:left;
+  }
+  html[data-page="service"] .service-desktop-includes-list{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+    width:100%;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  html[data-page="service"] .service-desktop-includes-list li{
+    display:grid;
+    grid-template-columns:7px minmax(0,1fr);
+    column-gap:6px;
+    align-items:start;
+    width:fit-content;
+    max-width:100%;
+    margin:0;
+    padding:0;
+    color:#FFFFFF;
+    font:400 14px/1.45 "Inter",Arial,sans-serif;
+    text-align:left;
+  }
+  html[data-page="service"] .service-desktop-includes-list li::before{
+    content:"";
+    display:block;
+    width:0;
+    height:0;
+    margin-top:.42em;
+    border-top:4px solid transparent;
+    border-bottom:4px solid transparent;
+    border-left:7px solid #FFBF00;
   }
   html[data-page="service"] .collection{
     padding-top:0 !important;
@@ -895,8 +978,8 @@ html[data-theme][data-page="service"] :is(
   html[data-page="service"] .collection > .print-list{
     width:var(--service-page-max-width) !important;
     max-width:none !important;
-    margin-left:var(--service-side-rail) !important;
-    margin-right:var(--service-side-rail) !important;
+    margin-left:var(--service-left-rail) !important;
+    margin-right:calc(var(--service-side-rail) + var(--service-main-right-gap)) !important;
     padding-left:var(--service-content-gutter) !important;
     padding-right:var(--service-content-gutter) !important;
     box-sizing:border-box !important;
@@ -919,7 +1002,7 @@ html[data-theme][data-page="service"] :is(
     margin:0 !important;
   }
   html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row{
-    grid-template-columns:minmax(0,1fr) minmax(300px,330px) !important;
+    grid-template-columns:minmax(0,1fr) var(--service-caption-width) !important;
     gap:18px !important;
     justify-content:start !important;
     align-items:start !important;
@@ -940,8 +1023,8 @@ html[data-theme][data-page="service"] :is(
     max-width:none !important;
   }
   html[data-page="service"] .collection > .print-list:not(.branding-desktop-groups) > .print-row .info-panel{
-    width:100% !important;
-    max-width:330px !important;
+    width:var(--service-caption-width) !important;
+    max-width:var(--service-caption-width) !important;
     align-self:start !important;
     justify-self:start !important;
     padding-top:0 !important;
@@ -957,6 +1040,18 @@ html[data-theme][data-page="service"] :is(
   }
   html[data-page="service"] .branding-showcase-card .portfolio-work-caption{
     justify-self:center !important;
+  }
+
+  html[data-page="service"] .web-feature-row .info-panel{
+    position:static !important;
+    padding-right:0 !important;
+  }
+  html[data-page="service"] .web-feature-row .info-panel .preview-popout{
+    position:static !important;
+    inset:auto !important;
+    display:inline-flex !important;
+    margin:12px 0 0 !important;
+    align-self:flex-start !important;
   }
 
   html[data-page="service"] .service-coming-soon{display:block;}
@@ -981,7 +1076,7 @@ html[data-theme][data-page="service"] :is(
     top:var(--site-header-height);
     left:0;
     z-index:60;
-    width:clamp(148.5px,10.125vw,198px);
+    width:var(--service-left-rail);
     height:calc(100svh - var(--site-header-height));
     align-items:flex-start;
     overflow:visible;
@@ -1274,7 +1369,7 @@ html[data-theme][data-page="service"] :is(
     border-bottom:1px solid #5d5d5d;
   }
   html[data-page="service"] .portfolio-work-caption .portfolio-work-heading{
-    color:#FFFFFF !important;
+    color:#FFBF00 !important;
     font-size:15.6px !important;
     font-style:normal !important;
     font-weight:700 !important;
@@ -1892,9 +1987,11 @@ html[data-page="service"] footer .footer-craft{color:#FFBF00 !important;}
   }
 
   html[data-page="service"]{
-    --service-side-rail:clamp(148.5px,10.125vw,198px);
+    --service-side-rail:var(--madhi-nav-right-rail,clamp(165px,12.54vw,225px));
+    --service-main-right-gap:clamp(20px,1.8vw,28px);
+    --service-panel-scroll-safe:12px;
     --service-content-gutter:clamp(9px,.81vw,14.4px);
-    --service-page-max-width:calc(100vw - (2 * var(--service-side-rail)));
+    --service-page-max-width:calc(100vw - var(--service-left-rail) - var(--service-side-rail) - var(--service-main-right-gap));
     --service-media-width:calc(var(--service-page-max-width) - 329px);
     --service-media-height:clamp(531px,37.8vw,621px);
     --service-row-top:120px;
@@ -2636,3 +2733,128 @@ html[data-page="service"] :is(#site-footer, footer) :is(.footer-main, .footer-ma
   }
 }
 
+
+
+/* 2026-10-06 — align visible external-link square with the copy column. */
+@media (min-width:1101px){
+  html[data-page="service"] .info-panel > :is(.preview-popout,.landing-preview-popout,.popout-action){
+    margin-left:-7px !important;
+    align-self:flex-start !important;
+    justify-self:start !important;
+  }
+}
+
+
+/* 2026-10-07 — match mobile service bullets to desktop gold arrows. */
+@media (max-width:1100px){
+  html[data-page="service"] .service-mobile-includes-list{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:6px !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    list-style:none !important;
+  }
+  html[data-page="service"] .service-mobile-includes-list li{
+    display:grid !important;
+    grid-template-columns:7px minmax(0,1fr) !important;
+    column-gap:6px !important;
+    align-items:start !important;
+    width:fit-content !important;
+    max-width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-style:normal !important;
+    text-align:left !important;
+  }
+  html[data-page="service"] .service-mobile-includes-list li::before{
+    content:"" !important;
+    display:block !important;
+    width:0 !important;
+    height:0 !important;
+    margin-top:.42em !important;
+    border-top:4px solid transparent !important;
+    border-bottom:4px solid transparent !important;
+    border-left:7px solid #FFBF00 !important;
+  }
+  html[data-page="service"] .service-mobile-includes-list li::marker{content:"" !important;}
+}
+
+/* 2026-10-07 — requested service-page bullet and Website pop-out refinements only. */
+@media (min-width:1101px){
+  /* Keep service-page arrows immediately beside their copy when a list item wraps. */
+  html[data-page="service"] .service-desktop-includes-list li{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:flex-start !important;
+    gap:6px !important;
+    width:fit-content !important;
+    max-width:100% !important;
+    padding:0 !important;
+  }
+  html[data-page="service"] .service-desktop-includes-list li::before{
+    position:static !important;
+    display:block !important;
+    flex:0 0 auto !important;
+    width:0 !important;
+    height:0 !important;
+    margin:.42em 0 0 !important;
+  }
+
+  /* Both Website Design pop-out controls align to the copy column and hover gold/bold. */
+  html[data-page="service"] .web-feature-row .info-panel > .preview-popout{
+    margin-left:-9px !important;
+    align-self:flex-start !important;
+    justify-self:start !important;
+  }
+  html[data-page="service"] .web-feature-row .info-panel > .preview-popout:is(:hover,:focus-visible){
+    color:#FFBF00 !important;
+    font-weight:700 !important;
+  }
+  html[data-page="service"] .web-feature-row .info-panel > .preview-popout:is(:hover,:focus-visible) :is(.external-link-frame,.external-link-arrow){
+    stroke:#FFBF00 !important;
+    stroke-width:3.6px !important;
+  }
+}
+
+
+/* 2026-10-07 — Website service pop-outs use landing-page caption spacing. */
+@media (min-width:1101px){
+  html[data-page="service"] .web-feature-row .info-panel{
+    gap:0 !important;
+  }
+  html[data-page="service"] .web-feature-row .portfolio-work-caption{
+    margin-bottom:0 !important;
+  }
+  html[data-page="service"] .web-feature-row .info-panel > .preview-popout{
+    position:static !important;
+    inset:auto !important;
+    margin:12px 0 0 -9px !important;
+    align-self:flex-start !important;
+    justify-self:start !important;
+  }
+}
+
+/* 2026-10-07 — Website service pop-out hover stays gold at normal stroke weight. */
+@media (min-width:1101px){
+  html[data-page="service"] .web-feature-row .info-panel > .preview-popout:is(:hover,:focus-visible){
+    color:#FFBF00 !important;
+    font-weight:400 !important;
+  }
+  html[data-page="service"] .web-feature-row .info-panel > .preview-popout:is(:hover,:focus-visible) :is(.external-link-frame,.external-link-arrow){
+    stroke:#FFBF00 !important;
+    stroke-width:2.4px !important;
+  }
+}
+
+/* 2026-10-07 — Website service pop-outs stay gold at the normal resting stroke weight. */
+html[data-page="service"] .web-feature-row .info-panel > .preview-popout:is(:hover,:focus-visible){
+  color:#FFBF00 !important;
+  font-weight:400 !important;
+}
+html[data-page="service"] .web-feature-row .info-panel > .preview-popout:is(:hover,:focus-visible) :is(.external-link-frame,.external-link-arrow){
+  stroke:#FFBF00 !important;
+  stroke-width:2.4px !important;
+}

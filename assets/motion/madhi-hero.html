@@ -312,6 +312,26 @@
 }
 </style>
 
+<script id="madhi-landing-preview-mode">
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("landing") === "1") document.documentElement.classList.add("madhi-landing-preview");
+})();
+</script>
+<style id="madhi-landing-preview-type-scale">
+html.madhi-landing-preview .hero .hero-title.typing-hero{
+  font-size:clamp(41.92px,3.424vw,62.56px)!important;
+}
+html.madhi-landing-preview .writing-services-brandline__descriptor{
+  font-size:80%!important;
+}
+@media(max-width:760px){
+  html.madhi-landing-preview .hero .hero-title.typing-hero{
+    font-size:clamp(23.2px,6.56vw,33.6px)!important;
+  }
+}
+</style>
+
 </head>
 
 <body class="section-green">

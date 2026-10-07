@@ -130,6 +130,30 @@ function mountSiteShell() {
       </div>`;
   }
 
+  const syncDesktopLayoutGuides = () => {
+    const rootEl = document.documentElement;
+    if (window.innerWidth <= 1100) {
+      rootEl.style.removeProperty('--madhi-nav-left-rail');
+      rootEl.style.removeProperty('--madhi-nav-right-rail');
+      return;
+    }
+    const homeDivider = navMount?.querySelector('.nav-divider--home');
+    const contactDivider = navMount?.querySelector('.nav-divider--contact');
+    if (!homeDivider || !contactDivider) return;
+    const leftRail = Math.max(0, homeDivider.getBoundingClientRect().right);
+    const rightRail = Math.max(0, window.innerWidth - contactDivider.getBoundingClientRect().left);
+    rootEl.style.setProperty('--madhi-nav-left-rail', `${leftRail.toFixed(2)}px`);
+    rootEl.style.setProperty('--madhi-nav-right-rail', `${rightRail.toFixed(2)}px`);
+  };
+
+  const queueDesktopLayoutGuideSync = () => {
+    window.requestAnimationFrame(() => window.requestAnimationFrame(syncDesktopLayoutGuides));
+  };
+
+  queueDesktopLayoutGuideSync();
+  document.fonts?.ready?.then(queueDesktopLayoutGuideSync).catch(() => {});
+  window.addEventListener('resize', queueDesktopLayoutGuideSync, { passive: true });
+
   const mobileBackControl = navMount?.querySelector('.mobile-back-control');
   mobileBackControl?.addEventListener('click', () => {
     if (window.history.length > 1) window.history.back();
@@ -1530,6 +1554,7 @@ function preserveMobileDisclosureAnchor(anchor, update) {
   let explorer = null;
   let panels = null;
   let includesRail = null;
+  let includesTitle = null;
   let includesList = null;
   let exploreAllLink = null;
   let gridMarker = null;
@@ -1547,17 +1572,34 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     });
     panelEls.forEach((panel, panelIndex) => panel.classList.toggle('is-active', panelIndex === activeIndex));
 
+    /* Start/restart the Motion Graphics hero only when its desktop tab is activated. */
+    if (activeIndex === ids.indexOf('motion-graphics')) {
+      const motionFrame = panelEls[activeIndex]?.querySelector('.madhi-hero-frame[data-activation-src]');
+      const source = motionFrame?.dataset.activationSrc;
+      if (motionFrame && source) {
+        const separator = source.includes('?') ? '&' : '?';
+        motionFrame.src = `${source}${separator}play=${Date.now()}`;
+      }
+    }
+
     const activeCard = cards[activeIndex];
+    if (includesTitle) includesTitle.textContent = activeIndex === ids.indexOf('photography') ? 'CATEGORIES' : 'INCLUDES';
     if (activeCard && includesList && exploreAllLink) {
       const items = [...activeCard.querySelectorAll('.sitemap-includes-list li')];
       includesList.replaceChildren(...items.map(item => {
         const li = document.createElement('li');
-        li.textContent = item.textContent.trim();
+        const label = document.createElement('span');
+        label.className = 'desktop-service-includes-text';
+        label.textContent = item.textContent.trim();
+        li.append(label);
         return li;
       }));
       const panel = panelEls[activeIndex];
-      const target = panel?.querySelector('.landing-feature-explore')?.getAttribute('href') || '#';
+      const sourceExplore = panel?.querySelector('.landing-feature-explore');
+      const target = sourceExplore?.getAttribute('href') || '#';
+      const label = sourceExplore?.textContent?.trim() || 'Explore More';
       exploreAllLink.setAttribute('href', target);
+      exploreAllLink.textContent = label;
     }
   }
 
@@ -1591,6 +1633,7 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     explorer = null;
     panels = null;
     includesRail = null;
+    includesTitle = null;
     includesList = null;
     exploreAllLink = null;
     document.body.classList.remove('desktop-service-explorer-ready');
@@ -1629,14 +1672,14 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     includesRail = document.createElement('aside');
     includesRail.className = 'desktop-service-includes';
     includesRail.setAttribute('aria-label', 'Included services');
-    const includesTitle = document.createElement('div');
+    includesTitle = document.createElement('div');
     includesTitle.className = 'desktop-service-includes-title';
     includesTitle.textContent = 'INCLUDES';
     includesList = document.createElement('ul');
     includesList.className = 'desktop-service-includes-list';
     exploreAllLink = document.createElement('a');
     exploreAllLink.className = 'desktop-service-explore';
-    exploreAllLink.textContent = 'Explore All';
+    exploreAllLink.textContent = 'Explore More Branding, Logos & Icons';
     includesRail.append(includesTitle, includesList, exploreAllLink);
 
     explorer.append(grid, panels, includesRail);
