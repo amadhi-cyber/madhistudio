@@ -113,8 +113,8 @@ function mountSiteShell() {
             <a href="${siteUrl("design/ui-icons.html")}" data-nav="ui-icons" data-section-target="ui-icons"><span class="service-nav-label">${navLabels.ui}</span></a>
             <a href="${siteUrl("design/motion-graphics.html")}" data-nav="motion-graphics" data-section-target="motion-graphics"><span class="service-nav-label">${navLabels.motion}</span></a>
             <a href="${siteUrl("design/web-design.html")}" data-nav="web-design" data-section-target="web-design"><span class="service-nav-label">${navLabels.web}</span></a>
-            <a href="${siteUrl("design/photography.html")}" data-nav="photography"><span class="service-nav-label">${navLabels.photography}</span></a>
-            <a href="${siteUrl("design/copywriting.html")}" data-nav="copywriting"><span class="service-nav-label">${navLabels.copywriting}</span></a>
+            <a href="${siteUrl("design/photography.html")}" data-nav="photography" data-section-target="photography"><span class="service-nav-label">${navLabels.photography}</span></a>
+            <a href="${siteUrl("design/copywriting.html")}" data-nav="copywriting" data-section-target="copywriting"><span class="service-nav-label">${navLabels.copywriting}</span></a>
             <span class="nav-divider nav-divider--contact" aria-hidden="true"></span>
             <a href="${landingContactHref}" data-nav="contact">Contact</a>
           </div>
@@ -129,6 +129,20 @@ function mountSiteShell() {
         <button class="preference-toggle" id="motionToggle" type="button" aria-pressed="true" aria-label="Turn motion off" title="Motion on" hidden disabled tabindex="-1" aria-hidden="true"><span class="preference-glyph" aria-hidden="true"></span></button>
       </div>`;
   }
+
+  /* Mobile service menu goes to the landing-page disclosures; desktop links retain their destination. */
+  const syncMobileServiceLinks = () => {
+    navMount?.querySelectorAll('a[data-section-target]').forEach(link => {
+      if (!link.dataset.desktopHref) link.dataset.desktopHref = link.getAttribute('href');
+      const id = link.dataset.sectionTarget;
+      const useLandingDisclosure = window.matchMedia('(max-width: 700px)').matches && id !== 'photography';
+      link.setAttribute('href', useLandingDisclosure
+        ? (onLandingPage ? `#${id}` : siteUrl(`index.html#${id}`))
+        : link.dataset.desktopHref);
+    });
+  };
+  syncMobileServiceLinks();
+  window.addEventListener('resize', syncMobileServiceLinks, { passive: true });
 
   const syncDesktopLayoutGuides = () => {
     const rootEl = document.documentElement;
@@ -1449,6 +1463,18 @@ function preserveMobileDisclosureAnchor(anchor, update) {
   function ensureServiceAccordion(section, card, wrapper) {
     if (accordionReady.has(wrapper)) return;
     const heading = section.querySelector('.landing-indexed-heading');
+    /* Only Photography has a live standalone service page. The heading text links
+       there; its adjacent chevron still expands the landing-page preview. */
+    if (section.id === 'photography') {
+      const title = heading?.querySelector('.section-title');
+      if (title && !title.querySelector('a')) {
+        const link = document.createElement('a');
+        link.href = new URL('design/photography.html', document.baseURI).href;
+        link.textContent = title.textContent;
+        link.className = 'mobile-photography-page-link';
+        title.replaceChildren(link);
+      }
+    }
     const copy = card.querySelector('.sitemap-service-copy');
     const feature = section.querySelector('.feature-layout');
     if (!heading || !copy || !feature) return;
@@ -1476,6 +1502,7 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     };
 
     setExpanded(false);
+    wrapper.setServiceExpanded = setExpanded;
     button.addEventListener('click', () => {
       const expanded = !wrapper.classList.contains('is-expanded');
       if (!expanded) {
@@ -1540,9 +1567,38 @@ function preserveMobileDisclosureAnchor(anchor, update) {
     }
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrangeMobileServices, { once: true });
-  else arrangeMobileServices();
-  mobileQuery.addEventListener?.('change', arrangeMobileServices);
+  function openSelectedMobileService(id, updateHash = false) {
+    if (!mobileQuery.matches || !ids.includes(id)) return false;
+    const wrapper = wrappers.get(id);
+    const heading = wrapper?.querySelector('.landing-indexed-heading');
+    if (!heading || !wrapper?.setServiceExpanded) return false;
+    closeOtherMobileDisclosurePanels(wrapper);
+    wrapper.setServiceExpanded(true);
+    if (updateHash && window.location.hash !== `#${id}`) history.replaceState(null, '', `#${id}`);
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() =>
+      heading.scrollIntoView({ behavior: 'auto', block: 'start' })));
+    return true;
+  }
+
+  document.addEventListener('click', event => {
+    if (!mobileQuery.matches) return;
+    const link = event.target.closest('#site-nav a[data-section-target], #services a.sitemap-main-link');
+    if (!link) return;
+    const id = link.dataset.sectionTarget || link.getAttribute('href')?.split('#').pop();
+    if (!ids.includes(id) || id === 'photography') return;
+    event.preventDefault();
+    openSelectedMobileService(id, true);
+  });
+  window.addEventListener('hashchange', () => openSelectedMobileService(location.hash.slice(1)));
+
+  function arrangeAndFollowMobileHash() {
+    arrangeMobileServices();
+    if (mobileQuery.matches && ids.includes(location.hash.slice(1)))
+      window.requestAnimationFrame(() => openSelectedMobileService(location.hash.slice(1)));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arrangeAndFollowMobileHash, { once: true });
+  else arrangeAndFollowMobileHash();
+  mobileQuery.addEventListener?.('change', arrangeAndFollowMobileHash);
   window.addEventListener('madhi:desktop-service-restored', arrangeMobileServices);
 })();
 
@@ -1784,3 +1840,127 @@ function preserveMobileDisclosureAnchor(anchor, update) {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupApproachArrowSequence, { once: true });
   else setupApproachArrowSequence();
 })();
+
+/* Mobile-only newsletter signup and footer legal navigation. */
+function installStudioMobileFooter() {
+  const footer = document.querySelector('html[data-page="home"] .cta-footer')
+    || document.querySelector('#site-footer .cta-footer');
+  const inner = footer?.querySelector('.footer-inner');
+  if (!inner || inner.querySelector('.studio-footer-extras')) return;
+  const extras = document.createElement('div');
+  extras.className = 'studio-footer-extras';
+  const siteRoot = new URL('../', new URL(
+    document.querySelector('script[src*="js/site.js"]')?.src || 'js/site.js', window.location.href));
+  const linkTo = path => new URL(path, siteRoot).href;
+  extras.innerHTML = `
+    <section class="studio-footer-newsletter" aria-labelledby="studioNewsletterTitle">
+      <h2 id="studioNewsletterTitle">stay in the loop</h2>
+      <form class="studio-newsletter-form" method="POST" action="https://formsubmit.co/info@madhistudio.com">
+        <input type="hidden" name="_subject" value="Madhi Studio — New Signup Request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="${linkTo('thanks.html')}">
+        <input type="hidden" name="_autoresponse">
+        <input type="hidden" name="purpose" value="Studio updates signup request">
+        <input type="hidden" name="consent" value="Yes — visitor requested occasional Madhi Studio emails">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" hidden>
+        <div class="studio-newsletter-row">
+          <input type="email" name="email" aria-label="Email address for studio updates" placeholder="Enter your email address" required autocomplete="email">
+          <button type="submit" class="studio-newsletter-submit" aria-label="Sign up for studio updates">
+            <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M5 16h22m-9-9 9 9-9 9"/></svg>
+          </button>
+        </div>
+        <p class="studio-newsletter-note"><span>Occasional creative updates when we're ready.</span><span>Unsubscribe any time.</span></p>
+      </form>
+    </section>
+    <nav class="studio-footer-links" aria-label="Legal information">
+      <a href="${linkTo('privacy.html')}">Privacy Policy</a>
+      <a href="${linkTo('cookies.html')}">Cookies</a>
+      <a href="${linkTo('terms.html')}">Terms of Service</a>
+    </nav>`;
+  extras.querySelector('input[name="_autoresponse"]').value = [
+    'Thanks for joining the Madhi Studio mailing list.',
+    '',
+    "We're glad you're here.",
+    '',
+    "We're currently putting together occasional updates featuring creative work, design ideas, photography, and new projects.",
+    '',
+    "We're not sending newsletters just yet, but when we have something worth sharing, you'll be among the first to know.",
+    '',
+    'In the meantime, feel free to explore our work at https://madhistudio.com.',
+    '',
+    'Thanks for your interest.',
+    '',
+    'Madhi Studio',
+    'Crafted with Intention.',
+    'https://madhistudio.com'
+  ].join('\n');
+  inner.prepend(extras);
+}
+
+/* Native swiping + photo-gallery triangle navigation for each existing mobile featured-work deck. */
+function installMobileFeaturedArrows() {
+  const galleries = document.querySelectorAll('[data-feature-gallery]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  galleries.forEach(gallery => {
+    const deck = gallery.querySelector('.mobile-branding-carousel, .mobile-service-swipe');
+    const controls = gallery.closest('.feature-layout')?.querySelector('.mobile-feature-navigation');
+    const prev = controls?.querySelector('[data-feature-step="-1"]');
+    const next = controls?.querySelector('[data-feature-step="1"]');
+    const counter = controls?.querySelector('.mobile-feature-position');
+    if (!deck || !prev || !next || !counter) return;
+
+    const allSlides = [...deck.querySelectorAll('.mobile-branding-slide, .mobile-swipe-slide')];
+    const visibleSlides = () => allSlides.filter(slide => getComputedStyle(slide).display !== 'none');
+    const currentIndex = slides => {
+      const scroll = deck.scrollLeft;
+      const firstOffset = slides[0]?.offsetLeft || 0;
+      return slides.reduce((best, slide, index) =>
+        Math.abs(slide.offsetLeft - firstOffset - scroll)
+          < Math.abs(slides[best].offsetLeft - firstOffset - scroll) ? index : best, 0);
+    };
+    const refresh = () => {
+      const slides = visibleSlides();
+      if (!slides.length) return;
+      const index = currentIndex(slides);
+      prev.hidden = index === 0;
+      next.hidden = index === slides.length - 1;
+      counter.textContent = `${index + 1} of ${slides.length}`;
+    };
+    for (const arrow of [prev, next]) {
+      arrow.addEventListener('click', () => {
+        const slides = visibleSlides();
+        if (!slides.length) return;
+        const index = Math.max(0, Math.min(slides.length - 1,
+          currentIndex(slides) + Number(arrow.dataset.featureStep)));
+        deck.scrollTo({
+          left: slides[index].offsetLeft - slides[0].offsetLeft,
+          behavior: reducedMotion.matches ? 'instant' : 'smooth'
+        });
+      });
+    }
+    deck.addEventListener('scroll', refresh, { passive: true });
+    window.addEventListener('resize', refresh, { passive: true });
+    window.addEventListener('load', refresh, { once: true });
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(refresh);
+      observer.observe(deck);
+      allSlides.forEach(slide => {
+        const art = slide.querySelector('.mobile-branding-slide-art, .mobile-swipe-art, .feature-card');
+        if (art) observer.observe(art);
+      });
+    }
+    refresh();
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    installStudioMobileFooter();
+    installMobileFeaturedArrows();
+  }, { once: true });
+} else {
+  installStudioMobileFooter();
+  installMobileFeaturedArrows();
+}

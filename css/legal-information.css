@@ -1,0 +1,155 @@
+/* Madhi Studio legal pages — shared service-page header, back/menu and watermark.
+   The existing site navigation and mobile mark are rendered by js/site.js;
+   this file styles only the legal-page content and links. */
+:root{color-scheme:dark;}
+html.madhi-legal-page,
+html.madhi-legal-page body{background:#000;color:#fff;}
+html.madhi-legal-page .legal-main{
+  position:relative;
+  z-index:3 !important;
+  flex:1 0 auto;
+  width:min(100%,850px);
+  margin:0 auto;
+  padding:clamp(60px,7vw,94px) 30px 90px;
+  color:#fff;
+  background:transparent;
+  font-family:"Inter",Arial,sans-serif;
+  font-size:15.6px;
+  line-height:1.45;
+}
+html.madhi-legal-page .legal-main :is(h1,h2,p,ul,li,a,strong){font-family:inherit;}
+html.madhi-legal-page .legal-main h1{
+  margin:0;
+  color:#ffbf00;
+  font-size:clamp(33px,4.5vw,55px);
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:-.02em;
+}
+html.madhi-legal-page .legal-main .legal-updated{
+  margin:6px 0 32px;
+  color:#fff;
+  font-size:15.6px;
+  font-weight:400;
+  line-height:1.45;
+}
+html.madhi-legal-page .legal-main .legal-lede{
+  margin:0 0 38px;
+  color:#fff;
+  font-size:15.6px;
+  line-height:1.45;
+}
+html.madhi-legal-page .legal-main section{margin:0 0 34px;}
+html.madhi-legal-page .legal-main section:last-child{margin-bottom:0;}
+/* Service-page-style white captions with a gold underline. */
+html.madhi-legal-page .legal-main h2{
+  margin:0 0 4px;
+  color:#fff;
+  text-decoration-line:underline;
+  text-decoration-color:#ffbf00;
+  text-decoration-thickness:2px;
+  text-underline-offset:4px;
+  font-size:19.2px;
+  font-weight:600;
+  line-height:1.35;
+}
+html.madhi-legal-page .legal-main :is(p,li){
+  color:#fff;
+  font-size:15.6px;
+  font-weight:400;
+  line-height:1.45;
+}
+html.madhi-legal-page .legal-main section p{margin:0 0 14px;}
+html.madhi-legal-page .legal-main section p:last-child{margin-bottom:0;}
+html.madhi-legal-page .legal-main ul{padding-left:1.4em;margin:7px 0 18px;}
+html.madhi-legal-page .legal-main li{margin:7px 0;}
+/* Gold body links: no underline at rest, thin white underline on interaction.
+   Service-page-style h2 underlines and legal footer links are unchanged. */
+html.madhi-legal-page .legal-main a{
+  color:#ffbf00;
+  text-decoration-line:none;
+  text-decoration-color:#fff;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+  transition:color .18s ease,text-decoration-color .18s ease;
+}
+html.madhi-legal-page .legal-main a:is(:hover,:focus-visible){
+  color:#ffbf00;
+  text-decoration-line:underline;
+  text-decoration-color:#fff;
+}
+html.madhi-legal-page .legal-footer-links a{
+  color:#fff;
+  text-decoration-line:underline;
+  text-decoration-color:#fff;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+  transition:color .18s ease,text-decoration-color .18s ease;
+}
+html.madhi-legal-page .legal-footer-links a:is(:hover,:focus-visible){
+  color:#ffbf00;
+  text-decoration-color:#ffbf00;
+}
+/* The service-page shell has a higher stacking rule; keep its fixed
+   watermark behind the legal text, including the opening paragraphs. */
+html.madhi-legal-page .mobile-brand-watermark{z-index:0 !important;}
+html.madhi-legal-page .legal-main .legal-email{overflow-wrap:anywhere;}
+html.madhi-legal-page .legal-footer{
+  position:relative;
+  z-index:3;
+  width:100%;
+  margin-top:auto;
+  padding:26px 24px 32px;
+  background:#000;
+  color:#d3d3d3;
+  border-top:1px solid #353535;
+  text-align:center;
+}
+html.madhi-legal-page .legal-footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:12px 18px;
+  margin:0 0 14px;
+}
+html.madhi-legal-page .legal-footer-links a{font-size:13px;}
+html.madhi-legal-page .legal-copyright{margin:0;color:#d3d3d3;font-size:12px;}
+@media(max-width:700px){
+  html.madhi-legal-page .legal-main{
+    padding:16px 24px 70px 16px;
+    font-size:15.6px;
+    line-height:1.35;
+  }
+  /* Service-page title: gold Inter (not the desktop outline heading). */
+  html.madhi-legal-page .legal-main h1{
+    color:#ffbf00;
+    font-size:19.5px;
+    font-weight:600;
+    line-height:1.35;
+    letter-spacing:0;
+    margin-left:0;
+  }
+  html.madhi-legal-page .legal-main .legal-updated{
+    margin:4px 0 32px;
+    color:#fff;
+    font-size:15.6px;
+    line-height:1.35;
+  }
+  html.madhi-legal-page .legal-main .legal-lede{
+    margin-bottom:38px;
+    font-size:15.6px;
+    line-height:1.35;
+  }
+  html.madhi-legal-page .legal-main section{margin-bottom:36px;}
+  html.madhi-legal-page .legal-main h2{
+    font-size:15.6px;
+    font-weight:700;
+    line-height:1.35;
+  }
+  html.madhi-legal-page .legal-main :is(p,li){
+    font-size:15.6px;
+    line-height:1.35;
+  }
+  html.madhi-legal-page .legal-footer{background:transparent;}
+}

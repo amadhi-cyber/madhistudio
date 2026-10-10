@@ -1043,6 +1043,7 @@
     height:calc(100svh - var(--site-header-height, 78px) - 38px) !important;
     min-height:0 !important;
     padding:0 0 4px !important;
+    margin-bottom:var(--mobile-section-gap, 100px) !important;
     box-sizing:border-box !important;
   }
   .photography-page .photography-category-section > .container{

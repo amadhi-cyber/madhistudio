@@ -1,0 +1,37 @@
+/* MADHI STUDIO | Mobile footer additions. These are new components, not overrides. */
+.studio-footer-extras{display:none;}
+@media(max-width:700px){
+  .studio-footer-extras{
+    display:flex;flex-direction:column;align-items:stretch;width:min(100%,520px);
+    margin:0 auto 24px;padding:0;color:#d3d3d3;
+    font-family:"Inter",Arial,sans-serif;font-weight:400;box-sizing:border-box;
+  }
+  .studio-footer-newsletter{width:100%;text-align:left;margin:0 0 30px;}
+  .studio-footer-newsletter h2{margin:0 0 18px;color:#fff;font:500 18px/1.4 "Inter",Arial,sans-serif;letter-spacing:0;}
+  .studio-newsletter-form{margin:0;width:100%;}
+  .studio-newsletter-row{display:flex;align-items:center;min-height:46px;gap:10px;
+    border-bottom:1px solid #555;background:transparent;}
+  .studio-newsletter-row input{width:100%;min-width:0;margin:0;padding:10px 0;border:0;outline:0;
+    background:transparent;color:#fff;font:400 15px/1.4 "Inter",Arial,sans-serif;}
+  .studio-newsletter-row input::placeholder{color:#979797;opacity:1;}
+  .studio-newsletter-row:focus-within{border-bottom-color:#ffbf00;}
+  .studio-newsletter-submit{display:grid;place-items:center;flex:0 0 44px;
+    width:44px;height:44px;padding:0;border:0;border-radius:0;
+    background:transparent;color:#d3d3d3;cursor:pointer;transition:color .2s ease;}
+  .studio-newsletter-submit svg{display:block;width:26px;height:26px;fill:none;stroke:currentColor;
+    stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .studio-newsletter-submit:is(:hover,:focus-visible){color:#ffbf00;}
+  .studio-newsletter-submit:disabled{opacity:.45;cursor:wait;}
+  .studio-newsletter-note{margin:10px 0 0;color:#b8b8b8;font:400 12px/1.5 "Inter",Arial,sans-serif;}
+  .studio-newsletter-note span{display:block;}
+  .studio-footer-links{display:flex;justify-content:center;flex-wrap:wrap;column-gap:13px;
+    row-gap:10px;width:100%;margin:0 0 12px;padding:0;text-align:center;}
+  html[data-page="home"] .studio-footer-links a{color:#858585 !important;text-decoration-line:none;
+    text-decoration-color:#fff;text-decoration-thickness:1px;text-underline-offset:3px;
+    font:400 13px/1.5 "Inter",Arial,sans-serif;
+    transition:color .18s ease,text-decoration-color .18s ease;}
+  html[data-page="home"] .studio-footer-links a:is(:hover,:focus-visible){color:#fff !important;text-decoration-line:underline;text-decoration-color:#fff;}
+  .studio-footer-extras .studio-footer-link-context{font:400 11px/1.4 "Inter",Arial,sans-serif;
+    color:#9c9c9c;text-align:center;margin:0;}
+  .studio-footer-extras .studio-footer-link-context a{color:inherit;text-decoration:underline;}
+}

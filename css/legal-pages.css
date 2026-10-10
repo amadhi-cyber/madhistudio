@@ -1,0 +1,41 @@
+/* Madhi Studio — standalone legal information pages. */
+:root{color-scheme:dark;}
+*,*::before,*::after{box-sizing:border-box;}
+html{background:#000;color:#d3d3d3;scroll-behavior:smooth;}
+body{margin:0;background:#000;color:#d3d3d3;font:400 15.5px/1.7 "Inter",Arial,sans-serif;}
+a{color:#ffbf00;text-decoration:underline;text-underline-offset:4px;}
+a:hover,a:focus-visible{color:#fff;}
+.legal-header{display:flex;justify-content:space-between;align-items:center;gap:25px;
+  width:min(100%,1040px);margin:auto;padding:30px 30px 10px;}
+.legal-brand{display:inline-flex;align-items:center;text-decoration:none;}
+.legal-brand img{display:block;width:145px;max-height:52px;object-fit:contain;}
+.legal-home-link{color:#d3d3d3;font-size:14px;white-space:nowrap;text-decoration:none;}
+.legal-home-link:hover{color:#ffbf00;}
+.legal-main{max-width:850px;margin:0 auto;padding:42px 30px 70px;}
+.legal-eyebrow{margin:0 0 12px;color:#ffbf00;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+h1{color:#fff;font-size:clamp(33px,6vw,55px);font-weight:500;line-height:1.1;letter-spacing:-.03em;margin:0 0 18px;}
+.legal-updated{margin:0 0 36px;color:#a0a0a0;font-size:13px;}
+.legal-lede{color:#ededed;font-size:17px;line-height:1.7;margin:0 0 30px;}
+h2{color:#ffbf00;font-size:21px;font-weight:600;line-height:1.35;margin:34px 0 10px;}
+p{margin:0 0 14px;}
+ul{padding-left:1.4em;margin:8px 0 20px;}li{margin:7px 0;}
+.legal-email{word-break:break-word;}
+.legal-footer{padding:26px 24px 32px;margin:0;border-top:1px solid #353535;text-align:center;}
+.legal-footer-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 18px;margin:0 0 14px;}
+.legal-footer-links a{font-size:13px;color:#d3d3d3;}
+.legal-footer-links a:hover{color:#ffbf00;}
+.legal-copyright{margin:0;color:#a9a9a9;font-size:12px;}
+@media(max-width:700px){.legal-header{padding:24px 22px 6px;}.legal-main{padding:42px 24px 70px;}}
+
+/* Newsletter confirmation page; standalone component styles. */
+.newsletter-thanks-main{display:grid;place-items:center;max-width:850px;min-height:clamp(460px,65svh,720px);margin:0 auto;padding:54px 28px 70px;}
+.newsletter-thanks-panel{width:100%;max-width:550px;text-align:center;}
+.newsletter-thanks-mark{display:block;width:57px;height:57px;margin:0 auto 23px;color:#ffbf00;}
+.newsletter-thanks-mark svg{display:block;width:100%;height:100%;}
+.newsletter-thanks-panel .legal-eyebrow{margin-bottom:18px;}
+.newsletter-thanks-panel h1{margin:0 0 22px;}
+.newsletter-thanks-copy{max-width:450px;margin:0 auto 36px;color:#d3d3d3;font-size:16px;line-height:1.65;}
+.newsletter-thanks-back{display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:13px 20px;border:1px solid #747474;border-radius:0;color:#fff;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.04em;transition:border-color .2s ease,color .2s ease;}
+.newsletter-thanks-back:hover,.newsletter-thanks-back:focus-visible{color:#ffbf00;border-color:#ffbf00;}
+.newsletter-thanks-back span{font-size:20px;font-weight:400;line-height:1;}
+@media(max-width:700px){.newsletter-thanks-main{min-height:60svh;padding:50px 24px 62px;}.newsletter-thanks-copy{font-size:15px;}}

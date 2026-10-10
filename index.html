@@ -11,7 +11,7 @@ if (window.location.hash && window.location.hash !== "#home") {
 </script>
 <title>Madhi Studio | Web Design, Branding, UI &amp; Motion Design</title>
 <meta content="Madhi Studio creates custom websites, branding, interactive UI, icons and motion design for small businesses and distinctive digital projects." name="description"/>
-<meta content="noindex,follow,max-image-preview:large" name="robots"/>
+<meta content="index,follow,max-image-preview:large" name="robots"/>
 <link href="https://madhistudio.com/" rel="canonical"/>
 <meta content="website" property="og:type"/>
 <meta content="Madhi Studio" property="og:site_name"/>
@@ -28,10 +28,11 @@ if (window.location.hash && window.location.hash !== "#home") {
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.cdnfonts.com/css/salonica" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/fontsource/css/shadows-into-light@5.3.0/index.min.css" rel="stylesheet"/>
-<link href="css/home-dark.css?v=20261007-photo-mobile-storyfix-v3" rel="stylesheet"/>
+<link href="css/home-dark.css?v=20261010-feature-repair1" rel="stylesheet"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Madhi Studio","url":"https://madhistudio.com/","email":"info@madhistudio.com","description":"Custom web design, branding, UI design, icons and motion design.","serviceType":["Custom Web Design","Brand Identity and Logo Design","UI Design and Interactive Interfaces","Motion Design and Animation"]}
 </script>
+<link href="css/mobile-site-footer.css?v=20261010-underline-v1" rel="stylesheet"/>
 </head>
 <body class="section-green">
 <div id="site-nav"></div>
@@ -133,7 +134,12 @@ if (window.location.hash && window.location.hash !== "#home") {
 <div class="container">
 <div class="landing-indexed-heading"><span aria-hidden="true" class="landing-section-number">1</span><h2 class="section-title">Branding, Logos &amp; Icons</h2></div>
 <div class="feature-layout">
-<div aria-hidden="true" class="mobile-feature-label">Featured Works</div><article class="desktop-service-sync-feature branding-showcase-card branding-showcase-aerowander">
+<div class="mobile-feature-label"><span class="mobile-feature-label-text">FEATURED WORKS</span>
+<div class="mobile-feature-navigation" aria-label="Branding featured-work navigation">
+<button class="mobile-feature-arrow mobile-feature-arrow-prev" type="button" aria-label="Previous branding project" data-feature-step="-1" hidden></button>
+<span class="mobile-feature-position" aria-live="polite">1 of 3</span>
+<button class="mobile-feature-arrow mobile-feature-arrow-next" type="button" aria-label="Next branding project" data-feature-step="1"></button>
+</div></div><article class="desktop-service-sync-feature branding-showcase-card branding-showcase-aerowander">
 <div class="branding-system-feature-card">
 <div aria-label="Aerowander three-logo system collage" class="branding-system-collage logo-system-three">
 <div class="branding-system-item layout-primary"><span class="branding-system-label">PRIMARY</span><img alt="Aerowander primary logo" src="assets/branding/aerowander-system/01-primary-horizontal.svg"/></div>
@@ -160,7 +166,8 @@ if (window.location.hash && window.location.hash !== "#home") {
 </div>
 <div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Multi-Logo System</h2><div class="portfolio-work-byline">Need a logo that works across different platforms? I can create a coordinated set of logo variations: a full wordmark, a compact version, and a standalone mark, with color treatments suited to light and dark backgrounds. Your identity stays recognizable on websites, brochures, handouts, business cards, and social media accounts.</div><div class="portfolio-work-example">In this featured work, Aerowander uses a coordinated three-logo system—a primary wordmark, an inverse treatment, and a monochrome mark—to stay recognizable across different backgrounds and formats.</div></div>
 </div>
-<div aria-label="Branding featured work. Swipe horizontally to view projects." class="mobile-branding-carousel">
+<div class="mobile-branding-gallery" data-feature-gallery="branding-logos">
+<div aria-label="Branding featured work. Swipe horizontally to view all three projects." class="mobile-branding-carousel" id="mobileBrandingCarousel" tabindex="0">
 <article class="mobile-branding-slide">
 <div aria-label="Aerowander logo system" class="mobile-branding-slide-art mobile-branding-aerowander-art">
 <img alt="Aerowander primary logo" src="assets/branding/aerowander-system/01-primary-horizontal.svg"/>
@@ -170,13 +177,15 @@ if (window.location.hash && window.location.hash !== "#home") {
 <div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Multi-Logo System</h2><div class="portfolio-work-byline">Need a logo that works across different platforms? I can create a coordinated set of logo variations: a full wordmark, a compact version, and a standalone mark, with color treatments suited to light and dark backgrounds. Your identity stays recognizable on websites, brochures, handouts, business cards, and social media accounts.</div><div class="portfolio-work-example">In this featured work, Aerowander uses a coordinated three-logo system—a primary wordmark, an inverse treatment, and a monochrome mark—to stay recognizable across different backgrounds and formats.</div></div>
 </article>
 <article class="mobile-branding-slide">
-<div class="mobile-branding-slide-art"><img alt="Airport Operations Explained logo wordmark" src="assets/branding/aoe-logo-wordmark-mobile.svg"/></div>
+<div class="mobile-branding-slide-art branding-showcase-artwork branding-matched-art"><picture><img alt="Airport Operations Explained logo wordmark" src="assets/branding/aoe-logo-wordmark.svg?v=20261002-type-v9"/></picture></div>
 <div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Animated Brand Graphic</h2><div class="portfolio-work-byline">Want your identity to have a little movement? I can create an animated logo or branded graphic for your website, digital introduction, or presentation. The movement can reveal your name, introduce an idea, or add personality to the first impression your business makes.</div><div class="portfolio-work-example">In this featured work, Airport Operations Explained pairs a playful aviation icon with an animated brand graphic designed to introduce educational content in a friendly, memorable way.</div></div>
 </article>
 <article class="mobile-branding-slide">
-<div class="mobile-branding-slide-art"><img alt="Airport Operations Intelligence logo" src="assets/branding/aoi-logo-mobile.svg"/></div>
+<div class="mobile-branding-slide-art branding-showcase-artwork branding-matched-art"><picture><img alt="Airport Operations Intelligence logo" src="assets/branding/aoi-logo.svg?v=20261002-visible-v3"/></picture></div>
 <div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Corporate Brand Identity</h2><div class="portfolio-work-byline">Need an identity suited to professional audiences? I can develop a restrained logo or monogram, supported by typography and color choices that work across reports, proposals, executive presentations, and your website. The aim is a clear, consistent presence that fits how you do business.</div><div class="portfolio-work-example">In this featured work, Airport Operations Intelligence uses a restrained monogram, typography, and color system to create a professional identity for an aviation data and intelligence concept.</div></div>
 </article>
+</div>
+
 </div>
 <div class="landing-feature-info">
 <h2 class="landing-feature-title">Multi-Logo System</h2>
@@ -190,14 +199,57 @@ if (window.location.hash && window.location.hash !== "#home") {
 <div class="container">
 <div class="landing-indexed-heading"><span aria-hidden="true" class="landing-section-number">2</span><h2 class="section-title">User Interfaces</h2></div>
 <div class="feature-layout">
-<div aria-hidden="true" class="mobile-feature-label">Featured Works</div><article class="desktop-service-sync-feature print-row reveal wanderports-ui-row">
+<div class="mobile-feature-label"><span class="mobile-feature-label-text">FEATURED WORKS</span>
+<div class="mobile-feature-navigation" aria-label="User Interfaces featured-work navigation">
+<button class="mobile-feature-arrow mobile-feature-arrow-prev" type="button" aria-label="Previous User Interfaces project" data-feature-step="-1" hidden></button>
+<span class="mobile-feature-position" aria-live="polite">1 of 3</span>
+<button class="mobile-feature-arrow mobile-feature-arrow-next" type="button" aria-label="Next User Interfaces project" data-feature-step="1"></button>
+</div></div><article class="desktop-service-sync-feature print-row reveal wanderports-ui-row">
 <div class="image-card" id="landingServiceAirportMapTile">
 <iframe allow="fullscreen" allowfullscreen="" class="wanderports-map-frame" loading="eager" src="assets/projects/wanderports/map/index.html?v=20261005-pass4-v1" title="Interactive Airport Network"></iframe>
 <button aria-label="Open Interactive Airport Network full screen" class="map-fullscreen-control" data-map-fullscreen-target="landingServiceAirportMapTile" title="Open full screen" type="button"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M8 4H4v4M16 4h4v4M20 16v4h-4M4 16v4h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></button>
 </div>
 <div class="info-panel wanderports-ui-caption"><div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Interactive Location Map</h2><div class="portfolio-work-byline">Need to show where you operate or help people explore your locations? I can connect a map with labels and location details, so selecting one helps people find the other. This approach can support branch finders, service areas, venue guides, or location-based information.</div><div class="portfolio-work-example">In this featured work, WanderPorts Airport Network connects an interactive world map with airport-code labels so users can locate and explore major U.S. and international airports visually.</div></div></div>
 </article>
+<div class="mobile-service-gallery" data-feature-gallery="ui-icons">
 <div class="mobile-service-swipe">
+<article class="mobile-swipe-slide mobile-swipe-slide-existing">
+<div class="feature-card landing-runway-inspection-card">
+<iframe allow="fullscreen" allowfullscreen="" class="landing-runway-inspection-frame" loading="eager" scrolling="no" src="assets/projects/runway-marking-inspection/runway-marking-inspection.html?v=20261003-viewfinder-v6" title="Runway Marking Inspection interactive prototype"></iframe>
+</div>
+<div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Guided Workflow Interface</h2><div class="portfolio-work-byline">Need to walk people through a process? I can design an interface with step-by-step progress, focused views, and useful controls such as start, pause, and reset. It can help explain inspections, demonstrations, training sequences, or other tasks where people need to understand both the current step and the whole process.</div><div class="portfolio-work-example">In this featured work, an interactive runway inspection prototype uses a moving detailed viewport, a synchronized full-runway overview, and simple controls to guide users through an airfield inspection process. Start, pause, or reset the inspection and follow progress across the runway.</div></div>
+</article>
+<article class="mobile-swipe-slide mobile-only-swipe-slide">
+<div class="mobile-swipe-art mobile-soccer-preview"><div class="soccer-pitch-inline" id="soccerPitchInline"><svg class="soccer-pitch-svg soccer-pitch-svg-mobile" height="493" viewbox="0 0 277 493" width="277" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="48" id="grassMobile" patternunits="userSpaceOnUse" width="277">
+<rect fill="#39b85a" height="24" width="277" x="0" y="0"></rect>
+<rect fill="#34b256" height="24" width="277" x="0" y="24"></rect>
+</pattern>
+</defs>
+<rect fill="url(#grassMobile)" height="493" width="277"></rect>
+<g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" transform="translate(-4 0)">
+<line x1="15" x2="270" y1="16" y2="16"></line>
+<line x1="15" x2="270" y1="477" y2="477"></line>
+<line x1="15" x2="15" y1="16" y2="477"></line>
+<line x1="270" x2="270" y1="16" y2="477"></line>
+<line x1="15" x2="270" y1="246.5" y2="246.5"></line>
+<circle cx="142.5" cy="246.5" r="30"></circle>
+<circle cx="142.5" cy="246.5" fill="#ffffff" r="1.4" stroke="none"></circle>
+<rect height="54" width="119" x="85" y="16"></rect>
+<rect height="20" width="59" x="115" y="16"></rect>
+<rect height="7" width="28" x="128.5" y="9"></rect>
+<circle cx="142.5" cy="52" fill="#ffffff" r="1.4" stroke="none"></circle>
+<path d="M122 70 A24 24 0 0 1 163 70"></path>
+<rect height="54" width="119" x="85" y="423"></rect>
+<rect height="20" width="59" x="115" y="457"></rect>
+<rect height="7" width="28" x="128.5" y="477"></rect>
+<circle cx="142.5" cy="441" fill="#ffffff" r="1.4" stroke="none"></circle>
+<path d="M122 423 A24 24 0 0 0 163 423"></path>
+</g>
+</svg></div></div><div class="mobile-soccer-controls"><button type="button" id="soccerPitchStartButton">Blow Whistle</button></div>
+<div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Interactive Visual Diagram</h2><div class="portfolio-work-byline">Need people to explore an arrangement or understand a plan? I can create a responsive diagram with selectable elements, clear labels, and visual feedback. The same approach can support room layouts, team structures, equipment diagrams, or other information that is easier to understand visually.</div><div class="portfolio-work-example">In this featured work, Interactive Soccer Pitch turns a field layout into a responsive visual diagram that can support positions, formations, and selectable information.</div></div>
+</article>
 <article class="mobile-swipe-slide mobile-swipe-slide-existing mobile-wanderports-slide">
 <div class="feature-card landing-airport-network-card" id="landingAirportMapTile">
 <button aria-label="Open Interactive Airport Network full screen" class="map-fullscreen-control map-fullscreen-control-under-dogear" data-map-fullscreen-target="landingAirportMapTile" title="Open full screen" type="button">
@@ -209,25 +261,12 @@ if (window.location.hash && window.location.hash !== "#home") {
 </div>
 <div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Interactive Location Map</h2><div class="portfolio-work-byline">Need to show where you operate or help people explore your locations? I can connect a map with labels and location details, so selecting one helps people find the other. This approach can support branch finders, service areas, venue guides, or location-based information.</div><div class="portfolio-work-example">In this featured work, WanderPorts Airport Network connects an interactive world map with airport-code labels so users can locate and explore major U.S. and international airports visually.</div></div>
 </article>
-<article class="mobile-swipe-slide mobile-swipe-slide-existing">
-<div class="feature-card landing-runway-inspection-card">
-<iframe allow="fullscreen" allowfullscreen="" class="landing-runway-inspection-frame" loading="eager" scrolling="no" src="assets/projects/runway-marking-inspection/runway-marking-inspection.html?v=20261003-viewfinder-v6" title="Runway Marking Inspection interactive prototype"></iframe>
 </div>
-<div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Guided Workflow Interface</h2><div class="portfolio-work-byline">Need to walk people through a process? I can design an interface with step-by-step progress, focused views, and useful controls such as start, pause, and reset. It can help explain inspections, demonstrations, training sequences, or other tasks where people need to understand both the current step and the whole process.</div><div class="portfolio-work-example">In this featured work, Runway Marking Inspection uses a moving detailed viewport, a synchronized full-runway overview, and simple controls to guide users through an inspection process.</div></div>
-</article>
-<article class="mobile-swipe-slide mobile-only-swipe-slide">
-<div class="mobile-swipe-art mobile-soccer-preview">
-<svg aria-label="Interactive Soccer Pitch preview" viewbox="0 0 277 493" xmlns="http://www.w3.org/2000/svg">
-<defs><pattern height="48" id="landingGrassMobile" patternunits="userSpaceOnUse" width="277"><rect fill="#39b85a" height="24" width="277"></rect><rect fill="#34b256" height="24" width="277" y="24"></rect></pattern></defs>
-<rect fill="url(#landingGrassMobile)" height="493" width="277"></rect><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" transform="translate(-4 0)"><line x1="15" x2="270" y1="16" y2="16"></line><line x1="15" x2="270" y1="477" y2="477"></line><line x1="15" x2="15" y1="16" y2="477"></line><line x1="270" x2="270" y1="16" y2="477"></line><line x1="15" x2="270" y1="246.5" y2="246.5"></line><circle cx="142.5" cy="246.5" r="30"></circle><circle cx="142.5" cy="246.5" fill="#fff" r="1.4" stroke="none"></circle><rect height="54" width="119" x="85" y="16"></rect><rect height="20" width="59" x="115" y="16"></rect><rect height="7" width="28" x="128.5" y="9"></rect><circle cx="142.5" cy="52" fill="#fff" r="1.4" stroke="none"></circle><path d="M122 70 A24 24 0 0 1 163 70"></path><rect height="54" width="119" x="85" y="423"></rect><rect height="20" width="59" x="115" y="457"></rect><rect height="7" width="28" x="128.5" y="477"></rect><circle cx="142.5" cy="441" fill="#fff" r="1.4" stroke="none"></circle><path d="M122 423 A24 24 0 0 0 163 423"></path></g></svg>
-</div>
-<div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Interactive Visual Diagram</h2><div class="portfolio-work-byline">Need people to explore an arrangement or understand a plan? I can create a responsive diagram with selectable elements, clear labels, and visual feedback. The same approach can support room layouts, team structures, equipment diagrams, or other information that is easier to understand visually.</div><div class="portfolio-work-example">In this featured work, Interactive Soccer Pitch turns a field layout into a responsive visual diagram that can support positions, formations, and selectable information.</div></div>
-</article>
+
 </div>
 <div class="landing-feature-info wanderports-ui-caption">
 <h2 class="landing-feature-title">WanderPorts Airport Network</h2>
 <p class="desktop-ui-feature-copy">An interactive airport network visualization combining major U.S. and international airport locations, airport-code cross-highlighting, and visual airport browsing. Hover airport dots or airport codes to cross-highlight locations. The streamlined demo uses 10 U.S. and 10 international airports; hover the image reel to pause it.</p>
-<p class="mobile-ui-feature-copy">An interactive runway inspection prototype with a moving detailed viewport and synchronized full-runway overview. Start, pause, or reset the inspection and follow progress across the runway.</p>
 <a class="btn section-action landing-feature-explore" href="design/ui-icons.html">Explore More User Interfaces</a>
 </div>
 </div>
@@ -238,10 +277,16 @@ if (window.location.hash && window.location.hash !== "#home") {
 <div class="container">
 <div class="landing-indexed-heading"><span aria-hidden="true" class="landing-section-number">3</span><h2 class="section-title">Motion Graphics</h2></div>
 <div class="feature-layout">
-<div aria-hidden="true" class="mobile-feature-label">Featured Works</div><article class="desktop-service-sync-feature print-row reveal madhi-hero-row">
+<div class="mobile-feature-label"><span class="mobile-feature-label-text">FEATURED WORKS</span>
+<div class="mobile-feature-navigation" aria-label="Motion Graphics featured-work navigation">
+<button class="mobile-feature-arrow mobile-feature-arrow-prev" type="button" aria-label="Previous Motion Graphics project" data-feature-step="-1" hidden></button>
+<span class="mobile-feature-position" aria-live="polite">1 of 4</span>
+<button class="mobile-feature-arrow mobile-feature-arrow-next" type="button" aria-label="Next Motion Graphics project" data-feature-step="1"></button>
+</div></div><article class="desktop-service-sync-feature print-row reveal madhi-hero-row">
 <div class="image-card madhi-hero-card"><iframe class="madhi-hero-frame" data-activation-src="assets/motion/madhi-hero.html?v=20261007-landing1&amp;landing=1" loading="eager" src="about:blank" title="Madhi Studio animated landing hero"></iframe></div>
 <div class="info-panel"><div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Animated Hero Message</h2><div class="portfolio-work-byline">Need an opening that feels more distinctive? I can combine moving text and timed reveals to introduce your offer and lead into your call to action. The words remain central, with motion helping establish the pace and personality.</div><div class="portfolio-work-example">In this featured work, a copywriting-company hero uses timed typography and animated reveals to introduce the message, establish pacing, and guide attention toward the call to action.</div></div></div>
 </article>
+<div class="mobile-service-gallery" data-feature-gallery="motion-graphics">
 <div class="mobile-service-swipe">
 <article class="mobile-swipe-slide mobile-swipe-slide-existing">
 <div class="feature-card">
@@ -379,6 +424,8 @@ if (window.location.hash && window.location.hash !== "#home") {
 <article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-iframe-art"><iframe loading="lazy" src="assets/motion/taxi-plane.html?v=20260930-amplified-v3" title="Taxi Plane preview"></iframe></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Animated Process Graphic</h2><div class="portfolio-work-byline">Need to show how something moves or works? I can animate a path, sequence, or operation to make the process easier to follow. This can support a service explanation, a workflow overview, or a training presentation.</div><div class="portfolio-work-example">In this featured work, Taxi Plane animates an aircraft along a taxiway to demonstrate movement, sequencing, and spatial relationships in a simple visual process.</div></div></article>
 <article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-image-art"><img alt="Airport Operations Explained learning concept" src="assets/ui/aoe-explainers-games-activities.svg?v=20260919-6"/></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Animated Explainer</h2><div class="portfolio-work-byline">Need to make an unfamiliar subject approachable? I can use simple visuals, labels, and animation to break an idea into understandable parts. The approach can support product introductions, educational content, or explanations of a service.</div><div class="portfolio-work-example">In this featured work, Airport Operations Explained uses simple illustrations and animation to break aviation concepts into approachable, age-friendly learning moments.</div></div></article>
 </div>
+
+</div>
 <div class="landing-feature-info">
 <span class="landing-feature-kicker">FEATURED</span>
 <h2 class="landing-feature-title">Interactive Turntable</h2>
@@ -393,23 +440,31 @@ if (window.location.hash && window.location.hash !== "#home") {
 <div class="container">
 <div class="landing-indexed-heading"><span aria-hidden="true" class="landing-section-number">4</span><h2 class="section-title">Websites &amp; Landing Pages</h2></div>
 <div class="feature-layout">
-<div aria-hidden="true" class="mobile-feature-label">Featured Works</div><article class="desktop-service-sync-feature print-row reveal web-feature-row has-tight-info">
+<div class="mobile-feature-label"><span class="mobile-feature-label-text">FEATURED WORKS</span>
+<div class="mobile-feature-navigation" aria-label="Web Design featured-work navigation">
+<button class="mobile-feature-arrow mobile-feature-arrow-prev" type="button" aria-label="Previous Web Design project" data-feature-step="-1" hidden></button>
+<span class="mobile-feature-position" aria-live="polite">1 of 2</span>
+<button class="mobile-feature-arrow mobile-feature-arrow-next" type="button" aria-label="Next Web Design project" data-feature-step="1"></button>
+</div></div><article class="desktop-service-sync-feature print-row reveal web-feature-row has-tight-info">
 <div class="image-card web-preview-card landing-web-preview-card"><div class="landing-web-preview-wrap"><div class="landing-web-preview-shell"><iframe class="landing-web-preview" loading="eager" src="assets/projects/airport-photo-hub/index.html?demo=3&amp;v=20261005-pass11-v1" title="Airport Photo Hub landing page preview"></iframe></div></div></div>
 <div class="info-panel"><div class="portfolio-work-caption"><h2 class="portfolio-work-heading">Portfolio &amp; Collection Website</h2><div class="portfolio-work-byline">Need a clear way to present a body of work or a collection? I can organize your images, projects, or products into categories with useful navigation and responsive layouts. Visitors can explore what interests them and find the details that help them take the next step.</div><div class="portfolio-work-example">In this featured work, the aviation-focused website Airport Photo Hub boasts a responsive photography storefront concept organizing airport imagery into clear Airside, Terminal, Landside, and Other collections.</div></div><a aria-label="Open Airport Photo Hub landing-page preview in a new tab" class="preview-popout" href="assets/projects/airport-photo-hub/index.html" rel="noopener" target="_blank" title="Open in new tab"><svg aria-hidden="true" class="external-link-icon" focusable="false" viewbox="0 0 32 32"><path class="external-link-frame" d="M13 5H5v22h22v-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path><path class="external-link-arrow" d="M18 5h9v9M27 5 14 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg></a></div>
 </article>
+<div class="mobile-service-gallery" data-feature-gallery="web-design">
 <div class="mobile-service-swipe">
 <article class="mobile-swipe-slide mobile-swipe-slide-existing">
 <div class="feature-card image-card web-preview-card landing-web-preview-card">
 <a aria-label="Open Airport Photo Hub landing-page preview in a new tab" class="landing-preview-popout-mobile" href="assets/projects/airport-photo-hub/index.html" rel="noopener" target="_blank" title="Open in new tab"><svg aria-hidden="true" class="external-link-icon" focusable="false" viewbox="0 0 32 32"><path class="external-link-frame" d="M13 5H5v22h22v-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path><path class="external-link-arrow" d="M18 5h9v9M27 5 14 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg></a>
 <div class="landing-web-preview-wrap">
 <div class="landing-web-preview-shell">
-<iframe class="landing-web-preview" loading="eager" scrolling="no" src="assets/projects/airport-photo-hub/index.html?demo=3&amp;v=20261005-pass16-v1" title="Airport Photo Hub landing page preview"></iframe>
+<iframe class="landing-web-preview" loading="eager" scrolling="yes" src="assets/projects/airport-photo-hub/index.html?demo=3&amp;v=20261007-mobile-logo-v1" title="Airport Photo Hub landing page preview"></iframe>
 </div>
 </div>
 </div>
 <div class="mobile-swipe-caption portfolio-work-caption"><div class="mobile-swipe-title-row"><h2 class="portfolio-work-heading">Portfolio &amp; Collection Website</h2></div><div class="portfolio-work-byline">Need a clear way to present a body of work or a collection? I can organize your images, projects, or products into categories with useful navigation and responsive layouts. Visitors can explore what interests them and find the details that help them take the next step.</div><div class="portfolio-work-example">In this featured work, the aviation-focused website Airport Photo Hub boasts a responsive photography storefront concept organizing airport imagery into clear Airside, Terminal, Landside, and Other collections.</div></div>
 </article>
-<article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-web-preview-art"><iframe loading="lazy" src="assets/projects/offside-observer/index.html?demo=3&amp;v=20261005-pass15-v1" title="Offside Observer landing page preview"></iframe></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Focused Editorial Landing Page</h2><div class="portfolio-work-byline">Need to introduce a publication, showcase selected stories, or put a few key messages in front of visitors? I can create a focused landing page with a strong identity and a clear content hierarchy. The layout brings your most important material forward and guides people toward reading more, contacting you, or exploring your offer.</div><div class="portfolio-work-example">In this featured work, Offside Observer uses a focused editorial landing page with a strong visual identity and a clear hierarchy for featured football stories.</div></div></article>
+<article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-web-preview-art"><a aria-label="Open Offside Observer landing-page preview in a new tab" class="landing-preview-popout-mobile" href="assets/projects/offside-observer/index.html" rel="noopener" target="_blank" title="Open in new tab"><svg aria-hidden="true" class="external-link-icon" focusable="false" viewbox="0 0 32 32"><path class="external-link-frame" d="M13 5H5v22h22v-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path><path class="external-link-arrow" d="M18 5h9v9M27 5 14 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path></svg></a><iframe loading="lazy" scrolling="yes" src="assets/projects/offside-observer/index.html?demo=3&amp;v=20261007-mobile-logo-v1" title="Offside Observer landing page preview"></iframe></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Focused Editorial Landing Page</h2><div class="portfolio-work-byline">Need to introduce a publication, showcase selected stories, or put a few key messages in front of visitors? I can create a focused landing page with a strong identity and a clear content hierarchy. The layout brings your most important material forward and guides people toward reading more, contacting you, or exploring your offer.</div><div class="portfolio-work-example">In this featured work, Offside Observer uses a focused editorial landing page with a strong visual identity and a clear hierarchy for featured football stories.</div></div></article>
+</div>
+
 </div>
 <div class="landing-feature-info">
 <h2 class="landing-feature-title">Airport Photo Hub</h2>
@@ -424,7 +479,13 @@ if (window.location.hash && window.location.hash !== "#home") {
 <div class="container">
 <div class="landing-indexed-heading"><span aria-hidden="true" class="landing-section-number">5</span><h2 class="section-title">Photography</h2></div>
 <div class="feature-layout">
-<div aria-hidden="true" class="mobile-feature-label">Featured Works</div>
+<div class="mobile-feature-label"><span class="mobile-feature-label-text">FEATURED WORKS</span>
+<div class="mobile-feature-navigation" aria-label="Photography featured-work navigation">
+<button class="mobile-feature-arrow mobile-feature-arrow-prev" type="button" aria-label="Previous Photography project" data-feature-step="-1" hidden></button>
+<span class="mobile-feature-position" aria-live="polite">1 of 6</span>
+<button class="mobile-feature-arrow mobile-feature-arrow-next" type="button" aria-label="Next Photography project" data-feature-step="1"></button>
+</div></div>
+<div class="mobile-service-gallery" data-feature-gallery="photography">
 <div class="mobile-service-swipe">
 <article class="mobile-swipe-slide mobile-swipe-slide-existing">
 <div class="feature-card photography-feature-card">
@@ -442,6 +503,8 @@ if (window.location.hash && window.location.hash !== "#home") {
 <article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-photo-art"><img alt="Road Trip with Road Dog" src="assets/photography/road-trip-with-road-dog.webp"/></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">Road Trip with Road Dog</h2><div class="portfolio-work-byline">People</div></div></article>
 <article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-photo-art"><img alt="A Shadow Never Gone" src="assets/photography/a-shadow-never-gone.webp"/></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">A Shadow Never Gone</h2><div class="portfolio-work-byline">Street</div></div></article>
 <article class="mobile-swipe-slide mobile-only-swipe-slide"><div class="mobile-swipe-art mobile-photo-art"><img alt="The Far Side of Calm" src="assets/photography/the-far-side-of-calm.webp"/></div><div class="mobile-swipe-caption portfolio-work-caption"><h2 class="portfolio-work-heading">The Far Side of Calm</h2><div class="portfolio-work-byline">Travel</div></div></article>
+</div>
+
 </div>
 <div class="landing-feature-info"><h2 class="landing-feature-title">Photography That Supports Your Message</h2><p class="feature-description desktop-feature-copy">The right photograph can establish a mood, suggest a story, and make a page feel distinctive. I can help select imagery from my portfolio and shape its crop, placement, and supporting words around your business and layout.</p><a class="btn section-action landing-feature-explore" href="design/photography.html">Explore More Photography</a></div>
 </div>
@@ -585,6 +648,6 @@ if (window.location.hash && window.location.hash !== "#home") {
 </footer>
 </section>
 </main>
-<script src="js/site.js?v=20261007-explore-more-v1"></script>
+<script src="js/site.js?v=20261010-feature-repair1"></script>
 </body>
 </html>
