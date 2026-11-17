@@ -32,7 +32,8 @@ if (window.location.hash && window.location.hash !== "#home") {
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Madhi Studio","url":"https://madhistudio.com/","email":"info@madhistudio.com","description":"Custom web design, branding, UI design, icons and motion design.","serviceType":["Custom Web Design","Brand Identity and Logo Design","UI Design and Interactive Interfaces","Motion Design and Animation"]}
 </script>
-<link href="css/mobile-site-footer.css?v=20261010-underline-v1" rel="stylesheet"/>
+<link href="css/mobile-site-footer.css?v=20261115-consistent-rail-v5" rel="stylesheet"/>
+<link href="css/contact-booking.css?v=20261116-v9-spacing" rel="stylesheet"/>
 </head>
 <body class="section-green">
 <div id="site-nav"></div>
@@ -589,6 +590,13 @@ if (window.location.hash && window.location.hash !== "#home") {
 <input name="_subject" type="hidden" value="Madhi Studio — Project Brief"/>
 <input name="_template" type="hidden" value="table"/>
 <input aria-hidden="true" autocomplete="off" class="contact-honeypot" name="_honey" tabindex="-1" type="text"/>
+<div class="madhi-contact-tabs" role="tablist" aria-label="Contact options">
+<button id="madhiInquiryTab" class="madhi-contact-tab" type="button" role="tab" aria-selected="true" aria-controls="madhiFormBody" data-contact-mode="inquiry">Send an inquiry.</button>
+<button id="madhiMeetingTab" class="madhi-contact-tab" type="button" role="tab" aria-selected="false" aria-controls="madhiMeetingPicker madhiFormBody" data-contact-mode="meeting">Schedule a meeting.</button>
+</div>
+<div class="madhi-contact-layout">
+<div class="madhi-inquiry-column">
+<div id="madhiFormBody" class="madhi-form-body">
 <div class="contact-form-grid">
 <label class="contact-field">
 <span class="contact-field-label">Name</span>
@@ -630,11 +638,70 @@ if (window.location.hash && window.location.hash !== "#home") {
 </div>
 </div>
 </div>
+
+</div>
 <div class="contact-form-actions">
 <button class="btn contact-submit" type="submit">Submit</button>
 <span aria-live="polite" class="contact-form-status" id="briefFormStatus"></span>
 <p class="contact-email-note contact-email-note-below-submit">Prefer email?<br/><a href="mailto:info@madhistudio.com">info@madhistudio.com</a></p>
 </div>
+</div><!-- /.madhi-inquiry-column -->
+<aside class="madhi-meeting-panel" id="madhiMeetingPanel" aria-label="Meeting options" hidden>
+<div id="madhiMeetingPicker" class="madhi-meeting-picker" aria-label="Meeting types and available lengths" hidden>
+<p class="madhi-picker-intro">Choose a meeting and preferred length.</p>
+<div class="madhi-meeting-selection-grid">
+<div class="madhi-meeting-choices">
+<div class="madhi-meeting-choice" data-meeting="discovery">
+<button type="button" class="madhi-meeting-select" aria-pressed="false" data-meeting-select="discovery"><strong>Madhi Studio Discovery Call</strong><span>A discussion of the business or project's needs, scope and understanding.</span></button>
+
+</div>
+<div class="madhi-meeting-choice" data-meeting="inperson">
+<button type="button" class="madhi-meeting-select" aria-pressed="false" data-meeting-select="inperson"><strong>In-person meeting</strong><span>Discuss opportunities, partnerships and shared priorities.</span></button>
+
+</div>
+<div class="madhi-meeting-choice" data-meeting="partnership">
+<button type="button" class="madhi-meeting-select" aria-pressed="false" data-meeting-select="partnership"><strong>Partnership &amp; Opportunity Review</strong><span>Explore business opportunities, contracts, and long-term value creation.</span></button>
+
+</div>
+<div class="madhi-meeting-choice" data-meeting="review">
+<button type="button" class="madhi-meeting-select" aria-pressed="false" data-meeting-select="review"><strong>Client Review &amp; Next Steps Meeting</strong><span>Review progress, align priorities, and agree on actionable next steps.</span></button>
+
+</div>
+</div>
+<div class="madhi-duration-rail" role="group" aria-label="Meeting length">
+<button type="button" data-minutes="15" aria-label="15 minutes" aria-pressed="false" disabled><svg class="madhi-clock-face" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect class="madhi-clock-background" width="64" height="64" rx="0"/><g class="madhi-clock-segment"><path d="M32 32V0H64V32Z"/></g></svg><span class="madhi-clock-label" aria-hidden="true">15m</span></button>
+<button type="button" data-minutes="30" aria-label="30 minutes" aria-pressed="false" disabled><svg class="madhi-clock-face" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect class="madhi-clock-background" width="64" height="64" rx="0"/><g class="madhi-clock-segment"><path d="M32 0H64V64H32Z"/></g></svg><span class="madhi-clock-label" aria-hidden="true">30m</span></button>
+<button type="button" data-minutes="45" aria-label="45 minutes" aria-pressed="false" disabled><svg class="madhi-clock-face" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect class="madhi-clock-background" width="64" height="64" rx="0"/><g class="madhi-clock-segment"><path d="M32 0H64V64H0V32H32Z"/></g></svg><span class="madhi-clock-label" aria-hidden="true">45m</span></button>
+<button type="button" data-minutes="60" aria-label="60 minutes" aria-pressed="false" disabled><svg class="madhi-clock-face" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect class="madhi-clock-background" width="64" height="64" rx="0"/><g class="madhi-clock-segment"><rect x="0" y="0" width="64" height="64"/></g></svg><span class="madhi-clock-label" aria-hidden="true">60m</span></button>
+</div>
+</div>
+</div>
+<aside class="madhi-booking-fields" id="madhiBookingFields" aria-label="Meeting request details" hidden>
+<input id="briefMeetingType" name="meetingType" type="hidden" disabled="disabled" />
+<input id="briefMeetingDuration" name="meetingDuration" type="hidden" disabled />
+<div class="madhi-booking-datetime">
+<div class="madhi-booking-field madhi-booking-date-field">
+<label for="madhiDateTrigger">Preferred Date *</label>
+<div class="madhi-date-control">
+<input id="briefMeetingDate" name="meetingDate" type="date" required disabled tabindex="-1" aria-hidden="true" class="madhi-date-native" />
+<button id="madhiDateTrigger" type="button" class="madhi-date-trigger" aria-haspopup="dialog" aria-controls="madhiDateCalendar" aria-expanded="false" aria-label="Choose preferred meeting date"><span id="madhiDateValue">mm/dd/yyyy</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="15" rx="0"/><path d="M7 3v5M17 3v5M3.5 10.5h17"/></svg></button>
+<div id="madhiDateCalendar" class="madhi-calendar" role="dialog" aria-label="Choose preferred meeting date" hidden>
+<div class="madhi-calendar-head"><button type="button" class="madhi-calendar-nav" data-calendar-move="-1" aria-label="Previous month">‹</button><span class="madhi-calendar-month" id="madhiCalendarMonth"></span><button type="button" class="madhi-calendar-nav" data-calendar-move="1" aria-label="Next month">›</button></div>
+<div class="madhi-calendar-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+<div class="madhi-calendar-days" id="madhiCalendarDays" role="grid" aria-label="Days of month"></div>
+<div class="madhi-calendar-foot"><button type="button" id="madhiCalendarClear">Clear</button></div>
+</div>
+</div>
+</div>
+<label class="madhi-booking-field" for="briefMeetingTime"><span>Time (Eastern Time) *</span><input id="briefMeetingTime" name="meetingTime" type="time" required disabled /></label>
+</div>
+<label class="madhi-booking-field" for="briefMeetingInterest"><span>Area of Interest</span><select id="briefMeetingInterest" name="meetingInterest" disabled><option value="General Discussion">General Discussion</option><option>Branding, Logos &amp; Icons</option><option>User Interfaces</option><option>Motion Graphics</option><option>Websites &amp; Landing Pages</option><option>Photography</option><option>Copywriting</option><option>Multiple areas</option></select></label>
+<label class="madhi-booking-field" for="briefMeetingNotes"><span>Additional Details</span><textarea id="briefMeetingNotes" name="meetingNotes" maxlength="1500" rows="2" placeholder="Anything helpful before we meet?" disabled></textarea></label>
+
+</aside>
+<div class="madhi-meeting-actions"><button class="btn contact-submit madhi-meeting-submit" type="submit">Submit</button><p class="madhi-meeting-disclaimer"><span>Preferred times are requests, not confirmed bookings.</span><span>I'll reply to arrange the meeting.</span></p></div>
+</aside><!-- /.madhi-meeting-panel -->
+</div><!-- /.madhi-contact-layout -->
 </form>
 </div>
 <div aria-hidden="true" class="contact-success-popup" id="contactSuccessPopup" role="status">
@@ -648,6 +715,7 @@ if (window.location.hash && window.location.hash !== "#home") {
 </footer>
 </section>
 </main>
-<script src="js/site.js?v=20261010-feature-repair1"></script>
+<script src="js/site.js?v=20261116-dual-submit-v1"></script>
+<script src="js/contact-booking.js?v=20261116-v6"></script>
 </body>
 </html>

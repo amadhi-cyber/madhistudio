@@ -470,7 +470,7 @@ if (projectBriefForm) {
   const validationFields = [...projectBriefForm.querySelectorAll(
     'input:not([type="hidden"]):not([type="file"]), select, textarea'
   )];
-  const submitButton = projectBriefForm.querySelector('.contact-submit');
+  const submitButtons = [...projectBriefForm.querySelectorAll('.contact-submit')];
   let selectedAttachments = [];
   let successTimer = 0;
 
@@ -673,6 +673,11 @@ if (projectBriefForm) {
 
   projectBriefForm.addEventListener('submit', async event => {
     event.preventDefault();
+    if (projectBriefForm.dataset.contactMode === 'meeting' && !document.getElementById('briefMeetingType')?.value) {
+      if (briefFormStatus) briefFormStatus.textContent = 'Please choose a meeting and preferred length.';
+      document.querySelector('#madhiMeetingPicker .madhi-meeting-select')?.focus();
+      return;
+    }
     validationFields.forEach(field => updateBriefFieldState(field, { force: true }));
 
     if (!projectBriefForm.checkValidity()) {
@@ -682,12 +687,21 @@ if (projectBriefForm) {
     }
 
     if (briefFormStatus) briefFormStatus.textContent = 'Sending…';
-    if (submitButton) submitButton.disabled = true;
+    submitButtons.forEach(button => { button.disabled = true; });
 
     const formData = new FormData(projectBriefForm);
     formData.delete('attachment');
     selectedAttachments.forEach(file => formData.append('attachment', file, file.name));
     formData.append('project_brief', buildProjectBrief());
+    if (projectBriefForm.dataset.contactMode === 'meeting') {
+      formData.append('meeting_request_summary', [
+        `Meeting: ${document.getElementById('briefMeetingType')?.value || ''}`,
+        `Duration: ${document.getElementById('briefMeetingDuration')?.value || ''} minutes`,
+        `Preferred date: ${document.getElementById('briefMeetingDate')?.value || ''}`,
+        `Preferred time: ${document.getElementById('briefMeetingTime')?.value || ''} Eastern Time`,
+        'Status: Request only; not a confirmed booking.'
+      ].join('\n'));
+    }
 
     try {
       const response = await fetch('https://formsubmit.co/ajax/info@madhistudio.com', {
@@ -702,6 +716,7 @@ if (projectBriefForm) {
       if (briefFormStatus) briefFormStatus.textContent = '';
       showSuccessPopup();
       projectBriefForm.reset();
+      document.dispatchEvent(new CustomEvent('madhi:contact-form-sent'));
       validationFields.forEach(field => {
         delete field.dataset.validationExited;
         field.closest('.contact-field')?.classList.remove('is-valid');
@@ -713,7 +728,7 @@ if (projectBriefForm) {
     } catch (error) {
       if (briefFormStatus) briefFormStatus.textContent = 'Unable to send. Please email info@madhistudio.com directly.';
     } finally {
-      if (submitButton) submitButton.disabled = false;
+      submitButtons.forEach(button => { button.disabled = false; });
     }
   });
 
@@ -1841,10 +1856,9 @@ function preserveMobileDisclosureAnchor(anchor, update) {
   else setupApproachArrowSequence();
 })();
 
-/* Mobile-only newsletter signup and footer legal navigation. */
+/* Shared newsletter signup and legal navigation for the home and legal pages. */
 function installStudioMobileFooter() {
-  const footer = document.querySelector('html[data-page="home"] .cta-footer')
-    || document.querySelector('#site-footer .cta-footer');
+  const footer = document.querySelector('html[data-page="home"] .contact-form-viewport .cta-footer, html.madhi-legal-page .cta-footer, html[data-page="service"] #site-footer .cta-footer');
   const inner = footer?.querySelector('.footer-inner');
   if (!inner || inner.querySelector('.studio-footer-extras')) return;
   const extras = document.createElement('div');
@@ -1872,12 +1886,7 @@ function installStudioMobileFooter() {
         </div>
         <p class="studio-newsletter-note"><span>Occasional creative updates when we're ready.</span><span>Unsubscribe any time.</span></p>
       </form>
-    </section>
-    <nav class="studio-footer-links" aria-label="Legal information">
-      <a href="${linkTo('privacy.html')}">Privacy Policy</a>
-      <a href="${linkTo('cookies.html')}">Cookies</a>
-      <a href="${linkTo('terms.html')}">Terms of Service</a>
-    </nav>`;
+    </section>`;
   extras.querySelector('input[name="_autoresponse"]').value = [
     'Thanks for joining the Madhi Studio mailing list.',
     '',
@@ -1896,6 +1905,41 @@ function installStudioMobileFooter() {
     'https://madhistudio.com'
   ].join('\n');
   inner.prepend(extras);
+  const links = document.createElement('nav');
+  links.className = 'studio-footer-links';
+  links.setAttribute('aria-label', 'Legal information');
+  links.innerHTML = `
+    <a href="${linkTo('cookies.html')}">Cookies</a>
+    <a href="${linkTo('privacy.html')}">Privacy Policy</a>
+    <a href="${linkTo('terms.html')}">Terms of Service</a>`;
+  inner.insertBefore(links, inner.querySelector('.footer-main'));
+
+  // Match the newsletter rail to the actual desktop logo edge, regardless
+  // of the different footer padding used by the home and service pages.
+  const alignNewsletterRail = () => {
+    if (window.innerWidth <= 700) {
+      extras.style.removeProperty('--studio-newsletter-left');
+      return;
+    }
+    const logo = document.querySelector('.site-nav-global .logo img');
+    const logoX = logo?.getClientRects().length ? logo.getBoundingClientRect().left : 0;
+    const innerX = inner.getBoundingClientRect().left;
+    extras.style.setProperty('--studio-newsletter-left', `${(logoX - innerX).toFixed(2)}px`);
+  };
+  alignNewsletterRail();
+  window.addEventListener('resize', alignNewsletterRail, { passive: true });
+  document.fonts?.ready?.then(alignNewsletterRail).catch(() => {});
+
+  // Pulse the signup arrow only while this block is in the viewport.
+  const newsletter = extras.querySelector('.studio-footer-newsletter');
+  if (newsletter && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => newsletter.classList.toggle('is-in-view', entry.isIntersecting));
+    }, { threshold: 0.05 });
+    observer.observe(newsletter);
+  } else {
+    newsletter?.classList.add('is-in-view');
+  }
 }
 
 /* Native swiping + photo-gallery triangle navigation for each existing mobile featured-work deck. */

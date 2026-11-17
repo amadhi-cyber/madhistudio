@@ -153,3 +153,124 @@ html.madhi-legal-page .legal-copyright{margin:0;color:#d3d3d3;font-size:12px;}
   }
   html.madhi-legal-page .legal-footer{background:transparent;}
 }
+
+/* Legal content: one consistent service-caption style on all three pages.
+   The date is outside the text grid; columns read from top to bottom. */
+html.madhi-legal-page .legal-main .legal-content :is(.legal-lede,p,li){
+  color:#C4C4C4;
+  font:400 15.6px/1.45 "Inter",Arial,sans-serif;
+}
+html.madhi-legal-page .legal-main .legal-content section h2{
+  margin:0 0 4px;
+  color:#FFBF00;
+  font:600 15.6px/1.45 "Inter",Arial,sans-serif;
+  text-decoration:none;
+}
+html.madhi-legal-page .legal-main .legal-content section{
+  margin:0 0 22px;
+}
+html.madhi-legal-page .legal-main .legal-content section p{
+  margin:0;
+}
+html.madhi-legal-page .legal-main .legal-content .legal-lede{
+  margin:0 0 24px;
+}
+
+@media (min-width:701px){
+  html.madhi-legal-page .legal-main{
+    width:100%;max-width:none;margin:0;padding:0 0 10px;
+  }
+  /* Keep the complete legal text and the shared bottom rails in one desktop viewport. */
+  html.madhi-legal-page .legal-main .legal-content section{
+    margin-bottom:10px;
+  }
+  html.madhi-legal-page .legal-main h1{
+    position:relative;top:20px;left:16px;
+    width:calc(100% - 32px);max-width:calc(100vw - 32px);
+    margin:0;padding:0;color:#ffbf00;
+    font-family:"Londrina Outline",sans-serif;
+    font-size:57.6px;font-weight:400;line-height:1;letter-spacing:0;
+    -webkit-text-stroke:1px currentColor;
+    text-shadow:0 0 6.3px rgba(255,191,0,.48),0 0 12.6px rgba(255,191,0,.18);
+  }
+  html.madhi-legal-page .legal-main .legal-updated{
+    width:calc(100% - 64px);max-width:850px;
+    margin:37px auto 10px;
+    color:#979797;
+    font:400 13px/1.4 "Inter",Arial,sans-serif;
+  }
+  html.madhi-legal-page .legal-main .legal-content{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    column-gap:0;
+    align-items:stretch;
+    width:calc(100% - 64px);max-width:850px;
+    margin:0 auto;
+    padding:0;
+    font-family:"Inter",Arial,sans-serif;
+  }
+  html.madhi-legal-page .legal-main .legal-column{
+    min-width:0;
+    min-height:455px;
+    padding:0 21px 0 0;
+  }
+  html.madhi-legal-page .legal-main .legal-column + .legal-column{
+    border-left:1px solid #505050;
+    padding-left:21px;
+  }
+  html.madhi-legal-page .legal-main .legal-column:last-child{
+    padding-right:0;
+  }
+}
+@media (min-width:1101px){
+  html.madhi-legal-page .legal-main{
+    --legal-content-left:calc(var(--madhi-nav-left-rail,clamp(150px,11.78vw,205px)) + clamp(38px,4vw,54px));
+    --legal-content-right:calc(var(--madhi-nav-right-rail,clamp(165px,12.54vw,225px)) + 34px);
+  }
+  html.madhi-legal-page .legal-main h1{
+    left:calc(var(--madhi-nav-left-rail,clamp(150px,11.78vw,205px)) + clamp(9px,.81vw,14.4px));
+    width:calc(100% - var(--madhi-nav-left-rail,clamp(150px,11.78vw,205px)) - var(--madhi-nav-right-rail,clamp(165px,12.54vw,225px)) - 34px);
+    max-width:none;
+  }
+  html.madhi-legal-page .legal-main .legal-updated{
+    width:auto;max-width:none;
+    margin:37px var(--legal-content-right) 10px var(--legal-content-left);
+  }
+  html.madhi-legal-page .legal-main .legal-content{
+    width:auto;max-width:none;
+    margin:0 var(--legal-content-right) 0 var(--legal-content-left);
+  }
+}
+@media (max-width:700px){
+  html.madhi-legal-page .legal-main{width:100%;max-width:none;margin:0;padding:16px 0 40px;}
+  html.madhi-legal-page .legal-main h1{margin:0 16px;}
+  html.madhi-legal-page .legal-main .legal-updated{
+    margin:5px 24px 10px 16px;
+    color:#979797;
+    font:400 13px/1.4 "Inter",Arial,sans-serif;
+  }
+  html.madhi-legal-page .legal-main .legal-content{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    width:100%;margin:0;padding:0 24px 0 16px;
+  }
+  html.madhi-legal-page .legal-main .legal-column{
+    min-width:0;min-height:0;margin:0;padding:0;
+    border:0;
+  }
+  html.madhi-legal-page .legal-main .legal-content section h2{
+    color:#ffbf00;
+    font:700 15.6px/1.35 "Inter",Arial,sans-serif;
+    text-decoration:none;
+    margin:0 0 7px;
+  }
+}
+
+/* Legal pages: align both footer rails with the bottom edge used on the main pages.
+   The newsletter and links remain populated by the existing shared script. */
+@media (min-width:701px){
+  html.madhi-legal-page .cta-footer .footer-inner{
+    transform:translateY(10px);
+  }
+}

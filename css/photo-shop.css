@@ -1,0 +1,80 @@
+/* Madhi Studio photo shop — layered over existing desktop and mobile gallery CSS. */
+.photography-page .photography-photo-media { position:relative; }
+.photography-page .photography-print-trigger {
+  position:absolute; right:12px; bottom:12px; z-index:5;
+  display:inline-flex; justify-content:center; align-items:center;
+  min-height:38px; padding:8px 13px;
+  border:1px solid #ffbf00; border-radius:0;
+  background:rgba(0,0,0,.91); color:#ffbf00;
+  font:600 11px/1.2 'Inter',Arial,sans-serif;
+  letter-spacing:.085em; text-transform:uppercase;
+  cursor:pointer; touch-action:manipulation;
+  transition:background .16s ease,color .16s ease;
+}
+.photography-page .photography-print-trigger:hover,
+.photography-page .photography-print-trigger:focus-visible {background:#ffbf00;color:#000;outline:2px solid #ffbf00;outline-offset:2px;}
+.photography-page .photography-gallery.is-single .photography-print-trigger {bottom:16px;right:16px;}
+.photography-page .photography-gallery.is-mobile-stacked .photography-print-trigger {right:8px;bottom:8px;min-height:40px;}
+.photography-page .photography-gallery.is-thumbnails .photography-photo-entry:hover .photography-print-trigger {background:#ffbf00;color:#000;}
+.photography-shop-cart-toggle {
+  position:fixed; right:25px; bottom:25px; z-index:985;
+  display:flex;align-items:center;gap:9px;min-height:44px;min-width:110px;
+  padding:10px 14px;border:1px solid #ffbf00;border-radius:0;
+  background:#1f2226;color:#ffbf00;box-shadow:0 6px 20px #0009;
+  font:600 12px/1.2 'Inter',sans-serif;letter-spacing:.04em;cursor:pointer;
+}
+.photography-shop-cart-toggle:hover,.photography-shop-cart-toggle:focus-visible {background:#ffbf00;color:#000;}
+.photography-shop-cart-toggle [data-shop-count] {border:1px solid currentColor;padding:3px 6px;min-width:26px;text-align:center;}
+.photography-shop-backdrop {position:fixed;inset:0;z-index:995;background:rgba(0,0,0,.82);display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;}
+.photography-shop-backdrop[hidden],.photography-shop-cart-toggle[hidden] {display:none !important;}
+.photography-shop-panel {
+  width:min(100%, 590px);max-height:min(92dvh,790px);overflow-y:auto;overscroll-behavior:contain;
+  background:#1e2227;color:#fff;border:1px solid #525252;border-radius:0;
+  box-shadow:0 18px 55px #000c;padding:22px;box-sizing:border-box;
+  font-family:'Inter',Arial,sans-serif;
+}
+.photography-shop-panel :is(button,select) {font:inherit;border-radius:0;}
+.photography-shop-panel-header {display:flex;justify-content:space-between;align-items:start;gap:12px;padding-bottom:15px;border-bottom:1px solid #525252;}
+.photography-shop-panel-header h2 {font:600 clamp(23px,4vw,29px)/1.2 'Montserrat',sans-serif;letter-spacing:-.025em;margin:0;color:#ffbf00;}
+.photography-shop-panel-header p {margin:7px 0 0;color:#d3d3d3;font-size:12px;line-height:1.5;}
+.photography-shop-close {border:1px solid #747474!important;background:transparent;color:#fff;padding:4px 10px;min-width:38px;min-height:36px;cursor:pointer;}
+.photography-shop-close:hover {color:#000;background:#ffbf00;border-color:#ffbf00!important;}
+.photography-shop-product {display:flex;gap:16px;padding:19px 0 10px;align-items:start;}
+.photography-shop-product img {display:block;width:110px;height:120px;object-fit:contain;background:#050505;}
+.photography-shop-product h3 {font-weight:600;font-size:17px;margin:4px 0 6px;color:#fff;line-height:1.4;}
+.photography-shop-product p,.photography-shop-note {font-size:12px;line-height:1.65;color:#c4c4c4;margin:0;}
+.photography-shop-field {display:flex;flex-direction:column;gap:9px;margin:15px 0;}
+.photography-shop-field label {font-size:12px;font-weight:600;color:#e7e7e7;}
+.photography-shop-field select {width:100%;min-height:46px;background:#111417;color:#fff;border:1px solid #8c8c8c;padding:11px 34px 11px 12px;}
+.photography-shop-field select:focus-visible {outline:2px solid #ffbf00;outline-offset:2px;}
+.photography-shop-total {color:#fff;font-weight:600;font-size:15px;margin:10px 0 17px;text-align:right;}
+.photography-shop-actions {display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.photography-shop-primary,.photography-shop-secondary {
+  padding:12px 16px;min-height:44px;border:1px solid #ffbf00;cursor:pointer;
+  text-transform:uppercase;font-size:11px!important;font-weight:700!important;letter-spacing:.07em;
+}
+.photography-shop-primary {background:#ffbf00;color:#000;}
+.photography-shop-secondary {background:transparent;color:#ffbf00;}
+.photography-shop-primary:hover {background:#fff;border-color:#fff;}
+.photography-shop-secondary:hover {background:#ffbf00;color:#000;}
+.photography-shop-primary:disabled {opacity:.55;cursor:wait;}
+.photography-shop-note {margin:14px 0 4px;}
+.photography-shop-message {min-height:1.25em;margin:12px 0 0;font-size:12px;color:#ffbf00;line-height:1.5;}
+.photography-shop-cart-list {margin:13px 0 0;padding:0;list-style:none;max-height:44dvh;overflow-y:auto;}
+.photography-shop-cart-item {display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #474747;}
+.photography-shop-cart-item strong {display:block;color:#fff;font-size:13px;margin-bottom:4px;}
+.photography-shop-cart-item span {color:#cecece;font-size:12px;line-height:1.55;}
+.photography-shop-cart-item button {background:none;color:#ffbf00;border:1px solid #666;font-size:11px;padding:9px 10px;cursor:pointer;}
+.photography-shop-cart-item button:hover {border-color:#ffbf00;}
+.photography-shop-qty {display:flex;align-items:center;gap:8px;margin-top:7px;}
+.photography-shop-qty button {min-width:30px;min-height:29px;padding:3px!important;font-size:15px!important;}
+.photography-shop-qty span {min-width:22px;text-align:center;color:#fff;}
+.photography-shop-empty {font-size:13px;color:#d3d3d3;padding:24px 0 15px;}
+body.photography-shop-open {overflow:hidden!important;}
+@media (max-width:700px) {
+  .photography-shop-cart-toggle {right:14px;bottom:14px;min-width:92px;padding:10px 12px;}
+  .photography-shop-backdrop {padding:8px;align-items:flex-end;}
+  .photography-shop-panel {padding:18px 16px;max-height:calc(100dvh - 18px);width:100%;}
+  .photography-shop-product img {width:95px;height:105px;}
+}
+@media (prefers-reduced-motion:reduce) { .photography-page .photography-print-trigger {transition:none;} }
